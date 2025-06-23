@@ -150,20 +150,20 @@ const ChatHistory = () => {
                     {/* <button className='btn btn-xs mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
                   <button className='btn btn-xs mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button> */}
                     <div className="dropdown dropdown-bottom dropdown-end float-right">
-                      <div tabIndex={0} role="button" className="btn btn-xs mt-[5px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#89aaf0" d="M12 6a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4z" /></svg>
+                      <div tabIndex={0} role="button" className="btn btn-xs bg-zinc-800 hover:bg-zinc-600 border border-zinc-600 text-zinc-200 hover:text-zinc-900 mt-[5px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#ffffff" d="M12 6a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4z" /></svg>
                       </div>
-                      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-sm outline-[1px] outline-blue-200 z-1 w-50 p-[5px] m-[5px] shadow-sm">
+                      <ul tabIndex={0} className="dropdown-content text-xs fesk-menu menu bg-zinc-800 z-1 w-50 mt-[5px] mb-[2px] ml-[2px] mr-[2px] shadow-sm">
 
-                        <li><a onClick={() => handleActiveId(message.responseMessageId)}>view json</a></li>
-                        <li><a onClick={() => handleUserRequestId(message.responseMessageId)}>view input request json</a></li>
+                        <li className='fesk-menu-li'><a onClick={() => handleActiveId(message.responseMessageId)}>view json</a></li>
+                        <li className='fesk-menu-li'><a onClick={() => handleUserRequestId(message.responseMessageId)}>view input request json</a></li>
 
                         {message.websearchEnabled && (
-                          <li><a onClick={() => handleSources(message.responseMessageId)}>view sources</a></li>
+                          <li className='fesk-menu-li'><a onClick={() => handleSources(message.responseMessageId)}>view sources</a></li>
                         )}
 
                         {message.vectorStoreId && (
-                          <li><a onClick={() => handleSources(message.responseMessageId)}>view citations</a></li>
+                          <li className='fesk-menu-li'><a onClick={() => handleSources(message.responseMessageId)}>view citations</a></li>
                         )}
 
                       </ul>

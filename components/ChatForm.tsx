@@ -75,11 +75,11 @@ const ChatForm = () => {
 
                   </div>
 
-                  <ul id="promptTemplateDropdown" tabIndex={0} className="dropdown-content menu bg-base-200 rounded-sm outline-[1px] outline-blue-200 z-1 w-50 p-[2px] mt-[2px] mb-[2px] ml-[5px] mr-[2px] shadow-sm">
+                  <ul id="promptTemplateDropdown" tabIndex={0} className="dropdown-content text-xs fesk-menu menu bg-zinc-800 z-1 w-50 mt-[2px] mb-[2px] ml-[5px] mr-[2px] shadow-sm">
 
-                    <li className='m-[2px]'><a onClick={loadTemplate}>generic</a></li>
-                    <li className='m-[2px]'><a>code generation</a></li>
-                    <li className='m-[2px]'><a>agentic</a></li>
+                    <li className='fesk-menu-li'><a onClick={loadTemplate}>generic</a></li>
+                    <li className='fesk-menu-li'><a>code generation</a></li>
+                    <li className='fesk-menu-li-bottom'><a>agentic</a></li>
 
                   </ul>
                 </div>
@@ -129,10 +129,10 @@ const ChatForm = () => {
                       Edit
                     </div>
                   </div>
-                  <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-sm outline-[1px] outline-blue-200 z-1 w-40 p-[2px] mt-[5px] mb-[2px] ml-[2px] mr-[2px] shadow-sm">
+                  <ul tabIndex={0} className="dropdown-content text-xs fesk-menu menu bg-zinc-800 z-1 w-50 mt-[5px] mb-[2px] ml-[2px] mr-[2px] shadow-sm">
 
-                    <li className='m-[2px]'><a onClick={() => updateHiddenInputBasic('role', 'user')}>user</a></li>
-                    <li className='m-[2px]'><a onClick={() => updateHiddenInputBasic('role', 'developer')}>developer</a></li>
+                    <li className='fesk-menu-li'><a onClick={() => updateHiddenInputBasic('role', 'user')}>user</a></li>
+                    <li className='fesk-menu-li-bottom'><a onClick={() => updateHiddenInputBasic('role', 'developer')}>developer</a></li>
 
                   </ul>
                 </div>
