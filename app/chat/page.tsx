@@ -49,7 +49,7 @@ export default function Home() {
                                         <div className="p-[1px] m-[0px]">
 
                                             <div className="fesk-collapse-title-2">
-                                                <div className="p-[0px]">
+                                                <div className="p-[10px]">
 
                                                     <ChatForm />
                                                 </div>

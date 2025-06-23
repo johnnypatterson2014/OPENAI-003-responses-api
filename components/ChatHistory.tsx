@@ -93,8 +93,8 @@ const ChatHistory = () => {
                   <div className='flex-none min-width-[20px] max-width-[20px]'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8ec5ff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5" /></svg>
                   </div>
-                  <div className='dangerouslySetInnerHTML'>
-                    <div dangerouslySetInnerHTML={{ __html: message.htmlContent }} className='grow ml-4 text-zinc-300'></div>
+                  <div className='dangerouslySetInnerHTML pr-[4px]'>
+                    <div dangerouslySetInnerHTML={{ __html: message.htmlContent }} className='grow ml-4 text-blue-300'></div>
                   </div>
 
 
@@ -104,7 +104,7 @@ const ChatHistory = () => {
               {isDeveloper && (
                 <>
                   <div className='flex-none min-width-[20px] max-width-[20px]'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7bf1a8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7bf1a8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" /></svg>
                   </div>
 
                   <div className='grow ml-4 text-green-300'>{message.content}</div>
@@ -153,7 +153,7 @@ const ChatHistory = () => {
                       <div tabIndex={0} role="button" className="btn btn-xs mt-[5px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#89aaf0" d="M12 6a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4z" /></svg>
                       </div>
-                      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box outline-[1px] outline-blue-200 z-1 w-50 p-[5px] m-[5px] shadow-sm">
+                      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-sm outline-[1px] outline-blue-200 z-1 w-50 p-[5px] m-[5px] shadow-sm">
 
                         <li><a onClick={() => handleActiveId(message.responseMessageId)}>view json</a></li>
                         <li><a onClick={() => handleUserRequestId(message.responseMessageId)}>view input request json</a></li>

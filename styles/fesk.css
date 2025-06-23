@@ -15,7 +15,7 @@
 }
 
 .dangerouslySetInnerHTML strong {
-    color: #6e9fff;
+    color: #dee5f3;
 }
 
 dialog ul {
@@ -194,13 +194,6 @@ dialog strong {
     padding: 2px;
     background: var(--fesk-card-2-background);
     border-radius: 3px;
-}
-
-#my-text-area {
-    border: 1px solid var(--fesk-card-border);
-    background-color: var(--background);
-    margin: 10px;
-    width: 95%;
 }
 
 #my-text-area-basic {
