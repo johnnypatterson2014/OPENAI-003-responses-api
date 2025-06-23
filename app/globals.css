@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, sunset, dim;
+}
+
+:root {
+  --background: #111217;
+  --foreground: #dddddd;
+  background-color: var(--background);
+  --fesk-card-border: rgba(204, 204, 220, 0.12);
+  --fesk-card-2-border: #4e5d66;
+  --fesk-card-background: rgb(24, 27, 31);
+  --fesk-card-2-background: #11121787;
+  --fesk-line: rgba(204, 204, 220, 0.305);
+  --fesk-card-background-2: #111217;
+  --fesk-collapse-title: #cccccc;
+  --fesk-collapse-title-background: #22282c;
+  --fesk-dialog-background: rgb(45, 48, 53);
+  --temp: #b1c6f3;
+}
+
+@theme {
+  --tab-bg: var(--fesk-background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, Inter, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+p {
+  margin-bottom: 20px;
+  margin-top: 0px;
+}

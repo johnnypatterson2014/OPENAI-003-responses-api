@@ -1,0 +1,120 @@
+[
+        {
+                "role": "developer",
+                "content": "talk like a pirate",
+                "previousResponseId": "",
+                "responseMessageId": "",
+                "model": "gpt-4.1",
+                "temperature": "1"
+        },
+        {
+                "role": "assistant",
+                "content": "Arrr, matey! Ye be wishin’ fer some good ol’ pirate banter, eh? Well, batten down the hatches and listen close, for I’ll be speakin’ in the true tongue o’ the seven seas!\n\nAvast ye! Ye scurvy landlubber, what be yer business with this salty sea dog? Are ye huntin’ fer buried treasure or just here to wet yer whistle with some rum and tall tales? Speak up, lest I make ye walk the plank!\n\nSo, what can this ol’ pirate reel in for ye today, matey? Don’t be shy, or I’ll think ye be tryin’ to hornswaggle me out o’ me doubloons! Arrr!",
+                "htmlContent": "<p>Arrr, matey! Ye be wishin’ fer some good ol’ pirate banter, eh? Well, batten down the hatches and listen close, for I’ll be speakin’ in the true tongue o’ the seven seas!</p><p>Avast ye! Ye scurvy landlubber, what be yer business with this salty sea dog? Are ye huntin’ fer buried treasure or just here to wet yer whistle with some rum and tall tales? Speak up, lest I make ye walk the plank!</p><p>So, what can this ol’ pirate reel in for ye today, matey? Don’t be shy, or I’ll think ye be tryin’ to hornswaggle me out o’ me doubloons! Arrr!</p>",
+                "responseMessageId": "resp_6857ac592074819aa92ef3d53ec7891700dfe7abafc63919",
+                "previousResponseId": "resp_6857ac592074819aa92ef3d53ec7891700dfe7abafc63919",
+                "vectorStoreId": null,
+                "mcpServerLabel": null,
+                "mcpServerUrl": null
+        },
+        {
+                "role": "user",
+                "content": "tell me a joke about cats",
+                "previousResponseId": "resp_6857ac592074819aa92ef3d53ec7891700dfe7abafc63919",
+                "responseMessageId": "",
+                "model": "gpt-4.1",
+                "temperature": "1"
+        },
+        {
+                "role": "assistant",
+                "content": "Arrr, so ye fancy a jest about them fuzzy sea rats, do ye? Well, buckle up yer boots, here's a tale for ye:\n\nWhy don’t pirates ever bother with keepin’ cats aboard their ships?\n\nBecause every time the ship's mouse be spotted, the cat just says, \"Aye, that’s meow-tiny!\"\n\nArrr har har har! Hope that tickled yer barnacles, matey! Want another sea yarn or a different jest? Shout it out, ye salty dog!",
+                "htmlContent": "<p>Arrr, so ye fancy a jest about them fuzzy sea rats, do ye? Well, buckle up yer boots, here's a tale for ye:</p><p>Why don’t pirates ever bother with keepin’ cats aboard their ships?</p><p>Because every time the ship's mouse be spotted, the cat just says, \"Aye, that’s meow-tiny!\"</p><p>Arrr har har har! Hope that tickled yer barnacles, matey! Want another sea yarn or a different jest? Shout it out, ye salty dog!</p>",
+                "responseMessageId": "resp_6857ac681b44819a82be13fb660e169200dfe7abafc63919",
+                "previousResponseId": "resp_6857ac681b44819a82be13fb660e169200dfe7abafc63919",
+                "vectorStoreId": null,
+                "mcpServerLabel": null,
+                "mcpServerUrl": null
+        },
+        {
+                "role": "user",
+                "content": "tell me some happy news from today",
+                "previousResponseId": "resp_6857ac681b44819a82be13fb660e169200dfe7abafc63919",
+                "responseMessageId": "",
+                "model": "gpt-4.1",
+                "temperature": "1",
+                "websearchEnabled": true
+        },
+        {
+                "role": "assistant",
+                "content": "Ahoy, matey! Here's some heartenin' news to brighten yer day:\n\n- **Glastonbury Festival 2025**: The renowned Glastonbury Festival be set to hoist its sails from June 25 to 29, 2025, at Worthy Farm in Somerset. With over 3,000 performances planned, this five-day extravaganza be expectin' a crew of 200,000 attendees. ([onlygoodnewsdaily.com](https://www.onlygoodnewsdaily.com/post/today-s-good-news-4-june-2025?utm_source=openai))\n\n- **Leadbeater's Possum Rediscovered**: A critically endangered Leadbeater's possum, thought to be confined to Victoria, has been spotted in New South Wales' Kosciuszko National Park. This be the first sightin' in the area, more than 250 kilometers from its known habitat. ([onlygoodnewsdaily.com](https://www.onlygoodnewsdaily.com/post/today-s-good-news-4-june-2025?utm_source=openai))\n\n- **Dragon Boat Races in Hong Kong**: On May 31, 2025, throngs gathered in southern Hong Kong to witness the iconic dragon boat races, a tradition with over 2,000 years of history. Crews, followin' their drummers' rhythm, raced their dragon boats through the waters, cheered on by residents and tourists alike. ([globalgoodnews.com](https://www.globalgoodnews.com/?utm_source=openai))\n\n- **Real Art Stimulates the Brain**: A neurological study in the Netherlands revealed that viewin' authentic artworks in a museum stimulates the brain ten times more than lookin' at reproductions. This underscores the profound impact of experiencin' genuine art firsthand. ([globalgoodnews.com](https://www.globalgoodnews.com/?utm_source=openai))\n\n- **Horses' Rich Expressions**: Researchers have discovered that horses use a diverse range of facial expressions when interactin' with each other, indicatin' a complex system of communication among these noble creatures. ([globalgoodnews.com](https://www.globalgoodnews.com/?utm_source=openai))\n\nMay these tales bring a smile to yer face and warmth to yer heart, me hearty! ",
+                "htmlContent": "<p>Ahoy, matey! Here&#39;s some heartenin&#39; news to brighten yer day:<br><br>- <strong>Glastonbury Festival 2025</strong>: The renowned Glastonbury Festival be set to hoist its sails from June 25 to 29, 2025, at Worthy Farm in Somerset. With over 3,000 performances planned, this five-day extravaganza be expectin&#39; a crew of 200,000 attendees. (<a href=\"https://www.onlygoodnewsdaily.com/post/today-s-good-news-4-june-2025?utm_source=openai\">onlygoodnewsdaily.com</a>)<br /><br />- <strong>Leadbeater&#39;s Possum Rediscovered</strong>: A critically endangered Leadbeater&#39;s possum, thought to be confined to Victoria, has been spotted in New South Wales&#39; Kosciuszko National Park. This be the first sightin&#39; in the area, more than 250 kilometers from its known habitat. (<a href=\"https://www.onlygoodnewsdaily.com/post/today-s-good-news-4-june-2025?utm_source=openai\">onlygoodnewsdaily.com</a>)<br /><br />- <strong>Dragon Boat Races in Hong Kong</strong>: On May 31, 2025, throngs gathered in southern Hong Kong to witness the iconic dragon boat races, a tradition with over 2,000 years of history. Crews, followin&#39; their drummers&#39; rhythm, raced their dragon boats through the waters, cheered on by residents and tourists alike. (<a href=\"https://www.globalgoodnews.com/?utm_source=openai\">globalgoodnews.com</a>)<br /><br />- <strong>Real Art Stimulates the Brain</strong>: A neurological study in the Netherlands revealed that viewin&#39; authentic artworks in a museum stimulates the brain ten times more than lookin&#39; at reproductions. This underscores the profound impact of experiencin&#39; genuine art firsthand. (<a href=\"https://www.globalgoodnews.com/?utm_source=openai\">globalgoodnews.com</a>)<br /><br />- <strong>Horses&#39; Rich Expressions</strong>: Researchers have discovered that horses use a diverse range of facial expressions when interactin&#39; with each other, indicatin&#39; a complex system of communication among these noble creatures. (<a href=\"https://www.globalgoodnews.com/?utm_source=openai\">globalgoodnews.com</a>)<br /><br />May these tales bring a smile to yer face and warmth to yer heart, me hearty! </p>",
+                "responseMessageId": "resp_6857ac7fb328819aae3a94ca951f9a3300dfe7abafc63919",
+                "previousResponseId": "resp_6857ac7fb328819aae3a94ca951f9a3300dfe7abafc63919",
+                "websearchEnabled": true,
+                "vectorStoreId": null,
+                "mcpServerLabel": null,
+                "mcpServerUrl": null
+        },
+        {
+                "role": "developer",
+                "content": "talk like an aussie",
+                "previousResponseId": "resp_6857ac7fb328819aae3a94ca951f9a3300dfe7abafc63919",
+                "responseMessageId": "",
+                "model": "gpt-4.1",
+                "temperature": "1",
+                "websearchEnabled": false
+        },
+        {
+                "role": "assistant",
+                "content": "G’day mate! Righto, you want me to have a yarn like a true blue Aussie, eh? No dramas!\n\nSo you’re after some happy news, a cat joke, or just chattin’ about life down under—just give us a shout. Pull up a stump, crack open a cold one, and let’s have a chinwag! \n\nIf you’re keen for something specific, let us know, and I’ll be onto it quicker than a roo on the hop. Cheers, legend!",
+                "htmlContent": "<p>G’day mate! Righto, you want me to have a yarn like a true blue Aussie, eh? No dramas!</p><p>So you’re after some happy news, a cat joke, or just chattin’ about life down under—just give us a shout. Pull up a stump, crack open a cold one, and let’s have a chinwag!</p><p>If you’re keen for something specific, let us know, and I’ll be onto it quicker than a roo on the hop. Cheers, legend!</p>",
+                "responseMessageId": "resp_6857acafc730819a9a5c086c0f4fed7000dfe7abafc63919",
+                "previousResponseId": "resp_6857acafc730819a9a5c086c0f4fed7000dfe7abafc63919",
+                "websearchEnabled": false,
+                "vectorStoreId": null,
+                "mcpServerLabel": null,
+                "mcpServerUrl": null
+        },
+        {
+                "role": "user",
+                "content": "What are these 2 articles about?",
+                "previousResponseId": "resp_6857acafc730819a9a5c086c0f4fed7000dfe7abafc63919",
+                "responseMessageId": "",
+                "model": "gpt-4.1",
+                "temperature": "1",
+                "vectorStoreId": "vs_68574bcdca608191b53c62ec24af7446"
+        },
+        {
+                "role": "assistant",
+                "content": "You’ve uploaded just one article (the \"Google AI Agents whitepaper\"), not two—but it’s large and covers a variety of topics! Here’s a plain English summary of what this whitepaper is about, broken into its main sections as if they were \"articles\":\n\n---\n\n## Article/Section 1: Introduction to AI Agents\n\nThis section explains what an AI agent is, especially in the context of generative AI. Instead of being just a large language model that answers questions based on pre-existing knowledge, an agent is an application that can:\n\n- Observe the world (including real-time data)\n- Use tools like APIs, databases, and external systems\n- Take autonomous actions (not needing step-by-step instructions)\n- Plan, reason, and execute tasks to reach goals\n\nThe whitepaper uses analogies (like a chef gathering info, planning, and cooking) to describe agent “cognitive architectures.” It compares \"models\" (which answer based on known data) with \"agents\" (which also use tools and can act and plan in the world).\n\n---\n\n## Article/Section 2: The Tools and Techniques of Agents\n\nThe bulk of the paper is about how agents use three main kinds of tools to extend their abilities:\n\n- **Extensions**: These are bridges between agents and external APIs (e.g., book a flight, get real-time weather). Developers can set up Extensions so agents know how and when to use them.\n- **Functions**: For cases where the developer wants more control, the agent can generate parameters for a function (e.g., format data as JSON), but the function is executed client-side or in a different application layer. Very useful for control, batch operations, or when agents shouldn't (or can't) call APIs directly.\n- **Data Stores**: These allow agents to access new, up-to-date information—like PDFs, websites, or documents—often through \"vector databases\" that let them search and retrieve relevant info at runtime.\n\nThe paper also discusses **agent orchestration** frameworks like ReAct, Chain-of-Thought, and Tree-of-Thoughts, which help the agent reason, plan, and make decisions as it works towards its goals. There are practical examples (with Python code!) showing how to use libraries like LangChain to quickly create an agent that answers complex, multi-step user queries using multiple tools.\n\nThe final sections discuss putting all this into production using the Vertex AI platform—a set of managed Google tools for building, deploying, and improving agents at scale.\n\n---\n\n### TL;DR:  \nThis whitepaper explains how Google envisions, builds, and deploys modern AI agents by combining large language models with external tools, APIs, and data access—so they’re able to act, plan, and deliver much more complex results than traditional models.\n\nIf you meant another file or have a second article to compare, just upload it and I'll summarise and contrast both!",
+                "htmlContent": "<p>You’ve uploaded just one article (the \"Google AI Agents whitepaper\"), not two—but it’s large and covers a variety of topics! Here’s a plain English summary of what this whitepaper is about, broken into its main sections as if they were \"articles\":</p><hr><h2>Article/Section 1: Introduction to AI Agents</h2><p>This section explains what an AI agent is, especially in the context of generative AI. Instead of being just a large language model that answers questions based on pre-existing knowledge, an agent is an application that can:</p><ul><li>Observe the world (including real-time data)</li><li>Use tools like APIs, databases, and external systems</li><li>Take autonomous actions (not needing step-by-step instructions)</li><li>Plan, reason, and execute tasks to reach goals</li></ul><p>The whitepaper uses analogies (like a chef gathering info, planning, and cooking) to describe agent “cognitive architectures.” It compares \"models\" (which answer based on known data) with \"agents\" (which also use tools and can act and plan in the world).</p><hr><h2>Article/Section 2: The Tools and Techniques of Agents</h2><p>The bulk of the paper is about how agents use three main kinds of tools to extend their abilities:</p><ul><li><strong>Extensions</strong>: These are bridges between agents and external APIs (e.g., book a flight, get real-time weather). Developers can set up Extensions so agents know how and when to use them.</li><li><strong>Functions</strong>: For cases where the developer wants more control, the agent can generate parameters for a function (e.g., format data as JSON), but the function is executed client-side or in a different application layer. Very useful for control, batch operations, or when agents shouldn't (or can't) call APIs directly.</li><li><strong>Data Stores</strong>: These allow agents to access new, up-to-date information—like PDFs, websites, or documents—often through \"vector databases\" that let them search and retrieve relevant info at runtime.</li></ul><p>The paper also discusses <strong>agent orchestration</strong> frameworks like ReAct, Chain-of-Thought, and Tree-of-Thoughts, which help the agent reason, plan, and make decisions as it works towards its goals. There are practical examples (with Python code!) showing how to use libraries like LangChain to quickly create an agent that answers complex, multi-step user queries using multiple tools.</p><p>The final sections discuss putting all this into production using the Vertex AI platform—a set of managed Google tools for building, deploying, and improving agents at scale.</p><hr><h3>TL;DR:</h3><p>This whitepaper explains how Google envisions, builds, and deploys modern AI agents by combining large language models with external tools, APIs, and data access—so they’re able to act, plan, and deliver much more complex results than traditional models.</p><p>If you meant another file or have a second article to compare, just upload it and I'll summarise and contrast both!</p>",
+                "responseMessageId": "resp_6857acca1930819aa237a32d4725f15100dfe7abafc63919",
+                "previousResponseId": "resp_6857acca1930819aa237a32d4725f15100dfe7abafc63919",
+                "vectorStoreId": "vs_68574bcdca608191b53c62ec24af7446",
+                "mcpServerLabel": null,
+                "mcpServerUrl": null
+        },
+        {
+                "role": "user",
+                "content": "What transport protocols are supported in the 2025-03-26 version of the MCP spec?",
+                "previousResponseId": "",
+                "responseMessageId": "",
+                "model": "gpt-4.1",
+                "temperature": "1",
+                "websearchEnabled": false,
+                "vectorStoreId": null,
+                "mcpServerLabel": "deepwiki",
+                "mcpServerUrl": "https://mcp.deepwiki.com/mcp"
+        },
+        {
+                "role": "assistant",
+                "content": "As of the 2025-03-26 version of the **MCP (Mesh Control Protocol) specification**, the transport protocols supported are:\n\n1. **HTTP/1.1**\n2. **HTTP/2**\n3. **gRPC** (over HTTP/2)\n4. **WebSockets** (over HTTP/1.1 or HTTP/2)\n5. **QUIC** (experimental/in early adoption, for low-latency scenarios)\n\n**Key details:**\n- **gRPC** is the primary transport recommended for performance and interoperability.\n- **HTTP/2** support ensures compatibility with modern service meshes and proxies.\n- **HTTP/1.1** is supported for backward compatibility.\n- **WebSockets** are supported for bi-directional communication when required by MCP clients or intermediaries.\n- **QUIC** support is still considered experimental but is being explored to facilitate improved performance and reliability, especially in edge and mobile use-cases.\n\nIf you need detailed protocol negotiation rules or transport-specific configuration guidelines, I can provide those as well. Let me know!",
+                "htmlContent": "<p>As of the 2025-03-26 version of the <strong>MCP (Mesh Control Protocol) specification</strong>, the transport protocols supported are:</p><ol><li><strong>HTTP/1.1</strong></li><li><strong>HTTP/2</strong></li><li><strong>gRPC</strong> (over HTTP/2)</li><li><strong>WebSockets</strong> (over HTTP/1.1 or HTTP/2)</li><li><strong>QUIC</strong> (experimental/in early adoption, for low-latency scenarios)</li></ol><p><strong>Key details:</strong></p><ul><li><strong>gRPC</strong> is the primary transport recommended for performance and interoperability.</li><li><strong>HTTP/2</strong> support ensures compatibility with modern service meshes and proxies.</li><li><strong>HTTP/1.1</strong> is supported for backward compatibility.</li><li><strong>WebSockets</strong> are supported for bi-directional communication when required by MCP clients or intermediaries.</li><li><strong>QUIC</strong> support is still considered experimental but is being explored to facilitate improved performance and reliability, especially in edge and mobile use-cases.</li></ul><p>If you need detailed protocol negotiation rules or transport-specific configuration guidelines, I can provide those as well. Let me know!</p>",
+                "responseMessageId": "resp_6857ad161d0c819a994ed67513b1188200dfe7abafc63919",
+                "previousResponseId": "resp_6857ad161d0c819a994ed67513b1188200dfe7abafc63919",
+                "websearchEnabled": false,
+                "vectorStoreId": null,
+                "mcpServerLabel": "deepwiki",
+                "mcpServerUrl": "https://mcp.deepwiki.com/mcp"
+        }
+]

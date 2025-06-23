@@ -1,0 +1,535 @@
+[
+    {
+        "id": "resp_6857ac592074819aa92ef3d53ec7891700dfe7abafc63919",
+        "object": "response",
+        "created_at": 1750576217,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "msg_6857ac59b128819a9db2004d1ed3da6300dfe7abafc63919",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [],
+                        "text": "Arrr, matey! Ye be wishin’ fer some good ol’ pirate banter, eh? Well, batten down the hatches and listen close, for I’ll be speakin’ in the true tongue o’ the seven seas!\n\nAvast ye! Ye scurvy landlubber, what be yer business with this salty sea dog? Are ye huntin’ fer buried treasure or just here to wet yer whistle with some rum and tall tales? Speak up, lest I make ye walk the plank!\n\nSo, what can this ol’ pirate reel in for ye today, matey? Don’t be shy, or I’ll think ye be tryin’ to hornswaggle me out o’ me doubloons! Arrr!"
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 11,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 155,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 166
+        },
+        "user": null,
+        "metadata": {}
+    },
+    {
+        "id": "resp_6857ac681b44819a82be13fb660e169200dfe7abafc63919",
+        "object": "response",
+        "created_at": 1750576232,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "msg_6857ac68cfd0819aaa23604ccb0abb8a00dfe7abafc63919",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [],
+                        "text": "Arrr, so ye fancy a jest about them fuzzy sea rats, do ye? Well, buckle up yer boots, here's a tale for ye:\n\nWhy don’t pirates ever bother with keepin’ cats aboard their ships?\n\nBecause every time the ship's mouse be spotted, the cat just says, \"Aye, that’s meow-tiny!\"\n\nArrr har har har! Hope that tickled yer barnacles, matey! Want another sea yarn or a different jest? Shout it out, ye salty dog!"
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": "resp_6857ac592074819aa92ef3d53ec7891700dfe7abafc63919",
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 179,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 107,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 286
+        },
+        "user": null,
+        "metadata": {}
+    },
+    {
+        "id": "resp_6857ac7fb328819aae3a94ca951f9a3300dfe7abafc63919",
+        "object": "response",
+        "created_at": 1750576255,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "ws_6857ac8028a8819aaf16465e3c07055000dfe7abafc63919",
+                "type": "web_search_call",
+                "status": "completed"
+            },
+            {
+                "id": "msg_6857ac8270c4819aad22e55019d8683000dfe7abafc63919",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [
+                            {
+                                "type": "url_citation",
+                                "end_index": 430,
+                                "start_index": 317,
+                                "title": "Today's Good News | OGN Daily",
+                                "url": "https://www.onlygoodnewsdaily.com/post/today-s-good-news-4-june-2025?utm_source=openai"
+                            },
+                            {
+                                "type": "url_citation",
+                                "end_index": 818,
+                                "start_index": 705,
+                                "title": "Today's Good News | OGN Daily",
+                                "url": "https://www.onlygoodnewsdaily.com/post/today-s-good-news-4-june-2025?utm_source=openai"
+                            },
+                            {
+                                "type": "url_citation",
+                                "end_index": 1204,
+                                "start_index": 1131,
+                                "title": "Global Good News - Good news from around the world - 06 June 2025",
+                                "url": "https://www.globalgoodnews.com/?utm_source=openai"
+                            },
+                            {
+                                "type": "url_citation",
+                                "end_index": 1552,
+                                "start_index": 1479,
+                                "title": "Global Good News - Good news from around the world - 06 June 2025",
+                                "url": "https://www.globalgoodnews.com/?utm_source=openai"
+                            },
+                            {
+                                "type": "url_citation",
+                                "end_index": 1849,
+                                "start_index": 1776,
+                                "title": "Global Good News - Good news from around the world - 06 June 2025",
+                                "url": "https://www.globalgoodnews.com/?utm_source=openai"
+                            }
+                        ],
+                        "text": "Ahoy, matey! Here's some heartenin' news to brighten yer day:\n\n- **Glastonbury Festival 2025**: The renowned Glastonbury Festival be set to hoist its sails from June 25 to 29, 2025, at Worthy Farm in Somerset. With over 3,000 performances planned, this five-day extravaganza be expectin' a crew of 200,000 attendees. ([onlygoodnewsdaily.com](https://www.onlygoodnewsdaily.com/post/today-s-good-news-4-june-2025?utm_source=openai))\n\n- **Leadbeater's Possum Rediscovered**: A critically endangered Leadbeater's possum, thought to be confined to Victoria, has been spotted in New South Wales' Kosciuszko National Park. This be the first sightin' in the area, more than 250 kilometers from its known habitat. ([onlygoodnewsdaily.com](https://www.onlygoodnewsdaily.com/post/today-s-good-news-4-june-2025?utm_source=openai))\n\n- **Dragon Boat Races in Hong Kong**: On May 31, 2025, throngs gathered in southern Hong Kong to witness the iconic dragon boat races, a tradition with over 2,000 years of history. Crews, followin' their drummers' rhythm, raced their dragon boats through the waters, cheered on by residents and tourists alike. ([globalgoodnews.com](https://www.globalgoodnews.com/?utm_source=openai))\n\n- **Real Art Stimulates the Brain**: A neurological study in the Netherlands revealed that viewin' authentic artworks in a museum stimulates the brain ten times more than lookin' at reproductions. This underscores the profound impact of experiencin' genuine art firsthand. ([globalgoodnews.com](https://www.globalgoodnews.com/?utm_source=openai))\n\n- **Horses' Rich Expressions**: Researchers have discovered that horses use a diverse range of facial expressions when interactin' with each other, indicatin' a complex system of communication among these noble creatures. ([globalgoodnews.com](https://www.globalgoodnews.com/?utm_source=openai))\n\nMay these tales bring a smile to yer face and warmth to yer heart, me hearty! "
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": "resp_6857ac681b44819a82be13fb660e169200dfe7abafc63919",
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [
+            {
+                "type": "web_search_preview",
+                "search_context_size": "medium",
+                "user_location": {
+                    "type": "approximate",
+                    "city": null,
+                    "country": "US",
+                    "region": null,
+                    "timezone": null
+                }
+            }
+        ],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 594,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 485,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 1079
+        },
+        "user": null,
+        "metadata": {}
+    },
+    {
+        "id": "resp_6857acafc730819a9a5c086c0f4fed7000dfe7abafc63919",
+        "object": "response",
+        "created_at": 1750576303,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "msg_6857acb0276c819ab23972e31928afab00dfe7abafc63919",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [],
+                        "text": "G’day mate! Righto, you want me to have a yarn like a true blue Aussie, eh? No dramas!\n\nSo you’re after some happy news, a cat joke, or just chattin’ about life down under—just give us a shout. Pull up a stump, crack open a cold one, and let’s have a chinwag! \n\nIf you’re keen for something specific, let us know, and I’ll be onto it quicker than a roo on the hop. Cheers, legend!"
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": "resp_6857ac7fb328819aae3a94ca951f9a3300dfe7abafc63919",
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 829,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 106,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 935
+        },
+        "user": null,
+        "metadata": {}
+    },
+    {
+        "id": "resp_6857acca1930819aa237a32d4725f15100dfe7abafc63919",
+        "object": "response",
+        "created_at": 1750576330,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "fs_6857accae860819a9f10aa6087d32cf200dfe7abafc63919",
+                "type": "file_search_call",
+                "status": "completed",
+                "queries": [
+                    "Summary of the first article",
+                    "Summary of the second article"
+                ],
+                "results": null
+            },
+            {
+                "id": "msg_6857acce5604819abad807c0c5d6df2d00dfe7abafc63919",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [
+                            {
+                                "type": "file_citation",
+                                "file_id": "file-HHfAsoscq8tLgpkGXLSnF6",
+                                "filename": "Google AI Agents whitepaper.pdf",
+                                "index": 1000
+                            },
+                            {
+                                "type": "file_citation",
+                                "file_id": "file-HHfAsoscq8tLgpkGXLSnF6",
+                                "filename": "Google AI Agents whitepaper.pdf",
+                                "index": 1000
+                            },
+                            {
+                                "type": "file_citation",
+                                "file_id": "file-HHfAsoscq8tLgpkGXLSnF6",
+                                "filename": "Google AI Agents whitepaper.pdf",
+                                "index": 2440
+                            },
+                            {
+                                "type": "file_citation",
+                                "file_id": "file-HHfAsoscq8tLgpkGXLSnF6",
+                                "filename": "Google AI Agents whitepaper.pdf",
+                                "index": 2440
+                            },
+                            {
+                                "type": "file_citation",
+                                "file_id": "file-HHfAsoscq8tLgpkGXLSnF6",
+                                "filename": "Google AI Agents whitepaper.pdf",
+                                "index": 2440
+                            }
+                        ],
+                        "text": "You’ve uploaded just one article (the \"Google AI Agents whitepaper\"), not two—but it’s large and covers a variety of topics! Here’s a plain English summary of what this whitepaper is about, broken into its main sections as if they were \"articles\":\n\n---\n\n## Article/Section 1: Introduction to AI Agents\n\nThis section explains what an AI agent is, especially in the context of generative AI. Instead of being just a large language model that answers questions based on pre-existing knowledge, an agent is an application that can:\n\n- Observe the world (including real-time data)\n- Use tools like APIs, databases, and external systems\n- Take autonomous actions (not needing step-by-step instructions)\n- Plan, reason, and execute tasks to reach goals\n\nThe whitepaper uses analogies (like a chef gathering info, planning, and cooking) to describe agent “cognitive architectures.” It compares \"models\" (which answer based on known data) with \"agents\" (which also use tools and can act and plan in the world).\n\n---\n\n## Article/Section 2: The Tools and Techniques of Agents\n\nThe bulk of the paper is about how agents use three main kinds of tools to extend their abilities:\n\n- **Extensions**: These are bridges between agents and external APIs (e.g., book a flight, get real-time weather). Developers can set up Extensions so agents know how and when to use them.\n- **Functions**: For cases where the developer wants more control, the agent can generate parameters for a function (e.g., format data as JSON), but the function is executed client-side or in a different application layer. Very useful for control, batch operations, or when agents shouldn't (or can't) call APIs directly.\n- **Data Stores**: These allow agents to access new, up-to-date information—like PDFs, websites, or documents—often through \"vector databases\" that let them search and retrieve relevant info at runtime.\n\nThe paper also discusses **agent orchestration** frameworks like ReAct, Chain-of-Thought, and Tree-of-Thoughts, which help the agent reason, plan, and make decisions as it works towards its goals. There are practical examples (with Python code!) showing how to use libraries like LangChain to quickly create an agent that answers complex, multi-step user queries using multiple tools.\n\nThe final sections discuss putting all this into production using the Vertex AI platform—a set of managed Google tools for building, deploying, and improving agents at scale.\n\n---\n\n### TL;DR:  \nThis whitepaper explains how Google envisions, builds, and deploys modern AI agents by combining large language models with external tools, APIs, and data access—so they’re able to act, plan, and deliver much more complex results than traditional models.\n\nIf you meant another file or have a second article to compare, just upload it and I'll summarise and contrast both!"
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": "resp_6857acafc730819a9a5c086c0f4fed7000dfe7abafc63919",
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [
+            {
+                "type": "file_search",
+                "filters": null,
+                "max_num_results": 20,
+                "ranking_options": {
+                    "ranker": "auto",
+                    "score_threshold": 0
+                },
+                "vector_store_ids": [
+                    "vs_68574bcdca608191b53c62ec24af7446"
+                ]
+            }
+        ],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 19484,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 674,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 20158
+        },
+        "user": null,
+        "metadata": {}
+    },
+    {
+        "id": "resp_6857ad161d0c819a994ed67513b1188200dfe7abafc63919",
+        "object": "response",
+        "created_at": 1750576406,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "mcpl_6857ad1641a0819a94b64e687afbca4d00dfe7abafc63919",
+                "type": "mcp_list_tools",
+                "server_label": "deepwiki",
+                "tools": [
+                    {
+                        "annotations": null,
+                        "description": "Get a list of documentation topics for a GitHub repository",
+                        "input_schema": {
+                            "type": "object",
+                            "properties": {
+                                "repoName": {
+                                    "type": "string",
+                                    "description": "GitHub repository: owner/repo (e.g. \"facebook/react\")"
+                                }
+                            },
+                            "required": [
+                                "repoName"
+                            ],
+                            "additionalProperties": false,
+                            "$schema": "http://json-schema.org/draft-07/schema#"
+                        },
+                        "name": "read_wiki_structure"
+                    },
+                    {
+                        "annotations": null,
+                        "description": "View documentation about a GitHub repository",
+                        "input_schema": {
+                            "type": "object",
+                            "properties": {
+                                "repoName": {
+                                    "type": "string",
+                                    "description": "GitHub repository: owner/repo (e.g. \"facebook/react\")"
+                                }
+                            },
+                            "required": [
+                                "repoName"
+                            ],
+                            "additionalProperties": false,
+                            "$schema": "http://json-schema.org/draft-07/schema#"
+                        },
+                        "name": "read_wiki_contents"
+                    },
+                    {
+                        "annotations": null,
+                        "description": "Ask any question about a GitHub repository",
+                        "input_schema": {
+                            "type": "object",
+                            "properties": {
+                                "repoName": {
+                                    "type": "string",
+                                    "description": "GitHub repository: owner/repo (e.g. \"facebook/react\")"
+                                },
+                                "question": {
+                                    "type": "string",
+                                    "description": "The question to ask about the repository"
+                                }
+                            },
+                            "required": [
+                                "repoName",
+                                "question"
+                            ],
+                            "additionalProperties": false,
+                            "$schema": "http://json-schema.org/draft-07/schema#"
+                        },
+                        "name": "ask_question"
+                    }
+                ]
+            },
+            {
+                "id": "msg_6857ad229748819ab0d129f218ab4e6e00dfe7abafc63919",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [],
+                        "text": "Righto, legend! Here’s a clear answer with a bit of Aussie flair:\n\nThe **MCP (Model Compatibility Protocol) spec, version 2025-03-26**, supports these transport protocols:\n\n### Supported Transport Protocols\n1. **HTTP/1.1**\n2. **HTTP/2**\n3. **WebSockets**\n\nThese protocols are used for communication between clients, servers, and models. The spec details how to use each protocol for transmitting requests and responses, supporting both synchronous and streaming operations.  \n**HTTP/1.1** and **HTTP/2** are the mainstays for standard calls, while **WebSockets** allow for bi-directional, real-time communication—which is handy for stuff like chat or live data feeds!\n\n#### Key Notes:\n- **HTTP/2** is recommended where possible, since it offers better performance and multiplexing over HTTP/1.1.\n- **WebSockets** are optional but fully integrated for scenarios where persistent, real-time interaction is needed.\n\nIf you want the nitty gritty or direct text from the spec, just say the word, mate!"
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": "resp_6857acca1930819aa237a32d4725f15100dfe7abafc63919",
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [
+            {
+                "type": "mcp",
+                "allowed_tools": null,
+                "headers": null,
+                "require_approval": "never",
+                "server_label": "deepwiki",
+                "server_url": "https://mcp.deepwiki.com/<redacted>"
+            }
+        ],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 1795,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 228,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 2023
+        },
+        "user": null,
+        "metadata": {}
+    }
+]

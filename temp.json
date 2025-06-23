@@ -1,0 +1,58 @@
+{
+    "id": "resp_684e59d5bde08198b0f1464f5091d626033da239ffec5d35",
+    "object": "response",
+    "created_at": 1749965269,
+    "status": "completed",
+    "background": false,
+    "error": null,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": null,
+    "model": "gpt-4.1-2025-04-14",
+    "output": [
+        {
+            "id": "msg_684e59d60e8c8198accff2d7441faf0e033da239ffec5d35",
+            "type": "message",
+            "status": "completed",
+            "content": [
+                {
+                    "type": "output_text",
+                    "annotations": [],
+                    "text": "Why did the clown go to the doctor?\n\nBecause he was feeling a little **funny**! 🤡"
+                }
+            ],
+            "role": "assistant"
+        }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "reasoning": {
+        "effort": null,
+        "summary": null
+    },
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1,
+    "text": {
+        "format": {
+            "type": "text"
+        }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 1,
+    "truncation": "disabled",
+    "usage": {
+        "input_tokens": 14,
+        "input_tokens_details": {
+            "cached_tokens": 0
+        },
+        "output_tokens": 23,
+        "output_tokens_details": {
+            "reasoning_tokens": 0
+        },
+        "total_tokens": 37
+    },
+    "user": null,
+    "metadata": {}
+}
