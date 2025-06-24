@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { chatMessages } from '@/components/ChatMessageWrapper'
 import { Input } from "@/components/ui/input";
 
-const McpChatForm = () => {
+const ChatFormMcp = () => {
   const [content, setContent] = useState('')
   const { addChatMessage } = chatMessages()
 
@@ -106,4 +106,4 @@ const McpChatForm = () => {
   )
 }
 
-export default McpChatForm
+export default ChatFormMcp
