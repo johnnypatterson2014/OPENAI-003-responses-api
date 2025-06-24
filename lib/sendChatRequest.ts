@@ -1,4 +1,4 @@
-import { ChatMessage } from '@/components/fesk/ChatMessageWrapper'
+import { ChatMessage } from '@/components/ChatMessageWrapper'
 
 export const sendChatRequest = async (chatMessage: ChatMessage) => {
   try {
@@ -14,19 +14,9 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
     // return await response.json()
 
     // example POST
-    const response = await fetch('/api/test', {
+    const response = await fetch('/api/openai/chat', {
       method: 'POST',
-      body: JSON.stringify({
-        model: chatMessage.model,
-        role: chatMessage.role,
-        temperature: chatMessage.temperature,
-        content: chatMessage.content,
-        previousResponseId: chatMessage.previousResponseId,
-        websearchEnabled: chatMessage.websearchEnabled,
-        vectorStoreId: chatMessage.vectorStoreId,
-        mcpServerLabel: chatMessage.mcpServerLabel,
-        mcpServerUrl: chatMessage.mcpServerUrl
-      }),
+      body: JSON.stringify(chatMessage),
     });
 
     const responseData = await response.json();

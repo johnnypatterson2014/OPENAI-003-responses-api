@@ -35,7 +35,7 @@ interface ContextProps {
 
 const ChatsContext = createContext<Partial<ContextProps>>({})
 
-const isLoadStubData = true;
+const isLoadStubData = false;
 
 export async function convertMarkdownToHtml(markdown: string) {
   const processedContent = await remark()
@@ -82,11 +82,6 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
   useEffect(() => {
     const initializeChat = (messagesArrayStub: any, llmResponseListStub: any) => {
 
-      //console.log(messagesArrayStub);
-      // console.log(llmResponseListStub);
-
-      // const messagesArrayStubWithHtml: any = messagesArrayStub.map(addHtmlToMessage);
-
       setMessages(JSON.parse(messagesArrayStub));
       setLlmResponseList(JSON.parse(llmResponseListStub));
 
@@ -95,9 +90,7 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
     if (isLoadStubData) {
       initializeChat(messagesArrayStub, llmResponseListStub)
     }
-    // if (!isLoadStubData && !messages?.length) {
-    //   initializeChat()
-    // }
+
   }, [])
 
   const addChatMessage = async (mapData: any) => {

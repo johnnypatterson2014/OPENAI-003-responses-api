@@ -6,7 +6,7 @@ export const sendChatHistoryRequest = async (responseMessageId: string) => {
     // console.log('responseMessageId: ' + responseMessageId)
 
     // example GET
-    const response = await fetch('/api/test2/' + responseMessageId, {
+    const response = await fetch('/api/openai/chat/' + responseMessageId, {
       method: 'GET'
     })
 
