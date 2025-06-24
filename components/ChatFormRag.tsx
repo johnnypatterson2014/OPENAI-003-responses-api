@@ -4,6 +4,9 @@ import { Button, TextArea } from '@apideck/components'
 import { useState } from 'react'
 import { chatMessages } from '@/components/ChatMessageWrapper'
 import useToolsStore from "@/stores/useToolsStore";
+import FeskButtonPrimary from '@/components/FeskButtonPrimary';
+
+const svgIconSend = (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="currentColor" d="M5 5v22h22V5zm2 2h18v18H7zm7.219 2.281L12.78 10.72L18.062 16l-5.28 5.281l1.437 1.438l6-6l.687-.719l-.687-.719z" /></svg>);
 
 const ChatFormRag = () => {
   const [content, setContent] = useState('')
@@ -34,7 +37,7 @@ const ChatFormRag = () => {
       <div className='chat-text-area-wrapper'>
         <form id='rag-chat-form' action={handleSubmit}>
 
-          <div className='m-[8px]'>
+          <div className='m-[0px]'>
 
             <div>
               <TextArea
@@ -44,17 +47,14 @@ const ChatFormRag = () => {
                 rows={4}
                 value={content}
                 autoFocus
-                className="!p-3 text-gray-300 focus:outline-none focus:ring-1"
+                className="bg-zinc-900 border border-zinc-600 text-zinc-300 focus:outline-none focus:ring-1"
                 onChange={(e: any) => setContent(e.target.value)}
               />
             </div>
-            <div>
+            <div className='mt-[8px] mb-[8px]'>
               <div className='grid grid-flow-col justify-items-end'>
                 <div className='m-[2px]'>
-                  {/* <button className="btn btn-xs btn-primary">Send</button> */}
-                  <button className="btn btn-sm btn-primary">
-                    send
-                  </button>
+                  <FeskButtonPrimary label='Send' icon={svgIconSend} />
                 </div>
               </div>
             </div>

@@ -220,20 +220,6 @@ dialog strong {
     border-radius: 3px;
 }
 
-#my-text-area-basic {
-    border: 1px solid var(--fesk-card-border);
-    background-color: var(--background);
-    margin: 10px;
-    width: 95%;
-}
-
-#my-text-area-rag {
-    border: 1px solid var(--fesk-card-border);
-    background-color: var(--background);
-    margin: 10px;
-    width: 95%;
-}
-
 .chat-text-area-wrapper {
     margin-top: 15px;
 }

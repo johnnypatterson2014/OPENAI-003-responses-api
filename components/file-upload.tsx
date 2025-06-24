@@ -174,7 +174,7 @@ export default function FileUpload({
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
-        <div className="bg-zinc-300 text-zinc-900 rounded-sm flex items-center justify-center py-1 px-3 border border-zinc-200 gap-1 font-medium text-sm cursor-pointer hover:bg-zinc-700 hover:text-zinc-200 transition-all">
+        <div className="items-center btn btn-sm bg-zinc-800 hover:bg-zinc-100 border border-zinc-600 text-zinc-200 hover:text-zinc-900">
           Upload
         </div>
       </DialogTrigger>

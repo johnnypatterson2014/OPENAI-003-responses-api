@@ -72,7 +72,7 @@ export default function FileSearchSetup() {
                 placeholder="ID (vs_XXXX...)"
                 value={newStoreId}
                 onChange={(e) => setNewStoreId(e.target.value)}
-                className="border border-zinc-300 rounded text-sm bg-zinc-900"
+                className="bg-zinc-900 border border-zinc-600 text-sm text-zinc-300"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     handleAddStore(newStoreId);
@@ -80,7 +80,7 @@ export default function FileSearchSetup() {
                 }}
               />
               <div
-                className="bg-zinc-300 text-zinc-900 rounded-sm flex items-center justify-center py-1 px-3 border border-zinc-200 gap-1 font-medium text-sm cursor-pointer hover:bg-zinc-700 hover:text-zinc-200 transition-all"
+                className="items-center btn btn-sm bg-zinc-800 hover:bg-zinc-100 border border-zinc-600 text-zinc-200 hover:text-zinc-900"
                 onClick={() => handleAddStore(newStoreId)}
               >
                 Add

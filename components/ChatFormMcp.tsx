@@ -91,7 +91,7 @@ const ChatFormMcp = () => {
                   <div className='m-[2px]'>
                     {/* <button className="btn btn-xs btn-primary">Send</button> */}
                     <button className="btn btn-sm btn-primary">
-                      send
+                      Send
                     </button>
                   </div>
                 </div>
