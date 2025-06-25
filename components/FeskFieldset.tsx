@@ -3,11 +3,11 @@
 import { ReactNode } from 'react'
 import { Input } from "@/components/ui/input";
 
-export default function FeskFieldset({ label, children }: { label: string, children: ReactNode }) {
+export default function FeskFieldset({ label, buttons, align, children }: { label: string, buttons: ReactNode, align: string, children: ReactNode }) {
 
   return (
     <>
-      <div className="flex items-center flex-row mb-[10px]">
+      <div className={`flex flex-row mb-[10px] ${align}`}>
 
 
         <div className='flex flex-1 justify-end'>
@@ -27,7 +27,7 @@ export default function FeskFieldset({ label, children }: { label: string, child
         </div>
 
         <div className='flex-1 ml-[10px]'>
-          &nbsp;
+          {buttons}
         </div>
 
       </div>

@@ -3,61 +3,36 @@
 import { chatMessages } from '@/components/ChatMessageWrapper'
 import ChatResponseObject from '@/components/ChatResponseObject'
 import ChatRequestResponseObject from '@/components/ChatRequestResponseObject'
+import FeskLoading from '@/components/FeskLoading'
 import { useState } from 'react'
 import { remark } from 'remark';
 import html from 'remark-html';
 
-const convertMarkdownToHtml2 = async (markdown: string) => {
-  const processedContent = await remark()
-    .use(html)
-    .process(markdown);
-
-  return processedContent.toString().replaceAll('\\n', '<br />');
-}
-
 const ChatHistory = () => {
   const { messages, isLoadingAnswer, setActiveResponseId, getChatHistory, llmResponseList } = chatMessages()
-  const [markdownHtml, setMarkdownHtml] = useState('')
+  const [markdownHtml] = useState('')
 
   const handleActiveId = async (id: string, e?: any) => {
     e?.preventDefault()
     setActiveResponseId(id)
-    document.getElementById('my_modal_4').showModal()
+    document.getElementById('modal_json_response').showModal()
   }
 
   const handleSources = async (id: string) => {
-
     console.log('id: ' + id);
-
     const foundItem = llmResponseList.find(item => item.id === id);
     const sourcesArray = JSON.stringify(foundItem.output[1].content[0].annotations, null, 2);
-
     const myDiv = document.getElementById('sources')
     myDiv.innerHTML = sourcesArray;
-
-    document.getElementById('my_modal_7').showModal()
+    document.getElementById('modal_sources').showModal()
   }
 
   const handleUserRequestId = async (id: string, e?: any) => {
     e?.preventDefault()
     getChatHistory(id)
-    document.getElementById('my_modal_5').showModal()
+    document.getElementById('modal_json_request').showModal()
   }
 
-  const convertMarkdownToHtml = async (markdown: string) => {
-    const processedContent = await remark()
-      .use(html)
-      .process(markdown);
-
-    const parsedContent = processedContent.toString().replaceAll('\\n', '<br />');
-    setMarkdownHtml(parsedContent);
-    document.getElementById('my_modal_6').showModal()
-  }
-
-  // const insertHtml: void (index: number, html: string) {
-  //   const myDiv = document.getElementById('html-' + index)
-  //   myDiv.innerHTML = html;
-  // }
 
   const isExistingChatMessages = (messages != null && messages.length > 0);
 
@@ -174,7 +149,7 @@ const ChatHistory = () => {
                 )
               }
 
-              <dialog id="my_modal_4" className="modal">
+              <dialog id="modal_json_response" className="modal">
 
                 <div className="modal-box w-11/12 max-w-5xl h-11/12">
 
@@ -189,7 +164,7 @@ const ChatHistory = () => {
                 </form>
               </dialog>
 
-              <dialog id="my_modal_5" className="modal">
+              <dialog id="modal_json_request" className="modal">
 
                 <div className="modal-box w-11/12 max-w-5xl h-11/12">
 
@@ -204,19 +179,9 @@ const ChatHistory = () => {
                 </form>
               </dialog>
 
-              <dialog id="my_modal_6" className="modal">
 
-                <div className="modal-box w-11/12 max-w-5xl h-11/12">
 
-                  <div dangerouslySetInnerHTML={{ __html: markdownHtml }} />
-
-                </div>
-                <form method="dialog" className="modal-backdrop">
-                  <button>close</button>
-                </form>
-              </dialog>
-
-              <dialog id="my_modal_7" className="modal">
+              <dialog id="modal_sources" className="modal">
 
                 <div className="modal-box w-11/12 max-w-5xl h-11/12">
 
@@ -241,22 +206,7 @@ const ChatHistory = () => {
 
       {
         isLoadingAnswer && (
-          <div className='flex my-card-chat'>
-            <div className="flex chat-message" >
-              <div className='flex-none'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6e9fff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5" /></svg>
-              </div>
-
-              <div className="loader-line-1">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-
-            </div>
-          </div>
+          <FeskLoading />
         )
       }
 

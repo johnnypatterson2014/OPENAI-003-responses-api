@@ -7,7 +7,7 @@ import { chatMessages } from '@/components/ChatMessageWrapper'
 import { Input } from "@/components/ui/input";
 
 const ChatFormMcp = () => {
-  const [content, setContent] = useState('')
+  const [content, setContent] = useState('Which tools are supported?')
   const { addChatMessage } = chatMessages()
 
   const handleSubmit = async (formData: FormData, e?: any) => {
@@ -76,7 +76,7 @@ const ChatFormMcp = () => {
                 <TextArea
                   id="my-text-area-rag2"
                   name="content"
-                  placeholder="What transport protocols are supported in the 2025-03-26 version of the MCP spec?"
+                  placeholder="Enter your message here..."
                   rows={4}
                   value={content}
                   autoFocus

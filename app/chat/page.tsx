@@ -6,6 +6,7 @@ import ChatForm from '@/components/ChatForm';
 import ChatFormMcp from '@/components/ChatFormMcp';
 import ChatFormRag from '@/components/ChatFormRag';
 import FileSearchSetup from "@/components/file-search-setup";
+import ChatHistoryPersistence from '@/components/ChatHistoryPersistence';
 
 
 const templateGeneric = await fs.readFile(process.cwd() + '/app/data/prompt.txt', 'utf8');
@@ -28,6 +29,9 @@ export default function Home() {
 
                             <div className="fesk-card-2">
 
+                                <FeskDrawer name='Chat Session'>
+                                    <ChatHistoryPersistence />
+                                </FeskDrawer>
 
                                 <FeskDrawer name='Chat Prompt'>
                                     <ChatForm templateGeneric={templateGeneric} />

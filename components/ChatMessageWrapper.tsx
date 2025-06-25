@@ -4,6 +4,9 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { sendChatRequest } from '@/lib/sendChatRequest'
 import { sendChatHistoryRequest } from '@/lib/sendChatHistoryRequest'
+import { sendChatHistoryPersistenceRequest } from '@/lib/sendChatHistoryPersistenceRequest'
+import { deleteChatHistorySession } from '@/lib/deleteChatHistorySession'
+import { saveChatHistory } from '@/lib/saveChatHistory'
 import { remark } from 'remark';
 import html from 'remark-html';
 
@@ -21,6 +24,13 @@ export interface ChatMessage {
   mcpServerUrl?: string
 }
 
+export interface ChatHistory {
+  id: number
+  name?: string
+  messages?: any[]
+  llmResponses?: any[]
+}
+
 interface ContextProps {
   messages: ChatMessage[]
   addChatMessage: (formData: any) => Promise<void>
@@ -29,8 +39,13 @@ interface ContextProps {
   activeId: string
   setActiveResponseId: (content: string) => void
   getChatHistory: (content: string) => Promise<void>
+  getChatHistoryPersistence: () => Promise<void>
   llmRequestResponseList: any[]
   activeRequestResponseId: string
+  chatHistoryPersistenceData: any[]
+  saveCurrentChatHistory: (sessionName: string) => Promise<void>
+  loadChatSession: (id: number) => Promise<void>
+  deleteChatSession: (id: number) => Promise<void>
 }
 
 const ChatsContext = createContext<Partial<ContextProps>>({})
@@ -56,9 +71,52 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
   const [activeId, setActiveId] = useState<string>('')
   const [llmRequestResponseList, setLlmRequestResponseList] = useState<any[]>([])
   const [activeRequestResponseId, setActiveRequestResponseId] = useState<string>('')
+  const [chatHistoryPersistenceData, setChatHistoryPersistenceData] = useState<any[]>([])
 
   const setActiveResponseId = async (id: string) => {
     setActiveId(id)
+  }
+
+  const getChatHistoryPersistence = async () => {
+    setIsLoadingAnswer(true);
+    try {
+      const data = await sendChatHistoryPersistenceRequest()
+      // const jsonData = JSON.stringify(data, null, 2)
+      setChatHistoryPersistenceData(data.results)
+    } finally {
+      setIsLoadingAnswer(false)
+    }
+  }
+
+  const saveCurrentChatHistory = async (sessionName: string) => {
+    setIsLoadingAnswer(true);
+    try {
+      const currentTimeInMilliseconds = Date.now();
+      const chatHistoryData: ChatHistory = {
+        id: currentTimeInMilliseconds,
+        name: sessionName,
+        messages: messages,
+        llmResponses: llmResponseList
+      }
+      const data = await saveChatHistory(chatHistoryData)
+      // const jsonData = JSON.stringify(data, null, 2)
+      // setChatHistoryPersistenceData(data)
+    } finally {
+      setIsLoadingAnswer(false)
+    }
+  }
+
+  const loadChatSession = async (id: number) => {
+    const foundItem: ChatHistory = chatHistoryPersistenceData.find(item => item.id === id);
+    setMessages(foundItem.messages);
+    setLlmResponseList(foundItem.llmResponses);
+  }
+
+  const deleteChatSession = async (idValue: number) => {
+    const chatSession: ChatHistory = {
+      id: idValue
+    }
+    deleteChatHistorySession(chatSession);
   }
 
   const getChatHistory = async (responseMessageId: string) => {
@@ -167,7 +225,22 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
   }
 
   return (
-    <ChatsContext.Provider value={{ messages, addChatMessage, isLoadingAnswer, llmResponseList, activeId, setActiveResponseId, getChatHistory, llmRequestResponseList, activeRequestResponseId }}>
+    <ChatsContext.Provider value={{
+      messages,
+      addChatMessage,
+      isLoadingAnswer,
+      llmResponseList,
+      activeId,
+      setActiveResponseId,
+      getChatHistory,
+      llmRequestResponseList,
+      activeRequestResponseId,
+      getChatHistoryPersistence,
+      chatHistoryPersistenceData,
+      saveCurrentChatHistory,
+      loadChatSession,
+      deleteChatSession
+    }}>
       {children}
     </ChatsContext.Provider>
   )
