@@ -7,7 +7,7 @@ import FeskFieldsetTextarea from '@/components/FeskFieldsetTextarea';
 import FeskFieldset from '@/components/FeskFieldset';
 import FeskFieldsetSubmit from '@/components/FeskFieldsetSubmit';
 import FeskButtonPrimarySubmit from '@/components/FeskButtonPrimarySubmit';
-import { SVG_ICON_LOAD, SVG_ICON_EDIT, SVG_ICON_SEND } from '@/config/FeskConstants'
+import { SVG_ICON_LOAD, SVG_ICON_EDIT, SVG_ICON_SEND, DEVELOPER_PROMPT } from '@/config/FeskConstants'
 
 
 const ChatForm = ({ templateGeneric }
@@ -55,7 +55,8 @@ const ChatForm = ({ templateGeneric }
   const loadTemplate = async (e?: any) => {
     e?.preventDefault()
     const myDiv = document.getElementById('content');
-    myDiv.value = templateGeneric;
+    // myDiv.value = templateGeneric;
+    myDiv.value = DEVELOPER_PROMPT;
     document.activeElement.blur();
   }
 
@@ -72,7 +73,7 @@ const ChatForm = ({ templateGeneric }
 
                 <ul id="promptTemplateDropdown" tabIndex={0} className="dropdown-content text-xs fesk-menu menu bg-zinc-800 z-1 w-50 mt-[2px] mb-[2px] ml-[5px] mr-[2px] shadow-sm">
 
-                  <li className='fesk-menu-li'><a onClick={loadTemplate}>generic</a></li>
+                  <li className='fesk-menu-li'><a onClick={loadTemplate}>developer</a></li>
                   <li className='fesk-menu-li'><a>code generation</a></li>
                   <li className='fesk-menu-li-bottom'><a>agentic</a></li>
 
