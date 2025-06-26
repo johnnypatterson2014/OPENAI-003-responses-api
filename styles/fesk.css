@@ -294,6 +294,14 @@ dialog strong {
     margin-right: 0px;
 }
 
+#collapseCheckbox {
+    visibility: hidden;
+    margin: 0px;
+    padding: 0px;
+    width: 0px !important;
+    height: 0px !important;
+}
+
 .chat-message {
     padding: 0px;
     margin: 5px;
