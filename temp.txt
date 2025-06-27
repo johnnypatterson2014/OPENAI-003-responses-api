@@ -1,12 +1,63 @@
 
 
 
-<div className='my-card-chat'>
-          <div className='flex flex-row items-start' >
-            <div className='flex-none ml-[15px] mt-[5px] min-width-[20px] max-width-[20px]'>
-              {icon}
-            </div>
+resp_685e3243d418819ba38081fd459148780faba755fd9ee64b
 
-        </div>
-        </div>
+resp_685e3338526c819b8ab220d84712cc830faba755fd9ee64b
+resp_685e32bcda88819b93638397bd4cf4b00faba755fd9ee64b
+resp_685e3243d418819ba38081fd459148780faba755fd9ee64b
 
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="currentColor" d="M7.5 3A4.5 4.5 0 0 0 3 7.5v17A4.5 4.5 0 0 0 7.5 29h17a4.5 4.5 0 0 0 4.5-4.5v-17A4.5 4.5 0 0 0 24.5 3h-17ZM16 8a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2h-6v6a1 1 0 1 1-2 0v-6H9a1 1 0 1 1 0-2h6V9a1 1 0 0 1 1-1Z"/></svg>
+
+<div className='fesk-item' key={`citation-${i}`}>{source.type} {source.title}</div>
+
+
+[
+  {
+    "type": "file_citation",
+    "index": 668,
+    "file_id": "file-WmhXDqMDurmDCLunFQMbkv",
+    "filename": "Google AI Agents Companion Report.pdf"
+  },
+  
+]
+
+[
+  {
+    "url": "https://www.dictionary.com/e/news-from-june-21-june-27-2025/?utm_source=openai",
+    "type": "url_citation",
+    "title": "News from June 21-June 27, 2025 - Dictionary.com",
+    "end_index": 453,
+    "start_index": 355
+  },
+  
+]
+
+  {
+      "id": "mcpl_685e333879bc819bb4e18074959282730faba755fd9ee64b",
+      "type": "mcp_list_tools",
+      "server_label": "deepwiki",
+      "tools": [
+        {
+          "name": "read_wiki_structure",
+          "annotations": null,
+          "description": "Get a list of documentation topics for a GitHub repository",
+          "input_schema": {
+            "type": "object",
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "required": [
+              "repoName"
+            ],
+            "properties": {
+              "repoName": {
+                "type": "string",
+                "description": "GitHub repository: owner/repo (e.g. \"facebook/react\")"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+        
+      ]
+    }
