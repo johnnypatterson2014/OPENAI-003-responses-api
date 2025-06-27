@@ -4,42 +4,54 @@ import { chatMessages } from '@/components/ChatMessageWrapper'
 import ChatResponseObject from '@/components/ChatResponseObject'
 import ChatRequestResponseObject from '@/components/ChatRequestResponseObject'
 import FeskLoading from '@/components/FeskLoading'
+import FeskModal from '@/components/FeskModal'
+import FeskButton3 from '@/components/FeskButton3'
 import FeskChatHistoryRow from '@/components/FeskChatHistoryRow'
-import { SVG_ICON_LOAD, SVG_ICON_EDIT, SVG_ICON_SEND, DEVELOPER_PROMPT, SVG_ICON_REPLY, SVG_ICON_REQ_DEV, SVG_ICON_REQ_USER } from '@/config/FeskConstants'
-import { Children, useState } from 'react'
-import { remark } from 'remark';
-import html from 'remark-html';
+import { SVG_ICON_REPLY, SVG_ICON_REQ_DEV, SVG_ICON_REQ_USER } from '@/config/FeskConstants'
+import { useState } from 'react'
+
 
 const ChatHistory = () => {
-  const { messages, isLoadingAnswer, setActiveResponseId, getChatHistory, llmResponseList } = chatMessages()
-  const [markdownHtml] = useState('')
-
-  const handleSources = async (id: string) => {
-    console.log('id: ' + id);
-    const foundItem = llmResponseList.find(item => item.id === id);
-    const sourcesArray = JSON.stringify(foundItem.output[1].content[0].annotations, null, 2);
-    const myDiv = document.getElementById('sources')
-    myDiv.innerHTML = sourcesArray;
-    document.getElementById('modal_sources').showModal()
-  }
+  const { messages, isLoadingAnswer } = chatMessages()
 
   const isExistingChatMessages = (messages != null && messages.length > 0);
+
+  const toggleAll = (value: boolean) => {
+    const elements = document.querySelectorAll('.fesk-checkbox');
+    elements.forEach(element => {
+      // console.log(element.textContent);
+      element.checked = value;
+    });
+  }
 
   return (
     <>
 
-      <div className='fesk-h2'>chat history</div>
+      <div className='flex'>
+        <div className='flex-none fesk-h2'>chat history</div>
+        <div className='flex-1 justify-items-end'>
+          <div className='grid grid-cols-2'>
+            <div>
+              <FeskButton3>
+                <a onClick={() => toggleAll(false)}>collapse all</a>
+              </FeskButton3>
+            </div>
+
+            <div className='ml-[5px]'>
+              <FeskButton3>
+                <a onClick={() => toggleAll(true)}>expand all</a>
+              </FeskButton3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       {
         !isExistingChatMessages && (
-          <div
-            className='p-[5px]'
-            style={{ color: "#999999" }}
-          >(no chat messages)
-          </div>
+          <div className='p-[5px] fesk-muted'>(no chat messages)</div>
         )
       }
-
-
 
       {messages?.map((message, i) => {
         const isUser = message.role === 'user'
@@ -53,7 +65,6 @@ const ChatHistory = () => {
         }
 
         return (
-
 
           <div id={`message-${i}`} className='my-card-chat' key={`message-${i}`}>
 
@@ -69,63 +80,26 @@ const ChatHistory = () => {
               <FeskChatHistoryRow color='text-yellow-300' icon={SVG_ICON_REQ_USER} index={i} message={message} />
             )}
 
-
           </div>
         )
       }
       )
       }
 
+      <FeskModal id="modal_json_response">
+        <ChatResponseObject />
+      </FeskModal>
 
-      <dialog id="modal_json_response" className="modal">
+      <FeskModal id="modal_json_request">
+        <ChatRequestResponseObject />
+      </FeskModal>
 
-        <div className="modal-box w-11/12 max-w-5xl h-11/12">
+      <FeskModal id="modal_sources">
+        <span>
+          <pre id='sources' className='text-xs'></pre>
+        </span>
+      </FeskModal>
 
-          <div className='pre-scrollable overflow-auto'>
-            <ChatResponseObject />
-
-          </div>
-
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
-
-      <dialog id="modal_json_request" className="modal">
-
-        <div className="modal-box w-11/12 max-w-5xl h-11/12">
-
-          <div className='pre-scrollable overflow-auto'>
-            <ChatRequestResponseObject />
-
-          </div>
-
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
-
-
-
-      <dialog id="modal_sources" className="modal">
-
-        <div className="modal-box w-11/12 max-w-5xl h-11/12">
-
-          <div className='pre-scrollable overflow-auto'>
-
-            <span>
-              <pre id='sources' className='text-xs'></pre>
-            </span>
-
-          </div>
-
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
 
       {
         isLoadingAnswer && (

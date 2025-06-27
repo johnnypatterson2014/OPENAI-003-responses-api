@@ -4,7 +4,7 @@ import { Button, TextArea } from '@apideck/components'
 import { useState } from 'react'
 import { chatMessages } from '@/components/ChatMessageWrapper'
 import useToolsStore from "@/stores/useToolsStore";
-import FeskButtonPrimary from '@/components/FeskButtonPrimarySubmit';
+import FeskButtonPrimarySubmit from '@/components/FeskButtonPrimarySubmit';
 
 const svgIconSend = (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="currentColor" d="M5 5v22h22V5zm2 2h18v18H7zm7.219 2.281L12.78 10.72L18.062 16l-5.28 5.281l1.437 1.438l6-6l.687-.719l-.687-.719z" /></svg>);
 
@@ -54,7 +54,7 @@ const ChatFormRag = () => {
             <div className='mt-[8px] mb-[8px]'>
               <div className='grid grid-flow-col justify-items-end'>
                 <div className='m-[2px]'>
-                  <FeskButtonPrimary label='Send' icon={svgIconSend} />
+                  <FeskButtonPrimarySubmit label='Send' />
                 </div>
               </div>
             </div>

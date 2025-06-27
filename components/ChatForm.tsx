@@ -69,7 +69,7 @@ const ChatForm = ({ templateGeneric }
           <div>
 
             <FeskFieldset label='&nbsp;' buttons='&nbsp;' align='items-center'>
-              <FeskButtonDropdown name='load template' icon={SVG_ICON_LOAD} dropdownPosition='dropdown-right'>
+              <FeskButtonDropdown name='load template' dropdownPosition='dropdown-right'>
 
                 <ul id="promptTemplateDropdown" tabIndex={0} className="dropdown-content text-xs fesk-menu menu bg-zinc-800 z-1 w-50 mt-[2px] mb-[2px] ml-[5px] mr-[2px] shadow-sm">
 
@@ -83,7 +83,7 @@ const ChatForm = ({ templateGeneric }
             </FeskFieldset>
 
             <FeskFieldsetInput label='Role' id='role' initialValue='user'>
-              <FeskButtonDropdown name='Edit' icon={SVG_ICON_EDIT} dropdownPosition='dropdown-bottom'>
+              <FeskButtonDropdown name='edit' dropdownPosition='dropdown-bottom'>
 
                 <ul tabIndex={0} className="dropdown-content text-xs fesk-menu menu bg-zinc-800 z-10 w-40 mt-[5px] mb-[2px] ml-[2px] mr-[2px] shadow-sm">
                   <li className='fesk-menu-li'><a onClick={() => updateInputForDropdown('role', 'user')}>user</a></li>
@@ -122,7 +122,7 @@ const ChatForm = ({ templateGeneric }
 
 
             <FeskFieldsetSubmit label='&nbsp;'>
-              <FeskButtonPrimarySubmit label='Send' icon={SVG_ICON_SEND} />
+              <FeskButtonPrimarySubmit label='Send' />
             </FeskFieldsetSubmit>
 
 

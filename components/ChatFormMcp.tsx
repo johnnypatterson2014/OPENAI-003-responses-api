@@ -5,6 +5,7 @@ import { useState } from 'react'
 // import { sendSpringMessage } from 'utils/sendSpringMessage'
 import { chatMessages } from '@/components/ChatMessageWrapper'
 import { Input } from "@/components/ui/input";
+import FeskButtonPrimarySubmit from '@/components/FeskButtonPrimarySubmit';
 
 const ChatFormMcp = () => {
   const [content, setContent] = useState('Which tools are supported?')
@@ -89,10 +90,7 @@ const ChatFormMcp = () => {
               <div>
                 <div className='grid grid-flow-col justify-items-end'>
                   <div className='m-[2px]'>
-                    {/* <button className="btn btn-xs btn-primary">Send</button> */}
-                    <button className="btn btn-sm btn-primary">
-                      Send
-                    </button>
+                    <FeskButtonPrimarySubmit label='Send' />
                   </div>
                 </div>
               </div>

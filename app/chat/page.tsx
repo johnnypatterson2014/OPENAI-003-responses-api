@@ -7,6 +7,7 @@ import ChatFormMcp from '@/components/ChatFormMcp';
 import ChatFormRag from '@/components/ChatFormRag';
 import FileSearchSetup from "@/components/file-search-setup";
 import ChatHistoryPersistence from '@/components/ChatHistoryPersistence';
+import FeskFieldset from '@/components/FeskFieldset';
 
 
 const templateGeneric = await fs.readFile(process.cwd() + '/app/data/prompt.txt', 'utf8');
@@ -38,12 +39,17 @@ export default function Home() {
                                 </FeskDrawer>
 
                                 <FeskDrawer name='RAG'>
-                                    <FileSearchSetup />
-                                    <ChatFormRag />
+                                    <FeskFieldset label='&nbsp;' buttons='&nbsp;' align='items-center'>
+                                        <FileSearchSetup />
+                                        <ChatFormRag />
+                                    </FeskFieldset>
+
                                 </FeskDrawer>
 
                                 <FeskDrawer name='MCP'>
-                                    <ChatFormMcp />
+                                    <FeskFieldset label='&nbsp;' buttons='&nbsp;' align='items-center'>
+                                        <ChatFormMcp />
+                                    </FeskFieldset>
                                 </FeskDrawer>
 
                             </div>

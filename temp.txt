@@ -1,6 +1,12 @@
 
 
 
+<div className='my-card-chat'>
+          <div className='flex flex-row items-start' >
+            <div className='flex-none ml-[15px] mt-[5px] min-width-[20px] max-width-[20px]'>
+              {icon}
+            </div>
 
-
+        </div>
+        </div>
 

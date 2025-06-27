@@ -9,6 +9,7 @@ import { deleteChatHistorySession } from '@/lib/deleteChatHistorySession'
 import { saveChatHistory } from '@/lib/saveChatHistory'
 import { remark } from 'remark';
 import html from 'remark-html';
+import { timeStamp } from 'console';
 
 export interface ChatMessage {
   role: string
@@ -21,7 +22,8 @@ export interface ChatMessage {
   websearchEnabled?: boolean,
   vectorStoreId?: string,
   mcpServerLabel?: string,
-  mcpServerUrl?: string
+  mcpServerUrl?: string,
+  timestamp?: string
 }
 
 export interface ChatHistory {
@@ -72,6 +74,12 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
   const [llmRequestResponseList, setLlmRequestResponseList] = useState<any[]>([])
   const [activeRequestResponseId, setActiveRequestResponseId] = useState<string>('')
   const [chatHistoryPersistenceData, setChatHistoryPersistenceData] = useState<any[]>([])
+
+  const getCurrentTimestamp = () => {
+    var currentDate = new Date();
+    const timeString = currentDate.toLocaleTimeString();
+    return currentDate.toDateString() + ', ' + timeString;
+  }
 
   const setActiveResponseId = async (id: string) => {
     setActiveId(id)
@@ -170,7 +178,8 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
         websearchEnabled: mapData.websearchEnabled,
         vectorStoreId: mapData.vectorStoreId,
         mcpServerLabel: mapData.mcpServerLabel,
-        mcpServerUrl: mapData.mcpServerUrl
+        mcpServerUrl: mapData.mcpServerUrl,
+        timestamp: getCurrentTimestamp()
       }
       const newMessages = [...messages, newMessage]
 
@@ -210,7 +219,8 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
         websearchEnabled: mapData.websearchEnabled,
         vectorStoreId: mapData.vectorStoreId ? mapData.vectorStoreId : null,
         mcpServerLabel: mapData.mcpServerLabel ? mapData.mcpServerLabel : null,
-        mcpServerUrl: mapData.mcpServerUrl ? mapData.mcpServerUrl : null
+        mcpServerUrl: mapData.mcpServerUrl ? mapData.mcpServerUrl : null,
+        timestamp: getCurrentTimestamp()
       }
       // console.log('assistant message is: ' + JSON.stringify(responseMessage))
 
