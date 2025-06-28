@@ -1,86 +1,80 @@
 'use client';
 
-import { Button, TextArea } from '@apideck/components'
-import { useState } from 'react'
-// import { sendSpringMessage } from 'utils/sendSpringMessage'
+import FeskButtonSecondary from '@/components/FeskButtonSecondary';
 import { chatMessages } from '@/components/ChatMessageWrapper'
 import { Input } from "@/components/ui/input";
 import FeskButtonPrimarySubmit from '@/components/FeskButtonPrimarySubmit';
+import { TextArea } from '@apideck/components'
+import { useState } from 'react'
 
-const ChatFormMcp = () => {
-  const [content, setContent] = useState('Which tools are supported?')
+const ChatImageAnalysis = () => {
   const { addChatMessage } = chatMessages()
+  const [content, setContent] = useState('What is in this image?')
+  const [imageUrl, setImageUrl] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg')
 
   const handleSubmit = async (formData: FormData, e?: any) => {
-    e?.preventDefault()
+    e?.preventDefault();
+    // const requestContent = document.getElementById('requestContent')?.value;
+    // const requestContent = formData.get("requestContent");
 
-    const mapOfFormDataBasic = {
-      content: content,
-      role: 'user',
-      model: 'gpt-4.1',
-      temperature: '1',
-      mcpServerLabel: formData.get("server_label"),
-      mcpServerUrl: formData.get("server_url"),
-      websearchEnabled: false,
-      vectorStoreId: null
+    if (content) {
+      const mapOfFormData = {
+        content: content,
+        role: 'user',
+        model: 'gpt-4.1-mini',
+        temperature: '1',
+        imageAnalysis: true,
+        imageUrl: imageUrl
+      }
+
+      console.log(JSON.stringify(mapOfFormData, null, 2));
+      addChatMessage(mapOfFormData);
+      setContent('');
+      setImageUrl('');
+
+    } else {
+      // alert('Please enter a query.')
     }
-
-    console.log(JSON.stringify(mapOfFormDataBasic))
-
-    addChatMessage(mapOfFormDataBasic)
-    setContent('')
-
   }
 
   return (
     <>
 
       <div className='chat-text-area-wrapper'>
-        <form id='rag-chat-form' action={handleSubmit}>
-
+        <form id='analyze_image' action={handleSubmit}>
 
           <div>
             <div className="flex items-center justify-between">
-              <div className="text-zinc-300 text-sm font-medium">Server details</div>
+              <div className="text-zinc-300 text-sm font-medium">Analyze image</div>
             </div>
             <div className="mt-3 space-y-3 text-zinc-400">
+
+
               <div className="flex items-start gap-2">
                 <label htmlFor="server_label" className="text-sm w-24 mt-[8px]">
-                  Label
+                  Image URL
                 </label>
                 <Input
-                  id="server_label"
-                  name="server_label"
+                  id="image_url"
+                  name="image_url"
                   type="text"
                   className="bg-zinc-900 border border-zinc-600 text-sm flex-1 text-zinc-300"
-                  value='deepwiki'
-                  readOnly
+                  value={imageUrl}
+                  onChange={(e: any) => setImageUrl(e.target.value)}
                 />
               </div>
-              <div className="flex items-start gap-2">
-                <label htmlFor="server_url" className="text-sm w-24 mt-[8px]">
-                  URL
-                </label>
-                <Input
-                  id="server_url"
-                  name="server_url"
-                  type="text"
-                  className="bg-zinc-900 border border-zinc-600 text-sm flex-1 text-zinc-300"
-                  value="https://mcp.deepwiki.com/mcp"
-                  readOnly
-                />
-              </div>
+
+
               <div className="flex items-start gap-2">
                 <label htmlFor="server_url" className="text-sm w-24 mt-[8px]">
                   Prompt
                 </label>
                 <TextArea
-                  id="my-text-area-rag2"
-                  name="content"
+                  id="requestContent"
+                  name="requestContent"
                   placeholder="Enter your message here..."
                   rows={4}
                   value={content}
-                  autoFocus
                   className="!p-3 text-zinc-300 bg-zinc-900 border border-zinc-600 text-sm focus:outline-none focus:ring-1 flex-1"
                   onChange={(e: any) => setContent(e.target.value)}
                 />
@@ -97,11 +91,11 @@ const ChatFormMcp = () => {
 
             </div>
           </div>
-        </form >
 
-      </div >
+        </form>
+      </div>
     </>
   )
 }
 
-export default ChatFormMcp
+export default ChatImageAnalysis

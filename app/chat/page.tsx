@@ -8,6 +8,8 @@ import ChatFormRag from '@/components/ChatFormRag';
 import FileSearchSetup from "@/components/file-search-setup";
 import ChatHistoryPersistence from '@/components/ChatHistoryPersistence';
 import FeskFieldset from '@/components/FeskFieldset';
+import ChatImage from '@/components/ChatImage';
+import ChatImageAnalysis from '@/components/ChatImageAnalysis';
 
 
 const templateGeneric = await fs.readFile(process.cwd() + '/app/data/prompt.txt', 'utf8');
@@ -49,6 +51,13 @@ export default function Home() {
                                 <FeskDrawer name='MCP'>
                                     <FeskFieldset label='&nbsp;' buttons='&nbsp;' align='items-center'>
                                         <ChatFormMcp />
+                                    </FeskFieldset>
+                                </FeskDrawer>
+
+                                <FeskDrawer name='Images'>
+                                    <FeskFieldset label='&nbsp;' buttons='&nbsp;' align='items-start'>
+                                        <ChatImage />
+                                        <ChatImageAnalysis />
                                     </FeskFieldset>
                                 </FeskDrawer>
 

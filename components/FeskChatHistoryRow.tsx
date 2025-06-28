@@ -7,6 +7,10 @@ import { SVG_ICON_LOAD, SVG_ICON_EDIT, SVG_ICON_SEND, DEVELOPER_PROMPT, SVG_ICON
 import { ChatMessage, chatMessages } from '@/components/ChatMessageWrapper'
 import FeskCitation from '@/components/FeskCitation'
 import FeskMcpToolsList from '@/components/FeskMcpToolsList'
+import Image from 'next/image';
+import FeskCitationImage from '@/components/FeskCitationImage'
+import FeskImageBase64 from '@/components/FeskImageBase64'
+
 
 export default function FeskChatHistoryRow({ color, message, icon, index }: { color: string, message: ChatMessage, icon: ReactNode, index: number }) {
   const { messages, isLoadingAnswer, setActiveResponseId, getChatHistory, llmResponseList } = chatMessages()
@@ -70,6 +74,13 @@ export default function FeskChatHistoryRow({ color, message, icon, index }: { co
                       <div dangerouslySetInnerHTML={{ __html: message.htmlContent }} className='grow ml-4 text-blue-300'></div>
                     </div>
 
+                    {message.imageGeneration && (
+                      <>
+                        <FeskImageBase64 id={`${message.responseMessageId}`} />
+
+                      </>
+                    )}
+
                     {message.websearchEnabled && (
                       <>
                         <div className='fesk-sources' >
@@ -113,6 +124,23 @@ export default function FeskChatHistoryRow({ color, message, icon, index }: { co
                           <div className='flex flex-row ml-[15px] mt-[5px]'>
 
                             <FeskMcpToolsList id={`${message.responseMessageId}`} />
+
+                          </div>
+
+                        </div>
+
+                      </>
+                    )}
+
+                    {message.imageGeneration && (
+                      <>
+                        <div className='fesk-sources' >
+                          <div className='flex flex-row'>
+                            Revised prompt:
+                          </div>
+                          <div className='flex flex-row ml-[15px] mt-[5px]'>
+
+                            <FeskCitationImage id={`${message.responseMessageId}`} />
 
                           </div>
 

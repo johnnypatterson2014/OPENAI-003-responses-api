@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { ChatMessage } from '@/components/ChatMessageWrapper'
 // import { NextApiRequest, NextApiResponse } from 'next'
+import { promises as fs } from "fs";
 
 export async function POST(request: Request) {
     console.log('Entered api/test... ');
     // const requestBodyJson = JSON.stringify(req.body);
     // const data = await req.json();
-    const { content, role, model, temperature, previousResponseId, websearchEnabled, vectorStoreId, mcpServerLabel, mcpServerUrl } = await request.json();
+    const { content, role, model, temperature, previousResponseId, websearchEnabled, vectorStoreId, mcpServerLabel, mcpServerUrl, imageGeneration, imageAnalysis, imageUrl } = await request.json();
 
     const apiKey = process.env.OPENAI_API_KEY
     // const url = 'http://localhost:8080/rag/qa-over-pdf' 
@@ -59,6 +60,34 @@ export async function POST(request: Request) {
             ],
             previous_response_id: previousResponseId ? previousResponseId : null
         });
+    } else if (imageGeneration == true) {
+        bodyContent = JSON.stringify({
+            model: model,
+            input: content,
+            tools: [
+                {
+                    type: 'image_generation'
+                }
+            ],
+            previous_response_id: previousResponseId ? previousResponseId : null
+        });
+    } else if (imageAnalysis == true) {
+        bodyContent = JSON.stringify({
+            model: model,
+            input: [
+                {
+                    role: role,
+                    content: [
+                        { type: "input_text", text: content },
+                        {
+                            type: "input_image",
+                            image_url: imageUrl,
+                        },
+                    ],
+                }
+            ],
+            previous_response_id: previousResponseId ? previousResponseId : null
+        });
     } else {
         bodyContent = JSON.stringify({
             model: model,
@@ -83,6 +112,18 @@ export async function POST(request: Request) {
             body: bodyContent,
         })
         const data = await response.json()
+
+        // if (imageGeneration) {
+        //     const imageData = data.output
+        //         .filter((output) => output.type === "image_generation_call")
+        //         .map((output) => output.result);
+
+        //     if (imageData.length > 0) {
+        //         const imageBase64 = imageData[0];
+        //         fs.writeFile("./public/temp.png", Buffer.from(imageBase64, "base64"));
+        //     }
+        // }
+
         // res.status(200).json({ data })
         return NextResponse.json(data);
     } catch (error) {

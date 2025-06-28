@@ -23,7 +23,10 @@ export interface ChatMessage {
   vectorStoreId?: string,
   mcpServerLabel?: string,
   mcpServerUrl?: string,
-  timestamp?: string
+  timestamp?: string,
+  imageGeneration?: boolean,
+  imageAnalysis?: boolean,
+  imageUrl?: string
 }
 
 export interface ChatHistory {
@@ -179,7 +182,10 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
         vectorStoreId: mapData.vectorStoreId,
         mcpServerLabel: mapData.mcpServerLabel,
         mcpServerUrl: mapData.mcpServerUrl,
-        timestamp: getCurrentTimestamp()
+        timestamp: getCurrentTimestamp(),
+        imageGeneration: mapData.imageGeneration,
+        imageAnalysis: mapData.imageAnalysis,
+        imageUrl: mapData.imageUrl
       }
       const newMessages = [...messages, newMessage]
 
@@ -203,6 +209,10 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
         // replyText = await convertMarkdownToHtml(JSON.stringify(data.output[1].content[0].text));
         console.log('mcpServerLabel | reply is: ' + data.output[1].content[0].text)
         replyText = data.output[1].content[0].text;
+      } else if (mapData.imageGeneration) {
+        // replyText = await convertMarkdownToHtml(JSON.stringify(data.output[1].content[0].text));
+        console.log('imageGeneration | reply is: ' + data.output[1].content[0].text)
+        replyText = data.output[1].content[0].text;
       } else {
         console.log('default | reply is: ' + data.output[0].content[0].text)
         replyText = data.output[0].content[0].text
@@ -220,7 +230,8 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
         vectorStoreId: mapData.vectorStoreId ? mapData.vectorStoreId : null,
         mcpServerLabel: mapData.mcpServerLabel ? mapData.mcpServerLabel : null,
         mcpServerUrl: mapData.mcpServerUrl ? mapData.mcpServerUrl : null,
-        timestamp: getCurrentTimestamp()
+        timestamp: getCurrentTimestamp(),
+        imageGeneration: mapData.imageGeneration
       }
       // console.log('assistant message is: ' + JSON.stringify(responseMessage))
 
