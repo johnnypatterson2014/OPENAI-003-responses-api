@@ -1,25 +1,13 @@
 import { NextResponse } from 'next/server';
 import { ChatMessage } from '@/components/ChatMessageWrapper'
-// import { NextApiRequest, NextApiResponse } from 'next'
 import { promises as fs } from "fs";
 
 export async function POST(request: Request) {
-    console.log('Entered api/test... ');
-    // const requestBodyJson = JSON.stringify(req.body);
-    // const data = await req.json();
+    console.log('Entered /api/openai/chat/route.ts');
     const { content, role, model, temperature, previousResponseId, websearchEnabled, vectorStoreId, mcpServerLabel, mcpServerUrl, imageGeneration, imageAnalysis, imageUrl } = await request.json();
 
     const apiKey = process.env.OPENAI_API_KEY
-    // const url = 'http://localhost:8080/rag/qa-over-pdf' 
     const url = 'https://api.openai.com/v1/responses'
-
-    // "tools": [{ "type": "web_search_preview" }],
-
-    // "tools": [{
-    //   "type": "file_search",
-    //   "vector_store_ids": ["vs_1234567890"],
-    //   "max_num_results": 20
-    // }],
 
     let bodyContent = '';
     if (mcpServerLabel) {
@@ -129,13 +117,4 @@ export async function POST(request: Request) {
     } catch (error) {
         // TODO - log error
     }
-
-
-    // return NextResponse.json({
-    //     role: 'assistant',
-    //     content: question
-    // });
-    // const response = await fetch('https://api.example.com/data');
-    // const data = await response.json();
-    // res.status(200).json(data);
 }

@@ -22,7 +22,7 @@ export default function Home() {
 
             <ChatMessageWrapper messagesArrayStub={messagesArrayStub} llmResponseListStub={llmResponseListStub}>
 
-                <div className="grid grid-cols-2 gap-[15px] mb-[15px]">
+                <div className="grid grid-cols-2 gap-[15px] mb-[15px] mt-[50px]">
 
                     <div className="ml-[15px] fesk-card">
 

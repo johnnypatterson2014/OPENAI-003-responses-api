@@ -11,6 +11,7 @@
   "dependencies": {
     "@apideck/components": "^0.12.21",
     "@npmcli/fs": "^4.0.0",
+    "@openai/agents": "^0.0.10",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-popover": "^1.1.6",
