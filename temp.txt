@@ -1,2 +1,2 @@
-imageAnalysis?: boolean,
-  imageUrl?: string
+
+

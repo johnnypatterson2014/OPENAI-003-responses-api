@@ -73,19 +73,7 @@ const ChatHistoryPersistence = () => {
 
           <div>
 
-            <FeskFieldset label='session name' buttons={saveButtonJsx} align='items-center'>
-              <Input
-                id="chat_session_name"
-                name="chat_session_name"
-                type="text"
-                className="bg-zinc-900 border border-zinc-600 text-sm flex-1 text-zinc-300"
-                placeholder='Name for chat session'
-              />
-            </FeskFieldset>
 
-            <FeskFieldset label='&nbsp;' buttons='&nbsp;' align='items-center'>
-              <p>&nbsp;</p>
-            </FeskFieldset>
 
 
             <FeskFieldsetJustifyEnd label='&nbsp;' buttons='&nbsp;' align='justify-end'>
@@ -146,6 +134,21 @@ const ChatHistoryPersistence = () => {
 
             </FeskFieldset>
 
+
+            <div className='m-[10px]'>
+              &nbsp;
+            </div>
+
+
+            <FeskFieldset label='session name' buttons={saveButtonJsx} align='items-center'>
+              <Input
+                id="chat_session_name"
+                name="chat_session_name"
+                type="text"
+                className="bg-zinc-900 border border-zinc-600 text-sm flex-1 text-zinc-300"
+                placeholder='Name for chat session'
+              />
+            </FeskFieldset>
 
           </div>
 

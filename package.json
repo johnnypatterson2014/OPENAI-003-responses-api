@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@apideck/components": "^0.12.21",
+    "@langchain/core": "^0.3.62",
+    "@langchain/openai": "^0.5.16",
     "@npmcli/fs": "^4.0.0",
     "@openai/agents": "^0.0.10",
     "@radix-ui/react-dialog": "^1.1.6",
@@ -25,6 +27,7 @@
     "fs": "^0.0.1-security",
     "highlight.js": "^11.11.1",
     "katex": "^0.16.22",
+    "langsmith": "^0.3.38",
     "lucide-react": "^0.441.0",
     "mysql2": "^3.14.1",
     "next": "^15.2.3",

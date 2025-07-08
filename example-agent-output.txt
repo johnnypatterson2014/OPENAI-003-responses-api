@@ -1,0 +1,206 @@
+
+  const input = JSON.stringify(response.input) + '\n\n'
+  const history = JSON.stringify(response.history) + '\n\n'
+  const output = JSON.stringify(response.output) + '\n\n'
+  const newItems = JSON.stringify(response.newItems) + '\n\n'
+  const rawResponses = JSON.stringify(response.rawResponses) + '\n\n'
+  const finalOutput = JSON.stringify(response.finalOutput) + '\n\n'
+
+input:
+"tell me a joke about dogs."
+
+history:
+[
+    {
+        "type": "message",
+        "role": "user",
+        "content": "tell me a joke about dogs."
+    },
+    {
+        "id": "msg_6869bfcdbbe48199ac049f07270e82060a72a9b628f95a11",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+            {
+                "type": "output_text",
+                "text": "Sure! Here’s a dog joke for you:\n\nWhy did the dog sit in the shade?\n\nBecause he didn’t want to be a hot dog! 🌭🐶",
+                "annotations": [],
+                "logprobs": []
+            }
+        ],
+        "status": "completed",
+        "providerData": {}
+    }
+]
+
+output:
+[
+    {
+        "id": "msg_6869bfcdbbe48199ac049f07270e82060a72a9b628f95a11",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+            {
+                "type": "output_text",
+                "text": "Sure! Here’s a dog joke for you:\n\nWhy did the dog sit in the shade?\n\nBecause he didn’t want to be a hot dog! 🌭🐶",
+                "annotations": [],
+                "logprobs": []
+            }
+        ],
+        "status": "completed",
+        "providerData": {}
+    }
+]
+
+newItems:
+[
+    {
+        "type": "message_output_item",
+        "rawItem": {
+            "id": "msg_6869bfcdbbe48199ac049f07270e82060a72a9b628f95a11",
+            "type": "message",
+            "role": "assistant",
+            "content": [
+                {
+                    "type": "output_text",
+                    "text": "Sure! Here’s a dog joke for you:\n\nWhy did the dog sit in the shade?\n\nBecause he didn’t want to be a hot dog! 🌭🐶",
+                    "annotations": [],
+                    "logprobs": []
+                }
+            ],
+            "status": "completed",
+            "providerData": {}
+        },
+        "agent": {
+            "name": "Assistant"
+        }
+    }
+]
+
+rawResponses:
+[
+    {
+        "usage": {
+            "requests": 1,
+            "inputTokens": 23,
+            "outputTokens": 35,
+            "totalTokens": 58,
+            "inputTokensDetails": [
+                {
+                    "cached_tokens": 0
+                }
+            ],
+            "outputTokensDetails": [
+                {
+                    "reasoning_tokens": 0
+                }
+            ]
+        },
+        "output": [
+            {
+                "id": "msg_6869bfcdbbe48199ac049f07270e82060a72a9b628f95a11",
+                "type": "message",
+                "role": "assistant",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "text": "Sure! Here’s a dog joke for you:\n\nWhy did the dog sit in the shade?\n\nBecause he didn’t want to be a hot dog! 🌭🐶",
+                        "annotations": [],
+                        "logprobs": []
+                    }
+                ],
+                "status": "completed",
+                "providerData": {}
+            }
+        ],
+        "responseId": "resp_6869bfcd66348199946fb5c85bb010cd0a72a9b628f95a11",
+        "providerData": {
+            "id": "resp_6869bfcd66348199946fb5c85bb010cd0a72a9b628f95a11",
+            "object": "response",
+            "created_at": 1751760845,
+            "status": "completed",
+            "background": false,
+            "error": null,
+            "incomplete_details": null,
+            "instructions": "You are a helpful assistant",
+            "max_output_tokens": null,
+            "max_tool_calls": null,
+            "model": "gpt-4.1-2025-04-14",
+            "output": [
+                {
+                    "id": "msg_6869bfcdbbe48199ac049f07270e82060a72a9b628f95a11",
+                    "type": "message",
+                    "status": "completed",
+                    "content": [
+                        {
+                            "type": "output_text",
+                            "annotations": [],
+                            "logprobs": [],
+                            "text": "Sure! Here’s a dog joke for you:\n\nWhy did the dog sit in the shade?\n\nBecause he didn’t want to be a hot dog! 🌭🐶"
+                        }
+                    ],
+                    "role": "assistant"
+                }
+            ],
+            "parallel_tool_calls": true,
+            "previous_response_id": null,
+            "reasoning": {
+                "effort": null,
+                "summary": null
+            },
+            "service_tier": "default",
+            "store": true,
+            "temperature": 1,
+            "text": {
+                "format": {
+                    "type": "text"
+                }
+            },
+            "tool_choice": "auto",
+            "tools": [],
+            "top_logprobs": 0,
+            "top_p": 1,
+            "truncation": "disabled",
+            "usage": {
+                "input_tokens": 23,
+                "input_tokens_details": {
+                    "cached_tokens": 0
+                },
+                "output_tokens": 35,
+                "output_tokens_details": {
+                    "reasoning_tokens": 0
+                },
+                "total_tokens": 58
+            },
+            "user": null,
+            "metadata": {},
+            "output_text": "Sure! Here’s a dog joke for you:\n\nWhy did the dog sit in the shade?\n\nBecause he didn’t want to be a hot dog! 🌭🐶"
+        }
+    }
+]
+
+
+finalOutput:
+"Sure! Here’s a dog joke for you:\n\nWhy did the dog sit in the shade?\n\nBecause he didn’t want to be a hot dog! 🌭🐶"
+
+
+
+------------
+
+"When did sharks first appear?"
+
+[{"type":"message","role":"user","content":"When did sharks first appear?"},{"id":"msg_6869c276090c8199b95d8b5c11949ea7000a83627c9f3b7b","type":"message","role":"assistant","content":[{"type":"output_text","text":"Sharks first appeared about **450 million years ago**, during the **Late Ordovician Period**. This means they existed *before* the first dinosaurs, trees, and even many land animals. Early sharks looked quite different from modern species, but their basic body plan—cartilaginous skeletons and streamlined shapes—has remained surprisingly consistent.\n\n**Key context:**\n- **Fossil evidence:** The oldest confirmed shark fossils are tiny scales (dermal denticles), with more recognizably \"shark-like\" teeth and spines appearing about 420 million years ago in the Silurian Period.\n- **Evolutionary significance:** Sharks are among the oldest surviving vertebrate lineages. They survived several mass extinctions that wiped out many other life forms.\n- **Modern diversity:** Today, sharks are a diverse group of cartilaginous fish, with over 500 species ranging from small deep-sea sharks to the whale shark.\n\n**Summary:**  \nSharks first appeared around 450 million years ago, making them one of the oldest groups of jawed vertebrates on Earth.","annotations":[],"logprobs":[]}],"status":"completed","providerData":{}}]
+
+[{"id":"msg_6869c276090c8199b95d8b5c11949ea7000a83627c9f3b7b","type":"message","role":"assistant","content":[{"type":"output_text","text":"Sharks first appeared about **450 million years ago**, during the **Late Ordovician Period**. This means they existed *before* the first dinosaurs, trees, and even many land animals. Early sharks looked quite different from modern species, but their basic body plan—cartilaginous skeletons and streamlined shapes—has remained surprisingly consistent.\n\n**Key context:**\n- **Fossil evidence:** The oldest confirmed shark fossils are tiny scales (dermal denticles), with more recognizably \"shark-like\" teeth and spines appearing about 420 million years ago in the Silurian Period.\n- **Evolutionary significance:** Sharks are among the oldest surviving vertebrate lineages. They survived several mass extinctions that wiped out many other life forms.\n- **Modern diversity:** Today, sharks are a diverse group of cartilaginous fish, with over 500 species ranging from small deep-sea sharks to the whale shark.\n\n**Summary:**  \nSharks first appeared around 450 million years ago, making them one of the oldest groups of jawed vertebrates on Earth.","annotations":[],"logprobs":[]}],"status":"completed","providerData":{}}]
+
+[{"type":"message_output_item","rawItem":{"id":"msg_6869c276090c8199b95d8b5c11949ea7000a83627c9f3b7b","type":"message","role":"assistant","content":[{"type":"output_text","text":"Sharks first appeared about **450 million years ago**, during the **Late Ordovician Period**. This means they existed *before* the first dinosaurs, trees, and even many land animals. Early sharks looked quite different from modern species, but their basic body plan—cartilaginous skeletons and streamlined shapes—has remained surprisingly consistent.\n\n**Key context:**\n- **Fossil evidence:** The oldest confirmed shark fossils are tiny scales (dermal denticles), with more recognizably \"shark-like\" teeth and spines appearing about 420 million years ago in the Silurian Period.\n- **Evolutionary significance:** Sharks are among the oldest surviving vertebrate lineages. They survived several mass extinctions that wiped out many other life forms.\n- **Modern diversity:** Today, sharks are a diverse group of cartilaginous fish, with over 500 species ranging from small deep-sea sharks to the whale shark.\n\n**Summary:**  \nSharks first appeared around 450 million years ago, making them one of the oldest groups of jawed vertebrates on Earth.","annotations":[],"logprobs":[]}],"status":"completed","providerData":{}},"agent":{"name":"History Tutor"}}]
+
+[{"usage":{"requests":1,"inputTokens":31,"outputTokens":223,"totalTokens":254,"inputTokensDetails":[{"cached_tokens":0}],"outputTokensDetails":[{"reasoning_tokens":0}]},"output":[{"id":"msg_6869c276090c8199b95d8b5c11949ea7000a83627c9f3b7b","type":"message","role":"assistant","content":[{"type":"output_text","text":"Sharks first appeared about **450 million years ago**, during the **Late Ordovician Period**. This means they existed *before* the first dinosaurs, trees, and even many land animals. Early sharks looked quite different from modern species, but their basic body plan—cartilaginous skeletons and streamlined shapes—has remained surprisingly consistent.\n\n**Key context:**\n- **Fossil evidence:** The oldest confirmed shark fossils are tiny scales (dermal denticles), with more recognizably \"shark-like\" teeth and spines appearing about 420 million years ago in the Silurian Period.\n- **Evolutionary significance:** Sharks are among the oldest surviving vertebrate lineages. They survived several mass extinctions that wiped out many other life forms.\n- **Modern diversity:** Today, sharks are a diverse group of cartilaginous fish, with over 500 species ranging from small deep-sea sharks to the whale shark.\n\n**Summary:**  \nSharks first appeared around 450 million years ago, making them one of the oldest groups of jawed vertebrates on Earth.","annotations":[],"logprobs":[]}],"status":"completed","providerData":{}}],"responseId":"resp_6869c275b060819993cf7455d0cbf1cd000a83627c9f3b7b","providerData":{"id":"resp_6869c275b060819993cf7455d0cbf1cd000a83627c9f3b7b","object":"response","created_at":1751761525,"status":"completed","background":false,"error":null,"incomplete_details":null,"instructions":"You provide assistance with historical queries. Explain important events and context clearly.","max_output_tokens":null,"max_tool_calls":null,"model":"gpt-4.1-2025-04-14","output":[{"id":"msg_6869c276090c8199b95d8b5c11949ea7000a83627c9f3b7b","type":"message","status":"completed","content":[{"type":"output_text","annotations":[],"logprobs":[],"text":"Sharks first appeared about **450 million years ago**, during the **Late Ordovician Period**. This means they existed *before* the first dinosaurs, trees, and even many land animals. Early sharks looked quite different from modern species, but their basic body plan—cartilaginous skeletons and streamlined shapes—has remained surprisingly consistent.\n\n**Key context:**\n- **Fossil evidence:** The oldest confirmed shark fossils are tiny scales (dermal denticles), with more recognizably \"shark-like\" teeth and spines appearing about 420 million years ago in the Silurian Period.\n- **Evolutionary significance:** Sharks are among the oldest surviving vertebrate lineages. They survived several mass extinctions that wiped out many other life forms.\n- **Modern diversity:** Today, sharks are a diverse group of cartilaginous fish, with over 500 species ranging from small deep-sea sharks to the whale shark.\n\n**Summary:**  \nSharks first appeared around 450 million years ago, making them one of the oldest groups of jawed vertebrates on Earth."}],"role":"assistant"}],"parallel_tool_calls":true,"previous_response_id":null,"reasoning":{"effort":null,"summary":null},"service_tier":"default","store":true,"temperature":1,"text":{"format":{"type":"text"}},"tool_choice":"auto","tools":[],"top_logprobs":0,"top_p":1,"truncation":"disabled","usage":{"input_tokens":31,"input_tokens_details":{"cached_tokens":0},"output_tokens":223,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":254},"user":null,"metadata":{},"output_text":"Sharks first appeared about **450 million years ago**, during the **Late Ordovician Period**. This means they existed *before* the first dinosaurs, trees, and even many land animals. Early sharks looked quite different from modern species, but their basic body plan—cartilaginous skeletons and streamlined shapes—has remained surprisingly consistent.\n\n**Key context:**\n- **Fossil evidence:** The oldest confirmed shark fossils are tiny scales (dermal denticles), with more recognizably \"shark-like\" teeth and spines appearing about 420 million years ago in the Silurian Period.\n- **Evolutionary significance:** Sharks are among the oldest surviving vertebrate lineages. They survived several mass extinctions that wiped out many other life forms.\n- **Modern diversity:** Today, sharks are a diverse group of cartilaginous fish, with over 500 species ranging from small deep-sea sharks to the whale shark.\n\n**Summary:**  \nSharks first appeared around 450 million years ago, making them one of the oldest groups of jawed vertebrates on Earth."}}]
+
+"Sharks first appeared about **450 million years ago**, during the **Late Ordovician Period**. This means they existed *before* the first dinosaurs, trees, and even many land animals. Early sharks looked quite different from modern species, but their basic body plan—cartilaginous skeletons and streamlined shapes—has remained surprisingly consistent.\n\n**Key context:**\n- **Fossil evidence:** The oldest confirmed shark fossils are tiny scales (dermal denticles), with more recognizably \"shark-like\" teeth and spines appearing about 420 million years ago in the Silurian Period.\n- **Evolutionary significance:** Sharks are among the oldest surviving vertebrate lineages. They survived several mass extinctions that wiped out many other life forms.\n- **Modern diversity:** Today, sharks are a diverse group of cartilaginous fish, with over 500 species ranging from small deep-sea sharks to the whale shark.\n\n**Summary:**  \nSharks first appeared around 450 million years ago, making them one of the oldest groups of jawed vertebrates on Earth."
+
+
+---------------------
+
+
+
