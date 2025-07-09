@@ -19,10 +19,9 @@ drop database feskDb;
 drop table ChatMessageHistory;
 
 CREATE TABLE ChatMessageHistory (
-    id BIGINT UNSIGNED PRIMARY KEY NOT NULL,
+    id VARCHAR(40) PRIMARY KEY NOT NULL,
     name VARCHAR(50) NOT NULL,
-    messages JSON,
-    llmResponses JSON
+    traceBody JSON
 );
 
 
@@ -36,5 +35,15 @@ INSERT INTO ChatMessageHistory VALUES (2, 'myTestName2', '{ "test": "value3"}', 
 SELECT * FROM feskDb.ChatMessageHistory where name = 'myTestName';
 
 DELETE FROM feskDb.ChatMessageHistory WHERE id=?;
+
+
+--------------
+
+
+CREATE TABLE LangsmithTraces (
+    id VARCHAR(40) PRIMARY KEY NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    traceBody JSON
+);
 
 
