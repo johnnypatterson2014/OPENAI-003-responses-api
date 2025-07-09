@@ -1,0 +1,149 @@
+'use client';
+
+import { ReactNode } from 'react'
+import { Input } from "@/components/ui/input";
+import { chatMessages } from '@/components/ChatMessageWrapper'
+import FeskButton3 from '@/components/FeskButton3'
+import { TraceTreeItem } from '@/config/FeskConstants'
+import FeskDrawer from '@/components/FeskDrawer';
+import FeskModal from '@/components/FeskModal'
+import JsonResponseObject from '@/components/JsonResponseObject'
+import { text } from 'stream/consumers';
+import { useState } from 'react'
+
+export default function TraceItemComponent({ item, traceList }: { item: TraceTreeItem, traceList: any[] }) {
+  const [content, setContent] = useState('no output yet')
+
+  //     trace_id: string
+  //     name?: string
+  //     agent_name?: string
+  //     input?: string
+  //     output?: string
+  //     child_ids?: string[]
+  //     parent_id?: string
+  //     children?: TraceTreeItem[]
+  //     traceBody?: any
+
+  const handleViewJson = async (trace_id: string, e?: any) => {
+    e?.preventDefault()
+    const foundItem = await traceList.find(item => item.id === trace_id);
+    const textContent = JSON.stringify(foundItem.traceBody, null, 2)
+    // alert(textContent);
+    // const myDiv = document.getElementById('modal-content-' + trace_id);
+    // alert(myDiv);
+    setContent(textContent)
+    // myDiv.value = textContent;
+    document.getElementById('modal-' + trace_id).showModal()
+  }
+
+  const isRunnableSequence: boolean = item.name === 'RunnableSequence'
+  const isChatOpenAI: boolean = item.name === 'ChatOpenAI'
+  const isCrewAgentParser: boolean = item.name === 'CrewAgentParser'
+  const isCrewAgentExecutor: boolean = item.name === 'CrewAgentExecutor'
+
+
+  return (
+    <>
+
+      <FeskDrawer name={`${item.name}`}>
+        <div className='grid grid-cols-1 m-[10px] fesk-item'>
+
+          <div className='flex items-start m-[10px]'>
+            <div className='flex-1 grow'>
+
+              {isCrewAgentExecutor && (
+                <div>
+                  input: <br />
+                  {item.input} <br /><br />
+                </div>
+              )}
+
+              {isChatOpenAI && (
+                <div>
+                  prompt input: <br />
+                  {item.traceBody.inputs.messages[0][0].kwargs.content} <br /><br />
+
+                  LLM output: <br />
+                  {item.traceBody.outputs.generations[0].text} <br /><br />
+                </div>
+              )}
+
+              {isCrewAgentParser && (
+                <div>
+                  result from calling LLM: <br /><br />
+
+                  output: <br />
+                  {item.traceBody.outputs.output.log} <br /><br />
+
+                  type: <br />
+                  {item.traceBody.outputs.output.type} <br /><br />
+
+                  tool: <br />
+                  {item.traceBody.outputs.output.tool} <br /><br />
+
+                  tool_input: <br />
+                  {item.traceBody.outputs.output.tool_input} <br /><br />
+
+                </div>
+              )}
+
+
+            </div>
+            <div className='flex-none'>
+
+              <div className="dropdown dropdown-top dropdown-end">
+                <div tabIndex={0} role="button" className="btn btn-xs bg-zinc-800 hover:bg-zinc-600 border border-zinc-600 text-zinc-200 hover:text-zinc-900 mt-[5px]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#ffffff" d="M12 6a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4z" /></svg>
+                </div>
+                <ul tabIndex={0} className="dropdown-content text-xs fesk-menu menu bg-zinc-800 z-1 w-50 mt-[5px] mb-[2px] ml-[2px] mr-[2px] shadow-sm">
+
+                  <li className='fesk-menu-li'><a onClick={() => handleViewJson(item.trace_id)}>view json</a></li>
+
+                </ul>
+              </div>
+
+
+            </div>
+          </div>
+
+
+          {item.children?.map((child, i) => {
+
+            return (
+
+              <div className='m-[5px] fesk-item' key={`${item.trace_id}-child-${i}`}>
+                {/* Child {i + 1} of {item.children?.length + 1}: */}
+                <TraceItemComponent item={child} traceList={traceList} />
+
+              </div>
+
+            )
+
+
+          }
+          )
+          }
+        </div>
+
+        <FeskModal id={`modal-${item.trace_id}`}>
+
+          <label className='fesk-card-h2'>JSON Trace Object</label>
+          <span>
+            <pre className='text-xs'>
+              <div id={`modal-content-${item.trace_id}`}>
+                {content}
+              </div>
+            </pre>
+          </span>
+
+        </FeskModal>
+
+      </FeskDrawer>
+
+
+
+
+    </>
+  );
+
+}

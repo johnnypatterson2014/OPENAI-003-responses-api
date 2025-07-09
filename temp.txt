@@ -1,2 +1,10 @@
 
 
+{
+                    (item.traceBody.outputs && item.traceBody.outputs.output) && (
+                      <div>
+                        <pre>{JSON.stringify(item.traceBody.outputs.output, null, 2)}</pre> <br /><br />
+                      </div>
+                    )
+
+                    }
