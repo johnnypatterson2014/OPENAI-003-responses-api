@@ -14,6 +14,7 @@ import { useState } from 'react'
 export default function TraceItemComponent({ item, traceList }: { item: TraceTreeItem, traceList: any[] }) {
   const [content, setContent] = useState('no output yet')
 
+
   //     trace_id: string
   //     name?: string
   //     agent_name?: string
@@ -40,6 +41,22 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
   const isChatOpenAI: boolean = item.name === 'ChatOpenAI'
   const isCrewAgentParser: boolean = item.name === 'CrewAgentParser'
   const isCrewAgentExecutor: boolean = item.name === 'CrewAgentExecutor'
+  const isPromptTemplate: boolean = item.name === 'PromptTemplate'
+  const isRunnableParallel: boolean = item.name === 'RunnableParallel<input,tools,tool_names,agent_scratchpad>'
+  let isIntermediateSteps = false;
+  let intermediateStepsString = 'none'
+
+  if (isRunnableSequence || isRunnableParallel) {
+    try {
+      const intermediate_steps: any[] = item.traceBody.inputs.intermediate_steps
+      if (intermediate_steps.length > 0) {
+        isIntermediateSteps = true;
+        intermediateStepsString = JSON.stringify(intermediate_steps, null, 2)
+      }
+    } finally {
+
+    }
+  }
 
 
   return (
@@ -51,6 +68,13 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
           <div className='flex items-start m-[10px]'>
             <div className='flex-1 grow'>
 
+              {isRunnableSequence && (
+                <div>
+                  intermediate_steps: <br />
+                  {intermediateStepsString} <br /><br />
+                </div>
+              )}
+
               {isCrewAgentExecutor && (
                 <div>
                   input: <br />
@@ -58,11 +82,15 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
                 </div>
               )}
 
+              {isPromptTemplate && (
+                <div>
+                  generated prompt: <br />
+                  {item.traceBody.outputs.output.text} <br /><br />
+                </div>
+              )}
+
               {isChatOpenAI && (
                 <div>
-                  prompt input: <br />
-                  {item.traceBody.inputs.messages[0][0].kwargs.content} <br /><br />
-
                   LLM output: <br />
                   {item.traceBody.outputs.generations[0].text} <br /><br />
                 </div>
@@ -84,6 +112,13 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
                   tool_input: <br />
                   {item.traceBody.outputs.output.tool_input} <br /><br />
 
+                </div>
+              )}
+
+              {isRunnableParallel && (
+                <div>
+                  intermediate_steps: <br />
+                  {intermediateStepsString} <br /><br />
                 </div>
               )}
 

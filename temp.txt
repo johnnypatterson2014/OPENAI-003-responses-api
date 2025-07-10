@@ -1,10 +1,121 @@
+  
 
 
-{
-                    (item.traceBody.outputs && item.traceBody.outputs.output) && (
-                      <div>
-                        <pre>{JSON.stringify(item.traceBody.outputs.output, null, 2)}</pre> <br /><br />
-                      </div>
-                    )
+Get root traces for session (session = project = "fesk-crewai-001")
+  - session_id: c071e259-761d-41b6-9c39-b89820152dcd
+  - POST https://api.smith.langchain.com/runs/query
+    {"session":["c071e259-761d-41b6-9c39-b89820152dcd"],"start_time":"2025-06-26T22:05:05.846Z","filter":"eq(is_root, true)","search_filter":"eq(is_root, true)","select":["status","name","error","start_time","start_time","end_time","in_dataset","last_queued_at","total_tokens","total_cost","start_time","first_token_time","tags","extra","reference_example_id","inputs_preview","outputs_preview"],"limit":30,"skip_prev_cursor":true}
+    result:
+     - will get all CrewAgentExecutor runs (root runs, ie. no parent_ids)
+     
+     - "trace_id": "f690f409-5236-4aab-a0b3-c07914e67940",
+       "trace_id": "59ec4c91-2d01-4baa-988d-602270f06151",
+       "trace_id": "5fc8a385-8a52-4c15-a907-eb73c905cff1",
+       "trace_id": "38751a67-b4f8-4678-b230-1cf27028e773",
+       "trace_id": "ee782498-586b-4b4c-9d70-9d313041ccc2",
+       "trace_id": "b4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+       "trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86", // known one
 
-                    }
+        *** use runs (not traces) - https://api.smith.langchain.com/runs/f690f409-5236-4aab-a0b3-c07914e67940 : ie. not fetch('/api/langsmith/trace/' + traceId
+
+
+
+from langsmith UI:
+  CrewAgentExecutor
+  f056bb6a-d18b-441e-91eb-cdb842154e86
+  
+
+
+
+"id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+
+social media manager:
+run_id: 17e87650-ef1a-4286-987a-1037d31567d2
+trace_id: 5fc8a385-8a52-4c15-a907-eb73c905cff1
+
+"parent_run_ids": [
+        "5fc8a385-8a52-4c15-a907-eb73c905cff1", CrewAgentExecutor!!! "parent_run_ids": [], 
+        "1dbd16d4-0514-46e0-98f3-7fc3fe39c016"
+    ],
+
+    "direct_child_run_ids": [
+        "1dbd16d4-0514-46e0-98f3-7fc3fe39c016"
+    ],
+
+    5fc8a385-8a52-4c15-a907-eb73c905cff1
+
+    "direct_child_run_ids": [
+        "17e87650-ef1a-4286-987a-1037d31567d2",
+        "190bba69-c610-44c5-98cd-48ade2e88b35",
+        "19a8f361-57e0-4cdf-8e8e-3949a26378ac",
+        "4f1035b5-48cb-40c3-98c3-4b93f2f6bf75"
+    ],
+
+
+  postman:
+  https://api.smith.langchain.com/runs/f056bb6a-d18b-441e-91eb-cdb842154e86
+      "direct_child_run_ids": [
+        "2a40aad6-0c65-4ae9-b65e-f01b625192f1",
+        "8735146b-ecec-4415-8489-b6cacf5419e8",
+        "c08cebb9-0fe2-4092-9d03-f8fb8e8ba45a",
+        "2ce21f0c-30a6-4bf4-9ee0-1435bfa1c0c1",
+        "8ee24220-5576-45ac-bc3e-b7316f9fd1e7"
+    ],
+
+8ee24220-5576-45ac-bc3e-b7316f9fd1e7:
+
+ "direct_child_run_ids": [
+        "8a044c58-7321-417f-9651-646c8cbef704",
+        "1b5a7563-c3fb-4523-8da1-2bdbc719785f",
+        "b95b2f9b-589c-42bc-aec8-995ffcb762c8",
+        "5a5309a1-6f17-4c6f-a29f-f8b2ba8b214a"
+    ],
+
+8a044c58-7321-417f-9651-646c8cbef704
+
+"direct_child_run_ids": [
+        "0de489bc-5062-4db3-bfbb-7bd5c8bfc98a",
+        "2445bc29-5dd4-45fb-a781-7f2743ddb892",
+        "9bbc274b-c653-4e1e-abae-a5a50e89ec9a",
+        "d85b964f-9900-4868-a8c6-cd345da85bd9"
+    ],
+
+
+c08cebb9-0fe2-4092-9d03-f8fb8e8ba45a:
+
+"direct_child_run_ids": [
+        "41b74fcc-062c-42f8-9b85-44fe00905b3e",
+        "1333cfa8-64f3-4ef3-a452-dcda8b4d2d95",
+        "9386f990-d8a3-4fc5-9b99-0d2f6678b92b",
+        "5ad956c8-33e9-4195-a25c-190db8b64ac6"
+    ],
+
+41b74fcc-062c-42f8-9b85-44fe00905b3e:
+
+"direct_child_run_ids": [
+        "81cdf085-4a64-44e6-8097-2aeac9e6317e",
+        "06860fb0-8a56-4b65-b096-1fe229bc99d8",
+        "ebcd2da3-e187-4ab5-960f-b971a9aadf5d",
+        "26b01644-0c1e-4814-9a41-1968789ace83"
+    ],
+
+
+2ce21f0c-30a6-4bf4-9ee0-1435bfa1c0c1:
+
+"direct_child_run_ids": [
+        "a5fffb24-1b1c-43d2-9582-c5ae5f5ecad6",
+        "5a85d703-87a2-4e76-acd1-ab781e7116bb",
+        "f26a53b3-cd3d-4651-8ec9-efcd6f96290a",
+        "be0d478d-51ea-4a1e-bd58-80e153c77de6"
+    ],
+
+a5fffb24-1b1c-43d2-9582-c5ae5f5ecad6:
+
+"direct_child_run_ids": [
+        "5a89b982-1c05-4273-a549-a1a3fb94431d",
+        "21c722a9-3a10-4a85-8116-966fd97b7757",
+        "8483222f-2e86-4fea-b9ac-482cee6d87a1",
+        "a071932b-7176-4187-9972-51b8c2f9a638"
+    ],
+
+const trace_id = 'f056bb6a-d18b-441e-91eb-cdb842154e86';

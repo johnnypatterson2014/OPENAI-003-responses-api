@@ -35,8 +35,8 @@ export default function Home() {
     const [traceList, setTraceList] = useState<any[]>([])
     const [traceTreeList, setTraceTreeList] = useState<TraceTreeItem[]>([])
     // const [isExistingTraces, setIsExistingTraces] = useState(false)
-    const [traceIdIgnoreList, setTraceIdIgnoreList] = useState<string[]>([])
-    let traceIdIgnoreListTemp: string[] = [];
+    // const [traceIdIgnoreList, setTraceIdIgnoreList] = useState<string[]>([])
+    // let traceIdIgnoreListTemp: string[] = [];
 
     const getLangsmithTraceById = async (trace_id: string) => {
         setIsLoadingAnswer(true);
@@ -44,8 +44,10 @@ export default function Home() {
         try {
             const foundItem = traceList.find(item => item.id === trace_id);
             if (foundItem) {
+                console.log('foundItem is in traceList. No need to call API to get the trace.')
                 return foundItem.traceBody;
             } else {
+                console.log('foundItem is NOT in traceList. Calling API to get the trace.')
                 data = await getLangsmithTrace(trace_id)
                 const mapOfData = {
                     id: trace_id,
@@ -67,20 +69,21 @@ export default function Home() {
         try {
             const data = await sendTracePersistenceRequest();
             setTraceList(data);
-            const foundItem = await traceList.find(item => item.id === trace_id);
-            await parseTraces(trace_id, foundItem)
+            // const foundItem = data.find(item => item.id === trace_id);
+            // await parseTraces(trace_id, foundItem)
             // setIsExistingTraces(true)
         } finally {
             setIsLoadingAnswer(false);
         }
+        alert('Successfully loaded traces from the DB.')
     }
 
-    const parseTraces = async (trace_id: string, foundItem: any, e?: any) => {
+    const parseTraces = async (e?: any) => {
         e?.preventDefault();
         setIsLoadingAnswer(true);
-        await foundItem
+        const foundItem = traceList.find(item => item.id === trace_id);
         console.log('trace_id: ' + trace_id)
-        console.log('direct_child_run_ids: ' + JSON.stringify(foundItem.child_ids, null, 2))
+        console.log('direct_child_run_ids: ' + JSON.stringify(foundItem.traceBody.direct_child_run_ids, null, 2))
 
         const rootTrace: TraceTreeItem = {
             trace_id: foundItem.id,
@@ -100,6 +103,8 @@ export default function Home() {
         //     children?: TraceTreeItem[]
         //     traceBody?: any
 
+        // const isRunnableParallel: boolean = rootTrace.name === 'RunnableParallel<input,tools,tool_names,agent_scratchpad>'
+
         if (rootTrace.child_ids) {
 
             const children: TraceTreeItem[] = []
@@ -117,50 +122,56 @@ export default function Home() {
         setTraceTreeList([rootTrace])
 
         setIsLoadingAnswer(false);
+        alert('Successfully parsed traces.')
     }
 
 
     const parseChildTraceRecursive = async (trace_id: string, parent_trace_id: string) => {
         console.log('-------------------- processing trace_id: ' + trace_id);
-        traceIdIgnoreListTemp = traceIdIgnoreList;
-        if (traceIdIgnoreListTemp.find(item => item === trace_id)) {
-            console.log('trace_id: ' + trace_id + ' is in the ignore list. Will skip.')
-            return null;
-        }
+
         let currentItem = await getLangsmithTraceById(trace_id)
         const traceName = currentItem.name;
-        const isAllowedName: boolean = traceName == 'RunnableSequence' || traceName == 'ChatOpenAI' || traceName == 'CrewAgentParser'
-        if (!isAllowedName) {
-            console.log('Name: ' + traceName + ' is not in the allowed list. Will skip.')
-            traceIdIgnoreListTemp.push(trace_id)
-            return null;
-        } else {
-            let currentTrace: TraceTreeItem = {
-                trace_id: trace_id,
-                parent_id: parent_trace_id,
-                name: currentItem.name,
-                child_ids: currentItem.direct_child_run_ids,
-                traceBody: currentItem
-            }
+        // const isAllowedName: boolean = traceName == 'RunnableSequence' || traceName == 'ChatOpenAI' || traceName == 'CrewAgentParser'
+        // const isAllowedName = true;
+        // if (!isAllowedName) {
+        //     console.log('Name: ' + traceName + ' is not in the allowed list. Will skip.')
+        //     // traceIdIgnoreListTemp.push(trace_id)
+        //     return null;
+        // } else {
 
-            if (currentTrace.child_ids) {
-                console.log('trace_id: ' + trace_id + ' has children. Performing recursive call.')
-                let childTraces: TraceTreeItem[] = []
-                for (const child_id of currentTrace.child_ids) {
-                    const childTrace = await parseChildTraceRecursive(child_id, trace_id)
-                    if (childTrace) {
-                        console.log('adding child: ' + child_id)
-                        childTraces.push(childTrace);
-                    }
+        const isRunnableParallel: boolean = traceName === 'RunnableParallel<input,tools,tool_names,agent_scratchpad>'
 
-                }
-                console.log('finished recursive loop for children for trace_id: ' + trace_id)
-                currentTrace.children = childTraces;
-            }
-            setTraceIdIgnoreList(traceIdIgnoreListTemp);
-            console.log('-------------------- finished processing for trace_id: ' + trace_id)
-            return currentTrace;
+
+        let currentTrace: TraceTreeItem = {
+            trace_id: trace_id,
+            parent_id: parent_trace_id,
+            name: currentItem.name,
+            // child_ids: currentItem.direct_child_run_ids,
+            traceBody: currentItem
         }
+
+        if (!isRunnableParallel) {
+            currentTrace.child_ids = currentItem.direct_child_run_ids
+        }
+
+        if (currentTrace.child_ids) {
+            console.log('trace_id: ' + trace_id + ' has children. Performing recursive call.')
+            let childTraces: TraceTreeItem[] = []
+            for (const child_id of currentTrace.child_ids) {
+                const childTrace = await parseChildTraceRecursive(child_id, trace_id)
+                if (childTrace) {
+                    console.log('adding child: ' + child_id)
+                    childTraces.push(childTrace);
+                }
+
+            }
+            console.log('finished recursive loop for children for trace_id: ' + trace_id)
+            currentTrace.children = childTraces;
+        }
+        // setTraceIdIgnoreList(traceIdIgnoreListTemp);
+        console.log('-------------------- finished processing for trace_id: ' + trace_id)
+        return currentTrace;
+        // }
 
     }
 
@@ -190,10 +201,18 @@ export default function Home() {
 
                                             <FeskFieldsetJustifyEnd label='&nbsp;' buttons='&nbsp;' align='justify-end'>
 
-                                                <div>
-                                                    <FeskButtonSecondary>
-                                                        <a onClick={getSavedTraces}>load root trace</a>
-                                                    </FeskButtonSecondary>
+                                                <div className='flex flex-row'>
+                                                    <div className='mr-[10px]'>
+                                                        <FeskButtonSecondary>
+                                                            <a onClick={getSavedTraces}>load traces from DB</a>
+                                                        </FeskButtonSecondary>
+                                                    </div>
+
+                                                    <div>
+                                                        <FeskButtonSecondary>
+                                                            <a onClick={parseTraces}>parse traces</a>
+                                                        </FeskButtonSecondary>
+                                                    </div>
                                                 </div>
 
                                                 {/* <div className='grid grid-cols-2'>

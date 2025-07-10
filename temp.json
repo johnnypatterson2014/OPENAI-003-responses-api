@@ -1,2492 +1,541 @@
 {
-    "id": "089a1fa2-8888-41fa-8ef0-64c447ff570b",
-    "name": "ChatOpenAI",
-    "tags": [
-        "seq:step:3"
-    ],
-    "error": null,
-    "extra": {
-        "options": {
-            "stop": [
-                "\nObservation"
-            ]
-        },
-        "runtime": {
-            "sdk": "langsmith-py",
-            "library": "langsmith",
-            "runtime": "python",
-            "platform": "Windows-10-10.0.26100-SP0",
-            "sdk_version": "0.1.104",
-            "runtime_version": "3.11.4",
-            "langchain_version": "0.1.20",
-            "py_implementation": "CPython",
-            "langchain_core_version": "0.1.52"
-        },
-        "metadata": {
-            "revision_id": "800fe4c",
-            "ls_run_depth": 2,
-            "LANGSMITH_PROJECT": "fesk-crewai-001",
-            "LANGSMITH_TRACING": "true",
-            "LANGSMITH_ENDPOINT": "https://api.smith.langchain.com"
-        },
-        "batch_size": 1,
-        "invocation_params": {
-            "n": 1,
-            "stop": [
-                "\nObservation"
-            ],
-            "_type": "openai-chat",
-            "model": "gpt-4-turbo-preview",
-            "stream": false,
-            "model_name": "gpt-4-turbo-preview",
-            "temperature": 0.7
-        }
-    },
-    "events": [
-        {
-            "name": "start",
-            "time": "2025-07-08T05:03:00.042887+00:00"
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:01.927478+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ""
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:01.943570+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "Thought",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "Thought",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "Thought"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:01.943570+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ":",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ":",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ":"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:01.991596+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " To",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " To",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " To"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:01.991596+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " begin",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " begin",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " begin"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.023839+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " crafting",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " crafting",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " crafting"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.023839+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " a",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " a",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " a"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.071048+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " report",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " report",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " report"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.071048+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " on",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " on",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " on"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.134689+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " Ag",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " Ag",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " Ag"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.134689+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "entic",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "entic",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "entic"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.168874+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " Behavior",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " Behavior",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " Behavior"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.168874+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ",",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ",",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ","
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.198463+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " I",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " I",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " I"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.198463+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " need",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " need",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " need"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.261493+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " to",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " to",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " to"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.271877+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " gather",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " gather",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " gather"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.293150+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " comprehensive",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " comprehensive",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " comprehensive"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.293150+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " information",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " information",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " information"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.324554+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " on",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " on",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " on"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.324554+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " the",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " the",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " the"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.340676+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " topic",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " topic",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " topic"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.340676+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ".",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ".",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "."
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.404085+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " This",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " This",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " This"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.404085+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " includes",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " includes",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " includes"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.457293+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " understanding",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " understanding",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " understanding"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.457293+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " its",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " its",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " its"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.537926+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " definition",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " definition",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " definition"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.539930+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ",",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ",",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ","
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.563253+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " key",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " key",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " key"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.567998+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " characteristics",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " characteristics",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " characteristics"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.595874+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ",",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ",",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ","
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.595874+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " its",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " its",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " its"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.690663+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " importance",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " importance",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " importance"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.690663+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " in",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " in",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " in"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.722494+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " psychology",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " psychology",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " psychology"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.722494+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ",",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ",",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ","
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.754550+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " and",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " and",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " and"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.754550+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " how",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " how",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " how"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.788386+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " it",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " it",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " it"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.788386+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "'s",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "'s",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "'s"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.896256+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " applied",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " applied",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " applied"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.896256+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " in",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " in",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " in"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.912420+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " various",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " various",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " various"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.928277+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " contexts",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " contexts",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " contexts"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.994537+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ".",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ".",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "."
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:02.994537+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " The",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " The",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " The"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.008689+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " first",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " first",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " first"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.008689+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " step",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " step",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " step"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.071705+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " is",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " is",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " is"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.071705+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " to",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " to",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " to"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.087668+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " use",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " use",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " use"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.103504+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " the",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " the",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " the"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.183112+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " tav",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " tav",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " tav"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.183112+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "ily",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "ily",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "ily"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.214852+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "_search",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "_search",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "_search"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.216864+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "_results",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "_results",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "_results"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.293560+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "_json",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "_json",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "_json"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.293560+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " to",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " to",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " to"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.309471+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " access",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " access",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " access"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.325180+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " reliable",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " reliable",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " reliable"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.325180+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " and",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " and",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " and"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.325180+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " up",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " up",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " up"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.424843+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "-to",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "-to",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "-to"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.424843+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "-date",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "-date",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "-date"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.452346+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " information",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " information",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " information"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.452346+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " on",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " on",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " on"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.564035+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " Ag",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " Ag",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " Ag"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.564035+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "entic",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "entic",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "entic"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.590839+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " Behavior",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " Behavior",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " Behavior"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.595310+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ".\n\n",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ".\n\n",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ".\n\n"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.618292+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "Action",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "Action",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "Action"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.618292+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ":",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ":",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ":"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.690416+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " tav",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " tav",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " tav"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.690416+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "ily",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "ily",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "ily"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.706381+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "_search",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "_search",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "_search"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.706381+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "_results",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "_results",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "_results"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.849160+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "_json",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "_json",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "_json"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.849160+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "\n",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "\n",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "\n"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.898279+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "Action",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "Action",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "Action"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.898279+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " Input",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " Input",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " Input"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.930929+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ":",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ":",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ":"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.930929+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " {\"",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " {\"",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " {\""
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.930929+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "query",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "query",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "query"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.930929+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "\":",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "\":",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "\":"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.978421+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " \"",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " \"",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " \""
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.978421+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "Ag",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "Ag",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "Ag"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:03.994313+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "entic",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "entic",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "entic"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:04.010452+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " Behavior",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " Behavior",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " Behavior"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:04.075807+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " definition",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " definition",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " definition"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:04.075807+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ",",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ",",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ","
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:04.149979+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " characteristics",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " characteristics",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " characteristics"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:04.157544+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": ",",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": ",",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": ","
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:04.163579+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": " importance",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": " importance",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": " importance"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:04.168103+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "\"}",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "\"}",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {},
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": null
-                },
-                "token": "\"}"
-            }
-        },
-        {
-            "name": "new_token",
-            "time": "2025-07-08T05:03:04.173349+00:00",
-            "kwargs": {
-                "chunk": {
-                    "text": "",
-                    "type": "ChatGenerationChunk",
-                    "message": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "name": null,
-                        "type": "AIMessageChunk",
-                        "content": "",
-                        "example": false,
-                        "tool_calls": [],
-                        "tool_call_chunks": [],
-                        "additional_kwargs": {},
-                        "response_metadata": {
-                            "finish_reason": "stop"
-                        },
-                        "invalid_tool_calls": []
-                    },
-                    "generation_info": {
-                        "finish_reason": "stop"
-                    }
-                },
-                "token": ""
-            }
-        },
-        {
-            "name": "end",
-            "time": "2025-07-08T05:03:04.173349+00:00"
-        }
-    ],
-    "inputs": {
-        "messages": [
-            [
-                {
-                    "id": [
-                        "langchain",
-                        "schema",
-                        "messages",
-                        "HumanMessage"
-                    ],
-                    "lc": 1,
-                    "type": "constructor",
-                    "kwargs": {
-                        "type": "human",
-                        "content": "You are Online Researcher. Your primary role is to function as an intelligent online research assistant, adept at scouring \n    the internet for the latest and most relevant trending stories across various sectors like politics, technology, \n    health, culture, and global events. You possess the capability to access a wide range of online news sources, \n    blogs, and social media platforms to gather real-time information.\nYour personal goal is: Research the topic online\nYou ONLY have access to the following tools, and should NEVER make up tools that are not listed here:\n\ntavily_search_results_json: A search engine optimized for comprehensive, accurate, and trusted results. Useful for when you need to answer questions about current events. Input should be a search query.\nprocess_search_tool: process_search_tool(url: str) -> str - Used to process content found on the internet.\nDelegate work to co-worker: Delegate work to co-worker(coworker: str, task: str, context: str) - Delegate a specific task to one of the following co-workers: [Blog Manager, Social Media Manager, Content Marketing Manager]\nThe input to this tool should be the coworker, the task you want them to do, and ALL necessary context to exectue the task, they know nothing about the task, so share absolute everything you know, don't reference things but instead explain them.\nAsk question to co-worker: Ask question to co-worker(coworker: str, question: str, context: str) - Ask a specific question to one of the following co-workers: [Blog Manager, Social Media Manager, Content Marketing Manager]\nThe input to this tool should be the coworker, the question you have for them, and ALL necessary context to ask the question properly, they know nothing about the question, so share absolute everything you know, don't reference things but instead explain them.\n\nUse the following format:\n\nThought: you should always think about what to do\nAction: the action to take, only one name of [tavily_search_results_json, process_search_tool, Delegate work to co-worker, Ask question to co-worker], just the name, exactly as it's written.\nAction Input: the input to the action, just a simple a python dictionary using \" to wrap keys and values.\nObservation: the result of the action\n\nOnce all necessary information is gathered:\n\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n\nCurrent Task: Write me a report on Agentic Behavior. After the research on Agentic Behavior,pass the \n    findings to the blog manager to generate the final blog article. Once done, pass it to the social media \n    manager to write a tweet on the subject.\n\nThis is the expect criteria for your final answer: Report on Agentic Behavior \n you MUST return the actual complete content as the final answer, not a summary.\n\nBegin! This is VERY important to you, use the tools available and give your best Final Answer, your job depends on it!\n\nThought: \n"
-                    }
+    "runs": [
+        {
+            "name": "CrewAgentExecutor",
+            "inputs": null,
+            "inputs_preview": "Can you send me the final draft of the blog post focused on embracing agentic behavior in customer success for review?\n\nThis is the expect criteria...",
+            "run_type": "chain",
+            "start_time": "2025-07-08T05:05:58.462925",
+            "end_time": "2025-07-08T05:06:27.853285",
+            "extra": {
+                "metadata": {
+                    "LANGSMITH_ENDPOINT": "https://api.smith.langchain.com",
+                    "LANGSMITH_PROJECT": "fesk-crewai-001",
+                    "LANGSMITH_TRACING": "true",
+                    "revision_id": "800fe4c",
+                    "ls_run_depth": 0
+                },
+                "runtime": {
+                    "langchain_core_version": "0.1.52",
+                    "langchain_version": "0.1.20",
+                    "library": "langsmith",
+                    "platform": "Windows-10-10.0.26100-SP0",
+                    "py_implementation": "CPython",
+                    "runtime": "python",
+                    "runtime_version": "3.11.4",
+                    "sdk": "langsmith-py",
+                    "sdk_version": "0.1.104"
                 }
-            ]
-        ]
-    },
-    "status": "success",
-    "outputs": {
-        "run": null,
-        "llm_output": null,
-        "generations": [
-            {
-                "text": "Thought: To begin crafting a report on Agentic Behavior, I need to gather comprehensive information on the topic. This includes understanding its definition, key characteristics, its importance in psychology, and how it's applied in various contexts. The first step is to use the tavily_search_results_json to access reliable and up-to-date information on Agentic Behavior.\n\nAction: tavily_search_results_json\nAction Input: {\"query\": \"Agentic Behavior definition, characteristics, importance\"}",
-                "type": "ChatGenerationChunk",
-                "message": {
-                    "id": [
-                        "langchain",
-                        "schema",
-                        "messages",
-                        "AIMessageChunk"
-                    ],
-                    "lc": 1,
-                    "type": "constructor",
-                    "kwargs": {
-                        "id": "run-089a1fa2-8888-41fa-8ef0-64c447ff570b",
-                        "type": "AIMessageChunk",
-                        "content": "Thought: To begin crafting a report on Agentic Behavior, I need to gather comprehensive information on the topic. This includes understanding its definition, key characteristics, its importance in psychology, and how it's applied in various contexts. The first step is to use the tavily_search_results_json to access reliable and up-to-date information on Agentic Behavior.\n\nAction: tavily_search_results_json\nAction Input: {\"query\": \"Agentic Behavior definition, characteristics, importance\"}",
-                        "tool_calls": [],
-                        "response_metadata": {
-                            "finish_reason": "stop"
-                        },
-                        "invalid_tool_calls": []
-                    }
+            },
+            "error": null,
+            "execution_order": 1,
+            "serialized": null,
+            "outputs": null,
+            "outputs_preview": "---\n\n**Embracing Agentic Behavior in Customer Success: A Key to Sustainable Growth**\n\nIn the rapidly evolving landscape of customer success, the ad...",
+            "parent_run_id": null,
+            "manifest_id": null,
+            "manifest_s3_id": null,
+            "events": null,
+            "tags": [],
+            "inputs_s3_urls": null,
+            "outputs_s3_urls": null,
+            "s3_urls": null,
+            "trace_id": "f690f409-5236-4aab-a0b3-c07914e67940",
+            "dotted_order": "20250708T050558462925Zf690f409-5236-4aab-a0b3-c07914e67940",
+            "id": "f690f409-5236-4aab-a0b3-c07914e67940",
+            "status": "success",
+            "child_run_ids": null,
+            "direct_child_run_ids": null,
+            "parent_run_ids": [],
+            "feedback_stats": null,
+            "reference_example_id": null,
+            "total_tokens": 2327,
+            "prompt_tokens": 1627,
+            "completion_tokens": 700,
+            "prompt_token_details": null,
+            "completion_token_details": null,
+            "total_cost": 0.03727,
+            "prompt_cost": 0.01627,
+            "completion_cost": 0.021,
+            "prompt_cost_details": null,
+            "completion_cost_details": null,
+            "price_model_id": null,
+            "first_token_time": "2025-07-08T05:05:59.610711",
+            "session_id": "c071e259-761d-41b6-9c39-b89820152dcd",
+            "app_path": "/o/9e689cbf-1ee8-4aa9-86c0-75d649665f1b/projects/p/c071e259-761d-41b6-9c39-b89820152dcd/r/f690f409-5236-4aab-a0b3-c07914e67940?trace_id=f690f409-5236-4aab-a0b3-c07914e67940&start_time=2025-07-08T05:05:58.462925",
+            "last_queued_at": null,
+            "in_dataset": false,
+            "share_token": null,
+            "trace_tier": null,
+            "trace_first_received_at": null,
+            "ttl_seconds": null,
+            "trace_upgrade": false,
+            "reference_dataset_id": null,
+            "thread_id": null
+        },
+        {
+            "name": "CrewAgentExecutor",
+            "inputs": null,
+            "inputs_preview": "To meticulously review and harmonize the final output from both the blog manager and social media manager, ensuring cohesion and excellence in the ...",
+            "run_type": "chain",
+            "start_time": "2025-07-08T05:05:47.669450",
+            "end_time": "2025-07-08T05:06:46.725430",
+            "extra": {
+                "metadata": {
+                    "LANGSMITH_ENDPOINT": "https://api.smith.langchain.com",
+                    "LANGSMITH_PROJECT": "fesk-crewai-001",
+                    "LANGSMITH_TRACING": "true",
+                    "revision_id": "800fe4c",
+                    "ls_run_depth": 0
                 },
-                "generation_info": {
-                    "finish_reason": "stop"
+                "runtime": {
+                    "langchain_core_version": "0.1.52",
+                    "langchain_version": "0.1.20",
+                    "library": "langsmith",
+                    "platform": "Windows-10-10.0.26100-SP0",
+                    "py_implementation": "CPython",
+                    "runtime": "python",
+                    "runtime_version": "3.11.4",
+                    "sdk": "langsmith-py",
+                    "sdk_version": "0.1.104"
                 }
-            }
-        ]
-    },
-    "s3_urls": {
-        "events": {
-            "s3_url": "prod-langsmith-static-assets-sr/ttl_s/events/01b0af9d1d41e6687ee92eee137f58c76b54e3126f047715da40bf285330ebbe/44b20867f87f309088a34165c3a3c0f3c0ab74d3ade5416fd85c37dd8f8a8bdb/089a1fa2-8888-41fa-8ef0-64c447ff570b/f2aca637-aeae-4258-965a-8f326c7f20d1",
-            "presigned_url": "https://api.smith.langchain.com/public/download?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRoIjoicHJvZC1sYW5nc21pdGgtc3RhdGljLWFzc2V0cy1zci90dGxfcy9ldmVudHMvMDFiMGFmOWQxZDQxZTY2ODdlZTkyZWVlMTM3ZjU4Yzc2YjU0ZTMxMjZmMDQ3NzE1ZGE0MGJmMjg1MzMwZWJiZS80NGIyMDg2N2Y4N2YzMDkwODhhMzQxNjVjM2EzYzBmM2MwYWI3NGQzYWRlNTQxNmZkODVjMzdkZDhmOGE4YmRiLzA4OWExZmEyLTg4ODgtNDFmYS04ZWYwLTY0YzQ0N2ZmNTcwYi9mMmFjYTYzNy1hZWFlLTQyNTgtOTY1YS04ZjMyNmM3ZjIwZDEiLCJleHAiOjE3NTIwNTg5NDl9.0RCdsOz6CDmEylT0bklJxaO0O2gW20m3D6AP6CtNcmo"
+            },
+            "error": null,
+            "execution_order": 1,
+            "serialized": null,
+            "outputs": null,
+            "outputs_preview": "**Embracing Agentic Behavior in Customer Success: A Key to Sustainable Growth**\n\nIn the rapidly evolving landscape of customer success, the adoptio...",
+            "parent_run_id": null,
+            "manifest_id": null,
+            "manifest_s3_id": null,
+            "events": null,
+            "tags": [],
+            "inputs_s3_urls": null,
+            "outputs_s3_urls": null,
+            "s3_urls": {
+                "serialized": {
+                    "presigned_url": "https://api.smith.langchain.com/public/download?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRoIjoicHJvZC1sYW5nc21pdGgtc3RhdGljLWFzc2V0cy1zci90dGxfcy9zZXJpYWxpemVkLzAxYjBhZjlkMWQ0MWU2Njg3ZWU5MmVlZTEzN2Y1OGM3NmI1NGUzMTI2ZjA0NzcxNWRhNDBiZjI4NTMzMGViYmUvMjYwODM0NmNjMTk2YmExNTZlZjZhOGYzMWRmZTUxZTUzZmU5Y2U5Y2ZhYzMwZDVjMDMyNmZhMGVkNDI5ZTUxNC81OWVjNGM5MS0yZDAxLTRiYWEtOTg4ZC02MDIyNzBmMDYxNTEvODZhZmMyN2UtZGRkOS00ZGZkLTlmMzAtMGQwYjFjMzQyMDliIiwiZXhwIjoxNzUyMTM5MjY3fQ.BEzl56Dh3bw6pBJuOMcOlJlFycQRoN3dQG_QKPfw8Xk",
+                    "s3_url": "prod-langsmith-static-assets-sr/ttl_s/serialized/01b0af9d1d41e6687ee92eee137f58c76b54e3126f047715da40bf285330ebbe/2608346cc196ba156ef6a8f31dfe51e53fe9ce9cfac30d5c0326fa0ed429e514/59ec4c91-2d01-4baa-988d-602270f06151/86afc27e-ddd9-4dfd-9f30-0d0b1c34209b"
+                }
+            },
+            "trace_id": "59ec4c91-2d01-4baa-988d-602270f06151",
+            "dotted_order": "20250708T050547669450Z59ec4c91-2d01-4baa-988d-602270f06151",
+            "id": "59ec4c91-2d01-4baa-988d-602270f06151",
+            "status": "success",
+            "child_run_ids": null,
+            "direct_child_run_ids": null,
+            "parent_run_ids": [],
+            "feedback_stats": null,
+            "reference_example_id": null,
+            "total_tokens": 4256,
+            "prompt_tokens": 3373,
+            "completion_tokens": 883,
+            "prompt_token_details": null,
+            "completion_token_details": null,
+            "total_cost": 0.06022,
+            "prompt_cost": 0.03373,
+            "completion_cost": 0.02649,
+            "prompt_cost_details": null,
+            "completion_cost_details": null,
+            "price_model_id": null,
+            "first_token_time": "2025-07-08T05:05:48.873899",
+            "session_id": "c071e259-761d-41b6-9c39-b89820152dcd",
+            "app_path": "/o/9e689cbf-1ee8-4aa9-86c0-75d649665f1b/projects/p/c071e259-761d-41b6-9c39-b89820152dcd/r/59ec4c91-2d01-4baa-988d-602270f06151?trace_id=59ec4c91-2d01-4baa-988d-602270f06151&start_time=2025-07-08T05:05:47.669450",
+            "last_queued_at": null,
+            "in_dataset": false,
+            "share_token": null,
+            "trace_tier": null,
+            "trace_first_received_at": null,
+            "ttl_seconds": null,
+            "trace_upgrade": false,
+            "reference_dataset_id": null,
+            "thread_id": null
+        },
+        {
+            "name": "CrewAgentExecutor",
+            "inputs": null,
+            "inputs_preview": "Using the research findings of the news correspondent, write a tweet. Your final answer MUST be \n    the full tweet.\n\nThis is the expect criteria f...",
+            "run_type": "chain",
+            "start_time": "2025-07-08T05:05:43.617693",
+            "end_time": "2025-07-08T05:05:47.666702",
+            "extra": {
+                "metadata": {
+                    "LANGSMITH_ENDPOINT": "https://api.smith.langchain.com",
+                    "LANGSMITH_PROJECT": "fesk-crewai-001",
+                    "LANGSMITH_TRACING": "true",
+                    "revision_id": "800fe4c",
+                    "ls_run_depth": 0
+                },
+                "runtime": {
+                    "langchain_core_version": "0.1.52",
+                    "langchain_version": "0.1.20",
+                    "library": "langsmith",
+                    "platform": "Windows-10-10.0.26100-SP0",
+                    "py_implementation": "CPython",
+                    "runtime": "python",
+                    "runtime_version": "3.11.4",
+                    "sdk": "langsmith-py",
+                    "sdk_version": "0.1.104"
+                }
+            },
+            "error": null,
+            "execution_order": 1,
+            "serialized": null,
+            "outputs": null,
+            "outputs_preview": "Embrace Agentic Behavior in #CustomerSuccess to skyrocket CLTV & GRR. 🚀 Proactive, ownership-driven actions by teams can significantly enhance cust...",
+            "parent_run_id": null,
+            "manifest_id": null,
+            "manifest_s3_id": null,
+            "events": null,
+            "tags": [],
+            "inputs_s3_urls": null,
+            "outputs_s3_urls": null,
+            "s3_urls": {
+                "serialized": {
+                    "presigned_url": "https://api.smith.langchain.com/public/download?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRoIjoicHJvZC1sYW5nc21pdGgtc3RhdGljLWFzc2V0cy1zci90dGxfcy9zZXJpYWxpemVkLzAxYjBhZjlkMWQ0MWU2Njg3ZWU5MmVlZTEzN2Y1OGM3NmI1NGUzMTI2ZjA0NzcxNWRhNDBiZjI4NTMzMGViYmUvMjYwODM0NmNjMTk2YmExNTZlZjZhOGYzMWRmZTUxZTUzZmU5Y2U5Y2ZhYzMwZDVjMDMyNmZhMGVkNDI5ZTUxNC81ZmM4YTM4NS04YTUyLTRjMTUtYTkwNy1lYjczYzkwNWNmZjEvNGYxOTljZGItODA1YS00Yjc5LTg5OWUtMzljMWYzMWFkNzc1IiwiZXhwIjoxNzUyMTM5MjY3fQ.OHhn9t36BFMdQOhrkNm5X6PtB1gKwz_Wvm80ADSyD6Q",
+                    "s3_url": "prod-langsmith-static-assets-sr/ttl_s/serialized/01b0af9d1d41e6687ee92eee137f58c76b54e3126f047715da40bf285330ebbe/2608346cc196ba156ef6a8f31dfe51e53fe9ce9cfac30d5c0326fa0ed429e514/5fc8a385-8a52-4c15-a907-eb73c905cff1/4f199cdb-805a-4b79-899e-39c1f31ad775"
+                }
+            },
+            "trace_id": "5fc8a385-8a52-4c15-a907-eb73c905cff1",
+            "dotted_order": "20250708T050543617693Z5fc8a385-8a52-4c15-a907-eb73c905cff1",
+            "id": "5fc8a385-8a52-4c15-a907-eb73c905cff1",
+            "status": "success",
+            "child_run_ids": null,
+            "direct_child_run_ids": null,
+            "parent_run_ids": [],
+            "feedback_stats": null,
+            "reference_example_id": null,
+            "total_tokens": 1504,
+            "prompt_tokens": 1437,
+            "completion_tokens": 67,
+            "prompt_token_details": null,
+            "completion_token_details": null,
+            "total_cost": 0.01638,
+            "prompt_cost": 0.01437,
+            "completion_cost": 0.00201,
+            "prompt_cost_details": null,
+            "completion_cost_details": null,
+            "price_model_id": null,
+            "first_token_time": "2025-07-08T05:05:45.709316",
+            "session_id": "c071e259-761d-41b6-9c39-b89820152dcd",
+            "app_path": "/o/9e689cbf-1ee8-4aa9-86c0-75d649665f1b/projects/p/c071e259-761d-41b6-9c39-b89820152dcd/r/5fc8a385-8a52-4c15-a907-eb73c905cff1?trace_id=5fc8a385-8a52-4c15-a907-eb73c905cff1&start_time=2025-07-08T05:05:43.617693",
+            "last_queued_at": null,
+            "in_dataset": false,
+            "share_token": null,
+            "trace_tier": null,
+            "trace_first_received_at": null,
+            "ttl_seconds": null,
+            "trace_upgrade": false,
+            "reference_dataset_id": null,
+            "thread_id": null
+        },
+        {
+            "name": "CrewAgentExecutor",
+            "inputs": null,
+            "inputs_preview": "Using the research findings of the news correspondent, write an article for the blog. \n    The publication should contain links to sources stated b...",
+            "run_type": "chain",
+            "start_time": "2025-07-08T05:05:18.153264",
+            "end_time": "2025-07-08T05:05:43.614335",
+            "extra": {
+                "metadata": {
+                    "LANGSMITH_ENDPOINT": "https://api.smith.langchain.com",
+                    "LANGSMITH_PROJECT": "fesk-crewai-001",
+                    "LANGSMITH_TRACING": "true",
+                    "revision_id": "800fe4c",
+                    "ls_run_depth": 0
+                },
+                "runtime": {
+                    "langchain_core_version": "0.1.52",
+                    "langchain_version": "0.1.20",
+                    "library": "langsmith",
+                    "platform": "Windows-10-10.0.26100-SP0",
+                    "py_implementation": "CPython",
+                    "runtime": "python",
+                    "runtime_version": "3.11.4",
+                    "sdk": "langsmith-py",
+                    "sdk_version": "0.1.104"
+                }
+            },
+            "error": null,
+            "execution_order": 1,
+            "serialized": null,
+            "outputs": null,
+            "outputs_preview": "# The Power of Agentic Behavior in Customer Success Management: Elevating CLTV and GRR\n\nIn the ever-evolving landscape of customer success manageme...",
+            "parent_run_id": null,
+            "manifest_id": null,
+            "manifest_s3_id": null,
+            "events": null,
+            "tags": [],
+            "inputs_s3_urls": null,
+            "outputs_s3_urls": null,
+            "s3_urls": {
+                "serialized": {
+                    "presigned_url": "https://api.smith.langchain.com/public/download?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRoIjoicHJvZC1sYW5nc21pdGgtc3RhdGljLWFzc2V0cy1zci90dGxfcy9zZXJpYWxpemVkLzAxYjBhZjlkMWQ0MWU2Njg3ZWU5MmVlZTEzN2Y1OGM3NmI1NGUzMTI2ZjA0NzcxNWRhNDBiZjI4NTMzMGViYmUvMjYwODM0NmNjMTk2YmExNTZlZjZhOGYzMWRmZTUxZTUzZmU5Y2U5Y2ZhYzMwZDVjMDMyNmZhMGVkNDI5ZTUxNC8zODc1MWE2Ny1iNGY4LTQ2NzgtYjIzMC0xY2YyNzAyOGU3NzMvZmU1ZjhlNzgtZWU4OC00YWE4LTllNDgtYzYxMjg4Y2RlYzNmIiwiZXhwIjoxNzUyMTM5MjY3fQ.TVjlgYCLtYFs20O_kgLQRRjidhbD4dfcEuIAXQr_TTw",
+                    "s3_url": "prod-langsmith-static-assets-sr/ttl_s/serialized/01b0af9d1d41e6687ee92eee137f58c76b54e3126f047715da40bf285330ebbe/2608346cc196ba156ef6a8f31dfe51e53fe9ce9cfac30d5c0326fa0ed429e514/38751a67-b4f8-4678-b230-1cf27028e773/fe5f8e78-ee88-4aa8-9e48-c61288cdec3f"
+                }
+            },
+            "trace_id": "38751a67-b4f8-4678-b230-1cf27028e773",
+            "dotted_order": "20250708T050518153264Z38751a67-b4f8-4678-b230-1cf27028e773",
+            "id": "38751a67-b4f8-4678-b230-1cf27028e773",
+            "status": "success",
+            "child_run_ids": null,
+            "direct_child_run_ids": null,
+            "parent_run_ids": [],
+            "feedback_stats": null,
+            "reference_example_id": null,
+            "total_tokens": 2247,
+            "prompt_tokens": 1560,
+            "completion_tokens": 687,
+            "prompt_token_details": null,
+            "completion_token_details": null,
+            "total_cost": 0.03621,
+            "prompt_cost": 0.0156,
+            "completion_cost": 0.02061,
+            "prompt_cost_details": null,
+            "completion_cost_details": null,
+            "price_model_id": null,
+            "first_token_time": "2025-07-08T05:05:20.706680",
+            "session_id": "c071e259-761d-41b6-9c39-b89820152dcd",
+            "app_path": "/o/9e689cbf-1ee8-4aa9-86c0-75d649665f1b/projects/p/c071e259-761d-41b6-9c39-b89820152dcd/r/38751a67-b4f8-4678-b230-1cf27028e773?trace_id=38751a67-b4f8-4678-b230-1cf27028e773&start_time=2025-07-08T05:05:18.153264",
+            "last_queued_at": null,
+            "in_dataset": false,
+            "share_token": null,
+            "trace_tier": null,
+            "trace_first_received_at": null,
+            "ttl_seconds": null,
+            "trace_upgrade": false,
+            "reference_dataset_id": null,
+            "thread_id": null
+        },
+        {
+            "name": "CrewAgentExecutor",
+            "inputs": null,
+            "inputs_preview": "generate a blog article\n\nThis is the expect criteria for your final answer: Your best answer to your coworker asking you this, accounting for the c...",
+            "run_type": "chain",
+            "start_time": "2025-07-08T05:04:35.455921",
+            "end_time": "2025-07-08T05:04:54.657568",
+            "extra": {
+                "metadata": {
+                    "LANGSMITH_ENDPOINT": "https://api.smith.langchain.com",
+                    "LANGSMITH_PROJECT": "fesk-crewai-001",
+                    "LANGSMITH_TRACING": "true",
+                    "revision_id": "800fe4c",
+                    "ls_run_depth": 0
+                },
+                "runtime": {
+                    "langchain_core_version": "0.1.52",
+                    "langchain_version": "0.1.20",
+                    "library": "langsmith",
+                    "platform": "Windows-10-10.0.26100-SP0",
+                    "py_implementation": "CPython",
+                    "runtime": "python",
+                    "runtime_version": "3.11.4",
+                    "sdk": "langsmith-py",
+                    "sdk_version": "0.1.104"
+                }
+            },
+            "error": null,
+            "execution_order": 1,
+            "serialized": null,
+            "outputs": null,
+            "outputs_preview": "---\n\n# The Power of Agentic Behavior in Customer Success Management: Elevating CLTV and GRR\n\nIn the dynamic realm of customer success management, t...",
+            "parent_run_id": null,
+            "manifest_id": null,
+            "manifest_s3_id": null,
+            "events": null,
+            "tags": [],
+            "inputs_s3_urls": null,
+            "outputs_s3_urls": null,
+            "s3_urls": null,
+            "trace_id": "ee782498-586b-4b4c-9d70-9d313041ccc2",
+            "dotted_order": "20250708T050435455921Zee782498-586b-4b4c-9d70-9d313041ccc2",
+            "id": "ee782498-586b-4b4c-9d70-9d313041ccc2",
+            "status": "success",
+            "child_run_ids": null,
+            "direct_child_run_ids": null,
+            "parent_run_ids": [],
+            "feedback_stats": null,
+            "reference_example_id": null,
+            "total_tokens": 2384,
+            "prompt_tokens": 1631,
+            "completion_tokens": 753,
+            "prompt_token_details": null,
+            "completion_token_details": null,
+            "total_cost": 0.0389,
+            "prompt_cost": 0.01631,
+            "completion_cost": 0.02259,
+            "prompt_cost_details": null,
+            "completion_cost_details": null,
+            "price_model_id": null,
+            "first_token_time": "2025-07-08T05:04:36.095321",
+            "session_id": "c071e259-761d-41b6-9c39-b89820152dcd",
+            "app_path": "/o/9e689cbf-1ee8-4aa9-86c0-75d649665f1b/projects/p/c071e259-761d-41b6-9c39-b89820152dcd/r/ee782498-586b-4b4c-9d70-9d313041ccc2?trace_id=ee782498-586b-4b4c-9d70-9d313041ccc2&start_time=2025-07-08T05:04:35.455921",
+            "last_queued_at": null,
+            "in_dataset": false,
+            "share_token": null,
+            "trace_tier": null,
+            "trace_first_received_at": null,
+            "ttl_seconds": null,
+            "trace_upgrade": false,
+            "reference_dataset_id": null,
+            "thread_id": null
+        },
+        {
+            "name": "CrewAgentExecutor",
+            "inputs": null,
+            "inputs_preview": "research detailed information on Agentic Behavior\n\nThis is the expect criteria for your final answer: Your best answer to your coworker asking you ...",
+            "run_type": "chain",
+            "start_time": "2025-07-08T05:03:32.138716",
+            "end_time": "2025-07-08T05:04:28.487169",
+            "extra": {
+                "metadata": {
+                    "LANGSMITH_ENDPOINT": "https://api.smith.langchain.com",
+                    "LANGSMITH_PROJECT": "fesk-crewai-001",
+                    "LANGSMITH_TRACING": "true",
+                    "revision_id": "800fe4c",
+                    "ls_run_depth": 0
+                },
+                "runtime": {
+                    "langchain_core_version": "0.1.52",
+                    "langchain_version": "0.1.20",
+                    "library": "langsmith",
+                    "platform": "Windows-10-10.0.26100-SP0",
+                    "py_implementation": "CPython",
+                    "runtime": "python",
+                    "runtime_version": "3.11.4",
+                    "sdk": "langsmith-py",
+                    "sdk_version": "0.1.104"
+                }
+            },
+            "error": null,
+            "execution_order": 1,
+            "serialized": null,
+            "outputs": null,
+            "outputs_preview": "What is Agentic Behavior? A Guide for Customer Success Managers Focused on CLTV and GRR\n\nIn today’s dynamic landscape of customer success, one beha...",
+            "parent_run_id": null,
+            "manifest_id": null,
+            "manifest_s3_id": null,
+            "events": null,
+            "tags": [],
+            "inputs_s3_urls": null,
+            "outputs_s3_urls": null,
+            "s3_urls": null,
+            "trace_id": "b4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+            "dotted_order": "20250708T050332138716Zb4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+            "id": "b4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+            "status": "success",
+            "child_run_ids": null,
+            "direct_child_run_ids": null,
+            "parent_run_ids": [],
+            "feedback_stats": null,
+            "reference_example_id": null,
+            "total_tokens": 8335,
+            "prompt_tokens": 6761,
+            "completion_tokens": 1574,
+            "prompt_token_details": null,
+            "completion_token_details": null,
+            "total_cost": 0.11483,
+            "prompt_cost": 0.06761,
+            "completion_cost": 0.04722,
+            "prompt_cost_details": null,
+            "completion_cost_details": null,
+            "price_model_id": null,
+            "first_token_time": "2025-07-08T05:03:33.158960",
+            "session_id": "c071e259-761d-41b6-9c39-b89820152dcd",
+            "app_path": "/o/9e689cbf-1ee8-4aa9-86c0-75d649665f1b/projects/p/c071e259-761d-41b6-9c39-b89820152dcd/r/b4e0910e-5ebf-428c-ba3b-6a3c703d8801?trace_id=b4e0910e-5ebf-428c-ba3b-6a3c703d8801&start_time=2025-07-08T05:03:32.138716",
+            "last_queued_at": null,
+            "in_dataset": false,
+            "share_token": null,
+            "trace_tier": null,
+            "trace_first_received_at": null,
+            "ttl_seconds": null,
+            "trace_upgrade": false,
+            "reference_dataset_id": null,
+            "thread_id": null
+        },
+        {
+            "name": "CrewAgentExecutor",
+            "inputs": null,
+            "inputs_preview": "Write me a report on Agentic Behavior. After the research on Agentic Behavior,pass the \n    findings to the blog manager to generate the final blog...",
+            "run_type": "chain",
+            "start_time": "2025-07-08T05:02:59.984897",
+            "end_time": "2025-07-08T05:05:18.137148",
+            "extra": {
+                "metadata": {
+                    "LANGSMITH_ENDPOINT": "https://api.smith.langchain.com",
+                    "LANGSMITH_PROJECT": "fesk-crewai-001",
+                    "LANGSMITH_TRACING": "true",
+                    "revision_id": "800fe4c",
+                    "ls_run_depth": 0
+                },
+                "runtime": {
+                    "langchain_core_version": "0.1.52",
+                    "langchain_version": "0.1.20",
+                    "library": "langsmith",
+                    "platform": "Windows-10-10.0.26100-SP0",
+                    "py_implementation": "CPython",
+                    "runtime": "python",
+                    "runtime_version": "3.11.4",
+                    "sdk": "langsmith-py",
+                    "sdk_version": "0.1.104"
+                }
+            },
+            "error": null,
+            "execution_order": 1,
+            "serialized": null,
+            "outputs": null,
+            "outputs_preview": "# The Power of Agentic Behavior in Customer Success Management: Elevating CLTV and GRR\n\nIn the dynamic realm of customer success management, the co...",
+            "parent_run_id": null,
+            "manifest_id": null,
+            "manifest_s3_id": null,
+            "events": null,
+            "tags": [],
+            "inputs_s3_urls": null,
+            "outputs_s3_urls": null,
+            "s3_urls": {
+                "serialized": {
+                    "presigned_url": "https://api.smith.langchain.com/public/download?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRoIjoicHJvZC1sYW5nc21pdGgtc3RhdGljLWFzc2V0cy1zci90dGxfcy9zZXJpYWxpemVkLzAxYjBhZjlkMWQ0MWU2Njg3ZWU5MmVlZTEzN2Y1OGM3NmI1NGUzMTI2ZjA0NzcxNWRhNDBiZjI4NTMzMGViYmUvMjYwODM0NmNjMTk2YmExNTZlZjZhOGYzMWRmZTUxZTUzZmU5Y2U5Y2ZhYzMwZDVjMDMyNmZhMGVkNDI5ZTUxNC9mMDU2YmI2YS1kMThiLTQ0MWUtOTFlYi1jZGI4NDIxNTRlODYvYTVjOTZiY2YtZmU0MS00OGNiLWIwODYtMGE5Y2Q4MTI2YjYxIiwiZXhwIjoxNzUyMTM5MjY3fQ.1MEyPLhHCfhrcqPw-TYhVT9ObmC1lnrb0Guifmi7vW4",
+                    "s3_url": "prod-langsmith-static-assets-sr/ttl_s/serialized/01b0af9d1d41e6687ee92eee137f58c76b54e3126f047715da40bf285330ebbe/2608346cc196ba156ef6a8f31dfe51e53fe9ce9cfac30d5c0326fa0ed429e514/f056bb6a-d18b-441e-91eb-cdb842154e86/a5c96bcf-fe41-48cb-b086-0a9cd8126b61"
+                }
+            },
+            "trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+            "dotted_order": "20250708T050259984897Zf056bb6a-d18b-441e-91eb-cdb842154e86",
+            "id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+            "status": "success",
+            "child_run_ids": null,
+            "direct_child_run_ids": null,
+            "parent_run_ids": [],
+            "feedback_stats": null,
+            "reference_example_id": null,
+            "total_tokens": 10122,
+            "prompt_tokens": 8751,
+            "completion_tokens": 1371,
+            "prompt_token_details": null,
+            "completion_token_details": null,
+            "total_cost": 0.12864,
+            "prompt_cost": 0.08751,
+            "completion_cost": 0.04113,
+            "prompt_cost_details": null,
+            "completion_cost_details": null,
+            "price_model_id": null,
+            "first_token_time": "2025-07-08T05:03:01.927478",
+            "session_id": "c071e259-761d-41b6-9c39-b89820152dcd",
+            "app_path": "/o/9e689cbf-1ee8-4aa9-86c0-75d649665f1b/projects/p/c071e259-761d-41b6-9c39-b89820152dcd/r/f056bb6a-d18b-441e-91eb-cdb842154e86?trace_id=f056bb6a-d18b-441e-91eb-cdb842154e86&start_time=2025-07-08T05:02:59.984897",
+            "last_queued_at": null,
+            "in_dataset": false,
+            "share_token": null,
+            "trace_tier": null,
+            "trace_first_received_at": null,
+            "ttl_seconds": null,
+            "trace_upgrade": false,
+            "reference_dataset_id": null,
+            "thread_id": null
         }
-    },
-    "app_path": "/o/9e689cbf-1ee8-4aa9-86c0-75d649665f1b/projects/p/c071e259-761d-41b6-9c39-b89820152dcd/r/089a1fa2-8888-41fa-8ef0-64c447ff570b?trace_id=f056bb6a-d18b-441e-91eb-cdb842154e86&start_time=2025-07-08T05:02:59.984897",
-    "end_time": "2025-07-08T05:03:04.173349",
-    "run_type": "llm",
-    "trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
-    "thread_id": null,
-    "in_dataset": false,
-    "serialized": {
-        "id": [
-            "langchain",
-            "chat_models",
-            "openai",
-            "ChatOpenAI"
-        ],
-        "lc": 1,
-        "name": "ChatOpenAI",
-        "type": "constructor",
-        "kwargs": {
-            "n": 1,
-            "model_name": "gpt-4-turbo-preview",
-            "max_retries": 2,
-            "temperature": 0.7,
-            "openai_proxy": "",
-            "openai_api_key": {
-                "id": [
-                    "OPENAI_API_KEY"
-                ],
-                "lc": 1,
-                "type": "secret"
-            }
-        }
-    },
-    "session_id": "c071e259-761d-41b6-9c39-b89820152dcd",
-    "start_time": "2025-07-08T05:03:00.042887",
-    "total_cost": 0.00907,
-    "trace_tier": "shortlived",
-    "manifest_id": null,
-    "prompt_cost": 0.00625,
-    "share_token": null,
-    "ttl_seconds": 1209600,
-    "dotted_order": "20250708T050259984897Zf056bb6a-d18b-441e-91eb-cdb842154e86.20250708T050300001572Z2a40aad6-0c65-4ae9-b65e-f01b625192f1.20250708T050300042887Z089a1fa2-8888-41fa-8ef0-64c447ff570b",
-    "total_tokens": 719,
-    "child_run_ids": null,
-    "parent_run_id": "2a40aad6-0c65-4ae9-b65e-f01b625192f1",
-    "prompt_tokens": 625,
-    "trace_upgrade": false,
-    "feedback_stats": null,
-    "inputs_preview": "human: You are Online Researcher. Your primary role is to function as an intelligent online research assistant, adept at scouring \n    the internet...",
-    "inputs_s3_urls": null,
-    "last_queued_at": null,
-    "manifest_s3_id": null,
-    "parent_run_ids": [
-        "f056bb6a-d18b-441e-91eb-cdb842154e86",
-        "2a40aad6-0c65-4ae9-b65e-f01b625192f1"
     ],
-    "price_model_id": "58a62da5-639b-4f43-a369-2d97aaf386fd",
-    "completion_cost": 0.00282,
-    "execution_order": 1,
-    "outputs_preview": "ai: Thought: To begin crafting a report on Agentic Behavior, I need to gather comprehensive information on the topic. This includes understanding i...",
-    "outputs_s3_urls": null,
-    "first_token_time": "2025-07-08T05:03:01.927478",
-    "completion_tokens": 94,
-    "prompt_cost_details": null,
-    "direct_child_run_ids": null,
-    "prompt_token_details": null,
-    "reference_dataset_id": null,
-    "reference_example_id": null,
-    "completion_cost_details": null,
-    "trace_first_received_at": "2025-07-08T05:03:00.714053",
-    "completion_token_details": null
+    "cursors": {
+        "next": null,
+        "prev": null
+    },
+    "search_cursors": null,
+    "parsed_query": null
 }
