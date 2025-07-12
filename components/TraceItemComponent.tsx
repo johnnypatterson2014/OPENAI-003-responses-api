@@ -11,7 +11,7 @@ import JsonResponseObject from '@/components/JsonResponseObject'
 import { text } from 'stream/consumers';
 import { useState } from 'react'
 
-export default function TraceItemComponent({ item, traceList }: { item: TraceTreeItem, traceList: any[] }) {
+export default function TraceItemComponent({ item, traceList, displayName }: { item: TraceTreeItem, traceList: any[], displayName: string }) {
   const [content, setContent] = useState('no output yet')
 
 
@@ -27,6 +27,7 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
 
   const handleViewJson = async (trace_id: string, e?: any) => {
     e?.preventDefault()
+    console.log('trace_id: ' + trace_id)
     const foundItem = await traceList.find(item => item.id === trace_id);
     const textContent = JSON.stringify(foundItem.traceBody, null, 2)
     // alert(textContent);
@@ -51,26 +52,44 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
       const intermediate_steps: any[] = item.traceBody.inputs.intermediate_steps
       if (intermediate_steps.length > 0) {
         isIntermediateSteps = true;
-        intermediateStepsString = JSON.stringify(intermediate_steps, null, 2)
+        intermediateStepsString = JSON.stringify(intermediate_steps[intermediate_steps.length - 1], null, 2)
       }
     } finally {
 
     }
   }
 
+  let isError = false;
+  let errorText = 'none'
+  if (item.traceBody.error) {
+    errorText = item.traceBody.error
+    isError = true;
+  }
+
 
   return (
     <>
 
-      <FeskDrawer name={`${item.name}`}>
+      <FeskDrawer name={`${displayName}`}>
         <div className='grid grid-cols-1 m-[10px] fesk-item'>
 
           <div className='flex items-start m-[10px]'>
-            <div className='flex-1 grow'>
+            <div className='flex-1 grow mr-[10px]'>
+
+              {isError && (
+                <>
+                  <div style={{ color: '#ffffff', backgroundColor: '#ed0f0f', fontSize: '12px', fontFamily: 'Helvetica', fontStyle: 'bold', padding: '10px' }}>
+                    error message: <br />
+                  </div>
+                  <div style={{ color: '#ffffff', backgroundColor: '#000000', padding: '10px', borderStyle: 'solid', borderColor: '#ed0f0f', borderWidth: '2px' }}>
+                    {errorText} <br /><br />
+                  </div>
+                </>
+              )}
 
               {isRunnableSequence && (
                 <div>
-                  intermediate_steps: <br />
+                  last intermediate step: <br />
                   {intermediateStepsString} <br /><br />
                 </div>
               )}
@@ -79,6 +98,12 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
                 <div>
                   input: <br />
                   {item.input} <br /><br />
+
+                  tool_names: <br />
+                  {item.traceBody.inputs.tool_names} <br /><br />
+
+                  tools: <br />
+                  {item.traceBody.inputs.tools} <br /><br />
                 </div>
               )}
 
@@ -96,7 +121,7 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
                 </div>
               )}
 
-              {isCrewAgentParser && (
+              {isCrewAgentParser && !isError && (
                 <div>
                   result from calling LLM: <br /><br />
 
@@ -148,7 +173,7 @@ export default function TraceItemComponent({ item, traceList }: { item: TraceTre
 
               <div className='m-[5px] fesk-item' key={`${item.trace_id}-child-${i}`}>
                 {/* Child {i + 1} of {item.children?.length + 1}: */}
-                <TraceItemComponent item={child} traceList={traceList} />
+                <TraceItemComponent item={child} traceList={traceList} displayName={child.traceBody.name} />
 
               </div>
 

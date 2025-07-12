@@ -42,8 +42,15 @@ DELETE FROM feskDb.ChatMessageHistory WHERE id=?;
 
 CREATE TABLE LangsmithTraces (
     id VARCHAR(40) PRIMARY KEY NOT NULL,
-    name VARCHAR(50) NOT NULL,
     traceBody JSON
 );
 
+CREATE TABLE TraceTree (
+    id VARCHAR(40) PRIMARY KEY NOT NULL,
+    traceBody JSON
+);
+
+drop table LangsmithTraces;
+select * from LangsmithTraces;
+select * from TraceTree;
 

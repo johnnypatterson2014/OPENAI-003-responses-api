@@ -1,6 +1,56 @@
   
 
 
+
+sort by timestamps:
+
+Task 1 - Online Researcher:
+  start: 2025-07-08T05:02:59.984897
+  end:   2025-07-08T05:05:18.137148     
+            step 3 ends at:   2025-07-08T05:03:32.122995
+            step 4 starts at: 2025-07-08T05:04:28.507166
+
+Task 1 - subtask A - Online Researcher: 
+  start: 2025-07-08T05:03:32.138716   *** this tasks happens after task 1, step 3
+  end:   2025-07-08T05:04:28.487169
+
+Task 1 - subtask B - Blog Manager: 
+  start: 2025-07-08T05:04:35.455921   *** happens after task above
+  end:   2025-07-08T05:04:54.657568
+
+Task 2 - Blog Manager: 
+  start: 2025-07-08T05:05:18.153264
+  end:   2025-07-08T05:05:43.614335
+
+Task 3 - Social Media Manager: 
+  start: 2025-07-08T05:05:43.617693
+  end:   2025-07-08T05:05:47.666702
+
+Task 4 - Content Marketing Manager: 
+  start: 2025-07-08T05:05:47.669450
+  end:   2025-07-08T05:06:46.725430
+            step 2 ends at:   2025-07-08T05:05:58.462925
+            step 3 starts at: 2025-07-08T05:06:27.870222
+
+Task 4 - subtask A - Content Marketing Manager:   *** this tasks happens after step 2 in task above
+  start: 2025-07-08T05:05:58.462925
+  end:   2025-07-08T05:06:27.853285
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Get root traces for session (session = project = "fesk-crewai-001")
   - session_id: c071e259-761d-41b6-9c39-b89820152dcd
   - POST https://api.smith.langchain.com/runs/query

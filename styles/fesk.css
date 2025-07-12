@@ -62,6 +62,14 @@ dialog strong {
     font-family: var(--font-mono);
 }
 
+.fesk-error {
+    color: var(--color-red-300) !important;
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    font-family: var(--font-mono);
+    stroke: #2d57ee;
+}
+
 .fesk-menu {
     padding: 0px;
     --menu-active-fg: var(--color-zinc-800);

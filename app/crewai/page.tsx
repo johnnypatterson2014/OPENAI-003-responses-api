@@ -20,28 +20,70 @@ import { getLangsmithTrace } from '@/lib/getLangsmithTrace';
 import FeskFieldset from '@/components/FeskFieldset';
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import FeskFieldsetJustifyEnd from '@/components/FeskFieldsetJustifyEnd';
-import { sendTracePersistenceRequest, saveTrace } from '@/lib/sendTracePersistenceRequest'
-import { TraceTreeItem } from '@/config/FeskConstants'
+import { sendTracePersistenceRequest, saveTrace, saveTreeTrace, getTreeTrace } from '@/lib/sendTracePersistenceRequest'
+import { TraceTreeItem, crewai_testrun_1, TraceTimeTreeItem } from '@/config/FeskConstants'
 import TraceItemComponent from '@/components/TraceItemComponent';
+import TraceTreeItemComponent from '@/components/TraceTreeItemComponent';
 import FeskModal from '@/components/FeskModal'
 import JsonResponseObject from '@/components/JsonResponseObject'
+import next from 'next';
+import { Input } from "@/components/ui/input";
 
 
-const trace_id = 'f056bb6a-d18b-441e-91eb-cdb842154e86';
+
 
 export default function Home() {
     const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
     const [content, setContent] = useState('no output yet')
     const [traceList, setTraceList] = useState<any[]>([])
     const [traceTreeList, setTraceTreeList] = useState<TraceTreeItem[]>([])
+    const [masterTraceTimeTreeList, setMasterTraceTimeTreeList] = useState<TraceTimeTreeItem[]>([])
     // const [isExistingTraces, setIsExistingTraces] = useState(false)
     // const [traceIdIgnoreList, setTraceIdIgnoreList] = useState<string[]>([])
     // let traceIdIgnoreListTemp: string[] = [];
+    const masterTreeList: TraceTimeTreeItem[] = []
+    const masterTreeListCorrected: TraceTimeTreeItem[] = []
+
+    //     export interface TraceTimeTreeItem {
+    //     trace_id: string
+    //     name: string
+    //     start_time: number
+    //     end_time: number
+    //     parent_trace_id?: string
+    //     children?: TraceTimeTreeItem[]
+    // }
+    const tempRoot: TraceTimeTreeItem = {
+        trace_id: 'root_trace_id',
+        name: 'root',
+        start_time: 0,
+        end_time: 0,
+        parent_trace_id: 'none'
+    }
+    // setMasterTraceTimeTreeList([tempRoot])
+
+    const saveTraceTree = async (e?: any) => {
+        e?.preventDefault();
+        const sessionName = document.getElementById('trace_tree')?.value;
+        saveTreeTrace(sessionName, masterTraceTimeTreeList)
+    }
+
+    const loadTraceTree = async (e?: any) => {
+        e?.preventDefault();
+        const data = await getTreeTrace()
+        // console.log(data[0])
+        setMasterTraceTimeTreeList(data[0].traceBody)
+        console.log('Successfully loaded trace tree from the DB.')
+    }
+
 
     const getLangsmithTraceById = async (trace_id: string) => {
         setIsLoadingAnswer(true);
         let data = null;
         try {
+            // const isInIgnoreList = traceIdIgnoreListTemp.find(item => item === trace_id)? true: false;
+            // if (isInIgnoreList) {
+
+            // }
             const foundItem = traceList.find(item => item.id === trace_id);
             if (foundItem) {
                 console.log('foundItem is in traceList. No need to call API to get the trace.')
@@ -51,7 +93,6 @@ export default function Home() {
                 data = await getLangsmithTrace(trace_id)
                 const mapOfData = {
                     id: trace_id,
-                    name: trace_id,
                     traceBody: data
                 }
                 setTraceList([...traceList, mapOfData])
@@ -75,10 +116,11 @@ export default function Home() {
         } finally {
             setIsLoadingAnswer(false);
         }
-        alert('Successfully loaded traces from the DB.')
+        console.log('Successfully loaded traces from the DB.')
+        // alert('Successfully loaded traces from the DB.')
     }
 
-    const parseTraces = async (e?: any) => {
+    const parseTraces = async (trace_id: string, isGetChildren: boolean, e?: any) => {
         e?.preventDefault();
         setIsLoadingAnswer(true);
         const foundItem = traceList.find(item => item.id === trace_id);
@@ -93,36 +135,27 @@ export default function Home() {
             traceBody: foundItem.traceBody
         }
 
-        //     trace_id: string
-        //     name?: string
-        //     agent_name?: string
-        //     input?: string
-        //     output?: string
-        //     child_ids?: string[]
-        //     parent_id?: string
-        //     children?: TraceTreeItem[]
-        //     traceBody?: any
+        if (isGetChildren) {
+            if (rootTrace.child_ids) {
 
-        // const isRunnableParallel: boolean = rootTrace.name === 'RunnableParallel<input,tools,tool_names,agent_scratchpad>'
+                const children: TraceTreeItem[] = []
+                for (const child_id of rootTrace.child_ids) {
+                    const childTrace = await parseChildTraceRecursive(child_id, trace_id)
+                    if (childTrace) {
+                        children.push(childTrace)
+                    }
 
-        if (rootTrace.child_ids) {
-
-            const children: TraceTreeItem[] = []
-            for (const child_id of rootTrace.child_ids) {
-                const childTrace = await parseChildTraceRecursive(child_id, trace_id)
-                if (childTrace) {
-                    children.push(childTrace)
                 }
+                rootTrace.children = children
 
             }
-            rootTrace.children = children
-
         }
 
-        setTraceTreeList([rootTrace])
+        setTraceTreeList([...traceTreeList, rootTrace])
 
         setIsLoadingAnswer(false);
-        alert('Successfully parsed traces.')
+        console.log('Successfully parsed traces.')
+        // alert('Successfully parsed traces.')
     }
 
 
@@ -131,51 +164,198 @@ export default function Home() {
 
         let currentItem = await getLangsmithTraceById(trace_id)
         const traceName = currentItem.name;
-        // const isAllowedName: boolean = traceName == 'RunnableSequence' || traceName == 'ChatOpenAI' || traceName == 'CrewAgentParser'
+        const isAllowedName: boolean = traceName == 'RunnableSequence' || traceName == 'ChatOpenAI' || traceName == 'CrewAgentParser' || traceName == 'RunnableParallel<input,tools,tool_names,agent_scratchpad>'
         // const isAllowedName = true;
-        // if (!isAllowedName) {
-        //     console.log('Name: ' + traceName + ' is not in the allowed list. Will skip.')
-        //     // traceIdIgnoreListTemp.push(trace_id)
-        //     return null;
-        // } else {
+        if (!isAllowedName) {
+            console.log('Name: ' + traceName + ' is not in the allowed list. Will skip.')
+            // traceIdIgnoreListTemp.push(trace_id)
+            return null;
+        } else {
 
-        const isRunnableParallel: boolean = traceName === 'RunnableParallel<input,tools,tool_names,agent_scratchpad>'
+            const isRunnableParallel: boolean = traceName === 'RunnableParallel<input,tools,tool_names,agent_scratchpad>'
 
-
-        let currentTrace: TraceTreeItem = {
-            trace_id: trace_id,
-            parent_id: parent_trace_id,
-            name: currentItem.name,
-            // child_ids: currentItem.direct_child_run_ids,
-            traceBody: currentItem
-        }
-
-        if (!isRunnableParallel) {
-            currentTrace.child_ids = currentItem.direct_child_run_ids
-        }
-
-        if (currentTrace.child_ids) {
-            console.log('trace_id: ' + trace_id + ' has children. Performing recursive call.')
-            let childTraces: TraceTreeItem[] = []
-            for (const child_id of currentTrace.child_ids) {
-                const childTrace = await parseChildTraceRecursive(child_id, trace_id)
-                if (childTrace) {
-                    console.log('adding child: ' + child_id)
-                    childTraces.push(childTrace);
-                }
-
+            let currentTrace: TraceTreeItem = {
+                trace_id: trace_id,
+                parent_id: parent_trace_id,
+                name: currentItem.name,
+                // child_ids: currentItem.direct_child_run_ids,
+                traceBody: currentItem
             }
-            console.log('finished recursive loop for children for trace_id: ' + trace_id)
-            currentTrace.children = childTraces;
+
+            if (!isRunnableParallel) {
+                currentTrace.child_ids = currentItem.direct_child_run_ids
+            }
+
+            if (currentTrace.child_ids) {
+                console.log('trace_id: ' + trace_id + ' has children. Performing recursive call.')
+                let childTraces: TraceTreeItem[] = []
+                for (const child_id of currentTrace.child_ids) {
+                    const childTrace = await parseChildTraceRecursive(child_id, trace_id)
+                    if (childTrace) {
+                        console.log('adding child: ' + child_id)
+                        childTraces.push(childTrace);
+                    }
+
+                }
+                console.log('finished recursive loop for children for trace_id: ' + trace_id)
+                currentTrace.children = childTraces;
+            }
+            // setTraceIdIgnoreList(traceIdIgnoreListTemp);
+            console.log('-------------------- finished processing for trace_id: ' + trace_id)
+            return currentTrace;
         }
-        // setTraceIdIgnoreList(traceIdIgnoreListTemp);
-        console.log('-------------------- finished processing for trace_id: ' + trace_id)
-        return currentTrace;
-        // }
 
     }
 
-    const isExistingTraceTree = (traceTreeList != null && traceTreeList.length > 0);
+
+    const parseTraceTimeItemRecursive = (parent_trace_id: string, current: TraceTreeItem, numberOfChildren: number) => {
+        console.log('parent: ' + parent_trace_id + ': parsing child: ' + current.trace_id)
+        const currentTraceTreeItem: TraceTimeTreeItem = {
+            trace_id: current.trace_id,
+            name: current.traceBody.name,
+            start_time: Date.parse(current.traceBody.events[0].time),
+            end_time: Date.parse(current.traceBody.events[1].time),
+            parent_trace_id: parent_trace_id
+        }
+        // console.log('currentTraceTreeItem: ' + JSON.stringify(currentTraceTreeItem))
+        masterTreeList.push(currentTraceTreeItem)
+
+        if (current.children) {
+            for (let y = 0; y < current.children.length; y++) {
+                parseTraceTimeItemRecursive(current.trace_id, current.children[y], current.children?.length);
+            }
+        }
+
+    }
+
+    const sortTraceTree = async (e?: any) => {
+        e?.preventDefault();
+        setIsLoadingAnswer(true);
+
+        let isInsideCrewAgentExecutor: boolean = false
+
+        // create master parent
+        let treeRoot: TraceTimeTreeItem = {
+            trace_id: 'root_trace_id',
+            name: 'root_trace',
+            parent_trace_id: 'none',
+            start_time: 0,
+            end_time: 0,
+            children: []
+        }
+        console.log('root item: ' + JSON.stringify(treeRoot))
+        masterTreeList.push(treeRoot)
+
+        // -------------------------- create masterTreeList - flat list of all traces
+
+        for (let i = 0; i < traceTreeList.length; i++) {
+
+            const child: TraceTimeTreeItem = {
+                trace_id: traceTreeList[i].trace_id,
+                name: traceTreeList[i].traceBody.name,
+                //const startTimeDate: new Date(traceTreeList[i].traceBody.events[0].time);
+                start_time: Date.parse(traceTreeList[i].traceBody.events[0].time),
+                end_time: Date.parse(traceTreeList[i].traceBody.events[1].time),
+                parent_trace_id: 'root_trace_id'
+            }
+
+            // console.log('child item: ' + JSON.stringify(child))
+            masterTreeList.push(child)
+            if (traceTreeList[i].children && traceTreeList[i].children?.length > 0) {
+                for (let y = 0; y < traceTreeList[i].children?.length; y++) {
+                    console.log('parsing root child elements.')
+                    parseTraceTimeItemRecursive(traceTreeList[i].trace_id, traceTreeList[i].children[y], traceTreeList[i].children?.length);
+                }
+            }
+
+        }
+
+        // masterTreeList now has all items
+        // sort masterTreeList by start time
+        console.log('items in masterTreeList: ' + masterTreeList.length);
+        masterTreeList.sort((a, b) => a.start_time - b.start_time);
+        for (let i = 0; i < masterTreeList.length; i++) {
+            console.log(i + ' | ' + masterTreeList[i].trace_id + ' | ' + masterTreeList[i].parent_trace_id)
+        }
+
+        // --------------------------------- fix children
+        let run_trace_end = masterTreeList[1].end_time
+        console.log('Setting starting run trace end_time: ' + run_trace_end)
+        for (let i = 2; i < masterTreeList.length; i++) {
+            // check if we have a new CrewAgentExecutor
+            if (masterTreeList[i].parent_trace_id === 'root_trace_id') {
+                // check if the start time is before the end of the previous run
+                if (masterTreeList[i].start_time < run_trace_end) {
+                    // we have a nested run
+                    // set the parent to the current run
+                    console.log('We have a nested CrewAgentExecutor: ' + masterTreeList[i].trace_id)
+                    // update parent to be the previous sibling's parent
+                    console.log('Updating parent to: ' + masterTreeList[i - 1].parent_trace_id)
+                    masterTreeList[i].parent_trace_id = masterTreeList[i - 1].parent_trace_id
+                    run_trace_end = masterTreeList[i].end_time
+                    console.log('Setting new run trace end_time: ' + run_trace_end)
+                } else {
+                    // we have a new CrewAgentExecutor. Reset run trace values
+                    console.log('We have a new CrewAgentExecutor: ' + masterTreeList[i].trace_id)
+                    run_trace_end = masterTreeList[i].end_time
+                    console.log('Setting new run trace end_time: ' + run_trace_end)
+                }
+            }
+        }
+
+        console.log('items in masterTreeList: ' + masterTreeList.length);
+        for (let i = 0; i < masterTreeList.length; i++) {
+            console.log(i + ' | ' + masterTreeList[i].trace_id + ' | ' + masterTreeList[i].parent_trace_id)
+        }
+
+        // --------------------------------- recreate tree with nested child objects
+        createMasterTreeListCorrected();
+        console.log('final masterTreeListCorrected: ')
+        console.log(JSON.stringify(masterTreeListCorrected, null, 2))
+
+        // --------------------------------- add trace body to all TraceTimeTreeItem
+        // const rootItem = masterTreeListCorrected[0]
+        // rootItem.traceBody = null;
+        // getTraceBodyForMasterTreeCorrected(rootItem)
+
+        setMasterTraceTimeTreeList(masterTreeListCorrected)
+
+        setIsLoadingAnswer(false);
+    }
+
+    const getTraceBodyForMasterTreeCorrected = (item: TraceTimeTreeItem) => {
+        if (item.children && item.children.length > 0) {
+            for (let i = 0; i < item.children.length; i++) {
+                const currentItem = item.children[i]
+                const foundItem = traceList.find(item2 => item2.id === currentItem.trace_id);
+                // currentItem.traceBody = foundItem.traceBody
+                getTraceBodyForMasterTreeCorrected(item)
+            }
+        }
+    }
+
+    const createMasterTreeListCorrected = () => {
+        const item = { ...masterTreeList[0] }
+        item.children = getChildren(item.trace_id)
+        masterTreeListCorrected.push(item)
+    }
+
+    const getChildren = (parent_trace_id: string) => {
+        const children: TraceTimeTreeItem[] = []
+        for (let i = 0; i < masterTreeList.length; i++) {
+            if (masterTreeList[i].parent_trace_id == parent_trace_id) {
+                children.push(masterTreeList[i])
+            }
+        }
+        if (children.length > 0) {
+            // recursively get the children
+            for (let y = 0; y < children.length; y++) {
+                children[y].children = getChildren(children[y].trace_id)
+            }
+        }
+        return children
+    }
+
 
     return (
         <>
@@ -199,77 +379,85 @@ export default function Home() {
 
 
 
-                                            <FeskFieldsetJustifyEnd label='&nbsp;' buttons='&nbsp;' align='justify-end'>
+                                            <div className='justify-end'>
+                                                <FeskButtonSecondary>
+                                                    <a onClick={getSavedTraces}>load traces from DB</a>
+                                                </FeskButtonSecondary>
+                                            </div>
 
-                                                <div className='flex flex-row'>
-                                                    <div className='mr-[10px]'>
-                                                        <FeskButtonSecondary>
-                                                            <a onClick={getSavedTraces}>load traces from DB</a>
-                                                        </FeskButtonSecondary>
-                                                    </div>
-
-                                                    <div>
-                                                        <FeskButtonSecondary>
-                                                            <a onClick={parseTraces}>parse traces</a>
-                                                        </FeskButtonSecondary>
-                                                    </div>
-                                                </div>
-
-                                                {/* <div className='grid grid-cols-2'>
-                                                    <div className='pr-[10px]'>
-                                                        <FeskButtonSecondary>
-                                                            <a onClick={getParentTrace}>Get parent trace</a>
-                                                        </FeskButtonSecondary>
-                                                    </div>
-
-                                                    <div>
-                                                        <FeskButtonSecondary>
-                                                            <a onClick={getSavedTraces}>Get saved traces</a>
-                                                        </FeskButtonSecondary>
-                                                    </div>
-                                                </div> */}
-                                            </FeskFieldsetJustifyEnd>
+                                            <div>
 
 
-                                            {/* <FeskFieldset label='saved traces' buttons='&nbsp;' align='items-start'>
+                                                {crewai_testrun_1.map((item, i) => (
 
-                                                {isLoadingAnswer && (
-                                                    <FeskLoading />
-
-                                                )
-                                                }
-
-                                                {
-                                                    !(traceList != null && traceList.length > 0) && (
-                                                        <div className='flex justify-end'>
-                                                            <div className='flex-none fesk-muted'>(no traces)</div>
-                                                        </div>
-                                                    )
-                                                }
-
-                                                 {(traceList != null && traceList.length > 0) && traceList.map((item, i) => (
-
-                                                    <div key={`trace-${i}`} className='flex items-center'>
-                                                        <div className='flex-1 mb-[10px] fesk-item justify-items-end'>
+                                                    <div key={`testrun-trace-${i}`} className='flex items-center justify-end'>
+                                                        <div className='flex-none mb-[10px] mr-[10px] fesk-item'>
                                                             <div>{item.name}</div>
                                                         </div>
+                                                        <div className='flex-none mb-[10px] mr-[10px] fesk-item'>
+                                                            <div>{item.assigned_agent}</div>
+                                                        </div>
+                                                        {/* <div className='fesk-item flex-none mr-[10px] mb-[10px]'>
+                                                            <div>{item.id}</div>
+                                                        </div> */}
 
-                                                        <div className='flex-none ml-[10px] mb-[10px]'>
+                                                        <div className='flex-none mr-[10px] mb-[10px]'>
+                                                            <FeskButton3>
+                                                                <a href='#' onClick={() => getLangsmithTraceById(item.id)}>get traces</a>
+                                                            </FeskButton3>
+                                                        </div>
+
+                                                        <div className='flex-none mr-[10px] mb-[10px]'>
 
 
                                                             <FeskButton3>
-                                                                <a href='#' onClick={() => parseTraces(item.id)}>restore</a>
+                                                                <a href='#' onClick={() => parseTraces(item.id, true)}>generate trace flow</a>
                                                             </FeskButton3>
 
 
                                                         </div>
                                                     </div>
 
-                                                ))} 
+                                                ))
 
-                                            </FeskFieldset> */}
+                                                }
+
+                                            </div>
+
+                                            <div className='justify-end'>
+                                                <FeskButtonSecondary>
+                                                    <a onClick={sortTraceTree}>process trace tree</a>
+                                                </FeskButtonSecondary>
+                                            </div>
+
+                                            <div className='justify-end'>
+                                                <FeskButtonSecondary>
+                                                    <a onClick={loadTraceTree}>load trace tree</a>
+                                                </FeskButtonSecondary>
+                                            </div>
+
+                                            <div className='m-[10px]'>
+                                                &nbsp;
+                                            </div>
 
 
+                                            <FeskFieldset label='trace name' buttons='' align='items-center'>
+                                                <Input
+                                                    id="trace_tree"
+                                                    name="trace_tree"
+                                                    type="text"
+                                                    className="bg-zinc-900 border border-zinc-600 text-sm flex-1 text-zinc-300"
+                                                    placeholder='Name for trace tree'
+                                                />
+
+                                                <FeskButtonSecondary><a onClick={saveTraceTree}>Save trace tree</a></FeskButtonSecondary>
+                                            </FeskFieldset>
+
+                                            {isLoadingAnswer && (
+                                                <FeskLoading />
+
+                                            )
+                                            }
 
                                         </div>
 
@@ -457,21 +645,31 @@ export default function Home() {
                 <div className="fesk-card mr-[15px]">
                     <div className='fesk-h2'>trace</div>
 
-                    <div className="fesk-item m-[10px]">
-
-                        Trace ID for session/project: <br />
-                        f056bb6a-d18b-441e-91eb-cdb842154e86 <br /><br />
-
-
-                    </div>
-
                     <div className="p-[10px]">
 
-                        {
-                            isExistingTraceTree && (
-                                <TraceItemComponent item={traceTreeList[0]} traceList={traceList} />
+                        <FeskDrawer name='RootCrewExecution'>
+
+                            {masterTraceTimeTreeList && masterTraceTimeTreeList.length > 0 && masterTraceTimeTreeList[0].children?.map((child, i) => {
+                                const foundItem = traceList.find(item => item.id === child.trace_id);
+                                return (
+                                    <div key={`child-${i}`}>
+                                        <TraceTreeItemComponent item={child} traceItem={foundItem} traceList={traceList} displayName={child.name} />
+                                    </div>
+                                )
+                            })}
+
+                        </FeskDrawer>
+
+
+                        {/* <TraceTreeItemComponent item={masterTraceTimeTreeList[0]} traceList={traceList} displayName='RootCrewExecution' /> */}
+
+                        {/* {traceTreeList?.map((child, i) => {
+                            return (
+                                <div key={`${child.trace_id}-child-${i}`}>
+                                    <TraceItemComponent item={child} traceList={traceList} displayName={child.traceBody.name} />
+                                </div>
                             )
-                        }
+                        })} */}
 
                     </div>
 

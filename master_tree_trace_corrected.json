@@ -1,0 +1,668 @@
+[
+    {
+        "trace_id": "root_trace_id",
+        "name": "root_trace",
+        "parent_trace_id": "none",
+        "start_time": 0,
+        "end_time": 0,
+        "children": [
+            {
+                "trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+                "name": "CrewAgentExecutor",
+                "start_time": 1751950979984,
+                "end_time": 1751951118137,
+                "parent_trace_id": "root_trace_id",
+                "children": [
+                    {
+                        "trace_id": "2a40aad6-0c65-4ae9-b65e-f01b625192f1",
+                        "name": "RunnableSequence",
+                        "start_time": 1751950980001,
+                        "end_time": 1751950984173,
+                        "parent_trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+                        "children": [
+                            {
+                                "trace_id": "089a1fa2-8888-41fa-8ef0-64c447ff570b",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751950980042,
+                                "end_time": 1751950981927,
+                                "parent_trace_id": "2a40aad6-0c65-4ae9-b65e-f01b625192f1",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "921cde38-bdab-4dd8-84ab-37cc6fc33112",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751950980042,
+                                "end_time": 1751950980042,
+                                "parent_trace_id": "2a40aad6-0c65-4ae9-b65e-f01b625192f1",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "ea736b96-6e3e-47f0-aab8-378a3844fca4",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751950984173,
+                                "end_time": 1751950984173,
+                                "parent_trace_id": "2a40aad6-0c65-4ae9-b65e-f01b625192f1",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "trace_id": "8735146b-ecec-4415-8489-b6cacf5419e8",
+                        "name": "RunnableSequence",
+                        "start_time": 1751950989182,
+                        "end_time": 1751950994994,
+                        "parent_trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+                        "children": [
+                            {
+                                "trace_id": "7867fb35-5c7e-4660-9f77-d3f913f301d6",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751950989192,
+                                "end_time": 1751950989198,
+                                "parent_trace_id": "8735146b-ecec-4415-8489-b6cacf5419e8",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "21b5cced-db5b-4457-bf5e-a65ad7873417",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751950989199,
+                                "end_time": 1751950992077,
+                                "parent_trace_id": "8735146b-ecec-4415-8489-b6cacf5419e8",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "c96f01d8-1847-4272-b81c-2a6158882543",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751950994994,
+                                "end_time": 1751950994994,
+                                "parent_trace_id": "8735146b-ecec-4415-8489-b6cacf5419e8",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "trace_id": "c08cebb9-0fe2-4092-9d03-f8fb8e8ba45a",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951001294,
+                        "end_time": 1751951012122,
+                        "parent_trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+                        "children": [
+                            {
+                                "trace_id": "41b74fcc-062c-42f8-9b85-44fe00905b3e",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951001314,
+                                "end_time": 1751951001319,
+                                "parent_trace_id": "c08cebb9-0fe2-4092-9d03-f8fb8e8ba45a",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "9386f990-d8a3-4fc5-9b99-0d2f6678b92b",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951001321,
+                                "end_time": 1751951003732,
+                                "parent_trace_id": "c08cebb9-0fe2-4092-9d03-f8fb8e8ba45a",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "5ad956c8-33e9-4195-a25c-190db8b64ac6",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951012122,
+                                "end_time": 1751951012122,
+                                "parent_trace_id": "c08cebb9-0fe2-4092-9d03-f8fb8e8ba45a",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "b4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+                                "name": "CrewAgentExecutor",
+                                "start_time": 1751951012138,
+                                "end_time": 1751951068487,
+                                "parent_trace_id": "c08cebb9-0fe2-4092-9d03-f8fb8e8ba45a",
+                                "children": [
+                                    {
+                                        "trace_id": "ce2bc795-ab43-4fd5-b713-c7fa8fa5b8e5",
+                                        "name": "RunnableSequence",
+                                        "start_time": 1751951012156,
+                                        "end_time": 1751951015790,
+                                        "parent_trace_id": "b4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+                                        "children": [
+                                            {
+                                                "trace_id": "78bffe59-6ab6-4c78-aaac-311d086c4df2",
+                                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                                "start_time": 1751951012160,
+                                                "end_time": 1751951012160,
+                                                "parent_trace_id": "ce2bc795-ab43-4fd5-b713-c7fa8fa5b8e5",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "a35fb76a-a43f-495f-94a7-6ed2ef1b8d13",
+                                                "name": "ChatOpenAI",
+                                                "start_time": 1751951012160,
+                                                "end_time": 1751951013158,
+                                                "parent_trace_id": "ce2bc795-ab43-4fd5-b713-c7fa8fa5b8e5",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "4051673e-0417-4a2d-85d0-d0707e908a7a",
+                                                "name": "CrewAgentParser",
+                                                "start_time": 1751951015790,
+                                                "end_time": 1751951015790,
+                                                "parent_trace_id": "ce2bc795-ab43-4fd5-b713-c7fa8fa5b8e5",
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "trace_id": "c3fed2bd-53ad-43c5-b028-8f6ea9ffdde7",
+                                        "name": "RunnableSequence",
+                                        "start_time": 1751951021664,
+                                        "end_time": 1751951025925,
+                                        "parent_trace_id": "b4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+                                        "children": [
+                                            {
+                                                "trace_id": "7a2626f3-71dd-4daf-ac69-53edc4f64022",
+                                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                                "start_time": 1751951021667,
+                                                "end_time": 1751951021678,
+                                                "parent_trace_id": "c3fed2bd-53ad-43c5-b028-8f6ea9ffdde7",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "36c6ca81-7b91-4015-856c-86e0bbd296aa",
+                                                "name": "ChatOpenAI",
+                                                "start_time": 1751951021683,
+                                                "end_time": 1751951024114,
+                                                "parent_trace_id": "c3fed2bd-53ad-43c5-b028-8f6ea9ffdde7",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "87197002-a1a0-436d-a971-f5f14627eacc",
+                                                "name": "CrewAgentParser",
+                                                "start_time": 1751951025925,
+                                                "end_time": 1751951025925,
+                                                "parent_trace_id": "c3fed2bd-53ad-43c5-b028-8f6ea9ffdde7",
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "trace_id": "debf4966-9cfd-4fa9-bc2d-ed30d5be18c2",
+                                        "name": "RunnableSequence",
+                                        "start_time": 1751951026139,
+                                        "end_time": 1751951042222,
+                                        "parent_trace_id": "b4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+                                        "children": [
+                                            {
+                                                "trace_id": "966c4575-e6dd-43e1-b7c2-c2b33c175228",
+                                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                                "start_time": 1751951026148,
+                                                "end_time": 1751951026148,
+                                                "parent_trace_id": "debf4966-9cfd-4fa9-bc2d-ed30d5be18c2",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "fe83263c-f8ad-4299-bbd5-7e4248ddb7c9",
+                                                "name": "ChatOpenAI",
+                                                "start_time": 1751951026148,
+                                                "end_time": 1751951027599,
+                                                "parent_trace_id": "debf4966-9cfd-4fa9-bc2d-ed30d5be18c2",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "945fa006-d9df-43e6-928e-e3330d0d5174",
+                                                "name": "CrewAgentParser",
+                                                "start_time": 1751951042219,
+                                                "end_time": 1751951042222,
+                                                "parent_trace_id": "debf4966-9cfd-4fa9-bc2d-ed30d5be18c2",
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "trace_id": "7d6b3036-7e71-4888-8cfc-9a757252db41",
+                                        "name": "RunnableSequence",
+                                        "start_time": 1751951042237,
+                                        "end_time": 1751951068487,
+                                        "parent_trace_id": "b4e0910e-5ebf-428c-ba3b-6a3c703d8801",
+                                        "children": [
+                                            {
+                                                "trace_id": "067e28c4-c341-4c01-ad67-05d518cf10ae",
+                                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                                "start_time": 1751951042238,
+                                                "end_time": 1751951042238,
+                                                "parent_trace_id": "7d6b3036-7e71-4888-8cfc-9a757252db41",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "57764c71-d3b7-491b-ab17-7438c4ce4911",
+                                                "name": "ChatOpenAI",
+                                                "start_time": 1751951042253,
+                                                "end_time": 1751951044031,
+                                                "parent_trace_id": "7d6b3036-7e71-4888-8cfc-9a757252db41",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "1e53c0e5-476b-4c01-a486-68de427edd7d",
+                                                "name": "CrewAgentParser",
+                                                "start_time": 1751951068487,
+                                                "end_time": 1751951068487,
+                                                "parent_trace_id": "7d6b3036-7e71-4888-8cfc-9a757252db41",
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "trace_id": "2ce21f0c-30a6-4bf4-9ee0-1435bfa1c0c1",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951068507,
+                        "end_time": 1751951075451,
+                        "parent_trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+                        "children": [
+                            {
+                                "trace_id": "a5fffb24-1b1c-43d2-9582-c5ae5f5ecad6",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951068515,
+                                "end_time": 1751951068519,
+                                "parent_trace_id": "2ce21f0c-30a6-4bf4-9ee0-1435bfa1c0c1",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "5a85d703-87a2-4e76-acd1-ab781e7116bb",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951068519,
+                                "end_time": 1751951069366,
+                                "parent_trace_id": "2ce21f0c-30a6-4bf4-9ee0-1435bfa1c0c1",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "be0d478d-51ea-4a1e-bd58-80e153c77de6",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951075451,
+                                "end_time": 1751951075451,
+                                "parent_trace_id": "2ce21f0c-30a6-4bf4-9ee0-1435bfa1c0c1",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "trace_id": "8ee24220-5576-45ac-bc3e-b7316f9fd1e7",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951094679,
+                        "end_time": 1751951118137,
+                        "parent_trace_id": "f056bb6a-d18b-441e-91eb-cdb842154e86",
+                        "children": [
+                            {
+                                "trace_id": "8a044c58-7321-417f-9651-646c8cbef704",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951094690,
+                                "end_time": 1751951094699,
+                                "parent_trace_id": "8ee24220-5576-45ac-bc3e-b7316f9fd1e7",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "1b5a7563-c3fb-4523-8da1-2bdbc719785f",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951094699,
+                                "end_time": 1751951095977,
+                                "parent_trace_id": "8ee24220-5576-45ac-bc3e-b7316f9fd1e7",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "5a5309a1-6f17-4c6f-a29f-f8b2ba8b214a",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951118137,
+                                "end_time": 1751951118137,
+                                "parent_trace_id": "8ee24220-5576-45ac-bc3e-b7316f9fd1e7",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "trace_id": "ee782498-586b-4b4c-9d70-9d313041ccc2",
+                "name": "CrewAgentExecutor",
+                "start_time": 1751951075455,
+                "end_time": 1751951094657,
+                "parent_trace_id": "root_trace_id",
+                "children": [
+                    {
+                        "trace_id": "b1771eef-04ec-4f46-a70b-23fe575387ce",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951075467,
+                        "end_time": 1751951076318,
+                        "parent_trace_id": "ee782498-586b-4b4c-9d70-9d313041ccc2",
+                        "children": [
+                            {
+                                "trace_id": "b6f735cc-504a-4219-aa19-225133d9e7b4",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951075476,
+                                "end_time": 1751951075486,
+                                "parent_trace_id": "b1771eef-04ec-4f46-a70b-23fe575387ce",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "9400ad55-b731-4685-80ef-96db36560749",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951075486,
+                                "end_time": 1751951076095,
+                                "parent_trace_id": "b1771eef-04ec-4f46-a70b-23fe575387ce",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "a9ad30b0-181b-41a7-a862-892f3022dc6a",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951076318,
+                                "end_time": 1751951076318,
+                                "parent_trace_id": "b1771eef-04ec-4f46-a70b-23fe575387ce",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "trace_id": "965ce3be-6ce1-4e14-a470-5ff775d0c124",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951076334,
+                        "end_time": 1751951094657,
+                        "parent_trace_id": "ee782498-586b-4b4c-9d70-9d313041ccc2",
+                        "children": [
+                            {
+                                "trace_id": "40556223-3424-4629-8c9c-e9c34bed5521",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951076334,
+                                "end_time": 1751951076349,
+                                "parent_trace_id": "965ce3be-6ce1-4e14-a470-5ff775d0c124",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "5dc5aba6-ba22-4fd9-9ea6-c31f71c627cf",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951076349,
+                                "end_time": 1751951077456,
+                                "parent_trace_id": "965ce3be-6ce1-4e14-a470-5ff775d0c124",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "36e6bb22-cb0c-4f46-a1c1-a54fc0677dc1",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951094657,
+                                "end_time": 1751951094657,
+                                "parent_trace_id": "965ce3be-6ce1-4e14-a470-5ff775d0c124",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "trace_id": "38751a67-b4f8-4678-b230-1cf27028e773",
+                "name": "CrewAgentExecutor",
+                "start_time": 1751951118153,
+                "end_time": 1751951143614,
+                "parent_trace_id": "root_trace_id",
+                "children": [
+                    {
+                        "trace_id": "83530f51-73ca-4c97-afc4-22d49df556d2",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951118153,
+                        "end_time": 1751951143611,
+                        "parent_trace_id": "38751a67-b4f8-4678-b230-1cf27028e773",
+                        "children": [
+                            {
+                                "trace_id": "a4ca4469-8493-4384-b28d-25392552420d",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951118170,
+                                "end_time": 1751951120706,
+                                "parent_trace_id": "83530f51-73ca-4c97-afc4-22d49df556d2",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "ba1be212-ad5c-4b55-b57b-88b2983e2be7",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951118170,
+                                "end_time": 1751951118170,
+                                "parent_trace_id": "83530f51-73ca-4c97-afc4-22d49df556d2",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "cdbccff4-b7f5-4cc1-b6eb-bc018284be84",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951143611,
+                                "end_time": 1751951143611,
+                                "parent_trace_id": "83530f51-73ca-4c97-afc4-22d49df556d2",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "trace_id": "5fc8a385-8a52-4c15-a907-eb73c905cff1",
+                "name": "CrewAgentExecutor",
+                "start_time": 1751951143617,
+                "end_time": 1751951147666,
+                "parent_trace_id": "root_trace_id",
+                "children": [
+                    {
+                        "trace_id": "1dbd16d4-0514-46e0-98f3-7fc3fe39c016",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951143637,
+                        "end_time": 1751951147653,
+                        "parent_trace_id": "5fc8a385-8a52-4c15-a907-eb73c905cff1",
+                        "children": [
+                            {
+                                "trace_id": "17e87650-ef1a-4286-987a-1037d31567d2",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951143642,
+                                "end_time": 1751951145709,
+                                "parent_trace_id": "1dbd16d4-0514-46e0-98f3-7fc3fe39c016",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "190bba69-c610-44c5-98cd-48ade2e88b35",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951143642,
+                                "end_time": 1751951143642,
+                                "parent_trace_id": "1dbd16d4-0514-46e0-98f3-7fc3fe39c016",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "4f1035b5-48cb-40c3-98c3-4b93f2f6bf75",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951147653,
+                                "end_time": 1751951147653,
+                                "parent_trace_id": "1dbd16d4-0514-46e0-98f3-7fc3fe39c016",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "trace_id": "59ec4c91-2d01-4baa-988d-602270f06151",
+                "name": "CrewAgentExecutor",
+                "start_time": 1751951147669,
+                "end_time": 1751951206725,
+                "parent_trace_id": "root_trace_id",
+                "children": [
+                    {
+                        "trace_id": "f4c7c852-fdc6-47fa-b841-5153770f1c31",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951147685,
+                        "end_time": 1751951149274,
+                        "parent_trace_id": "59ec4c91-2d01-4baa-988d-602270f06151",
+                        "children": [
+                            {
+                                "trace_id": "0be4e61a-d0f4-4782-9fdb-03e64c3bc4c5",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951147685,
+                                "end_time": 1751951147701,
+                                "parent_trace_id": "f4c7c852-fdc6-47fa-b841-5153770f1c31",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "b5b5c887-f7ce-4bb0-a02e-86f1509d031d",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951147701,
+                                "end_time": 1751951148873,
+                                "parent_trace_id": "f4c7c852-fdc6-47fa-b841-5153770f1c31",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "166cc28f-4dc2-4427-b00e-38e3ea34bb74",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951149274,
+                                "end_time": 1751951149274,
+                                "parent_trace_id": "f4c7c852-fdc6-47fa-b841-5153770f1c31",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "trace_id": "bc974bf3-373c-4e7b-b0c9-5097c9aedd14",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951149290,
+                        "end_time": 1751951158462,
+                        "parent_trace_id": "59ec4c91-2d01-4baa-988d-602270f06151",
+                        "children": [
+                            {
+                                "trace_id": "02852bf4-8897-4bf4-ba1d-89d24ba99e08",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951149290,
+                                "end_time": 1751951149308,
+                                "parent_trace_id": "bc974bf3-373c-4e7b-b0c9-5097c9aedd14",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "a9e07d2d-b19b-49b5-8b37-5db65ac3131a",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951149308,
+                                "end_time": 1751951150433,
+                                "parent_trace_id": "bc974bf3-373c-4e7b-b0c9-5097c9aedd14",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "289e1f2c-68e1-4708-8a08-02f01ffe7acf",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951158462,
+                                "end_time": 1751951158462,
+                                "parent_trace_id": "bc974bf3-373c-4e7b-b0c9-5097c9aedd14",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "f690f409-5236-4aab-a0b3-c07914e67940",
+                                "name": "CrewAgentExecutor",
+                                "start_time": 1751951158462,
+                                "end_time": 1751951187853,
+                                "parent_trace_id": "bc974bf3-373c-4e7b-b0c9-5097c9aedd14",
+                                "children": [
+                                    {
+                                        "trace_id": "5e23c294-8a76-4912-bdbf-ff158ead0230",
+                                        "name": "RunnableSequence",
+                                        "start_time": 1751951158472,
+                                        "end_time": 1751951160458,
+                                        "parent_trace_id": "f690f409-5236-4aab-a0b3-c07914e67940",
+                                        "children": [
+                                            {
+                                                "trace_id": "8752deb4-97f6-4e37-95ba-3ad79a2d3f58",
+                                                "name": "ChatOpenAI",
+                                                "start_time": 1751951158487,
+                                                "end_time": 1751951159610,
+                                                "parent_trace_id": "5e23c294-8a76-4912-bdbf-ff158ead0230",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "b3f7eded-6fa8-4847-87b2-a758de6960ad",
+                                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                                "start_time": 1751951158487,
+                                                "end_time": 1751951158487,
+                                                "parent_trace_id": "5e23c294-8a76-4912-bdbf-ff158ead0230",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "d9469539-70ad-4250-ba43-352926537689",
+                                                "name": "CrewAgentParser",
+                                                "start_time": 1751951160458,
+                                                "end_time": 1751951160458,
+                                                "parent_trace_id": "5e23c294-8a76-4912-bdbf-ff158ead0230",
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "trace_id": "203d7991-5656-4da7-b60f-ef9f3a5dcdbc",
+                                        "name": "RunnableSequence",
+                                        "start_time": 1751951160474,
+                                        "end_time": 1751951187853,
+                                        "parent_trace_id": "f690f409-5236-4aab-a0b3-c07914e67940",
+                                        "children": [
+                                            {
+                                                "trace_id": "703a308b-a332-4756-83e2-83bafdfe4f2f",
+                                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                                "start_time": 1751951160474,
+                                                "end_time": 1751951160474,
+                                                "parent_trace_id": "203d7991-5656-4da7-b60f-ef9f3a5dcdbc",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "86d988a5-c677-4a76-aabb-59698276bc3b",
+                                                "name": "ChatOpenAI",
+                                                "start_time": 1751951160474,
+                                                "end_time": 1751951162710,
+                                                "parent_trace_id": "203d7991-5656-4da7-b60f-ef9f3a5dcdbc",
+                                                "children": []
+                                            },
+                                            {
+                                                "trace_id": "7d9df625-a19e-4c3b-a315-f22f55bb0a6e",
+                                                "name": "CrewAgentParser",
+                                                "start_time": 1751951187853,
+                                                "end_time": 1751951187853,
+                                                "parent_trace_id": "203d7991-5656-4da7-b60f-ef9f3a5dcdbc",
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "trace_id": "ea645ca9-9fa8-4aeb-9629-d00ebde1406b",
+                        "name": "RunnableSequence",
+                        "start_time": 1751951187870,
+                        "end_time": 1751951206719,
+                        "parent_trace_id": "59ec4c91-2d01-4baa-988d-602270f06151",
+                        "children": [
+                            {
+                                "trace_id": "45011fdf-5336-48cc-a9db-362c683efba9",
+                                "name": "RunnableParallel<input,tools,tool_names,agent_scratchpad>",
+                                "start_time": 1751951187886,
+                                "end_time": 1751951187887,
+                                "parent_trace_id": "ea645ca9-9fa8-4aeb-9629-d00ebde1406b",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "39a21cd3-32b3-40d7-b12f-7457ae8cd9c4",
+                                "name": "ChatOpenAI",
+                                "start_time": 1751951187887,
+                                "end_time": 1751951188904,
+                                "parent_trace_id": "ea645ca9-9fa8-4aeb-9629-d00ebde1406b",
+                                "children": []
+                            },
+                            {
+                                "trace_id": "af5c8fb6-72eb-482f-a08c-f2e2bb7b142c",
+                                "name": "CrewAgentParser",
+                                "start_time": 1751951206719,
+                                "end_time": 1751951206719,
+                                "parent_trace_id": "ea645ca9-9fa8-4aeb-9629-d00ebde1406b",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

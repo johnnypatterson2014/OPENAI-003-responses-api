@@ -1,19 +1,16 @@
 import { NextResponse, NextRequest } from 'next/server'
 import { mySqlConnectionParams } from '@/config/FeskConstants'
 import mysql from 'mysql2/promise';
-import { ChatHistory } from '@/components/ChatMessageWrapper'
 
-export async function POST(request: NextRequest) {
-    const data: any = await request.json();
-
+export async function GET(request: NextRequest) {
     try {
 
         // 2. connect to database
         const connection = await mysql.createConnection(mySqlConnectionParams)
 
-        // 3. create a query 
-        let get_exp_query = 'INSERT INTO LangsmithTraces VALUES (?, ?)';
-        let values: any[] = [data.id, JSON.stringify(data.traceBody)]
+        // 3. create a query to fetch data
+        const get_exp_query = 'SELECT * FROM feskDb.TraceTree';
+        let values: any[] = []
 
         // 4. exec the query and retrieve the results
         const [results] = await connection.execute(get_exp_query, values)
