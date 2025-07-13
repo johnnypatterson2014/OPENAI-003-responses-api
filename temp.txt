@@ -53,9 +53,6 @@ Task 4 - subtask A - Content Marketing Manager:   *** this tasks happens after s
 
 
 
-
-
-
 Get root traces for session (session = project = "fesk-crewai-001")
   - session_id: c071e259-761d-41b6-9c39-b89820152dcd
   - POST https://api.smith.langchain.com/runs/query

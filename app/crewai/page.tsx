@@ -663,18 +663,17 @@ export default function Home() {
                         </FeskDrawer> */}
 
 
-                        <FeskDrawer name='TraceGraph'>
-
-                            {
-                                // const foundItem = traceList.find(item => item.id === child.trace_id);
-                                masterTraceTimeTreeList && (masterTraceTimeTreeList.length > 0) && (
-
-                                    <FeskTraceGraph traceTimeTree={masterTraceTimeTreeList} traceList={traceList} displayName='Trace Graph Root' />
-                                )
-                            }
 
 
-                        </FeskDrawer>
+                        {
+                            // const foundItem = traceList.find(item => item.id === child.trace_id);
+                            masterTraceTimeTreeList && (masterTraceTimeTreeList.length > 0) && (
+
+                                <FeskTraceGraph traceTimeTree={masterTraceTimeTreeList} traceList={traceList} displayName='Trace Graph Root' />
+
+                            )
+                        }
+
 
 
 
@@ -687,6 +686,9 @@ export default function Home() {
                                 </div>
                             )
                         })} */}
+
+
+
 
                     </div>
 

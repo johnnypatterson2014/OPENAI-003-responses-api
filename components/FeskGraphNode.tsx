@@ -222,12 +222,12 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
                                         {traceItem.traceBody.inputs.tools} <br /><br />
                                     </div>
                                 )}
-                                {isPromptTemplate && (
+                                {/* {isPromptTemplate && (
                                     <div>
                                         generated prompt: <br />
                                         {traceItem.traceBody.outputs.output.text} <br /><br />
                                     </div>
-                                )}
+                                )} */}
 
                                 {isChatOpenAI && (
                                     <div>
@@ -236,7 +236,7 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
                                     </div>
                                 )}
 
-                                {isCrewAgentParser && !isError && (
+                                {/* {isCrewAgentParser && !isError && (
                                     <div>
                                         next step: {traceItem.traceBody.outputs.output.type}<br /><br />
 
@@ -246,9 +246,9 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
                                         {traceItem.traceBody.outputs.output.tool_input} <br /><br />
 
                                     </div>
-                                )}
+                                )} */}
 
-                                {isRunnableParallel && isIntermediateSteps && (
+                                {/* {isRunnableParallel && isIntermediateSteps && (
                                     <div>
                                         tool: <br />
                                         {intermediate_steps[intermediate_steps.length - 1][0].tool} <br /><br />
@@ -260,7 +260,7 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
                                         {intermediate_steps[intermediate_steps.length - 1][1]} <br /><br />
 
                                     </div>
-                                )}
+                                )} */}
                             </FeskDrawerGraph>
 
 
