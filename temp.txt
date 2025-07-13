@@ -41,7 +41,12 @@ Task 4 - subtask A - Content Marketing Manager:   *** this tasks happens after s
 
 
 
+<div class="pre-scrollable overflow-auto">
 
+<label class="fesk-card-h2">JSON Trace Object</label><span>
+<pre class="text-xs">
+
+<div id="modal-content-f056bb6a-d18b-441e-91eb-cdb842154e86">no output yet</div></pre></span></div>
 
 
 

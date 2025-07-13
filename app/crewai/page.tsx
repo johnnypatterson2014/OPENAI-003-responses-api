@@ -29,12 +29,14 @@ import JsonResponseObject from '@/components/JsonResponseObject'
 import next from 'next';
 import { Input } from "@/components/ui/input";
 
+import FeskTraceGraph from '@/components/FeskTraceGraph';
+
 
 
 
 export default function Home() {
     const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
-    const [content, setContent] = useState('no output yet')
+    // const [content, setContent] = useState('no output yet')
     const [traceList, setTraceList] = useState<any[]>([])
     const [traceTreeList, setTraceTreeList] = useState<TraceTreeItem[]>([])
     const [masterTraceTimeTreeList, setMasterTraceTimeTreeList] = useState<TraceTimeTreeItem[]>([])
@@ -647,7 +649,7 @@ export default function Home() {
 
                     <div className="p-[10px]">
 
-                        <FeskDrawer name='RootCrewExecution'>
+                        {/* <FeskDrawer name='RootCrewExecution'>
 
                             {masterTraceTimeTreeList && masterTraceTimeTreeList.length > 0 && masterTraceTimeTreeList[0].children?.map((child, i) => {
                                 const foundItem = traceList.find(item => item.id === child.trace_id);
@@ -658,7 +660,22 @@ export default function Home() {
                                 )
                             })}
 
+                        </FeskDrawer> */}
+
+
+                        <FeskDrawer name='TraceGraph'>
+
+                            {
+                                // const foundItem = traceList.find(item => item.id === child.trace_id);
+                                masterTraceTimeTreeList && (masterTraceTimeTreeList.length > 0) && (
+
+                                    <FeskTraceGraph traceTimeTree={masterTraceTimeTreeList} traceList={traceList} displayName='Trace Graph Root' />
+                                )
+                            }
+
+
                         </FeskDrawer>
+
 
 
                         {/* <TraceTreeItemComponent item={masterTraceTimeTreeList[0]} traceList={traceList} displayName='RootCrewExecution' /> */}

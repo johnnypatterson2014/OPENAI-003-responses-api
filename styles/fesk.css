@@ -146,14 +146,16 @@ dialog strong {
 }
 
 .collapse-content {
-    background: var(--fesk-card-2-background);
     padding: 0px;
     /* background: var(--fesk-collapse-title-background);
+    background: var(--fesk-card-2-background);
   padding: 0px;
   margin: 0px;
   border: 1px solid var(--fesk-card-border);
   border-radius: 0px; */
 }
+
+
 
 .fesk-dialog {
     background: var(--fesk-dialog-background);
@@ -191,6 +193,36 @@ dialog strong {
     border: 1px solid var(--fesk-card-border);
     color: var(--fesk-collapse-title);
     background: var(--background);
+}
+
+.fesk-collapse-title-graph {
+    color: var(--color-zinc-400);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    font-family: var(--font-mono);
+
+}
+
+.fesk-collapse-content-graph {
+    color: var(--color-zinc-400);
+}
+
+.fesk-collapse-content-graph {
+    color: var(--color-zinc-400);
+}
+
+.fesk-collapse-graph-content {
+    color: var(--color-zinc-400);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    font-family: var(--font-mono);
+}
+
+.fesk-graph-text {
+    color: var(--color-zinc-400);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    font-family: var(--font-mono);
 }
 
 .fesk-collapse-title {
