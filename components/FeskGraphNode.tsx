@@ -67,7 +67,12 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
             <>
                 <div className='flex flex-row items-start'>
                     <div className='flex-none p-[2px] mt-[4px]'>
-                        action: run tool
+                        run tool: {isIntermediateSteps && (
+                            <>
+                                {intermediate_steps[intermediate_steps.length - 1][0].tool}
+                            </>
+
+                        )}
                     </div>
 
                     <div className='flex-1 ml-[10px]'>
@@ -77,9 +82,6 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
 
                                 {isRunnableParallel && isIntermediateSteps && (
                                     <div>
-                                        tool: <br />
-                                        {intermediate_steps[intermediate_steps.length - 1][0].tool} <br /><br />
-
                                         tool input: <br />
                                         {intermediate_steps[intermediate_steps.length - 1][0].tool_input} <br /><br />
 
@@ -104,10 +106,9 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
             <>
                 <div className='flex flex-row items-start'>
                     <div className='flex-none p-[2px] mt-[4px]'>
-                        next step:&nbsp;
                         {!isError && (
                             <>
-                                {traceItem.traceBody.outputs.output.type}
+                                {traceItem.traceBody.outputs.output.type}: {traceItem.traceBody.outputs.output.tool}
                             </>
                         )}
 
@@ -120,8 +121,6 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
 
                                 {!isError && (
                                     <div>
-                                        use tool: {traceItem.traceBody.outputs.output.tool}<br /><br />
-
                                         tool_input: <br />
                                         {traceItem.traceBody.outputs.output.tool_input} <br /><br />
 
@@ -129,10 +128,14 @@ export default function FeskGraphNode({ item, traceItem, traceList }: { item: Tr
                                 )}
 
                                 {isError && (
-                                    <div>
-                                        {errorText}
-
-                                    </div>
+                                    <>
+                                        <div style={{ color: '#ffffff', backgroundColor: '#ed0f0f', fontSize: '12px', fontFamily: 'Helvetica', fontStyle: 'bold', padding: '10px' }}>
+                                            error message: <br />
+                                        </div>
+                                        <div style={{ color: '#ffffff', backgroundColor: '#000000', padding: '10px', borderStyle: 'solid', borderColor: '#ed0f0f', borderWidth: '2px' }}>
+                                            {errorText} <br /><br />
+                                        </div>
+                                    </>
                                 )}
 
 
