@@ -1,0 +1,345 @@
+
+
+
+  
+-------------- run 1 - task 1, task 2, task 3
+
+content marketing manager: handoff to online researcher:
+  trace_3a28f55080c14887af8d109975d8f188
+  span_b8e476ecd0704ccd9aff8a25
+    POST /v1/responses: resp_686a3d65bcc48198be4799d96ca1dbeb0fc412b5dac7e616
+      
+    online researcher:
+      POST /v1/responses: resp_686a3d66a0fc819881694b4838f3c3ad0fc412b5dac7e616
+
+
+-------------- run 2 - Use the online researcher to write a report on Agentic Behavior.
+
+content marketing manager: handoff to online researcher:
+  trace_c243f4a83d614f1c800f81ac5452b9fe
+    POST /v1/responses: resp_686a40b7aa68819b8d6b69bb9e485cda0b00d0d0fd233a63
+
+    online researcher:
+      POST /v1/responses: resp_686a40b885d0819ba61ffc8af585b4570b00d0d0fd233a63
+
+
+-------------- run 3 - Using the report from the online researcher, write an article using the 'blog manager'.
+
+content marketing manager: handoff to blog manager:
+  trace_df11a2e84e02454d8ebacf8c10f5f689
+    POST /v1/responses: resp_686a40c35538819bba3af8ab9db6ba610b00d0d0fd233a63
+
+    blog manager:
+      POST /v1/responses: resp_686a40c40a64819ba5fc057ec89819af0b00d0d0fd233a63
+
+
+-------------- run 4 - Meticulously review and harmonize the final output from both...
+
+content marketing manager: 
+  trace_77f98a72c8ea428e93485c5b5da95ea8
+    POST /v1/responses: resp_686a40ca2678819ba556522e4a96fc470b00d0d0fd233a63
+
+    *** get the input for the response (has full history of steps):
+          https://api.openai.com/v1/responses/resp_686a40ca2678819ba556522e4a96fc470b00d0d0fd233a63/input_items
+
+
+https://openai.github.io/openai-agents-python/tracing/
+https://github.com/openai/openai-agents-js
+
+https://github.com/openai/openai-agents-js/blob/2786ff5a6eaf8fe02ef93ffd10932433ef01876d/docs/src/content/docs/guides/tracing.mdx#L3
+
+
+Get traces:
+https://api.openai.com/v1/dashboard/traces?include%5B%5D=first_5_agents&include%5B%5D=tool_count&include%5B%5D=handoff_count&include%5B%5D=duration_ms
+
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "trace_77f98a72c8ea428e93485c5b5da95ea8",
+      "object": "trace",
+      "created_at": "2025-07-06T09:24:29.452528Z",
+      "duration_ms": 13314,
+      "first_5_agents": [
+        "content marketing manager"
+      ],
+      "group_id": null,
+      "handoff_count": 0,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_df11a2e84e02454d8ebacf8c10f5f689",
+      "object": "trace",
+      "created_at": "2025-07-06T09:24:23.781760Z",
+      "duration_ms": 6810,
+      "first_5_agents": [
+        "content marketing manager",
+        "blog manager"
+      ],
+      "group_id": null,
+      "handoff_count": 1,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_c243f4a83d614f1c800f81ac5452b9fe",
+      "object": "trace",
+      "created_at": "2025-07-06T09:24:13.064539Z",
+      "duration_ms": 11776,
+      "first_5_agents": [
+        "content marketing manager",
+        "online researcher"
+      ],
+      "group_id": null,
+      "handoff_count": 1,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_3a28f55080c14887af8d109975d8f188",
+      "object": "trace",
+      "created_at": "2025-07-06T09:10:02.866507Z",
+      "duration_ms": 7884,
+      "first_5_agents": [
+        "content marketing manager",
+        "online researcher"
+      ],
+      "group_id": null,
+      "handoff_count": 1,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_669014bab9e74e6cb3819e1d493036bb",
+      "object": "trace",
+      "created_at": "2025-07-06T01:06:37.249119Z",
+      "duration_ms": 5079,
+      "first_5_agents": [
+        "Triage Agent",
+        "Math Tutor"
+      ],
+      "group_id": null,
+      "handoff_count": 1,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_6bba48e80f9c46558efc96872e1d4d56",
+      "object": "trace",
+      "created_at": "2025-07-06T00:59:39.776474Z",
+      "duration_ms": 1447,
+      "first_5_agents": [
+        "Triage Agent"
+      ],
+      "group_id": null,
+      "handoff_count": 0,
+      "tool_count": 1,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_20e5af39ed7341d98d7022df519d35a1",
+      "object": "trace",
+      "created_at": "2025-07-06T00:47:41.370039Z",
+      "duration_ms": 1123,
+      "first_5_agents": [
+        "Triage Agent"
+      ],
+      "group_id": null,
+      "handoff_count": 0,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_b1fc66e5b4dd453eadb7d809d56a063a",
+      "object": "trace",
+      "created_at": "2025-07-06T00:25:30.836857Z",
+      "duration_ms": 3471,
+      "first_5_agents": [
+        "History Tutor"
+      ],
+      "group_id": null,
+      "handoff_count": 0,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_b515905d95284e0091fed498e4ac719c",
+      "object": "trace",
+      "created_at": "2025-07-06T00:14:10.981211Z",
+      "duration_ms": 928,
+      "first_5_agents": [
+        "Assistant"
+      ],
+      "group_id": null,
+      "handoff_count": 0,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_3af81ab055474e3b8a223f30c37f9429",
+      "object": "trace",
+      "created_at": "2025-07-06T00:11:53.557945Z",
+      "duration_ms": 966,
+      "first_5_agents": [
+        "Assistant"
+      ],
+      "group_id": null,
+      "handoff_count": 0,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_d8425a2424a84c66b901685e793029d5",
+      "object": "trace",
+      "created_at": "2025-07-06T00:04:26.112533Z",
+      "duration_ms": 935,
+      "first_5_agents": [
+        "Assistant"
+      ],
+      "group_id": null,
+      "handoff_count": 0,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    },
+    {
+      "id": "trace_1094e61fd42a44c8abd1aa826a02a89f",
+      "object": "trace",
+      "created_at": "2025-07-05T23:55:34.325569Z",
+      "duration_ms": 1863,
+      "first_5_agents": [
+        "Assistant"
+      ],
+      "group_id": null,
+      "handoff_count": 0,
+      "tool_count": 0,
+      "workflow_name": "Agent workflow",
+      "metadata": {}
+    }
+  ],
+  "first_id": "trace_77f98a72c8ea428e93485c5b5da95ea8",
+  "has_more": false,
+  "last_id": "trace_1094e61fd42a44c8abd1aa826a02a89f"
+}
+
+
+
+Get spans for a trace:
+
+https://api.openai.com/v1/dashboard/traces/trace_3a28f55080c14887af8d109975d8f188/spans?include[]=duration_ms&include[]=speech_group_output&order=asc
+
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "span_601fcfdac9a14cf98b43ee7b",
+      "object": "trace.span",
+      "created_at": "2025-07-06T09:10:02.866507Z",
+      "duration_ms": 1356,
+      "ended_at": "2025-07-06T09:09:58.413000Z",
+      "error": null,
+      "parent_id": null,
+      "span_data": {
+        "type": "agent",
+        "handoffs": [
+          "online researcher",
+          "blog manager"
+        ],
+        "name": "content marketing manager",
+        "output_type": "text",
+        "tools": [
+          "web_search_preview"
+        ]
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-06T09:09:57.057000Z",
+      "trace_id": "trace_3a28f55080c14887af8d109975d8f188"
+    },
+    {
+      "id": "span_faf05fcf31b844899442ac5d",
+      "object": "trace.span",
+      "created_at": "2025-07-06T09:10:02.866507Z",
+      "duration_ms": 1351,
+      "ended_at": "2025-07-06T09:09:58.409000Z",
+      "error": null,
+      "parent_id": "span_601fcfdac9a14cf98b43ee7b",
+      "span_data": {
+        "type": "response",
+        "response_id": "resp_686a3d65bcc48198be4799d96ca1dbeb0fc412b5dac7e616"
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-06T09:09:57.058000Z",
+      "trace_id": "trace_3a28f55080c14887af8d109975d8f188"
+    },
+    {
+      "id": "span_b8e476ecd0704ccd9aff8a25",
+      "object": "trace.span",
+      "created_at": "2025-07-06T09:10:02.866507Z",
+      "duration_ms": 1,
+      "ended_at": "2025-07-06T09:09:58.413000Z",
+      "error": null,
+      "parent_id": "span_601fcfdac9a14cf98b43ee7b",
+      "span_data": {
+        "type": "handoff",
+        "from_agent": "content marketing manager",
+        "to_agent": "online researcher"
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-06T09:09:58.412000Z",
+      "trace_id": "trace_3a28f55080c14887af8d109975d8f188"
+    },
+    {
+      "id": "span_4dfe38352a6041e89b54b005",
+      "object": "trace.span",
+      "created_at": "2025-07-06T09:10:08.576716Z",
+      "duration_ms": 6528,
+      "ended_at": "2025-07-06T09:10:04.941000Z",
+      "error": null,
+      "parent_id": null,
+      "span_data": {
+        "type": "agent",
+        "handoffs": [],
+        "name": "online researcher",
+        "output_type": "text",
+        "tools": [
+          "web_search_preview"
+        ]
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-06T09:09:58.413000Z",
+      "trace_id": "trace_3a28f55080c14887af8d109975d8f188"
+    },
+    {
+      "id": "span_6010c6186b684bcda083b0c3",
+      "object": "trace.span",
+      "created_at": "2025-07-06T09:10:08.576716Z",
+      "duration_ms": 6524,
+      "ended_at": "2025-07-06T09:10:04.937000Z",
+      "error": null,
+      "parent_id": "span_4dfe38352a6041e89b54b005",
+      "span_data": {
+        "type": "response",
+        "response_id": "resp_686a3d66a0fc819881694b4838f3c3ad0fc412b5dac7e616"
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-06T09:09:58.413000Z",
+      "trace_id": "trace_3a28f55080c14887af8d109975d8f188"
+    }
+  ],
+  "first_id": "span_601fcfdac9a14cf98b43ee7b",
+  "has_more": false,
+  "last_id": "span_6010c6186b684bcda083b0c3"
+}
+
+
