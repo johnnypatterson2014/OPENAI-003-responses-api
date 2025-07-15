@@ -277,6 +277,10 @@ dialog strong {
     margin-bottom: 10px;
 }
 
+.aw-mb {
+    margin-bottom: 50px;
+}
+
 .fesk-card {
     border: 1px solid var(--fesk-card-border);
     padding: 10px;
