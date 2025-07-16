@@ -9,7 +9,9 @@ export async function GET(request: NextRequest) {
         const connection = await mysql.createConnection(mySqlConnectionParams)
 
         // 3. create a query to fetch data
-        const get_exp_query = 'SELECT * FROM feskDb.TraceTree';
+        // const get_exp_query = 'SELECT * FROM feskDb.TraceTree';
+        const get_exp_query = 'select * from feskDb.TraceTree where id = "my trace tree 2"';
+        ;
         let values: any[] = []
 
         // 4. exec the query and retrieve the results

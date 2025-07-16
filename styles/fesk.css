@@ -133,7 +133,28 @@ dialog strong {
     background: var(--tab-bg);
 }
 
-#collapse-checkbox {
+.fesk-checkbox {
+    padding: 0px;
+}
+
+.icon-spacing {
+    margin-left: 2px;
+    margin-top: 3px;
+}
+
+.icon-spacing2 {
+    margin-left: 2px;
+    margin-top: 2px;
+}
+
+.tree-item {
+    border-bottom: 1px solid var(--fesk-card-border);
+    padding-bottom: 5px;
+}
+
+.icon-style {
+    background: var(--fesk-card-background);
+    border-width: 0px;
     padding: 0px;
 }
 

@@ -21,7 +21,7 @@ import FeskFieldset from '@/components/FeskFieldset';
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import FeskFieldsetJustifyEnd from '@/components/FeskFieldsetJustifyEnd';
 import { sendTracePersistenceRequest, saveTrace, saveTreeTrace, getTreeTrace } from '@/lib/sendTracePersistenceRequest'
-import { TraceTreeItem, crewai_testrun_1, TraceTimeTreeItem } from '@/config/FeskConstants'
+import { TraceTreeItem, crewai_testrun_2, TraceTimeTreeItem } from '@/config/FeskConstants'
 import TraceItemComponent from '@/components/TraceItemComponent';
 import TraceTreeItemComponent from '@/components/TraceTreeItemComponent';
 import FeskModal from '@/components/FeskModal'
@@ -390,15 +390,13 @@ export default function Home() {
                                             <div>
 
 
-                                                {crewai_testrun_1.map((item, i) => (
+                                                {crewai_testrun_2.map((item, i) => (
 
                                                     <div key={`testrun-trace-${i}`} className='flex items-center justify-end'>
                                                         <div className='flex-none mb-[10px] mr-[10px] fesk-item'>
-                                                            <div>{item.name}</div>
+                                                            <div>{item.id}</div>
                                                         </div>
-                                                        <div className='flex-none mb-[10px] mr-[10px] fesk-item'>
-                                                            <div>{item.assigned_agent}</div>
-                                                        </div>
+
                                                         {/* <div className='fesk-item flex-none mr-[10px] mb-[10px]'>
                                                             <div>{item.id}</div>
                                                         </div> */}

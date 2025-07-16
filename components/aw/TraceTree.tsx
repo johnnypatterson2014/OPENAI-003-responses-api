@@ -14,14 +14,17 @@ import { text } from 'stream/consumers';
 import { useState } from 'react'
 import { JsonData, AgentAction, TaskExecution, Workflow, workflow_stub_data } from '@/components/aw/Constants';
 import TaskExecutionComponent from '@/components/aw/TaskExecutionComponent'
+import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 
-export default function TraceTree({ workflow, traceList }: { workflow: Workflow, traceList: JsonData[] }) {
+
+export default function TraceTree() {
+  const { workflow } = workflowContext()
 
   return (
     <>
 
       <div className="collapse">
-        <input id='collapse-checkbox' type="checkbox" />
+        <input className='fesk-checkbox' id='collapse-checkbox-TraceTree' type="checkbox" />
         <div className="collapse-title">
 
           <div className="fesk-collapse-title-graph">
@@ -42,11 +45,11 @@ export default function TraceTree({ workflow, traceList }: { workflow: Workflow,
 
               <div className="flex-1">
 
-                {workflow.tasks?.map((task, i) => {
+                {workflow.tasks.map((taskItem, i) => {
 
                   return (
-                    <div key={task.id} className='mt-[8px] mb-[5px]'>
-                      <TaskExecutionComponent task={task} />
+                    <div key={taskItem.id} className='mt-[8px] mb-[5px]'>
+                      <TaskExecutionComponent task={taskItem} />
 
                     </div>
 

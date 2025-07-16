@@ -51,6 +51,10 @@ CREATE TABLE TraceTree (
 );
 
 drop table LangsmithTraces;
+
 select * from LangsmithTraces;
+SELECT * FROM feskDb.LangsmithTraces where id = '0fcb32ee-2074-4aba-ad29-004e3893188f';
+
 select * from TraceTree;
+select * from feskDb.TraceTree where id = 'my trace tree 2';
 

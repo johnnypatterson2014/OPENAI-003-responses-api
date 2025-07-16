@@ -1,9 +1,10 @@
 
 'use server'
 
-import { Agent, run, tool, webSearchTool, AgentInputItem } from '@openai/agents';
+import { Agent, run, tool, webSearchTool, AgentInputItem, withTrace } from '@openai/agents';
 import { promises as fs } from "fs";
 import { z } from 'zod';
+import { RECOMMENDED_PROMPT_PREFIX } from '@openai/agents-core/extensions';
 
 const getWeather = tool({
   name: 'get_weather',
@@ -26,10 +27,12 @@ const online_researcher = new Agent({
     health, culture, and global events. You possess the capability to access a wide range of online news sources, 
     blogs, and social media platforms to gather real-time information.`,
   tools: [webSearchTool()],
+  model: 'gpt-4.1'
 });
 
 const blog_manager = new Agent({
   name: 'blog manager',
+  model: 'gpt-4.1',
   tools: [webSearchTool()],
   instructions:
     `You are a Blog Manager. The role of a Blog Manager encompasses several critical responsibilities aimed at transforming initial drafts into polished, SEO-optimized blog articles that engage and grow an audience. Starting with drafts provided by the online researcher, the Blog Manager must thoroughly understand the content, ensuring it aligns with the blog's tone, target audience, and thematic goals. Key responsibilities include:
@@ -49,7 +52,8 @@ In summary, the Blog Manager plays a pivotal role in bridging initial research a
 
 const content_marketing_manager = new Agent({
   name: 'content marketing manager',
-  instructions:
+  model: 'gpt-4.1',
+  instructions: RECOMMENDED_PROMPT_PREFIX +
     `
     You are an excellent Content Marketing Manager. Your primary role is to supervise each publication from the 'blog manager' 
     and the articles written by the 'online researcher' and approve the work for publication. Examine the work and regulate violent language, abusive content and racist content.
@@ -75,22 +79,33 @@ async function userSays(text: string) {
   );
 
   thread = result.history; // Carry over history + newly generated items
-  return result.finalOutput;
+  return JSON.stringify(result);
 }
+
 
 export const callAgent = async (question: string) => {
 
-  await userSays('Use the online researcher to write a report on Agentic Behavior.');
+  let workflowOutput = ''
+  // await withTrace('FESK AW 01', async () => {
+  let response = '';
+  response += 'user prompt: Use the online researcher to write a report on Agentic Behavior. \n\nResponse: \n'
+  response += '\n\n' + await userSays('Use the online researcher to write a report on Agentic Behavior.');
 
-  await userSays(`
+  response += 'user prompt: Using the report from the online researcher, write an article using the \'blog manager\'. \n\nResponse: \n'
+  response += '\n\n' + await userSays(`
     Using the report from the online researcher, write an article using the 'blog manager'. 
     The publication should contain links to sources stated by the online researcher. 
     Your final answer MUST be the full article of at least 3 paragraphs.
     `);
 
-  const response = await userSays(`
+  response += 'user prompt: Meticulously review and harmonize the final output from both the \'blog manager\' and \'online researcher\' \n\nResponse: \n'
+  response += '\n\n' + await userSays(`
     Meticulously review and harmonize the final output from both the 'blog manager' and 'online researcher', ensuring cohesion and excellence in the final publication. Once done, publish the final report.
     `);
+
+  workflowOutput = response
+
+  // })
 
   // const input = JSON.stringify(response.input) + '\n\n'
   // const history = JSON.stringify(response.history) + '\n\n'
@@ -102,7 +117,7 @@ export const callAgent = async (question: string) => {
   // const newItems = JSON.stringify(response.newItems) + '\n\n'
   // const finalOutput = JSON.stringify(response.finalOutput) + '\n\n'
 
-  const responseText = JSON.stringify(response)
+  const responseText = JSON.stringify(workflowOutput)
   fs.writeFile("./llm-agent-response.txt", responseText);
   return responseText
 }
