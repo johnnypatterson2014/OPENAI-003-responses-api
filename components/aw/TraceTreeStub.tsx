@@ -14,10 +14,13 @@ import { text } from 'stream/consumers';
 import { useState } from 'react'
 import { JsonData, AgentAction, TaskExecution, Workflow } from '@/components/aw/Constants';
 import TaskExecutionComponent from '@/components/aw/TaskExecutionComponent'
+import TaskExecutionComponentStub from '@/components/aw/TaskExecutionComponentStub'
+import TaskExecutionComponentStub2 from '@/components/aw/TaskExecutionComponentStub2'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
+import AgentActionComponentStub from '@/components/aw/AgentActionComponentStub'
 
 
-export default function TraceTree() {
+export default function TraceTreeStub() {
   const { workflowExecution, isContextLoaded } = workflowContext()
 
   return (
@@ -31,7 +34,7 @@ export default function TraceTree() {
             <div className="p-[0px]">
               {isContextLoaded && (
                 <Button2>
-                  {workflowExecution.name}
+                  Multi-Agent execution trace
                 </Button2>
               )}
             </div>
@@ -47,27 +50,31 @@ export default function TraceTree() {
 
               <div className="flex-1">
 
-                {workflowExecution.tasks && workflowExecution.tasks.map((task, i) => {
+                <TaskExecutionComponentStub2 displayName='perform task' isButton={false}>
 
-                  return (
-                    <div key={task.id} className='mt-[8px] mb-[5px]'>
-                      <TaskExecutionComponent task={task} />
-
+                  <TaskExecutionComponentStub displayName='agent: content marketing manager' isButton={true}>
+                    <div key='key1' className='mb-[5px]' >
+                      <AgentActionComponentStub name='POST /v1/responses' />
                     </div>
 
-                  )
+                    <div key='key2' className='mb-[8px]' >
+                      <AgentActionComponentStub name='next action: transfer_to_online_researcher' />
+                    </div>
+                  </TaskExecutionComponentStub>
 
 
-                }
-                )
-                }
+                  <TaskExecutionComponentStub displayName='agent: online researcher' isButton={true}>
+                    <div key='key1' className='mb-[5px]' >
+                      <AgentActionComponentStub name='action: web_search_call' />
+                    </div>
+                    <div key='key2' className='mb-[5px]' >
+                      <AgentActionComponentStub name='POST /v1/responses' />
+                    </div>
+                  </TaskExecutionComponentStub>
 
-                <br /><br /><br />
+                </TaskExecutionComponentStub2>
 
-                {/* {
-                  rootNode && rootNode.children && (rootNode.children.length > 0) && (
-                    <FeskGraphNode traceItem={rootNode.children[0]} traceList={traceList} />
-                  )} */}
+
 
 
 

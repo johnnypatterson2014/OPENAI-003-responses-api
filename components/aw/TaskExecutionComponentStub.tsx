@@ -3,6 +3,7 @@
 import { ReactNode } from 'react'
 import TreeDrawer from '@/components/aw/TreeDrawer'
 import AgentActionComponent from '@/components/aw/AgentActionComponent'
+import AgentActionComponentStub from '@/components/aw/AgentActionComponentStub'
 import ButtonDropdownGraph from '@/components/aw/ButtonDropdownGraph'
 import { TraceTreeItem, TraceTimeTreeItem, SVG_ICON_REQ } from '@/config/FeskConstants'
 import FeskModal from '@/components/FeskModal'
@@ -13,32 +14,12 @@ import { JsonData, AgentAction, TaskExecution, Workflow } from '@/components/aw/
 import Button2 from '@/components/aw/Button2'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 
-export default function TaskExecutionComponent({ task }: { task: TaskExecution }) {
+export default function TaskExecutionComponentStub({ displayName, isButton, children }: { displayName: string, isButton: boolean, children: ReactNode }) {
     const { workflowExecution, openaiResponseList, setWorkflowSelected } = workflowContext()
-
-    const handleViewJson = async (trace_id: string, e?: any) => {
-        e?.preventDefault()
-        console.log('trace_id: ' + trace_id)
-        // const textContent = JSON.stringify(traceItem.traceBody, null, 2)
-        // alert(textContent);
-        // const myDiv = document.getElementById('modal-content-' + trace_id);
-        // alert(myDiv);
-        // setContent(textContent)
-        // myDiv.value = textContent;
-        // document.getElementById('modal-' + trace_id).showModal()
-    }
-
-    const displayTaskExecution = async (trace_id: string, e?: any) => {
-        e?.preventDefault()
-        console.log('trace_id: ' + trace_id)
-
-
-
-    }
 
     return (
         <>
-            <div className='flex flex-row items-start'>
+            <div className='flex flex-row items-start aw-tree-item-mt'>
 
                 <div className='flex-none'>
                     <div className='pl-[10px] pt-[5px]'>
@@ -55,37 +36,8 @@ export default function TaskExecutionComponent({ task }: { task: TaskExecution }
                         <div className='flex-1'>
                             <div className='flex flex-row'>
                                 <div className='flex-1'>
-                                    <TreeDrawer id={task.id} displayName={task.name} isButton={true} >
-
-                                        <div className='flex flex-row content-center items-start'>
-
-                                            <div className='flex-none'>
-                                                <div className='pl-[10px] pt-[5px]'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256"><path fill="currentColor" d="m210.83 178.83l-48 48a4 4 0 0 1-5.66-5.66L198.34 180H64a4 4 0 0 1-4-4V32a4 4 0 0 1 8 0v140h130.34l-41.17-41.17a4 4 0 1 1 5.66-5.66l48 48a4 4 0 0 1 0 5.66Z" /></svg>
-                                                </div>
-                                            </div>
-
-                                            <div className='flex-1'>
-
-                                                <div className='flex flex-row aw-tree-item-mt text-blue-300' >
-                                                    {task.agentName}
-                                                </div>
-
-                                                {task.actions?.map((action, i) => {
-                                                    return (
-                                                        <div key={action.id} className='mt-[5px]' >
-                                                            <AgentActionComponent action={action} />
-                                                        </div>
-                                                    )
-                                                })}
-
-                                            </div>
-
-                                        </div>
-
-
-
-
+                                    <TreeDrawer id='1' displayName={displayName} isButton={isButton} >
+                                        {children}
                                     </TreeDrawer>
                                 </div>
 

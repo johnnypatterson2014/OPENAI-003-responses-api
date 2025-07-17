@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { JsonData, AgentAction, TaskExecution, Workflow } from '@/components/aw/Constants';
 import Button2 from '@/components/aw/Button2';
 
-export default function AgentActionComponent({ action }: { action: AgentAction }) {
+export default function AgentActionComponentStub({ name }: { name: string }) {
 
     return (
         <>
@@ -26,7 +26,7 @@ export default function AgentActionComponent({ action }: { action: AgentAction }
 
                     <div className='flex flex-row aw-tree-item-mt text-blue-300' >
 
-                        {action.name}
+                        {name}
 
                     </div>
 

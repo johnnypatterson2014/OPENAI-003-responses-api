@@ -1,0 +1,59 @@
+.aw-box {
+    border: 1px solid var(--fesk-card-border);
+}
+
+.aw-margin-top {
+    margin-top: 20px;
+}
+
+.aw-margin-top-15 {
+    margin-top: 15px;
+}
+
+.aw-margin-bottom {
+    margin-bottom: 10px;
+}
+
+.aw-collapse-title {
+    margin: 1px;
+    padding-left: 10px;
+    border-bottom: 1px solid var(--fesk-card-border);
+    border-radius: 0px;
+    color: var(--fesk-collapse-title);
+}
+
+.aw-collapse-content {
+    margin: 2px;
+    padding: 5px;
+    font-family: var(--font-mono);
+    color: var(--color-zinc-400);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    /* border: 1px solid var(--fesk-card-border);
+    border-radius: 0px;
+    background-color: var(--background); */
+
+}
+
+.aw-collapse-checkbox {
+    padding: 0px;
+}
+
+.aw-drawer-title {
+    line-height: 18px;
+    padding-bottom: 4px;
+    padding-left: 3px;
+}
+
+.aw-property {
+    padding: 2px;
+    margin-left: 15px;
+}
+
+.aw-overflow-wrap {
+    overflow-wrap: break-word;
+}
+
+.aw-tree-item-mt {
+    margin-top: 5px;
+}

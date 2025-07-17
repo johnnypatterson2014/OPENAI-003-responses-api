@@ -1,0 +1,20 @@
+{
+    "object": "list",
+    "data": [
+        {
+            "id": "msg_686a3d65d48c819896711d26463d0c650fc412b5dac7e616",
+            "type": "message",
+            "status": "completed",
+            "content": [
+                {
+                    "type": "input_text",
+                    "text": "\n    Task 1: \n    Use the online researcher to write a report on Agentic Behavior. \n\n    Task 2: \n    Using the report from the online researcher, write an article using the 'blog manager'. \n    The publication should contain links to sources stated by the online researcher. \n    Your final answer MUST be the full article of at least 3 paragraphs.\n\n    Task 3: \n    To meticulously review and harmonize the final output from both the 'blog manager' and 'online researcher', ensuring cohesion and excellence in the final publication. Once done, publish the final report.\n  "
+                }
+            ],
+            "role": "user"
+        }
+    ],
+    "first_id": "msg_686a3d65d48c819896711d26463d0c650fc412b5dac7e616",
+    "has_more": false,
+    "last_id": "msg_686a3d65d48c819896711d26463d0c650fc412b5dac7e616"
+}

@@ -4,16 +4,17 @@ import { ReactNode, createContext, useContext, useEffect, useState } from 'react
 import Button from '@/components/aw/Button';
 import Button2 from '@/components/aw/Button2';
 import TraceTree from '@/components/aw/TraceTree';
+import TraceTreeStub from '@/components/aw/TraceTreeStub';
+import MainContentDisplay from '@/components/aw/MainContentDisplay';
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
-import { AgentAction, TaskExecution, Workflow, workflow_stub_data } from '@/components/aw/Constants';
+import { AgentAction, TaskExecution, Workflow } from '@/components/aw/Constants';
 
 const AgentWorkflow = () => {
-  const { openaiResponseList, workflow, mainContent, setDisplayContent } = workflowContext()
-
+  const { openaiResponseList, workflowExecution, isContextLoaded } = workflowContext()
 
   const getSavedTraces = async (e?: any) => {
     e?.preventDefault();
-    alert(openaiResponseList[0].state.currentTurn)
+    // alert(openaiResponseList[0].state.currentTurn)
 
   }
 
@@ -39,7 +40,10 @@ const AgentWorkflow = () => {
                 Trace for run using OpenAI agents: <br />
                 trace_id: trace_dd431d0d43b3485397c032fe22b8bfab<br /><br />
               </div>
-              <TraceTree />
+
+              {isContextLoaded && (
+                <TraceTreeStub />
+              )}
 
               <div className='fesk-item'>
                 <br /><br /><br /><br />
@@ -66,11 +70,13 @@ const AgentWorkflow = () => {
         </div>
 
         <div className='grow fesk-card ml-[15px] mr-[15px]'>
-          <div className='fesk-h2'>Agent Workflow Details</div>
+
           <div className="m-[10px]">
 
             <div id='main_content'>
-              {mainContent}
+
+              <MainContentDisplay />
+
             </div>
 
 

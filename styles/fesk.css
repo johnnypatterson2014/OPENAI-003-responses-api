@@ -237,6 +237,7 @@ dialog strong {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
     font-family: var(--font-mono);
+    margin-right: 10px;
 }
 
 .fesk-graph-text {

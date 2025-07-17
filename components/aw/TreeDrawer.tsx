@@ -27,7 +27,7 @@ export default function TreeDrawer({ id, displayName, isButton, children }: { id
                                 {
                                     !isButton && (
                                         <>
-                                            <div className='mt-[4px]'>
+                                            <div className='mt-[4px] text-blue-300'>
                                                 {displayName}
                                             </div>
 
@@ -42,7 +42,7 @@ export default function TreeDrawer({ id, displayName, isButton, children }: { id
                     </div>
 
                     <div className="collapse-content">
-                        <div className="p-[0px] m-[0px]">
+                        <div className="p-[0px] mr-[0px]">
 
                             <div className="fesk-collapse-graph-content">
                                 <div className="pt-[5px] pr-[5px] pl-[5px] pb-[0px]">

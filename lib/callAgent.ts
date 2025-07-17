@@ -6,19 +6,6 @@ import { promises as fs } from "fs";
 import { z } from 'zod';
 import { RECOMMENDED_PROMPT_PREFIX } from '@openai/agents-core/extensions';
 
-const getWeather = tool({
-  name: 'get_weather',
-  description: 'Return the weather for a given city.',
-  parameters: z.object({ city: z.string() }),
-  async execute({ city }) {
-    return `The weather in ${city} is sunny.`;
-  },
-});
-
-// const agent = new Agent({
-//   name: 'Travel assistant',
-//   tools: [webSearchTool(), fileSearchTool('VS_ID')],
-// });
 
 const online_researcher = new Agent({
   name: 'online researcher',
@@ -53,7 +40,7 @@ In summary, the Blog Manager plays a pivotal role in bridging initial research a
 const content_marketing_manager = new Agent({
   name: 'content marketing manager',
   model: 'gpt-4.1',
-  instructions: RECOMMENDED_PROMPT_PREFIX +
+  instructions:
     `
     You are an excellent Content Marketing Manager. Your primary role is to supervise each publication from the 'blog manager' 
     and the articles written by the 'online researcher' and approve the work for publication. Examine the work and regulate violent language, abusive content and racist content.
@@ -86,26 +73,26 @@ async function userSays(text: string) {
 export const callAgent = async (question: string) => {
 
   let workflowOutput = ''
-  // await withTrace('FESK AW 01', async () => {
-  let response = '';
-  response += 'user prompt: Use the online researcher to write a report on Agentic Behavior. \n\nResponse: \n'
-  response += '\n\n' + await userSays('Use the online researcher to write a report on Agentic Behavior.');
+  await withTrace('FESK AW 02', async () => {
+    let response = '';
+    response += 'user prompt: Use the online researcher to write a report on Agentic Behavior. \n\nResponse: \n'
+    response += '\n\n' + await userSays('Use the online researcher to write a report on Agentic Behavior.');
 
-  response += 'user prompt: Using the report from the online researcher, write an article using the \'blog manager\'. \n\nResponse: \n'
-  response += '\n\n' + await userSays(`
-    Using the report from the online researcher, write an article using the 'blog manager'. 
-    The publication should contain links to sources stated by the online researcher. 
-    Your final answer MUST be the full article of at least 3 paragraphs.
-    `);
+    // response += 'user prompt: Using the report from the online researcher, write an article using the \'blog manager\'. \n\nResponse: \n'
+    // response += '\n\n' + await userSays(`
+    //   Using the report from the online researcher, write an article using the 'blog manager'. 
+    //   The publication should contain links to sources stated by the online researcher. 
+    //   Your final answer MUST be the full article of at least 3 paragraphs.
+    //   `);
 
-  response += 'user prompt: Meticulously review and harmonize the final output from both the \'blog manager\' and \'online researcher\' \n\nResponse: \n'
-  response += '\n\n' + await userSays(`
-    Meticulously review and harmonize the final output from both the 'blog manager' and 'online researcher', ensuring cohesion and excellence in the final publication. Once done, publish the final report.
-    `);
+    // response += 'user prompt: Meticulously review and harmonize the final output from both the \'blog manager\' and \'online researcher\' \n\nResponse: \n'
+    // response += '\n\n' + await userSays(`
+    //   Meticulously review and harmonize the final output from both the 'blog manager' and 'online researcher', ensuring cohesion and excellence in the final publication. Once done, publish the final report.
+    //   `);
 
-  workflowOutput = response
+    workflowOutput = response
 
-  // })
+  })
 
   // const input = JSON.stringify(response.input) + '\n\n'
   // const history = JSON.stringify(response.history) + '\n\n'
@@ -118,6 +105,6 @@ export const callAgent = async (question: string) => {
   // const finalOutput = JSON.stringify(response.finalOutput) + '\n\n'
 
   const responseText = JSON.stringify(workflowOutput)
-  fs.writeFile("./llm-agent-response.txt", responseText);
+  fs.writeFile("./openai-agent-workflow-response.txt", responseText);
   return responseText
 }

@@ -2,6 +2,7 @@
 import Header from '@/components/Header';
 import SideNav from '@/components/SideNav';
 import "@/styles/SideNavToggle.css";
+import "@/components/aw/workflow.css";
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
     return (
