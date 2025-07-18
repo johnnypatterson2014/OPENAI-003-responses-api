@@ -9,7 +9,6 @@ import { TraceTreeItem, TraceTimeTreeItem, SVG_ICON_REQ } from '@/config/FeskCon
 import FeskModal from '@/components/FeskModal'
 import FeskDrawerGraph2 from '@/components/FeskDrawerGraph2'
 import { useState } from 'react'
-import { JsonData, AgentAction, TaskExecution, Workflow } from '@/components/aw/Constants';
 
 import Button2 from '@/components/aw/Button2'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';

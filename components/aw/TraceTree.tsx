@@ -12,7 +12,7 @@ import FeskModal from '@/components/FeskModal'
 import JsonResponseObject from '@/components/JsonResponseObject'
 import { text } from 'stream/consumers';
 import { useState } from 'react'
-import { JsonData, AgentAction, TaskExecution, Workflow } from '@/components/aw/Constants';
+import { WorkflowExecution, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTask, WorkflowTree, WorkflowTreeNode } from '@/components/aw/Constants';
 import TaskExecutionComponent from '@/components/aw/TaskExecutionComponent'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 

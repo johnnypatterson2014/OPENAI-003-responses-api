@@ -1,0 +1,20 @@
+[
+    {
+        "id": "web_search_call",
+        "name": "web_search_call",
+        "type": "hosted_tool_call",
+        "description": "Search the internet about a topic."
+    },
+    {
+        "id": "transfer_to_online_researcher",
+        "name": "transfer_to_online_researcher",
+        "type": "handoff",
+        "description": "Handoff to the online researcher agent to handle the request."
+    },
+    {
+        "id": "transfer_to_blog_manager",
+        "name": "transfer_to_blog_manager",
+        "type": "handoff",
+        "description": "Handoff to the blog manager agent to handle the request."
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name": "report_agentic_behavior",
+        "description": "Use the online researcher to write a report on Agentic Behavior."
+    },
+    {
+        "id": "2",
+        "name": "article_blog_manager",
+        "description": "Using the report from the online researcher, write an article using the 'blog manager'. The publication should contain links to sources stated by the online researcher. Your final answer MUST be the full article of at least 3 paragraphs."
+    },
+    {
+        "id": "3",
+        "name": "review_final_output",
+        "description": "Meticulously review and harmonize the final output from both the 'blog manager' and 'online researcher', ensuring cohesion and excellence in the final publication. Once done, publish the final report."
+    }
+]

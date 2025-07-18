@@ -40,10 +40,10 @@ export default function MainContentDisplay() {
                                 <>
                                     <div className='aw-margin-bottom'>
                                         <span className='fesk-h2 text-blue-300'>
-                                            {workflowExecution.tasks[0].name}
+                                            {workflowExecution.tasks[0].name}:
                                         </span>
                                         <span className='ml-[10px] text-blue-300'>
-                                            Agent: {workflowExecution.tasks[0].agentName}
+                                            {workflowExecution.tasks[0].agentName}
                                         </span>
                                     </div>
                                 </>

@@ -1,0 +1,36 @@
+
+
+
+
+
+WorkflowExecution
+ - workflow_id
+ - start_time
+ - end_time
+ - WorkflowTree_id (can use same value as workflow_id since they are 1:1)
+ - tasks: WorkflowTask[] - one for each LLM req/resp
+ - ref_data_agents[]
+ - ref_data_tasks[]
+ - ref-data_tools[]
+
+
+WorkflowTask - represents one LLM req/resp
+ - task_id
+ - raw_json_request_id
+ - raw_json_response_id
+ - properties
+ - system_instructions
+ - input
+ - result
+
+
+WorkflowTree
+ - id
+ - workflow_id
+ - root: WorkflowTreeNode
+
+
+WorkflowTreeNode
+ - name
+ - isButton
+ - children: WorkflowTreeNode[]

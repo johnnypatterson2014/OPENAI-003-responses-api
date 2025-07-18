@@ -12,16 +12,16 @@ import FeskModal from '@/components/FeskModal'
 import JsonResponseObject from '@/components/JsonResponseObject'
 import { text } from 'stream/consumers';
 import { useState } from 'react'
-import { JsonData, AgentAction, TaskExecution, Workflow } from '@/components/aw/Constants';
+import { WorkflowExecution, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTask, WorkflowTree, WorkflowTreeTask } from '@/components/aw/Constants';
 import TaskExecutionComponent from '@/components/aw/TaskExecutionComponent'
-import TaskExecutionComponentStub from '@/components/aw/TaskExecutionComponentStub'
-import TaskExecutionComponentStub2 from '@/components/aw/TaskExecutionComponentStub2'
+import TaskExecutionComponentStub from '@/components/aw/WorkflowTreeTaskUI'
+import WorkflowTreeTaskUI from '@/components/aw/WorkflowTreeTaskUI'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 import AgentActionComponentStub from '@/components/aw/AgentActionComponentStub'
 
 
-export default function TraceTreeStub() {
-  const { workflowExecution, isContextLoaded } = workflowContext()
+export default function WorkflowTreeUI() {
+  const { workflowExecution, isContextLoaded, workflowTree } = workflowContext()
 
   return (
     <>
@@ -34,7 +34,7 @@ export default function TraceTreeStub() {
             <div className="p-[0px]">
               {isContextLoaded && (
                 <Button2>
-                  Multi-Agent execution trace
+                  {workflowTree.name}
                 </Button2>
               )}
             </div>
@@ -50,7 +50,20 @@ export default function TraceTreeStub() {
 
               <div className="flex-1">
 
-                <TaskExecutionComponentStub2 displayName='perform task' isButton={false}>
+                {isContextLoaded && workflowTree.children && workflowTree.children.map((task, i) => {
+                  return (
+                    <div key={task.tree_task_id} className='mt-[8px] mb-[5px]'>
+                      <WorkflowTreeTaskUI task={task} />
+
+                    </div>
+
+                  )
+
+                })}
+
+
+
+                {/* <TaskExecutionComponentStub2 displayName='perform task' isButton={false}>
 
                   <TaskExecutionComponentStub displayName='agent: content marketing manager' isButton={true}>
                     <div key='key1' className='mb-[5px]' >
@@ -72,7 +85,7 @@ export default function TraceTreeStub() {
                     </div>
                   </TaskExecutionComponentStub>
 
-                </TaskExecutionComponentStub2>
+                </TaskExecutionComponentStub2> */}
 
 
 

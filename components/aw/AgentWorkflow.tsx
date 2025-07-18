@@ -4,10 +4,10 @@ import { ReactNode, createContext, useContext, useEffect, useState } from 'react
 import Button from '@/components/aw/Button';
 import Button2 from '@/components/aw/Button2';
 import TraceTree from '@/components/aw/TraceTree';
-import TraceTreeStub from '@/components/aw/TraceTreeStub';
+import WorkflowTreeUI from '@/components/aw/WorkflowTreeUI';
 import MainContentDisplay from '@/components/aw/MainContentDisplay';
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
-import { AgentAction, TaskExecution, Workflow } from '@/components/aw/Constants';
+import { WorkflowExecution, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTask, WorkflowTree, WorkflowTreeNode } from '@/components/aw/Constants';
 
 const AgentWorkflow = () => {
   const { openaiResponseList, workflowExecution, isContextLoaded } = workflowContext()
@@ -29,7 +29,9 @@ const AgentWorkflow = () => {
 
             <div className='fesk-h2'>Agent Workflow</div>
 
-            <div className='fesk-h2'>
+            <WorkflowTreeUI />
+
+            {/* <div className='fesk-h2'>
               <Button>
                 <a onClick={getSavedTraces}>get data from DB</a>
               </Button>
@@ -63,7 +65,7 @@ const AgentWorkflow = () => {
               </div>
 
 
-            </div>
+            </div> */}
 
           </div>
 

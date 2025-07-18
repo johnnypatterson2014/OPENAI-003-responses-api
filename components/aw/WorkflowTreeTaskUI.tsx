@@ -4,18 +4,18 @@ import { ReactNode } from 'react'
 import TreeDrawer from '@/components/aw/TreeDrawer'
 import AgentActionComponent from '@/components/aw/AgentActionComponent'
 import AgentActionComponentStub from '@/components/aw/AgentActionComponentStub'
-import ButtonDropdownGraph from '@/components/aw/ButtonDropdownGraph'
+import WorkflowTreeNodeUIWithChildren from '@/components/aw/WorkflowTreeNodeUIWithChildren'
 import { TraceTreeItem, TraceTimeTreeItem, SVG_ICON_REQ } from '@/config/FeskConstants'
 import FeskModal from '@/components/FeskModal'
-import FeskDrawerGraph2 from '@/components/FeskDrawerGraph2'
+import WorkflowTreeNodeUI from '@/components/aw/WorkflowTreeNodeUI'
 import { useState } from 'react'
-import { JsonData, AgentAction, TaskExecution, Workflow } from '@/components/aw/Constants';
+import { WorkflowTreeTask } from '@/components/aw/Constants';
 
 import Button2 from '@/components/aw/Button2'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 
-export default function TaskExecutionComponentStub({ displayName, isButton, children }: { displayName: string, isButton: boolean, children: ReactNode }) {
-    const { workflowExecution, openaiResponseList, setWorkflowSelected } = workflowContext()
+export default function WorkflowTreeTaskUI({ task }: { task: WorkflowTreeTask }) {
+    const { setWorkflowSelected } = workflowContext()
 
     return (
         <>
@@ -36,8 +36,31 @@ export default function TaskExecutionComponentStub({ displayName, isButton, chil
                         <div className='flex-1'>
                             <div className='flex flex-row'>
                                 <div className='flex-1'>
-                                    <TreeDrawer id='1' displayName={displayName} isButton={isButton} >
-                                        {children}
+
+
+
+                                    <TreeDrawer id={task.tree_task_id} displayName={task.name} isButton={true} >
+
+                                        {task.children && task.children.map((node, i) => {
+                                            let hasChildren = false
+                                            if (node.children && node.children.length > 0) {
+                                                hasChildren = true
+                                            }
+                                            return (
+                                                <div key={task.tree_task_id + '-' + node.id} className='mt-[8px] mb-[5px]'>
+                                                    {hasChildren && (
+                                                        <WorkflowTreeNodeUIWithChildren currentNode={node} />
+                                                        // <WorkflowTreeNodeUI node={node} />
+                                                    )}
+
+                                                    {!hasChildren && (
+                                                        <WorkflowTreeNodeUI node={node} />
+                                                    )}
+
+                                                </div>
+                                            )
+                                        })}
+
                                     </TreeDrawer>
                                 </div>
 

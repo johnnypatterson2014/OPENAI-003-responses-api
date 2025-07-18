@@ -1,62 +1,69 @@
 
 
 export interface WorkflowExecution {
+    workflow_id: string
+    name: string
+    start_time?: string
+    end_time?: string
+    workflow_tree_id: string
+    workflow_tasks: WorkflowTask[]
+    ref_data_agents: RefDataAgent[]
+    ref_data_tasks: RefDataTasks[]
+    ref_data_tools: RefDataTools[]
+}
+
+export interface WorkflowTask {
+    task_id: string
+    name: string
+    raw_json_request_id: string
+    raw_json_response_id?: string
+    properties?: any
+    system_instructions?: any
+    input?: any
+    result?: any
+}
+
+
+export interface WorkflowTree {
+    name: string
+    tree_id: string
+    workflow_id: string
+    children: WorkflowTreeTask[]
+}
+
+export interface WorkflowTreeTask {
+    name: string
+    tree_task_id: string
+    children?: WorkflowTreeNode[]
+}
+
+
+export interface WorkflowTreeNode {
+    id: string
+    name: string
+    isButton: boolean
+    children?: WorkflowTreeNode[]
+}
+
+
+export interface RefDataAgent {
     id: string
     name: string
     system_instructions: string
-    inputText: string
-    inputRole: string
-    outputType: string
-    outputText: string
-    tasks?: TaskExecution[]
+    model: string
+    tools: string[]
 }
 
-export interface TaskExecution {
-    id: string
-    name: string
-    agentName: string
-    actions: AgentAction[]
-}
-
-export interface AgentAction {
-    id: string
-    name: string
-    type: string
-}
-
-
-export interface JsonData {
-    id: string
-    traceBody: any
-}
-
-export interface AgentData {
-    id: string
-    name: string
-    backstory: string
-}
-
-export interface TaskData {
+export interface RefDataTools {
     id: string
     name: string
     description: string
-    assigned_agent_id: string
-}
-
-export interface ToolData {
-    id: string
-    name: string
     type: string
-    description: string
 }
 
-
-
-
-
-export interface Workflow {
+export interface RefDataTasks {
     id: string
     name: string
-    tasks: TaskExecution[]
+    description: string
 }
 
