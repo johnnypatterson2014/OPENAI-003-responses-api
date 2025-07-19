@@ -1,0 +1,46 @@
+{
+    "workflow_name": "Agent workflow",
+    "trace_id": "trace_de079870e8cf4573971a92d45a87cc8c",
+    "task_run_list": [
+        {
+            "task_id": "resp_6876c1750c38819a91e8d1df0ff1af4602d8358fc35f4d39",
+            "instructions": "# System context\\nYou are part of a multi-agent system called the Agents SDK, designed to make agent coordination and execution easy. Agents uses two primary abstractions: **Agents** and **Handoffs**. An agent encompasses instructions and tools and can hand off a conversation to another agent when appropriate. Handoffs are achieved by calling a handoff function, generally named `transfer_to_<agent_name>`. Transfers between agents are handled seamlessly in the background; do not mention or draw attention to these transfers in your conversation with the user.\\n    You are an excellent Content Marketing Manager. Your primary role is to supervise each publication from the 'blog manager' \\n    and the articles written by the 'online researcher' and approve the work for publication. Examine the work and regulate violent language, abusive content and racist content.\\n    \\n    Capabilities:\\n\\n    Editorial Review: Analyze the final drafts from the blog manager and the online researcher for style consistency, thematic alignment, and overall narrative flow.\\n\\n    Quality Assurance: Conduct detailed checks for grammatical accuracy, factual correctness, and adherence to journalistic standards in the news content, as well as creativity and effectiveness in the advertisements.\\n\\n    Feedback Loop: Provide constructive feedback to both the 'blog manager' and 'online researcher', facilitating a collaborative environment for continuous improvement in content creation and presentation.\\n    ",
+            "agentName": "content_marketing_manager",
+            "sub_task_list": [
+                {
+                    "id": "fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39",
+                    "role": "user",
+                    "subTaskDescription": "Use the online researcher to write a report on Agentic Behavior.",
+                    "type": "handoff_call_item",
+                    "subType": "function_call",
+                    "name": "transfer_to_online_researcher",
+                    "instructions": "{'assistant':'online researcher'}",
+                    "queryType": "search",
+                    "query": "Agentic Behavior latest research, trends, and applications",
+                    "output": "transfer_to_online_researcher",
+                    "sourceAgent": "content_marketing_manager",
+                    "targetAgent": "online_researcher"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6876c17bfac4819aa7d305bf82fe81dd02d8358fc35f4d39",
+            "instructions": "Your primary role is to function as an intelligent online research assistant, adept at scouring \\n    the internet for the latest and most relevant trending stories across various sectors like politics, technology, \\n    health, culture, and global events. You possess the capability to access a wide range of online news sources, \\n    blogs, and social media platforms to gather real-time information.",
+            "agentName": "online_researcher",
+            "sub_task_list": [
+                {
+                    "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                    "role": "assistant",
+                    "subTaskDescription": "web_search_call: Agentic Behavior latest research, trends, and applications",
+                    "type": "hosted_tool_call",
+                    "subType": "web_search_call",
+                    "name": "web_search_call",
+                    "instructions": "Agentic Behavior latest research, trends, and applications",
+                    "output": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices on the world. In psychology, this concept is central to understanding human agency—the ability to intentionally influence one's functioning and life circumstances. Albert Bandura, a prominent psychologist, emphasized that individuals are not merely reactive organisms shaped by environmental forces but are self-organizing, proactive, self-reflecting, and self-regulating.\\n\\n**Key Components of Agentic Behavior:**\\n\\n1. **Intentionality:** The ability to form intentions and action plans.\\n2. **Forethought:** Anticipating outcomes and setting goals.\\n3. **Self-Reactiveness:** Regulating and motivating oneself to achieve goals.\\n4. **Self-Reflectiveness:** Reflecting on personal efficacy and the soundness of one's actions.\\n\\n**Applications in Psychology and Social Sciences:**\\n\\n- **Self-Efficacy:** Agentic behavior is closely linked to self-efficacy, the belief in one's ability to influence events and outcomes. High self-efficacy can lead to greater motivation and resilience.\\n- **Motivation and Goal Setting:** Understanding agentic behavior helps in designing interventions that enhance motivation and goal-setting capabilities.\\n- **Social Change:** Recognizing the agentic capacities of individuals can empower communities to initiate social change and improve collective well-being.\\n\\n**Agentic Behavior in Artificial Intelligence:**\\n\\nIn the realm of artificial intelligence (AI), the term 'agentic behavior' describes systems capable of autonomous decision-making and actions without direct human intervention. These AI agents can perceive their environment, process information, and execute tasks to achieve specific goals.\\n\\n**Real-World Applications of Agentic AI:**\\n\\n1. **Healthcare:**\\n   - **Diagnostics and Treatment Recommendations:** Agentic AI systems analyze complex patient data to identify patterns and suggest personalized treatment plans. For example, IBM Watson Health utilizes AI to provide tailored cancer treatment recommendations based on medical histories and diagnostic tests.\\n   - **Administrative Support:** AI agents handle administrative tasks such as appointment scheduling and insurance claims processing, reducing the burden on healthcare professionals.\\n\\n2. **Finance:**\\n   - **Algorithmic Trading:** Financial institutions employ agentic AI to develop complex models for investment analysis, improving efficiency and decision-making. For instance, JPMorgan Chase's COiN platform automates back-office operations, enhancing accuracy in processing financial documents.\\n   - **Risk Management:** AI agents autonomously analyze market data, detect trends, and execute trading strategies with unprecedented speed and precision.\\n\\n3. **Manufacturing and Logistics:**\\n   - **Supply Chain Optimization:** Agentic AI streamlines supply chains by predicting demand, managing inventory, and adjusting delivery routes. Amazon's warehouse robots autonomously navigate complex environments to move goods efficiently.\\n   - **Predictive Maintenance:** Companies like Siemens use agentic AI to analyze real-time sensor data from industrial equipment, predicting failures before they occur and reducing unplanned downtime.\\n\\n4. **Autonomous Vehicles:**\\n   - **Self-Driving Cars:** Agentic AI enables vehicles to perceive their surroundings, make driving decisions, and learn from each trip. Tesla's Full Self-Driving system exemplifies this by continuously improving its navigation and handling of road challenges.\\n\\n5. **Cybersecurity:**\\n   - **Threat Detection and Response:** Agentic AI systems autonomously monitor network traffic, identify cybersecurity threats, and initiate responses without human intervention. Darktrace employs such AI to provide real-time defense against cyber threats.\\n\\n**Implications and Future Directions:**\\n\\nThe integration of agentic behavior into AI systems holds significant promise for enhancing efficiency and decision-making across various industries. However, it also raises ethical considerations regarding autonomy, accountability, and the potential impact on employment. Ongoing research aims to balance the benefits of agentic AI with responsible implementation to ensure alignment with human values and societal norms.\\n\\nUnderstanding agentic behavior, both in humans and AI systems, is crucial for developing technologies that complement human capabilities and contribute positively to society. ",
+                    "sourceAgent": "online_researcher",
+                    "targetAgent": "content_marketing_manager"
+                }
+            ]
+        }
+    ]
+}

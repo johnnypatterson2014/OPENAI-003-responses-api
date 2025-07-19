@@ -2,6 +2,38 @@
 
 
 
+
+UI components used:
+  AgentWorkflowContext
+          openaiResponseList: any[],
+          workflowExecution: WorkflowExecution,
+          isContextLoaded: boolean,
+          isWorkflowSelected: boolean,
+          setWorkflowSelected: (value: boolean) => void,
+          workflowTree: WorkflowTree
+
+    AgentWorkflow
+      WorkflowTreeUI                       *
+        WorkflowTreeTaskUI                 *
+          WorkflowTreeNodeUIWithChildren   *
+          WorkflowTreeNodeUI               *
+
+      MainContentDisplay
+
+
+resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39
+
+resp_6876c1750c38819a91e8d1df0ff1af4602d8358fc35f4d39
+resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39
+resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39
+
+resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39
+
+
+---------------
+
+
+
 sort by timestamps:
 
 Task 1 - Online Researcher:

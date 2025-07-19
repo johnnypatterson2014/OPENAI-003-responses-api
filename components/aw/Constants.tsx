@@ -1,49 +1,69 @@
 
-
 export interface WorkflowExecution {
-    workflow_id: string
-    name: string
+    workflow_name: string
+    trace_id: string
+    overallTaskDescription: string
+    assignedAgent: string
+    task_run_list: WorkflowTask[]
     start_time?: string
     end_time?: string
-    workflow_tree_id: string
-    workflow_tasks: WorkflowTask[]
-    ref_data_agents: RefDataAgent[]
-    ref_data_tasks: RefDataTasks[]
-    ref_data_tools: RefDataTools[]
 }
 
 export interface WorkflowTask {
     task_id: string
-    name: string
-    raw_json_request_id: string
-    raw_json_response_id?: string
-    properties?: any
-    system_instructions?: any
-    input?: any
-    result?: any
+    order_index: number
+    instructions: any
+    agentName: string
+    sub_task_list: WorkflowSubTask[]
+    delegate_task?: WorkflowTask
 }
+
+export interface WorkflowSubTask {
+    id: string
+    order_index: number
+    role: string
+    subTaskDescription: string
+    type: string
+    subType: string
+    name: string
+    instructions: string
+    output: any
+    sourceAgent: string
+    targetAgent: string
+    queryType?: string
+    query?: string
+    output_annotations?: any[]
+}
+
 
 
 export interface WorkflowTree {
     name: string
-    tree_id: string
     workflow_id: string
     children: WorkflowTreeTask[]
 }
 
 export interface WorkflowTreeTask {
     name: string
+    order_index: number
     tree_task_id: string
     children?: WorkflowTreeNode[]
+    delegate_task?: WorkflowTreeTask
 }
 
 
 export interface WorkflowTreeNode {
     id: string
+    order_index: number
     name: string
     isButton: boolean
     children?: WorkflowTreeNode[]
 }
+
+
+
+
+
 
 
 export interface RefDataAgent {

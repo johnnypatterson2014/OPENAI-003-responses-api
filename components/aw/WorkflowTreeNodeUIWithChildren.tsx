@@ -1,12 +1,22 @@
 'use client';
 
+import { ReactNode, useEffect } from 'react'
 import { WorkflowTreeNode } from '@/components/aw/Constants';
-import Button2 from '@/components/aw/Button2'
 import TreeDrawer from '@/components/aw/TreeDrawer'
 import WorkflowTreeNodeUI from '@/components/aw/WorkflowTreeNodeUI'
-import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+
 
 export default function WorkflowTreeNodeUIWithChildren({ currentNode }: { currentNode: WorkflowTreeNode }) {
+
+    useEffect(() => {
+
+        const elements = document.querySelectorAll('.fesk-checkbox');
+        elements.forEach(element => {
+            element.checked = true;
+        });
+
+
+    }, []);
 
     return (
         <>

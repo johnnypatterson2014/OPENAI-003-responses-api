@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
-import { WorkflowExecution, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTask, WorkflowTree, WorkflowTreeNode, WorkflowTreeTask } from '@/components/aw/Constants';
+import { WorkflowExecution, WorkflowSubTask, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTask, WorkflowTree, WorkflowTreeNode, WorkflowTreeTask } from '@/components/aw/Constants';
 import { remark } from 'remark';
 import html from 'remark-html';
 
@@ -11,37 +11,54 @@ interface ContextProps {
   isContextLoaded: boolean,
   isWorkflowSelected: boolean,
   setWorkflowSelected: (value: boolean) => void,
-  workflowTree: WorkflowTree
+  workflowTree: WorkflowTree,
+  isTaskSelected: boolean,
+  setTaskSelected: (value: boolean) => void,
+  // taskList: any[],
+  taskId: string,
+  setTaskId: (id: string) => void
 }
 
 const WorkflowContext = createContext<Partial<ContextProps>>({})
 
 export function AgentWorkflowContext({
-  jsonRequests,
-  jsonInputs,
+  workflow_data,
   agents,
   tools,
   tasks,
   children
 }: {
-  jsonRequests: any[],
-  jsonInputs: any[],
+  workflow_data: WorkflowExecution,
   agents: RefDataAgent[],
   tools: RefDataTools[],
   tasks: RefDataTasks[]
   children: ReactNode
 }) {
-  const [openaiResponseList, setOpenaiResponseList] = useState<any[]>([])
   const [workflowExecution, setWorkflowExecution] = useState<WorkflowExecution>()
   const [isContextLoaded, setContextLoaded] = useState<boolean>(false)
   const [isWorkflowSelected, setWorkflowSelected] = useState<boolean>(false)
   const [workflowTree, setWorkflowTree] = useState<WorkflowTree>()
+  const [refData, setRefData] = useState<any>()
+
+  const [isTaskSelected, setTaskSelected] = useState<boolean>(false)
+  const [taskId, setTaskId] = useState<string>()
+  // const [taskList, setTaskList] = useState<any[]>([])
+
+
+
 
   useEffect(() => {
     const initializeChat = async () => {
-      setOpenaiResponseList(jsonRequests);
+      setWorkflowExecution(workflow_data);
       const wf = await processInput()
+      const refDataMap = {
+        agents: agents,
+        tools: tools,
+        tasks: tasks
+      }
+      setRefData(refDataMap)
       setContextLoaded(true)
+
     }
     initializeChat()
   }, [])
@@ -53,175 +70,165 @@ export function AgentWorkflowContext({
     return processedContent.toString();
   }
 
-  const createWorkflowTask = async (jsonRequest: any) => {
+  const getSubTasks = async (sub_task_list: WorkflowSubTask[]) => {
+    const subTaskList: WorkflowTreeNode[] = []
 
-    const sysInstructions = await convertMarkdownToHtml(jsonRequest.state.modelResponses[0].providerData.instructions);
-    const sysInstrLineBreaks = sysInstructions.replaceAll("\\n", "<br />");
-    const inputData = await convertMarkdownToHtml(jsonInputs[0].data[0].content[0].text);
-    const inputDataLineBreaks = inputData.replaceAll("\\n", "<br />");
-    const output = jsonRequest.state.modelResponses[0].output[0].type + ': ' + jsonRequest.state.modelResponses[0].output[0].name
-
-    const task: WorkflowTask = {
-      task_id: tasks[0].id,
-      name: tasks[0].name,
-      raw_json_request_id: jsonRequest.state.trace.id,
-      raw_json_response_id: jsonRequest.state.trace.id, // TODO: need to fix
-      properties: 'need to add properties here',
-      system_instructions: sysInstrLineBreaks,
-      input: inputDataLineBreaks,
-      result: output
+    for (let i = 0; i < sub_task_list.length; i++) {
+      const subtask = sub_task_list[i]
+      const child_node: WorkflowTreeNode = {
+        id: subtask.id,
+        order_index: i,
+        name: subtask.name,
+        isButton: false
+      }
+      subTaskList.push(child_node)
     }
 
-    return task
+    subTaskList.sort((a, b) => a.order_index - b.order_index);
+    return subTaskList
   }
 
-  const createWorkflowTree = async (jsonRequest: any) => {
+  const createWorkflowTree = async () => {
 
-    const node2: WorkflowTreeNode = {
-      name: 'next step: transfer_to_online_researcher',
-      isButton: false,
-      id: '12'
+    // create tree tasks
+    const treeTaskList: WorkflowTreeTask[] = []
+    for (let i = 0; i < workflow_data.task_run_list.length; i++) {
+      const task: WorkflowTask = workflow_data.task_run_list[i]
+
+      let delegate: any = null
+      if (task.delegate_task) {
+        delegate = {
+          name: task.delegate_task.agentName,
+          order_index: 10,
+          tree_task_id: task.delegate_task.task_id,
+          children: await getSubTasks(task.delegate_task.sub_task_list)
+        }
+
+        const treeTask: WorkflowTreeTask = {
+          name: task.agentName,
+          order_index: i,
+          tree_task_id: task.task_id,
+          children: await getSubTasks(task.sub_task_list),
+          delegate_task: delegate
+        }
+
+        treeTaskList.push(treeTask)
+
+      } else {
+        const treeTask: WorkflowTreeTask = {
+          name: task.agentName,
+          order_index: i,
+          tree_task_id: task.task_id,
+          children: await getSubTasks(task.sub_task_list),
+          delegate_task: delegate
+        }
+
+        treeTaskList.push(treeTask)
+      }
     }
 
-    const node5: WorkflowTreeNode = {
-      name: 'node 5',
-      isButton: false,
-      id: '1',
-
-    }
-
-    const node3: WorkflowTreeNode = {
-      name: 'agent: content marketing manager',
-      isButton: true,
-      id: '1',
-      children: [node5]
-    }
-
-    const node4: WorkflowTreeNode = {
-      name: 'node 4',
-      isButton: true,
-      id: '1',
-    }
-
-    const node1: WorkflowTreeNode = {
-      name: 'POST /v1/responses',
-      isButton: true,
-      id: '11',
-      children: [node2, node4]
-    }
-
-
-
-    const treeTask: WorkflowTreeTask = {
-      name: 'perform task',
-      tree_task_id: tasks[0].id,
-      children: [node1, node3]
-    }
+    treeTaskList.sort((a, b) => a.order_index - b.order_index);
 
     const tree: WorkflowTree = {
-      name: 'Multi-Agent execution trace',
-      tree_id: 'tree_id',
-      workflow_id: jsonRequest.state.trace.id,
-      children: [treeTask]
+      name: workflow_data.workflow_name,
+      workflow_id: workflow_data.trace_id,
+      children: treeTaskList
     }
     return tree
   }
 
+  // const createTaskList = async () => {
+  //   const taskListTemp: any[] = []
+  //   for (let i = 0; i < workflow_data.task_run_list.length; i++) {
+  //     const map = {
+  //       id: workflow_data.task_run_list[i].task_id,
+  //       body: workflow_data.task_run_list[i]
+  //     }
+  //     taskListTemp.push(map)
+  //   }
+  //   return taskListTemp
+  // }
+
+
+
   const processInput = async () => {
 
-    // process just the first LLM json request (for now)
-    const openaiResponse = jsonRequests[0];
-
-    const workflow_tasks_temp = await createWorkflowTask(openaiResponse);
-
-    // TODO: create tree
-    const workflowTreeTemp = await createWorkflowTree(openaiResponse);
-
-    const workflowExecutionTemp: WorkflowExecution = {
-      workflow_id: openaiResponse.state.trace.id,
-      name: openaiResponse.state.trace.workflow_name,
-      workflow_tree_id: openaiResponse.state.trace.id, // need to genreate tree
-      ref_data_agents: agents,
-      ref_data_tasks: tasks,
-      ref_data_tools: tools,
-      workflow_tasks: [workflow_tasks_temp]
-
-      // start_time: string (add later)
-      // end_time: string (add later)
-
-    }
-
+    const workflowTreeTemp = await createWorkflowTree();
+    // const taskListTemp = await createTaskList();
     setWorkflowTree(workflowTreeTemp)
-    setWorkflowExecution(workflowExecutionTemp);
+    setWorkflowExecution(workflow_data);
+    // setTaskList(taskListTemp)
+    setWorkflowSelected(true)
 
-
-
-    // const sysInstructions = await convertMarkdownToHtml(openaiResponse.state.modelResponses[0].providerData.instructions);
-    // const sysInstrLineBreaks = sysInstructions.replaceAll("\\n", "<br />");
-    // const inputData = await convertMarkdownToHtml(input.data[0].content[0].text);
-    // const inputValue = inputData.replaceAll("\\n", "<br />");
-    // const turns = openaiResponse.state.modelResponses.length;
-    // const taskExecutionList: TaskExecution[] = []
-    // const actionList: AgentAction[] = []
-    // const staticAction: AgentAction = {
-    //   id: 'action_root_1',
-    //   name: 'POST /v1/responses',
-    //   type: 'DecideNextStep'
-    // }
-    // actionList.push(staticAction)
-    // const action2: AgentAction = {
-    //   id: openaiResponse.state.modelResponses[0].output[0].id,
-    //   name: openaiResponse.state.modelResponses[0].output[0].name,
-    //   type: openaiResponse.state.modelResponses[0].output[0].type
-    // }
-    // actionList.push(action2)
-
-    // for (let i = 0; i < turns; i++) {
-    //   const modelResponse = openaiResponse.state.modelResponses[i]
-
-    //   if (i == 0) {
-    //     const task: TaskExecution = {
-    //       id: 'task_1',
-    //       name: 'Task Execution',
-    //       agentName: 'content marketing manager',
-    //       actions: actionList
-    //     }
-    //     taskExecutionList.push(task)
-    //   } else {
-    //     const task: TaskExecution = {
-    //       id: modelResponse.responseId,
-    //       name: modelResponse.output[0].name,
-    //       agentName: 'online researcher',
-    //       actions: [staticAction]
-    //     }
-    //     taskExecutionList.push(task)
-    //   }
-    // }
-
-    // const wf: WorkflowExecution = {
-    //   id: openaiResponse.state.trace.id,
-    //   name: openaiResponse.state.trace.workflow_name,
-    //   system_instructions: sysInstrLineBreaks,
-    //   inputText: inputValue,
-    //   inputRole: input.data[0].role,
-    //   outputType: openaiResponse.state.modelResponses[0].output[0].type,
-    //   outputText: openaiResponse.state.modelResponses[0].output[0].name,
-    //   tasks: taskExecutionList
-    // };
-
-    // setWorkflowExecution(wf);
   }
 
+  // const sysInstructions = await convertMarkdownToHtml(openaiResponse.state.modelResponses[0].providerData.instructions);
+  // const sysInstrLineBreaks = sysInstructions.replaceAll("\\n", "<br />");
+  // const inputData = await convertMarkdownToHtml(input.data[0].content[0].text);
+  // const inputValue = inputData.replaceAll("\\n", "<br />");
+  // const turns = openaiResponse.state.modelResponses.length;
+  // const taskExecutionList: TaskExecution[] = []
+  // const actionList: AgentAction[] = []
+  // const staticAction: AgentAction = {
+  //   id: 'action_root_1',
+  //   name: 'POST /v1/responses',
+  //   type: 'DecideNextStep'
+  // }
+  // actionList.push(staticAction)
+  // const action2: AgentAction = {
+  //   id: openaiResponse.state.modelResponses[0].output[0].id,
+  //   name: openaiResponse.state.modelResponses[0].output[0].name,
+  //   type: openaiResponse.state.modelResponses[0].output[0].type
+  // }
+  // actionList.push(action2)
 
+  // for (let i = 0; i < turns; i++) {
+  //   const modelResponse = openaiResponse.state.modelResponses[i]
+
+  //   if (i == 0) {
+  //     const task: TaskExecution = {
+  //       id: 'task_1',
+  //       name: 'Task Execution',
+  //       agentName: 'content marketing manager',
+  //       actions: actionList
+  //     }
+  //     taskExecutionList.push(task)
+  //   } else {
+  //     const task: TaskExecution = {
+  //       id: modelResponse.responseId,
+  //       name: modelResponse.output[0].name,
+  //       agentName: 'online researcher',
+  //       actions: [staticAction]
+  //     }
+  //     taskExecutionList.push(task)
+  //   }
+  // }
+
+  // const wf: WorkflowExecution = {
+  //   id: openaiResponse.state.trace.id,
+  //   name: openaiResponse.state.trace.workflow_name,
+  //   system_instructions: sysInstrLineBreaks,
+  //   inputText: inputValue,
+  //   inputRole: input.data[0].role,
+  //   outputType: openaiResponse.state.modelResponses[0].output[0].type,
+  //   outputText: openaiResponse.state.modelResponses[0].output[0].name,
+  //   tasks: taskExecutionList
+  // };
+
+  // setWorkflowExecution(wf);
 
   return (
     <WorkflowContext.Provider value={{
-      openaiResponseList,
       workflowExecution,
       isWorkflowSelected,
       setWorkflowSelected,
       isContextLoaded,
-      workflowTree
+      workflowTree,
+      isTaskSelected,
+      setTaskSelected,
+      // taskList,
+      taskId,
+      setTaskId,
     }}>
       {children}
     </WorkflowContext.Provider>

@@ -1,0 +1,122 @@
+{
+    "workflow_name": "Agent workflow",
+    "trace_id": "trace_510435e983d14bcb9559b2a56eb5daa2",
+    "task_run_list": [
+        {
+            "task_id": "resp_6876c1750c38819a91e8d1df0ff1af4602d8358fc35f4d39",
+            "instructions": "# System context\nYou are part of a multi-agent system called the Agents SDK, designed to make agent coordination ...",
+            "agentName": "content_marketing_manager",
+            "sub_task_list": [
+                {
+                    "id": "fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39",
+                    "role": "user",
+                    "subTaskDescription": "Use the online researcher to write a report on Agentic Behavior.",
+                    "type": "handoff_call_item",
+                    "subType": "function_call",
+                    "name": "transfer_to_online_researcher",
+                    "instructions": "{'assistant':'online researcher'}",
+                    "queryType": "search",
+                    "query": "Agentic Behavior latest research, trends, and applications",
+                    "output": "transfer_to_online_researcher",
+                    "sourceAgent": "content_marketing_manager",
+                    "targetAgent": "online_researcher"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6876c17bfac4819aa7d305bf82fe81dd02d8358fc35f4d39",
+            "instructions": "Your primary role is to function as an intelligent online research assistant, adept at scouring the internet for the latest ...",
+            "agentName": "online_researcher",
+            "sub_task_list": [
+                {
+                    "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                    "role": "assistant",
+                    "subTaskDescription": "web_search_call: Agentic Behavior latest research, trends, and applications",
+                    "type": "hosted_tool_call",
+                    "subType": "web_search_call",
+                    "name": "web_search_call",
+                    "instructions": "Agentic Behavior latest research, trends, and applications",
+                    "output": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ...",
+                    "sourceAgent": "online_researcher",
+                    "targetAgent": "content_marketing_manager"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39",
+            "instructions": "# System context\nYou are part of a multi-agent system called the Agents SDK, designed to make agent coordination ...",
+            "agentName": "content_marketing_manager",
+            "sub_task_list": [
+                {
+                    "id": "fc_6876c1899a9c819aa40f9dd39c19b2ea02d8358fc35f4d39",
+                    "role": "user",
+                    "subTaskDescription": "Using the report from the online researcher, write an article using the 'blog manager'.",
+                    "type": "handoff_call_item",
+                    "subType": "function_call",
+                    "name": "transfer_to_blog_manager",
+                    "instructions": "{'assistant':'blog manager'}",
+                    "queryType": "search",
+                    "query": "Albert Bandura agentic behavior source",
+                    "output": "transfer_to_blog_manager",
+                    "sourceAgent": "content_marketing_manager",
+                    "targetAgent": "blog_manager"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6876c189d7a0819a9ee123df3064169802d8358fc35f4d39",
+            "instructions": "You are a Blog Manager. The role of a Blog Manager encompasses several critical responsibilities aimed at transforming ...",
+            "agentName": "blog_manager",
+            "sub_task_list": [
+                {
+                    "id": "ws_6876c18a3964819abfde6d1eff589c8f02d8358fc35f4d39",
+                    "role": "assistant",
+                    "subTaskDescription": "web_search_call: Albert Bandura agentic behavior source",
+                    "type": "hosted_tool_call",
+                    "subType": "web_search_call",
+                    "name": "web_search_call",
+                    "instructions": "Albert Bandura agentic behavior source",
+                    "output": "Agentic behavior, a cornerstone of Albert Bandura's Social Cognitive Theory, encapsulates the human capacity ...",
+                    "output_annotations": [
+                        {
+                            "type": "url_citation",
+                            "end_index": 478,
+                            "start_index": 375,
+                            "title": "Social Cognitive Theory: An Agentic Perspective | Annual Reviews",
+                            "url": "https://www.annualreviews.org/doi/10.1146/annurev.psych.52.1.1?utm_source=openai"
+                        },
+                        {
+                            "type": "url_citation",
+                            "end_index": 1141,
+                            "start_index": 1048,
+                            "title": "ALBERT BANDURA Agency | Psychologist | Social Psychology | Stanford University | California",
+                            "url": "https://albertbandura.com/albert-bandura-agency.html?utm_source=openai"
+                        }
+                    ],
+                    "sourceAgent": "blog_manager",
+                    "targetAgent": "content_marketing_manager"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39",
+            "instructions": "# System context\nYou are part of a multi-agent system called the Agents SDK, designed to make agent coordination ...",
+            "agentName": "content_marketing_manager",
+            "sub_task_list": [
+                {
+                    "id": "msg_6876c1919d78819a82406027c878d6b002d8358fc35f4d39",
+                    "role": "assistant",
+                    "subTaskDescription": "Final harmonized publication output based on the online researcher and blog manager results.",
+                    "type": "message",
+                    "subType": "output_text",
+                    "name": "final_output",
+                    "instructions": "",
+                    "output": "**Unleashing the Power of Agentic Behavior: From Human Psychology to Artificial Intelligence...",
+                    "output_annotations": [],
+                    "sourceAgent": "content_marketing_manager",
+                    "targetAgent": ""
+                }
+            ]
+        }
+    ]
+}

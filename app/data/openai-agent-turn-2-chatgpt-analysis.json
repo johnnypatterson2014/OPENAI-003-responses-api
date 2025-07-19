@@ -1,0 +1,62 @@
+{
+    "workflow_name": "Agent workflow",
+    "trace_id": "trace_d927dac554df4ad4b7ed09f7498cadd2",
+    "task_run_list": [
+        {
+            "task_id": "resp_6876c1890184819aa16f4e342749dd8b02d8358fc35f4d39",
+            "instructions": "# System context\\nYou are part of a multi-agent system called the Agents SDK...",
+            "agentName": "content_marketing_manager",
+            "sub_task_list": [
+                {
+                    "id": "fc_6876c1899a9c819aa40f9dd39c19b2ea02d8358fc35f4d39",
+                    "role": "user",
+                    "subTaskDescription": "Using the report from the online researcher, write an article using the 'blog manager'.",
+                    "type": "handoff_call_item",
+                    "subType": "function_call",
+                    "name": "transfer_to_blog_manager",
+                    "instructions": "{'assistant':'blog manager'}",
+                    "queryType": "search",
+                    "query": "Albert Bandura agentic behavior source",
+                    "output": "transfer_to_blog_manager",
+                    "sourceAgent": "content_marketing_manager",
+                    "targetAgent": "blog_manager"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6876c189d7a0819a9ee123df3064169802d8358fc35f4d39",
+            "instructions": "You are a Blog Manager. The role of a Blog Manager encompasses several critical responsibilities aimed at transforming ...",
+            "agentName": "blog_manager",
+            "sub_task_list": [
+                {
+                    "id": "ws_6876c18a3964819abfde6d1eff589c8f02d8358fc35f4d39",
+                    "role": "assistant",
+                    "subTaskDescription": "web_search_call: Albert Bandura agentic behavior source",
+                    "type": "hosted_tool_call",
+                    "subType": "web_search_call",
+                    "name": "web_search_call",
+                    "instructions": "Albert Bandura agentic behavior source",
+                    "output": "Agentic behavior, a cornerstone of Albert Bandura's Social Cognitive Theory, encapsulates the human capacity ...",
+                    "output_annotations": [
+                        {
+                            "type": "url_citation",
+                            "end_index": 478,
+                            "start_index": 375,
+                            "title": "Social Cognitive Theory: An Agentic Perspective | Annual Reviews",
+                            "url": "https://www.annualreviews.org/doi/10.1146/annurev.psych.52.1.1?utm_source=openai"
+                        },
+                        {
+                            "type": "url_citation",
+                            "end_index": 1141,
+                            "start_index": 1048,
+                            "title": "ALBERT BANDURA Agency | Psychologist | Social Psychology | Stanford University | California",
+                            "url": "https://albertbandura.com/albert-bandura-agency.html?utm_source=openai"
+                        }
+                    ],
+                    "sourceAgent": "blog_manager",
+                    "targetAgent": "content_marketing_manager"
+                }
+            ]
+        }
+    ]
+}

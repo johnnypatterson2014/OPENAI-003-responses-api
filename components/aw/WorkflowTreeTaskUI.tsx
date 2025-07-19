@@ -1,21 +1,32 @@
 'use client';
 
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import TreeDrawer from '@/components/aw/TreeDrawer'
-import AgentActionComponent from '@/components/aw/AgentActionComponent'
-import AgentActionComponentStub from '@/components/aw/AgentActionComponentStub'
 import WorkflowTreeNodeUIWithChildren from '@/components/aw/WorkflowTreeNodeUIWithChildren'
 import { TraceTreeItem, TraceTimeTreeItem, SVG_ICON_REQ } from '@/config/FeskConstants'
 import FeskModal from '@/components/FeskModal'
 import WorkflowTreeNodeUI from '@/components/aw/WorkflowTreeNodeUI'
 import { useState } from 'react'
 import { WorkflowTreeTask } from '@/components/aw/Constants';
-
 import Button2 from '@/components/aw/Button2'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 
 export default function WorkflowTreeTaskUI({ task }: { task: WorkflowTreeTask }) {
-    const { setWorkflowSelected } = workflowContext()
+    const { workflowExecution, setTaskId, setTaskSelected } = workflowContext()
+
+    useEffect(() => {
+        const elements = document.querySelectorAll('.fesk-checkbox');
+        elements.forEach(element => {
+            element.checked = true;
+        });
+    }, []);
+
+    const setNewTaskId = async (id: string, e?: any) => {
+        e?.preventDefault()
+        setTaskId(id)
+        setTaskSelected(true)
+
+    }
 
     return (
         <>
@@ -27,8 +38,6 @@ export default function WorkflowTreeTaskUI({ task }: { task: WorkflowTreeTask })
                     </div>
                 </div>
 
-
-
                 <div className='flex-1'>
 
                     <div className='flex flex-row items-start m-[5px]' >
@@ -36,8 +45,6 @@ export default function WorkflowTreeTaskUI({ task }: { task: WorkflowTreeTask })
                         <div className='flex-1'>
                             <div className='flex flex-row'>
                                 <div className='flex-1'>
-
-
 
                                     <TreeDrawer id={task.tree_task_id} displayName={task.name} isButton={true} >
 
@@ -50,7 +57,6 @@ export default function WorkflowTreeTaskUI({ task }: { task: WorkflowTreeTask })
                                                 <div key={task.tree_task_id + '-' + node.id} className='mt-[8px] mb-[5px]'>
                                                     {hasChildren && (
                                                         <WorkflowTreeNodeUIWithChildren currentNode={node} />
-                                                        // <WorkflowTreeNodeUI node={node} />
                                                     )}
 
                                                     {!hasChildren && (
@@ -61,48 +67,26 @@ export default function WorkflowTreeTaskUI({ task }: { task: WorkflowTreeTask })
                                             )
                                         })}
 
+                                        {task.delegate_task && (
+                                            <WorkflowTreeTaskUI task={task.delegate_task} />
+                                        )}
+
                                     </TreeDrawer>
                                 </div>
-
-
 
                             </div>
                         </div>
 
-                        {/* <div className='flex-none'>
-                            <div className='icon-spacing'>
-                                <ButtonDropdownGraph dropdownPosition='dropdown-left'>
-
-                                    <ul id="promptTemplateDropdown" tabIndex={0} className="dropdown-content text-xs fesk-menu menu bg-zinc-800 z-1 w-50 mt-[2px] mb-[2px] ml-[2px] mr-[4px] shadow-sm">
-
-                                        <li className='fesk-menu-li'><a onClick={() => handleViewJson(task.id)}>raw json</a></li>
-                                        <li className='fesk-menu-li'><a onClick={() => handleViewJson(task.id)}>input json</a></li>
-                                        <li className='fesk-menu-li'><a onClick={() => handleViewJson(task.id)}>task description</a></li>
-                                        <li className='fesk-menu-li'><a onClick={() => handleViewJson(task.id)}>allowed tools</a></li>
-                                        <li className='fesk-menu-li'><a onClick={() => handleViewJson(task.id)}>chain of thought</a></li>
-
-                                    </ul>
-
-                                </ButtonDropdownGraph>
-                            </div>
-                        </div> */}
 
                         <div className='flex-none icon-spacing2'>
 
                             <Button2>
-                                <a onClick={() => setWorkflowSelected(true)}>{SVG_ICON_REQ}</a>
+                                <a onClick={() => setNewTaskId(task.tree_task_id)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="currentColor" d="M9.71 6.29a1 1 0 0 0-1.42 0l-5 5a1 1 0 0 0 0 1.42l5 5a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42L5.41 12l4.3-4.29a1 1 0 0 0 0-1.42Zm11 5l-5-5a1 1 0 0 0-1.42 1.42l4.3 4.29l-4.3 4.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l5-5a1 1 0 0 0 0-1.42Z" /></svg>
+                                </a>
                             </Button2>
-
-                            {/* <a onClick={() => displayTaskExecution(task.id)}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"><path d="M4 4h16v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4Z" /><path d="m11 15l3-3l-3-3" /></g></svg></a> */}
 
                         </div>
-
-                        {/* <div className='flex-none mt-[1px] ml-[5px]'>
-                            <Button2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="currentColor" d="M9.71 6.29a1 1 0 0 0-1.42 0l-5 5a1 1 0 0 0 0 1.42l5 5a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42L5.41 12l4.3-4.29a1 1 0 0 0 0-1.42Zm11 5l-5-5a1 1 0 0 0-1.42 1.42l4.3 4.29l-4.3 4.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l5-5a1 1 0 0 0 0-1.42Z" /></svg>
-                            </Button2>
-                        </div> */}
-
 
 
                     </div>

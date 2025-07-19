@@ -1,0 +1,226 @@
+
+#Can you provide a mapping for how you were able to generate the results?
+
+##Example:
+output json field: 
+task_run_list.[0].sub_task_list[0].type (value: handoff_call_item)
+
+was mapped from input json field:  
+state.generatedItems[0].type
+
+#Please provide this mapping for the fourth task.
+
+
+-------------------------------------------- LLM response 
+
+--- Workflow Level Mappings
+Output JSON: workflow_name
+Mapped From: state.trace.workflow_name
+
+Output JSON: trace_id
+Mapped From: state.trace.id
+
+----------------- Task and Sub-task Level Mappings
+----------------- First Task (handoff)
+
+Output JSON: task_run_list[0].task_id (value: resp_6876c1750c38819a91e8d1df0ff1af4602d8358fc35f4d39)
+Mapped From: state.modelResponses[0].responseId
+
+Output JSON: task_run_list[0].instructions (value: "# System context\nYou are part of a multi-agent system called the Agents SDK, designed to make agent coordination ...")
+Mapped From: state.modelResponses[0].providerData.instructions
+
+Output JSON: task_run_list[0].agentName (value: "content_marketing_manager")
+Mapped From: state.currentAgent.name
+
+Output JSON: task_run_list[0].sub_task_list[0].id (value: fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39)
+Mapped From: state.originalInput[1].id
+
+Output JSON: task_run_list[0].sub_task_list[0].role (value: "user")
+Mapped From: state.originalInput[0].role
+
+Output JSON: task_run_list[0].sub_task_list[0].subTaskDescription (value: "Use the online researcher to write a report on Agentic Behavior.")
+Mapped From: state.originalInput[0].content
+
+Output JSON: task_run_list[0].sub_task_list[0].type (value: handoff_call_item)
+Mapped From: state.originalInput[1].type
+
+Output JSON: task_run_list[0].sub_task_list[0].subType (value: function_call)
+Mapped From: state.originalInput[1].type
+
+Output JSON: task_run_list[0].sub_task_list[0].name (value: "transfer_to_online_researcher")
+Mapped From: state.originalInput[1].name
+
+Output JSON: task_run_list[0].sub_task_list[0].instructions (value: "{'assistant':'online researcher'}")
+Mapped From: state.originalInput[2].output.text
+
+Output JSON: task_run_list[0].sub_task_list[0].queryType (value: "search")
+Mapped From: state.originalInput[3].providerData.action.type
+
+Output JSON: task_run_list[0].sub_task_list[0].query (value: "Agentic Behavior latest research, trends, and applications")
+Mapped From: state.originalInput[3].providerData.action.query
+
+Output JSON: task_run_list[0].sub_task_list[0].output (value: "transfer_to_online_researcher")
+Mapped From: state.originalInput[1].name
+
+Output JSON: task_run_list[0].sub_task_list[0].sourceAgent (value: "content_marketing_manager")
+Mapped From: state.currentAgent.name
+
+Output JSON: task_run_list[0].sub_task_list[0].targetAgent (value: "online_researcher")
+Mapped From: "online_researcher" (based on task handoff context)
+
+
+
+----------------- Second Task (web_search_call)
+
+Output JSON: task_run_list[1].task_id (value: resp_6876c17bfac4819aa7d305bf82fe81dd02d8358fc35f4d39)
+Mapped From: state.modelResponses[1].responseId
+
+Output JSON: task_run_list[1].instructions (value: "Your primary role is to function as an intelligent online research assistant, adept at scouring the internet for the latest ...")
+Mapped From: state.modelResponses[1].providerData.instructions
+
+Output JSON: task_run_list[1].agentName (value: "online_researcher")
+Mapped From: "online_researcher" (as specified in the task context)
+
+Output JSON: task_run_list[1].sub_task_list[0].id (value: ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39)
+Mapped From: state.generatedItems[1].rawItem.id
+
+Output JSON: task_run_list[1].sub_task_list[0].role (value: "assistant")
+Mapped From: state.generatedItems[1].rawItem.role
+
+Output JSON: task_run_list[1].sub_task_list[0].subTaskDescription (value: "web_search_call: Agentic Behavior latest research, trends, and applications")
+Mapped From: state.generatedItems[1].rawItem.providerData.action.query
+
+Output JSON: task_run_list[1].sub_task_list[0].type (value: hosted_tool_call)
+Mapped From: state.generatedItems[1].type
+
+Output JSON: task_run_list[1].sub_task_list[0].subType (value: web_search_call)
+Mapped From: state.generatedItems[1].rawItem.name
+
+Output JSON: task_run_list[1].sub_task_list[0].name (value: "web_search_call")
+Mapped From: state.generatedItems[1].rawItem.name
+
+Output JSON: task_run_list[1].sub_task_list[0].instructions (value: "Agentic Behavior latest research, trends, and applications")
+Mapped From: state.generatedItems[1].rawItem.providerData.action.query
+
+Output JSON: task_run_list[1].sub_task_list[0].queryType (value: "search")
+Mapped From: state.generatedItems[1].rawItem.providerData.action.type
+
+Output JSON: task_run_list[1].sub_task_list[0].query (value: "Agentic Behavior latest research, trends, and applications")
+Mapped From: state.generatedItems[1].rawItem.providerData.action.query
+
+Output JSON: task_run_list[1].sub_task_list[0].output (value: "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ...")
+Mapped From: state.generatedItems[2].rawItem.content[0].text
+
+Output JSON: task_run_list[1].sub_task_list[0].sourceAgent (value: "online_researcher")
+Mapped From: "online_researcher" (based on context)
+
+Output JSON: task_run_list[1].sub_task_list[0].targetAgent (value: "content_marketing_manager")
+Mapped From: "content_marketing_manager" (based on task handoff context)
+
+
+
+----------------- third Task - similar to first task (handoff item)
+
+
+----------------- fourth task (web_search_call with citations)
+
+Output JSON: task_run_list[3].task_id (value: resp_6876c189d7a0819a9ee123df3064169802d8358fc35f4d39)
+Mapped From: state.modelResponses[3].responseId
+
+Output JSON: task_run_list[3].instructions (value: "You are a Blog Manager. The role of a Blog Manager encompasses several critical responsibilities aimed at transforming ...")
+Mapped From: state.modelResponses[3].providerData.instructions
+
+Output JSON: task_run_list[3].agentName (value: "blog_manager")
+Mapped From: "blog_manager" (as specified in the task context)
+
+Output JSON: task_run_list[3].sub_task_list[0].id (value: ws_6876c18a3964819abfde6d1eff589c8f02d8358fc35f4d39)
+Mapped From: state.generatedItems[2].rawItem.id
+
+Output JSON: task_run_list[3].sub_task_list[0].role (value: "assistant")
+Mapped From: state.generatedItems[2].rawItem.role
+
+Output JSON: task_run_list[3].sub_task_list[0].subTaskDescription (value: "web_search_call: Albert Bandura agentic behavior source")
+Mapped From: state.generatedItems[2].rawItem.providerData.action.query
+
+Output JSON: task_run_list[3].sub_task_list[0].type (value: hosted_tool_call)
+Mapped From: state.generatedItems[2].type
+
+Output JSON: task_run_list[3].sub_task_list[0].subType (value: web_search_call)
+Mapped From: state.generatedItems[2].rawItem.name
+
+Output JSON: task_run_list[3].sub_task_list[0].name (value: "web_search_call")
+Mapped From: state.generatedItems[2].rawItem.name
+
+Output JSON: task_run_list[3].sub_task_list[0].instructions (value: "Albert Bandura agentic behavior source")
+Mapped From: state.generatedItems[2].rawItem.providerData.action.query
+
+Output JSON: task_run_list[3].sub_task_list[0].queryType (value: "search")
+Mapped From: state.generatedItems[2].rawItem.providerData.action.type
+
+Output JSON: task_run_list[3].sub_task_list[0].query (value: "Albert Bandura agentic behavior source")
+Mapped From: state.generatedItems[2].rawItem.providerData.action.query
+
+Output JSON: task_run_list[3].sub_task_list[0].output (value: "Agentic behavior, a cornerstone of Albert Bandura's Social Cognitive Theory, encapsulates ...")
+Mapped From: state.generatedItems[3].rawItem.content[0].text
+
+Output JSON: task_run_list[3].sub_task_list[0].output_annotations (value: [{...}] with details of annotations)
+Mapped From: state.generatedItems[3].rawItem.content[0].annotations
+
+Output JSON: task_run_list[3].sub_task_list[0].sourceAgent (value: "blog_manager")
+Mapped From: "blog_manager" (based on context)
+
+Output JSON: task_run_list[3].sub_task_list[0].targetAgent (value: "content_marketing_manager")
+Mapped From: "content_marketing_manager" (based on task handoff context)
+
+
+----------------- fifth task (final_output)
+
+Output JSON: task_run_list[4].task_id (value: resp_6876c1919d78819a82406027c878d6b002d8358fc35f4d39)
+Mapped From: state.modelResponses[4].responseId
+
+Output JSON: task_run_list[4].instructions (value: "You are part of a multi-agent system called the Agents SDK, designed to make agent coordination ...")
+Mapped From: state.modelResponses[4].providerData.instructions
+
+Output JSON: task_run_list[4].agentName (value: "content_marketing_manager")
+Mapped From: state.currentAgent.name (inferred from the context)
+
+Output JSON: task_run_list[4].sub_task_list[0].id (value: msg_6876c1919d78819a82406027c878d6b002d8358fc35f4d39)
+Mapped From: state.generatedItems[3].rawItem.id
+
+Output JSON: task_run_list[4].sub_task_list[0].role (value: "assistant")
+Mapped From: state.generatedItems[3].rawItem.role
+
+Output JSON: task_run_list[4].sub_task_list[0].subTaskDescription (value: "Final harmonized publication output based on the online researcher and blog manager results.")
+Mapped From: state.generatedItems[3].rawItem.content[0].text (interpretation based on context)
+
+Output JSON: task_run_list[4].sub_task_list[0].type (value: message)
+Mapped From: state.generatedItems[3].type
+
+Output JSON: task_run_list[4].sub_task_list[0].subType (value: output_text)
+Mapped From: state.generatedItems[3].rawItem.content[0].type
+
+Output JSON: task_run_list[4].sub_task_list[0].name (value: "final_output")
+Mapped From: state.generatedItems[3].rawItem.name (if applicable, otherwise inferred)
+
+Output JSON: task_run_list[4].sub_task_list[0].instructions (value: "")
+Mapped From: state.generatedItems[3].rawItem.content[0].annotations (assuming no specific instructions)
+
+Output JSON: task_run_list[4].sub_task_list[0].queryType (value: "")
+Mapped From: state.generatedItems[3].rawItem.queryType (if applicable)
+
+Output JSON: task_run_list[4].sub_task_list[0].query (value: "")
+Mapped From: state.generatedItems[3].rawItem.query (if applicable)
+
+Output JSON: task_run_list[4].sub_task_list[0].output (value: "**Unleashing the Power of Agentic Behavior: From Human Psychology to Artificial Intelligence...")
+Mapped From: state.generatedItems[3].rawItem.content[0].text
+
+Output JSON: task_run_list[4].sub_task_list[0].output_annotations (value: [])
+Mapped From: state.generatedItems[3].rawItem.content[0].annotations
+
+Output JSON: task_run_list[4].sub_task_list[0].sourceAgent (value: "content_marketing_manager")
+Mapped From: state.currentAgent.name
+
+Output JSON: task_run_list[4].sub_task_list[0].targetAgent (value: "")
+Mapped From: "" (no specific target agent as it might be final output)
+
+
