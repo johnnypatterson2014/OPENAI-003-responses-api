@@ -52,7 +52,7 @@
                 {
                     "id": "fc_6876c1899a9c819aa40f9dd39c19b2ea02d8358fc35f4d39",
                     "role": "user",
-                    "subTaskDescription": "Using the report from the online researcher, write an article using the 'blog manager'.",
+                    "subTaskDescription": "Using the report from the online researcher, write an article using the 'blog manager'. \\n    The publication should contain links to sources stated by the online researcher. \\n    Your final answer MUST be the full article of at least 3 paragraphs.\\n    ",
                     "type": "handoff_call_item",
                     "subType": "function_call",
                     "name": "transfer_to_blog_manager",

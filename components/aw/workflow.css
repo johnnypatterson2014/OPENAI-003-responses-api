@@ -32,8 +32,8 @@ strong {
 }
 
 .aw-collapse-content {
-    margin: 2px;
-    padding: 5px;
+    margin: 0px;
+    padding: 0px;
     font-family: var(--font-mono);
     color: var(--color-zinc-400);
     font-size: var(--text-xs);
@@ -62,8 +62,28 @@ strong {
 .aw-overflow-wrap {
     overflow-wrap: break-word;
     overflow-x: auto;
+    overflow-y: auto;
 }
 
 .aw-tree-item-mt {
     margin-top: 5px;
+}
+
+.aw-roleturn-role {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-zinc-200);
+    padding: 4px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.aw-roleturn-body {
+    border: 1px solid var(--fesk-card-2-border);
+    padding-top: 15px;
+    padding-bottom: 12px;
+    background: var(--fesk-card-2-background);
+    border-radius: 5px;
+    margin-left: 15px;
+    max-height: 200px;
 }

@@ -35,10 +35,10 @@ export default function Drawer({ name, children }: { name: string, children: Rea
 
                 </div>
                 <div className="collapse-content">
-                    <div className="p-[1px] m-[0px]">
+                    <div className="p-[0px] m-[0px]">
 
                         <div className="aw-collapse-content">
-                            <div className="p-[5px]">
+                            <div className="p-[0px] mb-[15px]">
 
                                 {children}
                             </div>

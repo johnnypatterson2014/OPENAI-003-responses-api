@@ -3,6 +3,7 @@
 
 import Button2 from '@/components/aw/Button2'
 import Drawer from '@/components/aw/Drawer'
+import RoleTurn from '@/components/aw/RoleTurn'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 import { useState, useEffect } from 'react'
 import { WorkflowExecution, WorkflowSubTask, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTask, WorkflowTree, WorkflowTreeNode, WorkflowTreeTask } from '@/components/aw/Constants';
@@ -101,8 +102,28 @@ export default function MainContentDisplay() {
 
                         <div className='flex-1'>
 
+                            {/* <Drawer name='testing'>
+                                <div className='grid col-auto'>
 
-                            <Drawer name='overall task description'>
+                                    <RoleTurn roleName='User'>
+                                        <div className='dangerouslySetInnerHTML'>
+                                            <div dangerouslySetInnerHTML={{ __html: workflowExecution.overallTaskDescription }} className='grow ml-4 text-blue-300'></div>
+                                        </div>
+                                    </RoleTurn>
+
+                                    <RoleTurn roleName='assisstant'>
+                                        <div className='dangerouslySetInnerHTML'>
+                                            <div dangerouslySetInnerHTML={{ __html: currentTask.instructions }} className='grow ml-4 text-blue-300'></div>
+                                        </div>
+                                    </RoleTurn>
+
+                                </div>
+                            </Drawer> */}
+
+
+
+
+                            {/* <Drawer name='overall task description'>
                                 <div className='grid col-auto'>
                                     <div className='w-full max-w-9/10 aw-property aw-overflow-wrap'>
 
@@ -113,66 +134,52 @@ export default function MainContentDisplay() {
                                     </div>
 
                                 </div>
+                            </Drawer> */}
+
+                            <Drawer name='original input'>
+                                <div className='grid col-auto'>
+
+                                    <RoleTurn roleName={workflowExecution.assignedAgent}>
+                                        <div className='dangerouslySetInnerHTML'>
+                                            <div dangerouslySetInnerHTML={{ __html: workflowExecution.overallTaskDescription }} className=' grow ml-4 text-blue-300'></div>
+                                        </div>
+                                    </RoleTurn>
+
+                                </div>
                             </Drawer>
 
-                            <Drawer name='system instructions'>
+                            <Drawer name='instructions'>
                                 <div className='grid col-auto'>
-                                    <div className='w-full max-w-9/10 aw-property aw-overflow-wrap'>
 
+                                    <RoleTurn roleName='system instructions'>
                                         <div className='dangerouslySetInnerHTML'>
                                             <div dangerouslySetInnerHTML={{ __html: currentTask.instructions }} className='grow ml-4 text-blue-300'></div>
                                         </div>
-
-
-                                    </div>
+                                    </RoleTurn>
 
                                 </div>
                             </Drawer>
 
                             <Drawer name='input'>
                                 <div className='grid col-auto'>
-                                    <div className='w-full max-w-9/10 aw-property aw-overflow-wrap'>
 
-                                        <div className='fesk-h2 text-blue-300'>{currentTask.sub_task_list[0].role}:</div>
+                                    <RoleTurn roleName={currentTask.sub_task_list[0].role}>
                                         <div className='dangerouslySetInnerHTML'>
-
                                             <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].subTaskDescription }} className=' grow ml-4 text-blue-300'></div>
                                         </div>
-
-                                    </div>
+                                    </RoleTurn>
 
                                 </div>
                             </Drawer>
 
                             <Drawer name='result'>
-                                <div className='grid col-1'>
-                                    <div className='w-full max-w-9/10 aw-property aw-overflow-wrap'>
+                                <div className='grid col-auto'>
 
-                                        <div className='ml-4 text-blue-300'>
-                                            action: {currentTask.sub_task_list[0].type} <br />
-                                            role: {currentTask.sub_task_list[0].role} <br />
-                                            name: {currentTask.sub_task_list[0].name} <br />
-
-                                            instructions: <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].instructions }} className=' grow ml-4 text-blue-300'></div> <br />
-                                            task description: <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].subTaskDescription }} className=' grow ml-4 text-blue-300'></div> <br />
-                                            {
-                                                currentTask.sub_task_list[0].queryType && (
-                                                    <>
-                                                        {currentTask.sub_task_list[0].queryType}: {currentTask.sub_task_list[0].query} <br />
-                                                    </>
-                                                )
-                                            }
-                                            sourceAgent: {currentTask.sub_task_list[0].sourceAgent} <br />
-                                            targetAgent: {currentTask.sub_task_list[0].targetAgent} <br /><br />
-
-                                            output: <br />
+                                    <RoleTurn roleName={currentTask.sub_task_list[0].subType}>
+                                        <div className='dangerouslySetInnerHTML'>
                                             <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].output }} className=' grow ml-4 text-blue-300'></div>
-
-
-
                                         </div>
-
-                                    </div>
+                                    </RoleTurn>
 
                                 </div>
                             </Drawer>
