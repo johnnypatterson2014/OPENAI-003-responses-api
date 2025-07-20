@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import WorkflowTreeUI from '@/components/aw/WorkflowTreeUI';
 import MainContentDisplay from '@/components/aw/MainContentDisplay';
+import WorkflowTreeUI2 from '@/components/aw/WorkflowTreeUI2';
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 
 const AgentWorkflow = () => {
@@ -31,6 +32,8 @@ const AgentWorkflow = () => {
 
             <WorkflowTreeUI />
 
+            {/* <WorkflowTreeUI2 /> */}
+
 
 
           </div>
@@ -44,6 +47,7 @@ const AgentWorkflow = () => {
             <div id='main_content'>
 
               <MainContentDisplay />
+
 
             </div>
 

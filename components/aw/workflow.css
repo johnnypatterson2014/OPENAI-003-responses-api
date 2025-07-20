@@ -1,5 +1,15 @@
+strong {
+    color: var(--color-zinc-300);
+}
+
 .aw-box {
     border: 1px solid var(--fesk-card-border);
+}
+
+.aw-main-h2 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 .aw-margin-top {
@@ -16,7 +26,6 @@
 
 .aw-collapse-title {
     margin: 1px;
-    padding-left: 10px;
     border-bottom: 1px solid var(--fesk-card-border);
     border-radius: 0px;
     color: var(--fesk-collapse-title);
@@ -52,6 +61,7 @@
 
 .aw-overflow-wrap {
     overflow-wrap: break-word;
+    overflow-x: auto;
 }
 
 .aw-tree-item-mt {

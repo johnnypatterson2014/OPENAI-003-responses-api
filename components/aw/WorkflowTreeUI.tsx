@@ -12,7 +12,7 @@ import JsonResponseObject from '@/components/JsonResponseObject'
 import { text } from 'stream/consumers';
 import { useState } from 'react'
 import { WorkflowExecution, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTree, WorkflowTreeTask } from '@/components/aw/Constants';
-import WorkflowTreeTaskUI from '@/components/aw/WorkflowTreeTaskUI'
+import WorkflowItemTask from '@/components/aw/WorkflowItemTask'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 
 
@@ -28,6 +28,8 @@ export default function WorkflowTreeUI() {
 
 
   }, []);
+
+
 
   return (
     <>
@@ -58,8 +60,8 @@ export default function WorkflowTreeUI() {
 
                 {isContextLoaded && workflowTree.children && workflowTree.children.map((task, i) => {
                   return (
-                    <div key={task.tree_task_id + '-' + i} className='mt-[8px] mb-[5px]'>
-                      <WorkflowTreeTaskUI task={task} />
+                    <div key={task.tree_task_id + '-' + i}>
+                      <WorkflowItemTask node={task} />
 
                     </div>
 

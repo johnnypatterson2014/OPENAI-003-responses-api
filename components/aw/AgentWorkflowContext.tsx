@@ -49,7 +49,8 @@ export function AgentWorkflowContext({
 
   useEffect(() => {
     const initializeChat = async () => {
-      setWorkflowExecution(workflow_data);
+      const workflow: WorkflowExecution = await formatWorkflowExecution()
+      setWorkflowExecution(workflow);
       const wf = await processInput()
       const refDataMap = {
         agents: agents,
@@ -68,6 +69,46 @@ export function AgentWorkflowContext({
       .use(html)
       .process(markdown);
     return processedContent.toString();
+  }
+
+  const formatWorkflowExecution = async () => {
+    const overallTaskDescription = await convertMarkdownToHtml(workflow_data.overallTaskDescription)
+    workflow_data.overallTaskDescription = overallTaskDescription.replaceAll("\\n", "<br />");
+
+    for (let i = 0; i < workflow_data.task_run_list.length; i++) {
+      let temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].instructions)
+      workflow_data.task_run_list[i].instructions = temp.replaceAll("\\n", "<br />");
+
+      if (workflow_data.task_run_list[i].delegate_task) {
+        temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].delegate_task?.instructions)
+        workflow_data.task_run_list[i].delegate_task.instructions = temp.replaceAll("\\n", "<br />");
+
+        for (let y = 0; y < workflow_data.task_run_list[i].delegate_task?.sub_task_list.length; y++) {
+          temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].delegate_task.sub_task_list[y].instructions)
+          workflow_data.task_run_list[i].delegate_task.sub_task_list[y].instructions = temp.replaceAll("\\n", "<br />");
+
+          temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].delegate_task.sub_task_list[y].subTaskDescription)
+          workflow_data.task_run_list[i].delegate_task.sub_task_list[y].subTaskDescription = temp.replaceAll("\\n", "<br />");
+
+          temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].delegate_task.sub_task_list[y].output)
+          workflow_data.task_run_list[i].delegate_task.sub_task_list[y].output = temp.replaceAll("\\n", "<br />");
+
+        }
+      }
+      for (let y = 0; y < workflow_data.task_run_list[i].sub_task_list.length; y++) {
+        temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].sub_task_list[y].instructions)
+        workflow_data.task_run_list[i].sub_task_list[y].instructions = temp.replaceAll("\\n", "<br />");
+
+        temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].sub_task_list[y].output)
+        workflow_data.task_run_list[i].sub_task_list[y].output = temp.replaceAll("\\n", "<br />");
+
+        temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].sub_task_list[y].subTaskDescription)
+        workflow_data.task_run_list[i].sub_task_list[y].subTaskDescription = temp.replaceAll("\\n", "<br />");
+
+      }
+    }
+
+    return workflow_data;
   }
 
   const getSubTasks = async (sub_task_list: WorkflowSubTask[]) => {
@@ -162,10 +203,8 @@ export function AgentWorkflowContext({
 
   }
 
-  // const sysInstructions = await convertMarkdownToHtml(openaiResponse.state.modelResponses[0].providerData.instructions);
-  // const sysInstrLineBreaks = sysInstructions.replaceAll("\\n", "<br />");
-  // const inputData = await convertMarkdownToHtml(input.data[0].content[0].text);
-  // const inputValue = inputData.replaceAll("\\n", "<br />");
+
+
   // const turns = openaiResponse.state.modelResponses.length;
   // const taskExecutionList: TaskExecution[] = []
   // const actionList: AgentAction[] = []

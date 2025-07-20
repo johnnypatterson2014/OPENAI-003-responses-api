@@ -17,6 +17,14 @@ export default function MainContentDisplay() {
     //     setCurrentTask(taskList.find(item => item.id == taskId))
     // }, [taskId]);
 
+    const toggleAll = (value: boolean) => {
+        const elements = document.querySelectorAll('.aw-collapse-checkbox');
+        elements.forEach(element => {
+            // console.log(element.textContent);
+            element.checked = value;
+        });
+    }
+
     let currentTask: any = null
     if (isTaskSelected) {
         currentTask = workflowExecution.task_run_list.find(item => item.task_id == taskId)
@@ -56,6 +64,18 @@ export default function MainContentDisplay() {
                             </Button2>
                         </div>
 
+                        <div className='flex-none ml-[10px]'>
+                            <Button2>
+                                <a onClick={() => toggleAll(true)}>expand all</a>
+                            </Button2>
+                        </div>
+
+                        <div className='flex-none ml-[10px]'>
+                            <Button2>
+                                <a onClick={() => toggleAll(false)}>collapse all</a>
+                            </Button2>
+                        </div>
+
                     </div>
                 </>
             )}
@@ -82,13 +102,27 @@ export default function MainContentDisplay() {
                         <div className='flex-1'>
 
 
+                            <Drawer name='overall task description'>
+                                <div className='grid col-auto'>
+                                    <div className='w-full max-w-9/10 aw-property aw-overflow-wrap'>
+
+                                        <div className='dangerouslySetInnerHTML'>
+                                            <div dangerouslySetInnerHTML={{ __html: workflowExecution.overallTaskDescription }} className='grow ml-4 text-blue-300'></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </Drawer>
+
                             <Drawer name='system instructions'>
                                 <div className='grid col-auto'>
-                                    <div className='aw-property'>
+                                    <div className='w-full max-w-9/10 aw-property aw-overflow-wrap'>
 
                                         <div className='dangerouslySetInnerHTML'>
                                             <div dangerouslySetInnerHTML={{ __html: currentTask.instructions }} className='grow ml-4 text-blue-300'></div>
                                         </div>
+
 
                                     </div>
 
@@ -97,12 +131,12 @@ export default function MainContentDisplay() {
 
                             <Drawer name='input'>
                                 <div className='grid col-auto'>
-                                    <div className='aw-property'>
+                                    <div className='w-full max-w-9/10 aw-property aw-overflow-wrap'>
 
-                                        <div className='fesk-h2'>{currentTask.sub_task_list[0].role}:</div>
+                                        <div className='fesk-h2 text-blue-300'>{currentTask.sub_task_list[0].role}:</div>
                                         <div className='dangerouslySetInnerHTML'>
 
-                                            <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].subTaskDescription }} className='aw-overflow-wrap grow ml-4 text-blue-300'></div>
+                                            <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].subTaskDescription }} className=' grow ml-4 text-blue-300'></div>
                                         </div>
 
                                     </div>
@@ -112,14 +146,15 @@ export default function MainContentDisplay() {
 
                             <Drawer name='result'>
                                 <div className='grid col-1'>
-                                    <div className='aw-property'>
+                                    <div className='w-full max-w-9/10 aw-property aw-overflow-wrap'>
 
                                         <div className='ml-4 text-blue-300'>
                                             action: {currentTask.sub_task_list[0].type} <br />
                                             role: {currentTask.sub_task_list[0].role} <br />
                                             name: {currentTask.sub_task_list[0].name} <br />
-                                            instructions: {currentTask.sub_task_list[0].instructions} <br />
-                                            task description: {currentTask.sub_task_list[0].subTaskDescription} <br />
+
+                                            instructions: <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].instructions }} className=' grow ml-4 text-blue-300'></div> <br />
+                                            task description: <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].subTaskDescription }} className=' grow ml-4 text-blue-300'></div> <br />
                                             {
                                                 currentTask.sub_task_list[0].queryType && (
                                                     <>
@@ -128,10 +163,10 @@ export default function MainContentDisplay() {
                                                 )
                                             }
                                             sourceAgent: {currentTask.sub_task_list[0].sourceAgent} <br />
-                                            targetAgent: {currentTask.sub_task_list[0].targetAgent} <br />
+                                            targetAgent: {currentTask.sub_task_list[0].targetAgent} <br /><br />
 
                                             output: <br />
-                                            {currentTask.sub_task_list[0].output}
+                                            <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].output }} className=' grow ml-4 text-blue-300'></div>
 
 
 

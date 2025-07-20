@@ -1,16 +1,23 @@
 'use client';
 
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import FeskButton3 from './FeskButton3';
 import { SVG_ICON_LOAD } from '@/config/FeskConstants'
 
 export default function FeskDrawerGraph2({ displayName, isButton, children }: { displayName: string, isButton: boolean, children: ReactNode }) {
 
+    useEffect(() => {
+        const elements = document.querySelectorAll('.fesk-checkbox');
+        elements.forEach(element => {
+            element.checked = true;
+        });
+    }, []);
+
     return (
         <>
             <div className='grow'>
                 <div className="collapse">
-                    <input id='collapse-checkbox' type="checkbox" />
+                    <input id={`collapse-checkbox-${displayName}`} type="checkbox" className='fesk-checkbox' />
                     <div className="collapse-title">
 
                         <div className="fesk-collapse-title-graph">

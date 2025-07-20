@@ -21,14 +21,15 @@ UI components used:
       MainContentDisplay
 
 
-resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39
 
-resp_6876c1750c38819a91e8d1df0ff1af4602d8358fc35f4d39
-resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39
-resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39
+<Button2>
+                                    <a onClick={() => setNewTaskId(node.tree_task_id)}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="currentColor" d="M9.71 6.29a1 1 0 0 0-1.42 0l-5 5a1 1 0 0 0 0 1.42l5 5a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42L5.41 12l4.3-4.29a1 1 0 0 0 0-1.42Zm11 5l-5-5a1 1 0 0 0-1.42 1.42l4.3 4.29l-4.3 4.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l5-5a1 1 0 0 0 0-1.42Z" /></svg>
+                                    </a>
+                                </Button2>
 
-resp_6876c1911204819ab9fae56f47af682102d8358fc35f4d39
 
+relative overflow-x-auto
 
 ---------------
 
