@@ -3,7 +3,9 @@
 
 import Button2 from '@/components/aw/Button2'
 import Drawer from '@/components/aw/Drawer'
+import Drawer2 from '@/components/aw/Drawer2'
 import RoleTurn from '@/components/aw/RoleTurn'
+import RoleTurnNoHeading from '@/components/aw/RoleTurnNoHeading'
 import { workflowContext } from '@/components/aw/AgentWorkflowContext';
 import { useState, useEffect } from 'react'
 import { WorkflowExecution, WorkflowSubTask, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTask, WorkflowTree, WorkflowTreeNode, WorkflowTreeTask } from '@/components/aw/Constants';
@@ -138,64 +140,91 @@ export default function MainContentDisplay() {
 
 
 
-                            <Drawer name='instructions'>
+                            <Drawer2 name='instructions'>
                                 <div className='grid col-auto'>
 
-                                    <RoleTurn roleName='system instructions'>
-                                        <div className='dangerouslySetInnerHTML'>
-                                            <div dangerouslySetInnerHTML={{ __html: currentTask.instructions }} className='grow ml-4 text-blue-300'></div>
-                                        </div>
-                                    </RoleTurn>
-
-                                </div>
-                            </Drawer>
-
-                            <Drawer name='context'>
-                                <div className='grid col-auto'>
-
-                                    {currentTask.originalInput && currentTask.originalInput.map((item: any, i: any) => {
-                                        return (
-                                            <div key={item + '-' + i}>
-                                                <RoleTurn roleName={`${item.name}: ${item.type}`}>
-                                                    <div className='dangerouslySetInnerHTML'>
-                                                        <div dangerouslySetInnerHTML={{ __html: item.content }} className=' grow ml-4 text-blue-300'></div>
-                                                    </div>
-                                                </RoleTurn>
-
+                                    <RoleTurnNoHeading>
+                                        <div className='aw-main-h3'>system instructions:</div>
+                                        <div className='aw-margin-left-15'>
+                                            <div className='dangerouslySetInnerHTML'>
+                                                <div dangerouslySetInnerHTML={{ __html: currentTask.instructions }} className='grow text-blue-300'></div>
                                             </div>
-
-                                        )
-
-                                    })}
-
-
+                                        </div>
+                                    </RoleTurnNoHeading>
 
                                 </div>
-                            </Drawer>
+                            </Drawer2>
 
-                            <Drawer name='input'>
+
+                            {
+                                currentTask.originalInput && currentTask.originalInput.length > 0 && (
+                                    <Drawer2 name='context'>
+                                        <div className='grid col-auto'>
+                                            <RoleTurnNoHeading>
+                                                {currentTask.originalInput && currentTask.originalInput.map((item: any, i: any) => {
+                                                    return (
+                                                        <div key={item + '-' + i}>
+
+                                                            <div className='aw-main-h3'>{item.name}: {item.type}</div>
+                                                            <div className='aw-margin-left-15'>
+                                                                <div className='dangerouslySetInnerHTML'>
+                                                                    <div dangerouslySetInnerHTML={{ __html: item.content }} className='grow text-blue-300'></div>
+                                                                </div>
+                                                            </div>
+                                                            {/* <RoleTurnNoHeading roleName={`${item.name}: ${item.type}`}> */}
+                                                            {/* <div className='dangerouslySetInnerHTML'>
+                                                                <div dangerouslySetInnerHTML={{ __html: item.content }} className=' grow ml-4 text-blue-300'></div>
+                                                            </div> */}
+
+
+                                                        </div>
+
+                                                    )
+
+                                                })}
+
+                                            </RoleTurnNoHeading>
+
+                                        </div>
+                                    </Drawer2>
+                                )
+                            }
+
+
+
+                            <Drawer2 name='input'>
                                 <div className='grid col-auto'>
 
-                                    <RoleTurn roleName={currentTask.sub_task_list[0].role}>
-                                        <div className='dangerouslySetInnerHTML'>
-                                            <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].subTaskDescription }} className=' grow ml-4 text-blue-300'></div>
+                                    {/* <RoleTurnNoHeading roleName={currentTask.sub_task_list[0].role}> */}
+                                    <RoleTurnNoHeading>
+                                        <div className='aw-main-h3'>{currentTask.sub_task_list[0].role}:</div>
+                                        <div className='aw-margin-left-15'>
+                                            <div className='dangerouslySetInnerHTML'>
+                                                <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].subTaskDescription }} className='grow text-blue-300'></div>
+                                            </div>
                                         </div>
-                                    </RoleTurn>
+
+                                    </RoleTurnNoHeading>
 
                                 </div>
-                            </Drawer>
+                            </Drawer2>
 
-                            <Drawer name='result'>
+                            <Drawer2 name='result'>
                                 <div className='grid col-auto'>
 
-                                    <RoleTurn roleName={currentTask.sub_task_list[0].subType}>
-                                        <div className='dangerouslySetInnerHTML'>
-                                            <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].output }} className=' grow ml-4 text-blue-300'></div>
+                                    {/* <RoleTurnNoHeading roleName={currentTask.sub_task_list[0].subType}> */}
+                                    <RoleTurnNoHeading>
+                                        <div className='aw-main-h3'>{currentTask.sub_task_list[0].subType}:</div>
+                                        <div className='aw-margin-left-15'>
+                                            <div className='dangerouslySetInnerHTML'>
+                                                <div dangerouslySetInnerHTML={{ __html: currentTask.sub_task_list[0].output }} className='grow text-blue-300'></div>
+                                            </div>
                                         </div>
-                                    </RoleTurn>
+
+                                    </RoleTurnNoHeading>
 
                                 </div>
-                            </Drawer>
+                            </Drawer2>
 
                         </div>
 

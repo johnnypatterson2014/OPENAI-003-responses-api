@@ -12,6 +12,13 @@ strong {
     margin-bottom: 10px;
 }
 
+.aw-main-h3 {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
 .aw-margin-top {
     margin-top: 20px;
 }
@@ -20,15 +27,29 @@ strong {
     margin-top: 15px;
 }
 
+.aw-margin-left-15 {
+    margin-left: 25px;
+}
+
+.aw-margin-right {
+    margin-right: 10px;
+}
+
 .aw-margin-bottom {
     margin-bottom: 10px;
 }
 
 .aw-collapse-title {
-    margin: 1px;
-    border-bottom: 1px solid var(--fesk-card-border);
-    border-radius: 0px;
+    margin: 0px;
+
     color: var(--fesk-collapse-title);
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 0px;
+    /* background-color: var(--color-zinc-800); */
 }
 
 .aw-collapse-content {
@@ -50,8 +71,22 @@ strong {
 
 .aw-drawer-title {
     line-height: 18px;
-    padding-bottom: 1px;
-    padding-left: 3px;
+    margin-bottom: 5px;
+
+    /* background-color: var(--color-zinc-800); */
+    /* padding-bottom: 1px;
+    padding-left: 3px; */
+}
+
+.aw-drawer-title-2 {
+    margin: 2px;
+    padding: 3px;
+    border: 1px solid var(--fesk-card-border);
+    border-radius: 5px;
+
+    /* background-color: var(--color-zinc-800); */
+    /* padding-bottom: 1px;
+    padding-left: 3px; */
 }
 
 .aw-property {
@@ -79,11 +114,15 @@ strong {
 }
 
 .aw-roleturn-body {
-    border: 1px solid var(--fesk-card-2-border);
+    border: 1px solid var(--fesk-card-border);
     padding-top: 15px;
+    padding-right: 10px;
     padding-bottom: 12px;
     background: var(--fesk-card-2-background);
     border-radius: 5px;
-    margin-left: 15px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 0px;
+    margin-bottom: 2px;
     max-height: 200px;
 }
