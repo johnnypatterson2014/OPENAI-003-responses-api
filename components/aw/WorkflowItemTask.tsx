@@ -3,6 +3,7 @@
 import { ReactNode, useEffect } from 'react'
 import { WorkflowExecution, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTree, WorkflowTreeTask } from '@/components/aw/Constants';
 import Button2 from '@/components/aw/Button2'
+import Button3 from '@/components/aw/Button3'
 import WorkflowItem from '@/components/aw/WorkflowItem'
 import FeskDrawerGraph2 from '@/components/FeskDrawerGraph2'
 import WorkflowItemTaskDelegate from '@/components/aw/WorkflowItemTaskDelegate'
@@ -22,7 +23,15 @@ export default function WorkflowItemTask({ node }: { node: WorkflowTreeTask }) {
         e?.preventDefault()
         setTaskId(id)
         setTaskSelected(true)
+        toggleAll(true)
+    }
 
+    const toggleAll = (value: boolean) => {
+        const elements = document.querySelectorAll('.aw-collapse-checkbox');
+        elements.forEach(element => {
+            // console.log(element.textContent);
+            element.checked = value;
+        });
     }
 
     return (
@@ -39,27 +48,38 @@ export default function WorkflowItemTask({ node }: { node: WorkflowTreeTask }) {
 
                     <div className='flex flex-row m-[5px] items-start' >
 
-                        <div className='grow fesk-item'>
-                            <FeskDrawerGraph2 displayName={node.name} isButton={true} >
-
-                                {isContextLoaded && node.children && node.children.map((myNode, i) => {
-                                    return (
-                                        <div key={myNode.id + '-' + i} className=''>
-                                            <WorkflowItem node={myNode} taskId={node.tree_task_id} />
-
+                        <div className='flex-none fesk-item'>
+                            <Button2>
+                                <a onClick={() => setNewTaskId(node.tree_task_id)}>
+                                    <div className='flex flex-row items-center'>
+                                        <div className='flex-none aw-margin-right-5'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5" /></svg>
+                                        </div>
+                                        <div className='flex-none aw-margin-bottom-2'>
+                                            {node.name}
                                         </div>
 
-                                    )
-
-                                })}
-                                {
-                                    node.delegate_task && (
-                                        <WorkflowItemTaskDelegate node={node.delegate_task} />
-                                    )
-                                }
+                                    </div>
+                                </a>
+                            </Button2>
 
 
-                            </FeskDrawerGraph2>
+                            {isContextLoaded && node.children && node.children.map((myNode, i) => {
+                                return (
+                                    <div key={myNode.id + '-' + i} className=''>
+                                        <WorkflowItem node={myNode} taskId={node.tree_task_id} />
+
+                                    </div>
+
+                                )
+
+                            })}
+                            {
+                                node.delegate_task && (
+                                    <WorkflowItemTask node={node.delegate_task} />
+                                )
+                            }
+
                         </div>
 
                         <div className='flex-none'>

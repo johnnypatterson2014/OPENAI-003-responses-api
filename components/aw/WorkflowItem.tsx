@@ -33,7 +33,7 @@ export default function WorkflowItem({ node, taskId }: { node: WorkflowTreeNode,
 
     return (
         <>
-            <div className='flex flex-row items-start'>
+            <div className='flex flex-row items-start aw-item-row'>
 
                 <div className='flex-none'>
                     <div className='pl-[10px] pt-[5px]'>
@@ -61,7 +61,7 @@ export default function WorkflowItem({ node, taskId }: { node: WorkflowTreeNode,
                             {
                                 !node.isButton && (
                                     <div className='flex-none fesk-item'>
-                                        <div className='text-xs mt-[2px] mb-[2px]'>
+                                        <div className='text-xs aw-tree-node'>
                                             {node.name}
                                         </div>
                                     </div>
@@ -74,13 +74,7 @@ export default function WorkflowItem({ node, taskId }: { node: WorkflowTreeNode,
 
                         </div>
 
-                        <div className='flex-none text-xs ml-[5px]'>
 
-                            <a onClick={() => setNewTaskId(taskId)}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512"><path fill="none" stroke="#8ec5ff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M262.62 336L342 256l-79.38-80m68.35 80H170" /><path fill="none" stroke="#8ec5ff" strokeMiterlimit="10" strokeWidth="32" d="M256 448c106 0 192-86 192-192S362 64 256 64S64 150 64 256s86 192 192 192Z" /></svg>
-                            </a>
-
-                        </div>
 
                     </div>
 

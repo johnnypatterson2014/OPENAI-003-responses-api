@@ -30,9 +30,9 @@ const AgentWorkflow = () => {
 
             <div className='fesk-h2'>Agent Workflow</div>
 
-            <WorkflowTreeUI />
+            {/* <WorkflowTreeUI /> */}
 
-            {/* <WorkflowTreeUI2 /> */}
+            <WorkflowTreeUI2 />
 
 
 
