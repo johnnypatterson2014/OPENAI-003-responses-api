@@ -73,22 +73,22 @@ async function userSays(text: string) {
 export const callAgent = async (question: string) => {
 
   let workflowOutput = ''
-  await withTrace('FESK AW 02', async () => {
+  await withTrace('FESK AW 03', async () => {
     let response = '';
     response += 'user prompt: Use the online researcher to write a report on Agentic Behavior. \n\nResponse: \n'
     response += '\n\n' + await userSays('Use the online researcher to write a report on Agentic Behavior.');
 
-    // response += 'user prompt: Using the report from the online researcher, write an article using the \'blog manager\'. \n\nResponse: \n'
-    // response += '\n\n' + await userSays(`
-    //   Using the report from the online researcher, write an article using the 'blog manager'. 
-    //   The publication should contain links to sources stated by the online researcher. 
-    //   Your final answer MUST be the full article of at least 3 paragraphs.
-    //   `);
+    response += 'user prompt: Using the report from the online researcher, write an article using the \'blog manager\'. \n\nResponse: \n'
+    response += '\n\n' + await userSays(`
+      Using the report from the online researcher, write an article using the 'blog manager'. 
+      The publication should contain links to sources stated by the online researcher. 
+      Your final answer MUST be the full article of at least 3 paragraphs.
+      `);
 
-    // response += 'user prompt: Meticulously review and harmonize the final output from both the \'blog manager\' and \'online researcher\' \n\nResponse: \n'
-    // response += '\n\n' + await userSays(`
-    //   Meticulously review and harmonize the final output from both the 'blog manager' and 'online researcher', ensuring cohesion and excellence in the final publication. Once done, publish the final report.
-    //   `);
+    response += 'user prompt: Meticulously review and harmonize the final output from both the \'blog manager\' and \'online researcher\' \n\nResponse: \n'
+    response += '\n\n' + await userSays(`
+      Meticulously review and harmonize the final output from both the 'blog manager' and 'online researcher', ensuring cohesion and excellence in the final publication. Once done, publish the final report.
+      `);
 
     workflowOutput = response
 

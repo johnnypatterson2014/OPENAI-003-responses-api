@@ -136,17 +136,7 @@ export default function MainContentDisplay() {
                                 </div>
                             </Drawer> */}
 
-                            <Drawer name='original input'>
-                                <div className='grid col-auto'>
 
-                                    <RoleTurn roleName={workflowExecution.assignedAgent}>
-                                        <div className='dangerouslySetInnerHTML'>
-                                            <div dangerouslySetInnerHTML={{ __html: workflowExecution.overallTaskDescription }} className=' grow ml-4 text-blue-300'></div>
-                                        </div>
-                                    </RoleTurn>
-
-                                </div>
-                            </Drawer>
 
                             <Drawer name='instructions'>
                                 <div className='grid col-auto'>
@@ -156,6 +146,29 @@ export default function MainContentDisplay() {
                                             <div dangerouslySetInnerHTML={{ __html: currentTask.instructions }} className='grow ml-4 text-blue-300'></div>
                                         </div>
                                     </RoleTurn>
+
+                                </div>
+                            </Drawer>
+
+                            <Drawer name='context'>
+                                <div className='grid col-auto'>
+
+                                    {currentTask.originalInput && currentTask.originalInput.map((item: any, i: any) => {
+                                        return (
+                                            <div key={item + '-' + i}>
+                                                <RoleTurn roleName={`${item.name}: ${item.type}`}>
+                                                    <div className='dangerouslySetInnerHTML'>
+                                                        <div dangerouslySetInnerHTML={{ __html: item.content }} className=' grow ml-4 text-blue-300'></div>
+                                                    </div>
+                                                </RoleTurn>
+
+                                            </div>
+
+                                        )
+
+                                    })}
+
+
 
                                 </div>
                             </Drawer>

@@ -72,8 +72,7 @@ export function AgentWorkflowContext({
   }
 
   const formatWorkflowExecution = async () => {
-    const overallTaskDescription = await convertMarkdownToHtml(workflow_data.overallTaskDescription)
-    workflow_data.overallTaskDescription = overallTaskDescription.replaceAll("\\n", "<br />");
+
 
     for (let i = 0; i < workflow_data.task_run_list.length; i++) {
       let temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].instructions)
@@ -106,6 +105,14 @@ export function AgentWorkflowContext({
         workflow_data.task_run_list[i].sub_task_list[y].subTaskDescription = temp.replaceAll("\\n", "<br />");
 
       }
+
+      if (workflow_data.task_run_list[i].originalInput && workflow_data.task_run_list[i].originalInput.length > 0) {
+        for (let y = 0; y < workflow_data.task_run_list[i].originalInput.length; y++) {
+          let temp = await convertMarkdownToHtml(workflow_data.task_run_list[i].originalInput[y].content)
+          workflow_data.task_run_list[i].originalInput[y].content = temp.replaceAll("\\n", "<br />");
+        }
+      }
+
     }
 
     return workflow_data;

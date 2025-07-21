@@ -2,11 +2,17 @@
 export interface WorkflowExecution {
     workflow_name: string
     trace_id: string
-    overallTaskDescription: string
     assignedAgent: string
     task_run_list: WorkflowTask[]
     start_time?: string
     end_time?: string
+}
+
+
+export interface WorkflowOriginalInput {
+    name: string
+    content: any
+    type: string
 }
 
 export interface WorkflowTask {
@@ -14,6 +20,7 @@ export interface WorkflowTask {
     order_index: number
     instructions: any
     agentName: string
+    originalInput?: WorkflowOriginalInput[]
     sub_task_list: WorkflowSubTask[]
     delegate_task?: WorkflowTask
 }
