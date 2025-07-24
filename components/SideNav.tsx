@@ -128,6 +128,23 @@ export default function SideNav() {
 
                 </div>
 
+                <div className='flex flex-row items-center'>
+                    <div className='flex-none ml-[5px]'>
+                        <div className='p-[5px]'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32"><path fill="currentColor" d="M5 5v22h22V5zm2 2h18v18H7zm7.219 2.281L12.78 10.72L18.062 16l-5.28 5.281l1.437 1.438l6-6l.687-.719l-.687-.719z" /></svg>
+                        </div>
+                    </div>
+
+                    <div className='flex-1 ml-[10px]'>
+
+                        <div className='text-sm'>
+                            <Link href={'/crewai2'}>crewai2</Link>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </nav>
 
             {/* <nav id="sidebar">

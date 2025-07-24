@@ -1,4 +1,38 @@
 
+
+
+export interface WorkflowTreeRoot {
+    id: string
+    name: string
+    children?: WorkflowTreeNode[]
+}
+
+export interface WorkflowTreeNode {
+    id: string
+    name: string
+    type: string
+    systemInstructions?: any
+    agentName?: string
+    input?: TreeNodeMessage[]
+    output?: TreeNodeMessage
+    children?: WorkflowTreeNode[]
+}
+
+export interface TreeNodeMessage {
+    role: string
+    type: string
+    content: any
+}
+
+
+
+
+
+
+
+
+
+
 export interface WorkflowExecution {
     workflow_name: string
     trace_id: string

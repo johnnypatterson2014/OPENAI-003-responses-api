@@ -3,6 +3,29 @@
 
 
 
+
+                        <div className='flex-none'>
+                            <Button2>
+                                view agent definitions
+                            </Button2>
+                        </div>
+
+                        <div className='flex-none ml-[10px]'>
+                            <Button2>
+                                view task definitions
+                            </Button2>
+                        </div>
+
+                        <div className='flex-none ml-[10px]'>
+                            <Button2>
+                                view tool definitions
+                            </Button2>
+                        </div>
+
+                        
+
+
+
 UI components used:
   AgentWorkflowContext
           openaiResponseList: any[],

@@ -1,0 +1,123 @@
+{
+    "object": "traffic.completion",
+    "id": "chatcmpl-BwKy3lnjJgSnYMSTbTeAKvzZQwkRd",
+    "compression": null,
+    "model": "gpt-4-0125-preview",
+    "created": 1753243323,
+    "request_id": "req_58626b27080d0c19926320c983307cf5",
+    "tool_choice": "BusinessareaInfo",
+    "usage": {
+        "total_tokens": 550,
+        "completion_tokens": 174,
+        "prompt_tokens": 376
+    },
+    "seed": 2185230111706106592,
+    "top_p": 1.0,
+    "temperature": 1.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "system_fingerprint": "-1",
+    "input_user": null,
+    "service_tier": "default",
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "parameters": {
+                    "$defs": {
+                        "NamedUrl": {
+                            "properties": {
+                                "name": {
+                                    "title": "Name",
+                                    "type": "string"
+                                },
+                                "url": {
+                                    "title": "Url",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "url"
+                            ],
+                            "title": "NamedUrl",
+                            "type": "object"
+                        }
+                    },
+                    "properties": {
+                        "technology": {
+                            "title": "Technology",
+                            "type": "string"
+                        },
+                        "businessarea": {
+                            "title": "Businessarea",
+                            "type": "string"
+                        },
+                        "blog_articles_urls": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "title": "Blog Articles Urls",
+                            "type": "array"
+                        },
+                        "youtube_videos_urls": {
+                            "items": {
+                                "$ref": "#/$defs/NamedUrl"
+                            },
+                            "title": "Youtube Videos Urls",
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "blog_articles_urls",
+                        "businessarea",
+                        "technology",
+                        "youtube_videos_urls"
+                    ],
+                    "type": "object"
+                },
+                "description": "Correctly extracted `BusinessareaInfo` with all the required parameters with correct types",
+                "name": "BusinessareaInfo"
+            }
+        }
+    ],
+    "metadata": {},
+    "messages": [
+        {
+            "role": "user",
+            "content": "```json\n{\n  \"Customer Service\": {\n    \"blog_articles\": [\n      {\n        \"url\": \"https://www.sprinklr.com/blog/generative-ai-customer-service/\"\n      },\n      {\n        \"url\": \"https://www.ada.cx/blog/real-world-examples-of-generative-ai-for-customer-service/\"\n      },\n      {\n        \"url\": \"https://cloud.google.com/blog/products/ai-machine-learning/how-gen-ai-is-transforming-the-customer-service-experience\"\n      }\n    ],\n    \"youtube_videos\": [\n      {\n        \"title\": \"Putting AI to work for Customer Service\",\n        \"url\": \"https://www.youtube.com/watch?v=_3-ZOKKo7II\"\n      },\n      {\n        \"title\": \"Generative AI in Customer Service\",\n        \"url\": \"https://www.youtube.com/watch?v=_rdHuK1LxnM\"\n      },\n      {\n        \"title\": \"What's Possible? Generative AI and Customer Experience\",\n        \"url\": \"https://www.youtube.com/watch?v=rxKFcTRQ_bM\"\n      }\n    ]\n  }\n}\n```",
+            "name": null,
+            "content_parts": null
+        },
+        {
+            "role": "system",
+            "content": "I'm gonna convert this raw text into valid JSON.",
+            "name": null,
+            "content_parts": null
+        }
+    ],
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "content": null,
+                "role": "assistant",
+                "tool_calls": [
+                    {
+                        "type": "function",
+                        "function": {
+                            "name": "BusinessareaInfo",
+                            "arguments": "{\"technology\":\"Generative AI\",\"businessarea\":\"Customer Service\",\"blog_articles_urls\":[\"https://www.sprinklr.com/blog/generative-ai-customer-service/\",\"https://www.ada.cx/blog/real-world-examples-of-generative-ai-for-customer-service/\",\"https://cloud.google.com/blog/products/ai-machine-learning/how-gen-ai-is-transforming-the-customer-service-experience\"],\"youtube_videos_urls\":[{\"name\":\"Putting AI to work for Customer Service\",\"url\":\"https://www.youtube.com/watch?v=_3-ZOKKo7II\"},{\"name\":\"Generative AI in Customer Service\",\"url\":\"https://www.youtube.com/watch?v=_rdHuK1LxnM\"},{\"name\":\"What's Possible? Generative AI and Customer Experience\",\"url\":\"https://www.youtube.com/watch?v=rxKFcTRQ_bM\"}]}"
+                        },
+                        "id": "call_jVKhiUysz6VtqsUWwFu3ZYcV"
+                    }
+                ],
+                "function_call": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "preferred_completion": null,
+    "response_format": null
+}
