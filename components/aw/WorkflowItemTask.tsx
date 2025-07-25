@@ -7,10 +7,10 @@ import Button3 from '@/components/aw/Button3'
 import WorkflowItem from '@/components/aw/WorkflowItem'
 import FeskDrawerGraph2 from '@/components/FeskDrawerGraph2'
 import WorkflowItemTaskDelegate from '@/components/aw/WorkflowItemTaskDelegate'
-import { workflowContext } from '@/components/aw/AgentWorkflowContext';
+import { workflowContext2 } from '@/components/aw/AgentWorkflowContext2';
 
 export default function WorkflowItemTask({ node }: { node: WorkflowTreeTask }) {
-    const { isContextLoaded, workflowExecution, setTaskId, setTaskSelected } = workflowContext()
+    const { isContextLoaded, workflowExecution, setTaskId, setTaskSelected } = workflowContext2()
 
     useEffect(() => {
         const elements = document.querySelectorAll('.fesk-checkbox');

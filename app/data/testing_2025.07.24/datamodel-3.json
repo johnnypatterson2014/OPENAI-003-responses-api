@@ -1,0 +1,51 @@
+{
+    "workflow_name": null,
+    "trace_id": null,
+    "task_run_list": [
+        {
+            "task_id": "resp_6882c056bcec819a8d2d40ebd83cae8f078108906d297a43",
+            "instructions": "\nAs a Research Agent, you are responsible for looking up specific business areas \n                within a technology and gathering relevant information.\n                \n                Important:\n                - Once you've found the information, immediately stop searching for additional information.\n                - Only return the requested information. NOTHING ELSE!\n                - Do not generate fake information. Only return the information you find. Nothing else!\n\n    Look up the specific business areas for a given technology and find urls for 3 recent blog articles and \n                the url and title for 3 recent YouTube videos in the specified business area. It is your goal to return this collected \n                information in a JSON object.\n",
+            "agentName": null,
+            "sub_task_list": [
+                {
+                    "id": "msg_6882c0599f10819a9020cb0c646c7f1b078108906d297a43",
+                    "role": "assistant",
+                    "subTaskDescription": "Collect 3 blog article URLs and 3 YouTube videos (name and url) for Agentic AI in Customer Service.",
+                    "type": "output_text",
+                    "subType": "data_collection",
+                    "name": "Agentic AI - Customer Service",
+                    "instructions": null,
+                    "queryType": "search",
+                    "query": "Agentic AI in Customer Service blog articles",
+                    "output": {
+                        "name": "Agentic AI",
+                        "url": "https://www.axios.com/sponsored/beyond-copilots-how-agentic-ai-is-empowering-businesses",
+                        "technology": "Agentic AI",
+                        "businessarea": "Customer Service",
+                        "blog_articles_urls": [
+                            "https://www.axios.com/sponsored/beyond-copilots-how-agentic-ai-is-empowering-businesses",
+                            "https://www.zoom.com/en/blog/the-new-era-of-agentic-ai-self-service/",
+                            "https://superagi.com/revolutionizing-customer-service-with-agentic-ai-how-ai-agents-are-changing-the-game/"
+                        ],
+                        "youtube_videos_urls": [
+                            {
+                                "name": "Agentic AI in Customer Service: Transforming Support Operations",
+                                "url": "https://www.youtube.com/watch?v=example1"
+                            },
+                            {
+                                "name": "How Agentic AI is Revolutionizing Customer Experience",
+                                "url": "https://www.youtube.com/watch?v=example2"
+                            },
+                            {
+                                "name": "Implementing Agentic AI for Enhanced Customer Service",
+                                "url": "https://www.youtube.com/watch?v=example3"
+                            }
+                        ]
+                    },
+                    "sourceAgent": null,
+                    "targetAgent": null
+                }
+            ]
+        }
+    ]
+}

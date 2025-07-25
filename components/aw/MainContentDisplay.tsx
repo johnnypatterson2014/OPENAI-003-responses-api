@@ -6,12 +6,12 @@ import Drawer from '@/components/aw/Drawer'
 import Drawer2 from '@/components/aw/Drawer2'
 import RoleTurn from '@/components/aw/RoleTurn'
 import RoleTurnNoHeading from '@/components/aw/RoleTurnNoHeading'
-import { workflowContext } from '@/components/aw/AgentWorkflowContext';
+import { workflowContext2 } from '@/components/aw/AgentWorkflowContext2';
 import { useState, useEffect } from 'react'
 import { WorkflowExecution, WorkflowSubTask, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTask, WorkflowTree, WorkflowTreeNode, WorkflowTreeTask } from '@/components/aw/Constants';
 
 export default function MainContentDisplay() {
-    const { isContextLoaded, isWorkflowSelected, workflowExecution, taskId, isTaskSelected } = workflowContext()
+    const { isContextLoaded, isWorkflowSelected, workflowExecution, taskId, isTaskSelected } = workflowContext2()
     // const [currentTask, setCurrentTask] = useState<WorkflowTask>()
 
     // useEffect(() => {

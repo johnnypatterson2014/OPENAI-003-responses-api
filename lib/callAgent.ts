@@ -6,62 +6,127 @@ import { promises as fs } from "fs";
 import { z } from 'zod';
 import { RECOMMENDED_PROMPT_PREFIX } from '@openai/agents-core/extensions';
 
-
-const online_researcher = new Agent({
-  name: 'online researcher',
-  instructions: `Your primary role is to function as an intelligent online research assistant, adept at scouring 
-    the internet for the latest and most relevant trending stories across various sectors like politics, technology, 
-    health, culture, and global events. You possess the capability to access a wide range of online news sources, 
-    blogs, and social media platforms to gather real-time information.`,
-  tools: [webSearchTool()],
-  model: 'gpt-4.1'
+const NamedUrl = z.object({
+  name: z.string(),
+  url: z.string(),
 });
 
-const blog_manager = new Agent({
-  name: 'blog manager',
+const BusinessareaInfo = z.object({
+  name: z.string(),
+  url: z.string(),
+  technology: z.string(),
+  businessarea: z.string(),
+  blog_articles_urls: z.array(z.string()),
+  youtube_videos_urls: z.array(NamedUrl),
+
+});
+
+const BusinessareaInfoList = z.object({
+  name: z.string(),
+  url: z.string(),
+  businessareas: z.array(BusinessareaInfo),
+});
+
+const technologies: string[] = ['Agentic AI']
+const businessareas: string[] = ['Customer Service']
+
+const task_technology_research: string = `
+      Research the business areas 'Customer Service' for the 'Agentic AI' technology. 
+                For each business area, find the URLs for 3 recent blog articles and the URLs and titles for
+                3 recent YouTube videos in each business area.
+                Return this collected information in a JSON object.
+                               
+                Helpful Tips:
+                - To find the blog articles names and URLs, perform searches on Google such like the following:
+                    - "Agentic AI [BUSINESS AREA HERE] blog articles"
+                - To find the youtube videos, perform searches on YouTube such as the following:
+                    - "Agentic AI in [BUSINESS AREA HERE]"
+                               
+                Important:
+                - Once you've found the information, immediately stop searching for additional information.
+                - Only return the requested information. NOTHING ELSE!
+                - Do not generate fake information. Only return the information you find. Nothing else!
+                - Do not stop researching until you find the requested information for each business area in the technology.
+
+                Expected output:
+                A JSON object containing the researched information for each business area in the technology.
+`
+
+const task_manage_research: string = `
+      Based on the list of technologies 'Agentic AI' and the business areas 'Customer Service',
+                use the results from the Research Agent to research each business area in each technology.
+                to put together a json object containing the URLs for 3 blog articles, the URLs and title 
+                for 3 YouTube interviews for each business area in each technology.
+
+      Expected output:
+      A json object containing the URLs for 3 blog articles and the URLs and 
+                    titles for 3 YouTube interviews for each business area in each technology.
+`
+
+const research_agent_instructions: string = `
+As a Research Agent, you are responsible for looking up specific business areas 
+                within a technology and gathering relevant information.
+                
+                Important:
+                - Once you've found the information, immediately stop searching for additional information.
+                - Only return the requested information. NOTHING ELSE!
+                - Do not generate fake information. Only return the information you find. Nothing else!
+
+    Look up the specific business areas for a given technology and find urls for 3 recent blog articles and 
+                the url and title for 3 recent YouTube videos in the specified business area. It is your goal to return this collected 
+                information in a JSON object.
+`
+
+const research_manager_instructions: string = `
+As a Research Manager, you are responsible for aggregating all the researched information into a list.
+  Generate a list of JSON objects containing the urls for 3 recent blog articles and 
+                the url and title for 3 recent YouTube videos, for each technology in each business area.
+             
+                Technologies: 'Agentic AI'
+                Business Areas: 'Customer Service'
+
+                Important:
+                - The final list of JSON objects must include all technologies and business areas. Do not leave any out.
+                - If you can't find information for a specific industry or business area, fill in the information with the word "MISSING".
+                - Do not generate fake information. Only return the information you find. Nothing else!
+                - Do not stop researching until you find the requested information for each business area in each technology.
+                - All the technologies and business areas exist so keep researching until you find the information for each one.
+                - Make sure you each researched business area for each technology contains 3 blog articles and 3 YouTube videos.
+`
+
+const research_agent = new Agent({
+  name: 'research agent',
   model: 'gpt-4.1',
   tools: [webSearchTool()],
-  instructions:
-    `You are a Blog Manager. The role of a Blog Manager encompasses several critical responsibilities aimed at transforming initial drafts into polished, SEO-optimized blog articles that engage and grow an audience. Starting with drafts provided by the online researcher, the Blog Manager must thoroughly understand the content, ensuring it aligns with the blog's tone, target audience, and thematic goals. Key responsibilities include:
-
-1. Content Enhancement: Elevate the draft's quality by improving clarity, flow, and engagement. This involves refining the narrative, adding compelling headers, and ensuring the article is reader-friendly and informative.
-
-2. SEO Optimization: Implement best practices for search engine optimization. This includes keyword research and integration, optimizing meta descriptions, and ensuring URL structures and heading tags enhance visibility in search engine results.
-
-3. Compliance and Best Practices: Ensure the content adheres to legal and ethical standards, including copyright laws and truth in advertising. The Blog Manager must also keep up with evolving SEO strategies and blogging trends to maintain and enhance content effectiveness.
-
-4. Editorial Oversight: Work closely with writers and contributors to maintain a consistent voice and quality across all blog posts. This may also involve managing a content calendar, scheduling posts for optimal engagement, and coordinating with marketing teams to support promotional activities.
-
-5. Analytics and Feedback Integration: Regularly review performance metrics to understand audience engagement and preferences. Use this data to refine future content and optimize overall blog strategy.
-
-In summary, the Blog Manager plays a pivotal role in bridging initial research and the final publication by enhancing content quality, ensuring SEO compatibility, and aligning with the strategic objectives of the blog. This position requires a blend of creative, technical, and analytical skills to successfully manage and grow the blog's presence online.`
+  outputType: BusinessareaInfo,
+  instructions: research_agent_instructions
 });
 
-const content_marketing_manager = new Agent({
-  name: 'content marketing manager',
-  model: 'gpt-4.1',
-  instructions:
-    `
-    You are an excellent Content Marketing Manager. Your primary role is to supervise each publication from the 'blog manager' 
-    and the articles written by the 'online researcher' and approve the work for publication. Examine the work and regulate violent language, abusive content and racist content.
-    
-    Capabilities:
-
-    Editorial Review: Analyze the final drafts from the blog manager and the online researcher for style consistency, thematic alignment, and overall narrative flow.
-
-    Quality Assurance: Conduct detailed checks for grammatical accuracy, factual correctness, and adherence to journalistic standards in the news content, as well as creativity and effectiveness in the advertisements.
-
-    Feedback Loop: Provide constructive feedback to both the 'blog manager' and 'online researcher', facilitating a collaborative environment for continuous improvement in content creation and presentation.
-    `,
-  handoffs: [online_researcher, blog_manager],
+const research_manager = new Agent({
+  name: 'research manager',
   tools: [webSearchTool()],
+  model: 'gpt-4.1',
+  handoffs: [research_agent],
+  outputType: BusinessareaInfoList,
+  instructions: research_manager_instructions
 });
+
 
 let thread: AgentInputItem[] = [];
 
-async function userSays(text: string) {
+async function callLLM_research_agent(text: string) {
   const result = await run(
-    content_marketing_manager,
+    research_agent,
+    thread.concat({ role: 'user', content: text }),
+  );
+
+  thread = result.history; // Carry over history + newly generated items
+  return JSON.stringify(result);
+}
+
+async function callLLM_research_manager(text: string) {
+  const result = await run(
+    research_manager,
     thread.concat({ role: 'user', content: text }),
   );
 
@@ -73,38 +138,21 @@ async function userSays(text: string) {
 export const callAgent = async (question: string) => {
 
   let workflowOutput = ''
-  await withTrace('FESK AW 03', async () => {
+  await withTrace('FESK AW 04', async () => {
     let response = '';
-    response += 'user prompt: Use the online researcher to write a report on Agentic Behavior. \n\nResponse: \n'
-    response += '\n\n' + await userSays('Use the online researcher to write a report on Agentic Behavior.');
+    response += 'task 1 result: \n\n'
+    const result_task_1 = callLLM_research_manager(task_technology_research);
+    response += result_task_1 + '\n\n'
 
-    response += 'user prompt: Using the report from the online researcher, write an article using the \'blog manager\'. \n\nResponse: \n'
-    response += '\n\n' + await userSays(`
-      Using the report from the online researcher, write an article using the 'blog manager'. 
-      The publication should contain links to sources stated by the online researcher. 
-      Your final answer MUST be the full article of at least 3 paragraphs.
-      `);
-
-    response += 'user prompt: Meticulously review and harmonize the final output from both the \'blog manager\' and \'online researcher\' \n\nResponse: \n'
-    response += '\n\n' + await userSays(`
-      Meticulously review and harmonize the final output from both the 'blog manager' and 'online researcher', ensuring cohesion and excellence in the final publication. Once done, publish the final report.
-      `);
+    response += 'task 2 result: \n\n'
+    const result_task_2 = callLLM_research_manager(task_manage_research);
+    response += result_task_2 + '\n\n'
 
     workflowOutput = response
 
   })
 
-  // const input = JSON.stringify(response.input) + '\n\n'
-  // const history = JSON.stringify(response.history) + '\n\n'
-  // const output = JSON.stringify(response.output) + '\n\n'
-  // const newItems = JSON.stringify(response.newItems) + '\n\n'
-  // response.lastResponseId
-  // response.lastAgent
-  // const rawResponses = JSON.stringify(response.rawResponses) + '\n\n'
-  // const newItems = JSON.stringify(response.newItems) + '\n\n'
-  // const finalOutput = JSON.stringify(response.finalOutput) + '\n\n'
-
   const responseText = JSON.stringify(workflowOutput)
-  fs.writeFile("./openai-agent-workflow-response.txt", responseText);
+  fs.writeFile("./openai-agent-workflow-response_v2.txt", responseText);
   return responseText
 }

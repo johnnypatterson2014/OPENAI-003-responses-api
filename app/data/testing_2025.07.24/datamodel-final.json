@@ -1,0 +1,84 @@
+{
+    "workflow_name": "Agent workflow",
+    "trace_id": "trace_f392ff2332584d82863d8ccf33ea38bd",
+    "assignedAgent": "research_manager",
+    "task_run_list": [
+        {
+            "task_id": "resp_6882c05328948198b2bb6599125f9bb3017234314e29304a",
+            "instructions": "\nAs a Research Manager, you are responsible for aggregating all the researched information into a list.\n  Generate a list of JSON objects containing the urls for 3 recent blog articles and \n                the url and title for 3 recent YouTube videos, for each technology in each business area.\n             \n                Technologies: 'Agentic AI'\n                Business Areas: 'Customer Service'\n\n                Important:\n                - The final list of JSON objects must include all technologies and business areas. Do not leave any out.\n                - If you can't find information for a specific industry or business area, fill in the information with the word \"MISSING\".\n                - Do not generate fake information. Only return the information you find. Nothing else!\n                - Do not stop researching until you find the requested information for each business area in each technology.\n                - All the technologies and business areas exist so keep researching until you find the information for each one.\n                - Make sure you each researched business area for each technology contains 3 blog articles and 3 YouTube videos.\n",
+            "agentName": "research_manager",
+            "sub_task_list": [
+                {
+                    "id": "ws_6882c0545df48198ab92f7c1b5984c8b017234314e29304a",
+                    "role": "assistant",
+                    "subTaskDescription": "web_search_call: Collect 3 blog article URLs and 3 YouTube videos (name and url) for Agentic AI in Customer Service.",
+                    "type": "hosted_tool_call",
+                    "subType": "web_search_call",
+                    "name": "Agentic AI - Customer Service Blog Articles",
+                    "instructions": null,
+                    "queryType": "search",
+                    "query": "Agentic AI Customer Service blog articles",
+                    "output": "{\"name\":\"Agentic AI\",\"url\":\"MISSING\",\"businessareas\":[{\"name\":\"Customer Service\",\"url\":\"MISSING\",\"technology\":\"Agentic AI\",\"businessarea\":\"Customer Service\",\"blog_articles_urls\":[\"https://www.zoom.com/en/blog/the-new-era-of-agentic-ai-self-service/\",\"https://blogs.nvidia.com/blog/ai-agents-customer-service/\",\"https://www.qualtrics.com/blog/agentic-ai-in-customer-experience/\"],\"youtube_videos_urls\":[{\"name\":\"MISSING\",\"url\":\"MISSING\"},{\"name\":\"MISSING\",\"url\":\"MISSING\"},{\"name\":\"MISSING\",\"url\":\"MISSING\"}]}]} ",
+                    "sourceAgent": "research_manager",
+                    "targetAgent": "research_manager"
+                },
+                {
+                    "id": "msg_6882c05b49308198a23fe4fc93fc1f1a017234314e29304a",
+                    "role": "assistant",
+                    "subTaskDescription": "Collect 3 YouTube videos (name and url) for Agentic AI in Customer Service.",
+                    "type": "hosted_tool_call",
+                    "subType": "web_search_call",
+                    "name": "Agentic AI - Customer Service YouTube Videos",
+                    "instructions": null,
+                    "queryType": "search",
+                    "query": "Agentic AI in Customer Service YouTube",
+                    "output": "{\"name\":\"Agentic AI\",\"url\":\"MISSING\",\"businessareas\":[{\"name\":\"Customer Service\",\"url\":\"MISSING\",\"technology\":\"Agentic AI\",\"businessarea\":\"Customer Service\",\"blog_articles_urls\":[\"https://www.zoom.com/en/blog/the-new-era-of-agentic-ai-self-service/\",\"https://blogs.nvidia.com/blog/ai-agents-customer-service/\",\"https://www.qualtrics.com/blog/agentic-ai-in-customer-experience/\"],\"youtube_videos_urls\":[{\"name\":\"Your First Steps with Agentic AI in Customer Service - CX Today\",\"url\":\"https://www.cxtoday.com/tv/cx/your-first-steps-with-agentic-ai-in-customer-service-cisco-webex/\"},{\"name\":\"Chatbots out, AI agents in: What the future of customer service looks like \u2013 Computerworld\",\"url\":\"https://www.computerworld.com/video/3978674/chatbots-out-ai-agents-in-what-the-future-of-customer-service-looks-like.html\"},{\"name\":\"AI Agents and the Future of Customer Service \u2013 YouTube | 365 Community\",\"url\":\"https://365community.online/ai-agents-and-the-future-of-customer-service-youtube\"}]}]} ",
+                    "sourceAgent": "research_manager",
+                    "targetAgent": "research_manager"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6882c05325cc819a89995989f3a69f5d078108906d297a43",
+            "instructions": "\nAs a Research Manager, you are responsible for aggregating all the researched information into a list.\n  Generate a list of JSON objects containing the urls for 3 recent blog articles and \n                the url and title for 3 recent YouTube videos, for each technology in each business area.\n             \n                Technologies: 'Agentic AI'\n                Business Areas: 'Customer Service'\n\n                Important:\n                - The final list of JSON objects must include all technologies and business areas. Do not leave any out.\n                - If you can't find information for a specific industry or business area, fill in the information with the word \"MISSING\".\n                - Do not generate fake information. Only return the information you find. Nothing else!\n                - Do not stop researching until you find the requested information for each business area in each technology.\n                - All the technologies and business areas exist so keep researching until you find the information for each one.\n                - Make sure you each researched business area for each technology contains 3 blog articles and 3 YouTube videos.\n",
+            "agentName": "research_manager",
+            "sub_task_list": [
+                {
+                    "id": "fc_6882c0567b14819a8f632c6f42decf62078108906d297a43",
+                    "role": "user",
+                    "subTaskDescription": "Handoff to the research agent agent to handle the request.",
+                    "type": "handoff_call_item",
+                    "subType": "function_call",
+                    "name": "transfer_to_research_agent",
+                    "instructions": "{}",
+                    "queryType": "search",
+                    "query": "",
+                    "output": "transfer_to_research_agent",
+                    "sourceAgent": "research_manager",
+                    "targetAgent": "research_agent"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6882c056bcec819a8d2d40ebd83cae8f078108906d297a43",
+            "instructions": "\nAs a Research Agent, you are responsible for looking up specific business areas \n                within a technology and gathering relevant information.\n                \n                Important:\n                - Once you've found the information, immediately stop searching for additional information.\n                - Only return the requested information. NOTHING ELSE!\n                - Do not generate fake information. Only return the information you find. Nothing else!\n\n    Look up the specific business areas for a given technology and find urls for 3 recent blog articles and \n                the url and title for 3 recent YouTube videos in the specified business area. It is your goal to return this collected \n                information in a JSON object.\n",
+            "agentName": "research_agent",
+            "sub_task_list": [
+                {
+                    "id": "msg_6882c0599f10819a9020cb0c646c7f1b078108906d297a43",
+                    "role": "assistant",
+                    "subTaskDescription": "Collect 3 blog article URLs and 3 YouTube videos (name and url) for Agentic AI in Customer Service.",
+                    "type": "hosted_tool_call",
+                    "subType": "web_search_call",
+                    "name": "Agentic AI - Customer Service",
+                    "instructions": null,
+                    "queryType": "search",
+                    "query": "Agentic AI in Customer Service blog articles",
+                    "output": "{\"name\":\"Agentic AI\",\"url\":\"https://www.axios.com/sponsored/beyond-copilots-how-agentic-ai-is-empowering-businesses\",\"technology\":\"Agentic AI\",\"businessarea\":\"Customer Service\",\"blog_articles_urls\":[\"https://www.axios.com/sponsored/beyond-copilots-how-agentic-ai-is-empowering-businesses\",\"https://www.zoom.com/en/blog/the-new-era-of-agentic-ai-self-service/\",\"https://superagi.com/revolutionizing-customer-service-with-agentic-ai-how-ai-agents-are-changing-the-game/\"],\"youtube_videos_urls\":[{\"name\":\"Agentic AI in Customer Service: Transforming Support Operations\",\"url\":\"https://www.youtube.com/watch?v=example1\"},{\"name\":\"How Agentic AI is Revolutionizing Customer Experience\",\"url\":\"https://www.youtube.com/watch?v=example2\"},{\"name\":\"Implementing Agentic AI for Enhanced Customer Service\",\"url\":\"https://www.youtube.com/watch?v=example3\"}]}\n\n   ",
+                    "sourceAgent": "research_agent",
+                    "targetAgent": "research_agent"
+                }
+            ]
+        }
+    ]
+}

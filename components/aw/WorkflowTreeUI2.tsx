@@ -13,11 +13,11 @@ import { text } from 'stream/consumers';
 import { useState } from 'react'
 import { WorkflowExecution, RefDataAgent, RefDataTools, RefDataTasks, WorkflowTree, WorkflowTreeTask } from '@/components/aw/Constants';
 import WorkflowItemTask from '@/components/aw/WorkflowItemTask'
-import { workflowContext } from '@/components/aw/AgentWorkflowContext';
+import { workflowContext2 } from '@/components/aw/AgentWorkflowContext2';
 
 
 export default function WorkflowTreeUI2() {
-    const { workflowExecution, isContextLoaded, workflowTree } = workflowContext()
+    const { workflowExecution, isContextLoaded, workflowTree } = workflowContext2()
 
     useEffect(() => {
 

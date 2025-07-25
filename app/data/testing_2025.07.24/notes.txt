@@ -1,0 +1,171 @@
+
+
+trace for openai agents for crewai example 2:
+
+trace_f392ff2332584d82863d8ccf33ea38bd
+  research_manager
+    post /v1/responses 
+    handoff: research_agent
+  research_manager
+    post /v1/responses 
+  research_agent
+    post /v1/responses 
+
+
+
+GET https://api.openai.com/v1/dashboard/traces/trace_f392ff2332584d82863d8ccf33ea38bd
+{
+  "id": "trace_f392ff2332584d82863d8ccf33ea38bd",
+  "object": "trace",
+  "created_at": "2025-07-24T23:23:04.030021Z",
+  "duration_ms": null,
+  "first_5_agents": null,
+  "group_id": null,
+  "handoff_count": null,
+  "tool_count": null,
+  "workflow_name": "FESK AW 04",
+  "metadata": {}
+}
+
+https://api.openai.com/v1/dashboard/traces/trace_f392ff2332584d82863d8ccf33ea38bd/spans?include[]=duration_ms&include[]=speech_group_output&order=asc
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "span_166e911790fd4620a9db981c",
+      "object": "trace.span",
+      "created_at": "2025-07-24T23:23:04.030021Z",
+      "duration_ms": 4051,
+      "ended_at": "2025-07-24T23:23:02.637000Z",
+      "error": null,
+      "parent_id": null,
+      "span_data": {
+        "type": "agent",
+        "handoffs": [
+          "research agent"
+        ],
+        "name": "research manager",
+        "output_type": "ZodOutput",
+        "tools": [
+          "web_search_preview"
+        ]
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-24T23:22:58.585000Z",
+      "trace_id": "trace_f392ff2332584d82863d8ccf33ea38bd"
+    },
+    {
+      "id": "span_28e3a31569714be2a41a2900",
+      "object": "trace.span",
+      "created_at": "2025-07-24T23:23:14.940995Z",
+      "duration_ms": 13747,
+      "ended_at": "2025-07-24T23:23:12.332000Z",
+      "error": null,
+      "parent_id": null,
+      "span_data": {
+        "type": "agent",
+        "handoffs": [
+          "research agent"
+        ],
+        "name": "research manager",
+        "output_type": "ZodOutput",
+        "tools": [
+          "web_search_preview"
+        ]
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-24T23:22:58.585000Z",
+      "trace_id": "trace_f392ff2332584d82863d8ccf33ea38bd"
+    },
+    {
+      "id": "span_0fe95862238f4f07a4d2d2e1",
+      "object": "trace.span",
+      "created_at": "2025-07-24T23:23:14.940995Z",
+      "duration_ms": 13742,
+      "ended_at": "2025-07-24T23:23:12.331000Z",
+      "error": null,
+      "parent_id": "span_28e3a31569714be2a41a2900",
+      "span_data": {
+        "type": "response",
+        "response_id": "resp_6882c05328948198b2bb6599125f9bb3017234314e29304a"
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-24T23:22:58.589000Z",
+      "trace_id": "trace_f392ff2332584d82863d8ccf33ea38bd"
+    },
+    {
+      "id": "span_33579f6f50b7473e8c2d16ed",
+      "object": "trace.span",
+      "created_at": "2025-07-24T23:23:04.030021Z",
+      "duration_ms": 4043,
+      "ended_at": "2025-07-24T23:23:02.635000Z",
+      "error": null,
+      "parent_id": "span_166e911790fd4620a9db981c",
+      "span_data": {
+        "type": "response",
+        "response_id": "resp_6882c05325cc819a89995989f3a69f5d078108906d297a43"
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-24T23:22:58.591000Z",
+      "trace_id": "trace_f392ff2332584d82863d8ccf33ea38bd"
+    },
+    {
+      "id": "span_f5a4da896eda4c20abda03d0",
+      "object": "trace.span",
+      "created_at": "2025-07-24T23:23:04.030021Z",
+      "duration_ms": 1,
+      "ended_at": "2025-07-24T23:23:02.637000Z",
+      "error": null,
+      "parent_id": "span_166e911790fd4620a9db981c",
+      "span_data": {
+        "type": "handoff",
+        "from_agent": "research manager",
+        "to_agent": "research agent"
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-24T23:23:02.636000Z",
+      "trace_id": "trace_f392ff2332584d82863d8ccf33ea38bd"
+    },
+    {
+      "id": "span_5b6d460fdf2b4dd09eb04501",
+      "object": "trace.span",
+      "created_at": "2025-07-24T23:23:09.632793Z",
+      "duration_ms": 5482,
+      "ended_at": "2025-07-24T23:23:08.119000Z",
+      "error": null,
+      "parent_id": null,
+      "span_data": {
+        "type": "agent",
+        "handoffs": [],
+        "name": "research agent",
+        "output_type": "ZodOutput",
+        "tools": [
+          "web_search_preview"
+        ]
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-24T23:23:02.637000Z",
+      "trace_id": "trace_f392ff2332584d82863d8ccf33ea38bd"
+    },
+    {
+      "id": "span_b07700663bba41c59e8eb898",
+      "object": "trace.span",
+      "created_at": "2025-07-24T23:23:09.632793Z",
+      "duration_ms": 5480,
+      "ended_at": "2025-07-24T23:23:08.117000Z",
+      "error": null,
+      "parent_id": "span_5b6d460fdf2b4dd09eb04501",
+      "span_data": {
+        "type": "response",
+        "response_id": "resp_6882c056bcec819a8d2d40ebd83cae8f078108906d297a43"
+      },
+      "speech_group_output": null,
+      "started_at": "2025-07-24T23:23:02.637000Z",
+      "trace_id": "trace_f392ff2332584d82863d8ccf33ea38bd"
+    }
+  ],
+  "first_id": "span_166e911790fd4620a9db981c",
+  "has_more": false,
+  "last_id": "span_b07700663bba41c59e8eb898"
+}
+

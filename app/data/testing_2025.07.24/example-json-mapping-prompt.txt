@@ -1,0 +1,816 @@
+# Role and Objective
+You are a technical assisstant who will map and transform json input to a specific json Output
+
+# Instructions
+Given the json input in the Context below, create a summary json text output based on the input json. 
+Follow the same pattern as in the example below. 
+You must generate the json text reponse based only on the values in the input json in the context. 
+
+# Examples
+## Example input json:
+{
+    "state": {
+        "$schemaVersion": "1.0",
+        "currentTurn": 2,
+        "currentAgent": {
+            "name": "online researcher"
+        },
+        "originalInput": [
+            {
+                "id": "msg_686a3d65d48c819896711d26463d0c650fc412b5dac7e616",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "input_text",
+                        "text": "\n    Task 1: \n    Use the online researcher to write a report on Agentic Behavior. \n\n    ..."
+                    }
+                ],
+                "role": "user"
+            }
+        ],
+        "modelResponses": [
+            {
+                "usage": {
+                    "requests": 1,
+                    "inputTokens": 641,
+                    "outputTokens": 15,
+                    "totalTokens": 656
+                },
+                "output": [
+                    {
+                        "providerData": {
+                            "id": "fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39",
+                            "type": "function_call"
+                        },
+                        "id": "fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39",
+                        "type": "function_call",
+                        "callId": "call_tLAH9tLzvTlpOJx6Z8KXxtEg",
+                        "name": "transfer_to_online_researcher",
+                        "status": "completed",
+                        "arguments": "{}"
+                    }
+                ],
+                "responseId": "resp_6876c1750c38819a91e8d1df0ff1af4602d8358fc35f4d39",
+                "providerData": {
+                    "id": "resp_6876c1750c38819a91e8d1df0ff1af4602d8358fc35f4d39",
+                    "object": "response",
+                    "created_at": 1752613237,
+                    "status": "completed",
+                    "background": false,
+                    "error": null,
+                    "incomplete_details": null,
+                    "instructions": "# System context\\nYou are part of a multi-agent system called the Agents SDK, designed to make agent ...",
+                    "max_output_tokens": null,
+                    "max_tool_calls": null,
+                    "model": "gpt-4.1-2025-04-14",
+                    "output": [
+                        {
+                            "id": "fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39",
+                            "type": "function_call",
+                            "status": "completed",
+                            "arguments": "{}",
+                            "call_id": "call_tLAH9tLzvTlpOJx6Z8KXxtEg",
+                            "name": "transfer_to_online_researcher"
+                        }
+                    ],
+                    "parallel_tool_calls": true,
+                    "previous_response_id": null,
+                    "reasoning": {
+                        "effort": null,
+                        "summary": null
+                    },
+                    "service_tier": "default",
+                    "store": true,
+                    "temperature": 1,
+                    "text": {
+                        "format": {
+                            "type": "text"
+                        }
+                    },
+                    "tool_choice": "auto",
+                    "tools": [
+                        {
+                            "type": "function",
+                            "description": "Handoff to the online researcher agent to handle the request. ",
+                            "name": "transfer_to_online_researcher",
+                            "parameters": {
+                                "type": "object",
+                                "properties": {},
+                                "required": [],
+                                "additionalProperties": false
+                            },
+                            "strict": true
+                        },
+                        {
+                            "type": "function",
+                            "description": "Handoff to the blog manager agent to handle the request. ",
+                            "name": "transfer_to_blog_manager",
+                            "parameters": {
+                                "type": "object",
+                                "properties": {},
+                                "required": [],
+                                "additionalProperties": false
+                            },
+                            "strict": true
+                        },
+                        {
+                            "type": "web_search_preview",
+                            "search_context_size": "medium",
+                            "user_location": {
+                                "type": "approximate",
+                                "city": null,
+                                "country": "US",
+                                "region": null,
+                                "timezone": null
+                            }
+                        }
+                    ],
+                    "top_logprobs": 0,
+                    "top_p": 1,
+                    "truncation": "disabled",
+                    "usage": {
+                        "input_tokens": 641,
+                        "input_tokens_details": {
+                            "cached_tokens": 0
+                        },
+                        "output_tokens": 15,
+                        "output_tokens_details": {
+                            "reasoning_tokens": 0
+                        },
+                        "total_tokens": 656
+                    },
+                    "user": null,
+                    "metadata": {},
+                    "output_text": ""
+                }
+            },
+            {
+                "usage": {
+                    "requests": 1,
+                    "inputTokens": 426,
+                    "outputTokens": 810,
+                    "totalTokens": 1236
+                },
+                "output": [
+                    {
+                        "providerData": {
+                            "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                            "type": "web_search_call",
+                            "action": {
+                                "type": "search",
+                                "query": "Agentic Behavior latest research, trends, and applications"
+                            }
+                        },
+                        "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                        "type": "hosted_tool_call",
+                        "name": "web_search_call",
+                        "status": "completed"
+                    },
+                    {
+                        "providerData": {},
+                        "id": "msg_6876c17f1cc0819a9520efcbff7a9b8d02d8358fc35f4d39",
+                        "type": "message",
+                        "role": "assistant",
+                        "status": "completed",
+                        "content": [
+                            {
+                                "type": "output_text",
+                                "text": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those ..."
+                            }
+                        ]
+                    }
+                ],
+                "responseId": "resp_6876c17bfac4819aa7d305bf82fe81dd02d8358fc35f4d39",
+                "providerData": {
+                    "id": "resp_6876c17bfac4819aa7d305bf82fe81dd02d8358fc35f4d39",
+                    "object": "response",
+                    "created_at": 1752613244,
+                    "status": "completed",
+                    "background": false,
+                    "error": null,
+                    "incomplete_details": null,
+                    "instructions": "Your primary role is to function as an intelligent online research assistant, adept at scouring \\n    the internet for the latest ...",
+                    "max_output_tokens": null,
+                    "max_tool_calls": null,
+                    "model": "gpt-4.1-2025-04-14",
+                    "output": [
+                        {
+                            "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                            "type": "web_search_call",
+                            "status": "completed",
+                            "action": {
+                                "type": "search",
+                                "query": "Agentic Behavior latest research, trends, and applications"
+                            }
+                        },
+                        {
+                            "id": "msg_6876c17f1cc0819a9520efcbff7a9b8d02d8358fc35f4d39",
+                            "type": "message",
+                            "status": "completed",
+                            "content": [
+                                {
+                                    "type": "output_text",
+                                    "annotations": [],
+                                    "logprobs": [],
+                                    "text": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ..."
+                                }
+                            ],
+                            "role": "assistant"
+                        }
+                    ],
+                    "parallel_tool_calls": true,
+                    "previous_response_id": null,
+                    "reasoning": {
+                        "effort": null,
+                        "summary": null
+                    },
+                    "service_tier": "default",
+                    "store": true,
+                    "temperature": 1,
+                    "text": {
+                        "format": {
+                            "type": "text"
+                        }
+                    },
+                    "tool_choice": "auto",
+                    "tools": [
+                        {
+                            "type": "web_search_preview",
+                            "search_context_size": "medium",
+                            "user_location": {
+                                "type": "approximate",
+                                "city": null,
+                                "country": "US",
+                                "region": null,
+                                "timezone": null
+                            }
+                        }
+                    ],
+                    "top_logprobs": 0,
+                    "top_p": 1,
+                    "truncation": "disabled",
+                    "usage": {
+                        "input_tokens": 426,
+                        "input_tokens_details": {
+                            "cached_tokens": 0
+                        },
+                        "output_tokens": 810,
+                        "output_tokens_details": {
+                            "reasoning_tokens": 0
+                        },
+                        "total_tokens": 1236
+                    },
+                    "user": null,
+                    "metadata": {},
+                    "output_text": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ..."
+                }
+            }
+        ],
+        "context": {
+            "usage": {
+                "requests": 2,
+                "inputTokens": 1067,
+                "outputTokens": 825,
+                "totalTokens": 1892
+            },
+            "approvals": {},
+            "context": {}
+        },
+        "toolUseTracker": {
+            "content marketing manager": [
+                "transfer_to_online_researcher"
+            ],
+            "online researcher": [
+                "web_search_call"
+            ]
+        },
+        "maxTurns": 10,
+        "currentAgentSpan": {
+            "object": "trace.span",
+            "id": "span_1e86b189523540d6ab6b0c27",
+            "trace_id": "trace_de079870e8cf4573971a92d45a87cc8c",
+            "parent_id": null,
+            "started_at": "2025-07-15T21:00:43.885Z",
+            "ended_at": "2025-07-15T21:00:56.910Z",
+            "error": null,
+            "span_data": {
+                "type": "agent",
+                "name": "online researcher",
+                "handoffs": [],
+                "output_type": "text",
+                "tools": [
+                    "web_search_preview"
+                ]
+            }
+        },
+        "noActiveAgentRun": false,
+        "inputGuardrailResults": [],
+        "outputGuardrailResults": [],
+        "currentStep": {
+            "type": "next_step_final_output",
+            "output": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ..."
+        },
+        "lastModelResponse": {
+            "usage": {
+                "requests": 1,
+                "inputTokens": 426,
+                "outputTokens": 810,
+                "totalTokens": 1236
+            },
+            "output": [
+                {
+                    "providerData": {
+                        "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                        "type": "web_search_call",
+                        "action": {
+                            "type": "search",
+                            "query": "Agentic Behavior latest research, trends, and applications"
+                        }
+                    },
+                    "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                    "type": "hosted_tool_call",
+                    "name": "web_search_call",
+                    "status": "completed"
+                },
+                {
+                    "providerData": {},
+                    "id": "msg_6876c17f1cc0819a9520efcbff7a9b8d02d8358fc35f4d39",
+                    "type": "message",
+                    "role": "assistant",
+                    "status": "completed",
+                    "content": [
+                        {
+                            "type": "output_text",
+                            "text": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ..."
+                        }
+                    ]
+                }
+            ],
+            "responseId": "resp_6876c17bfac4819aa7d305bf82fe81dd02d8358fc35f4d39",
+            "providerData": {
+                "id": "resp_6876c17bfac4819aa7d305bf82fe81dd02d8358fc35f4d39",
+                "object": "response",
+                "created_at": 1752613244,
+                "status": "completed",
+                "background": false,
+                "error": null,
+                "incomplete_details": null,
+                "instructions": "Your primary role is to function as an intelligent online research assistant, adept at scouring \\n    the internet for the latest ...",
+                "max_output_tokens": null,
+                "max_tool_calls": null,
+                "model": "gpt-4.1-2025-04-14",
+                "output": [
+                    {
+                        "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                        "type": "web_search_call",
+                        "status": "completed",
+                        "action": {
+                            "type": "search",
+                            "query": "Agentic Behavior latest research, trends, and applications"
+                        }
+                    },
+                    {
+                        "id": "msg_6876c17f1cc0819a9520efcbff7a9b8d02d8358fc35f4d39",
+                        "type": "message",
+                        "status": "completed",
+                        "content": [
+                            {
+                                "type": "output_text",
+                                "annotations": [],
+                                "logprobs": [],
+                                "text": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ..."
+                            }
+                        ],
+                        "role": "assistant"
+                    }
+                ],
+                "parallel_tool_calls": true,
+                "previous_response_id": null,
+                "reasoning": {
+                    "effort": null,
+                    "summary": null
+                },
+                "service_tier": "default",
+                "store": true,
+                "temperature": 1,
+                "text": {
+                    "format": {
+                        "type": "text"
+                    }
+                },
+                "tool_choice": "auto",
+                "tools": [
+                    {
+                        "type": "web_search_preview",
+                        "search_context_size": "medium",
+                        "user_location": {
+                            "type": "approximate",
+                            "city": null,
+                            "country": "US",
+                            "region": null,
+                            "timezone": null
+                        }
+                    }
+                ],
+                "top_logprobs": 0,
+                "top_p": 1,
+                "truncation": "disabled",
+                "usage": {
+                    "input_tokens": 426,
+                    "input_tokens_details": {
+                        "cached_tokens": 0
+                    },
+                    "output_tokens": 810,
+                    "output_tokens_details": {
+                        "reasoning_tokens": 0
+                    },
+                    "total_tokens": 1236
+                },
+                "user": null,
+                "metadata": {},
+                "output_text": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ..."
+            }
+        },
+        "generatedItems": [
+            {
+                "type": "handoff_call_item",
+                "rawItem": {
+                    "providerData": {
+                        "id": "fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39",
+                        "type": "function_call"
+                    },
+                    "id": "fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39",
+                    "type": "function_call",
+                    "callId": "call_tLAH9tLzvTlpOJx6Z8KXxtEg",
+                    "name": "transfer_to_online_researcher",
+                    "status": "completed",
+                    "arguments": "{}"
+                },
+                "agent": {
+                    "name": "content marketing manager"
+                }
+            },
+            {
+                "type": "handoff_output_item",
+                "rawItem": {
+                    "type": "function_call_result",
+                    "name": "transfer_to_online_researcher",
+                    "callId": "call_tLAH9tLzvTlpOJx6Z8KXxtEg",
+                    "status": "completed",
+                    "output": {
+                        "type": "text",
+                        "text": "{'assistant':'online researcher'}"
+                    }
+                },
+                "sourceAgent": {
+                    "name": "content marketing manager"
+                },
+                "targetAgent": {
+                    "name": "online researcher"
+                }
+            },
+            {
+                "type": "tool_call_item",
+                "rawItem": {
+                    "providerData": {
+                        "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                        "type": "web_search_call",
+                        "action": {
+                            "type": "search",
+                            "query": "Agentic Behavior latest research, trends, and applications"
+                        }
+                    },
+                    "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                    "type": "hosted_tool_call",
+                    "name": "web_search_call",
+                    "status": "completed"
+                },
+                "agent": {
+                    "name": "online researcher"
+                }
+            },
+            {
+                "type": "message_output_item",
+                "rawItem": {
+                    "providerData": {},
+                    "id": "msg_6876c17f1cc0819a9520efcbff7a9b8d02d8358fc35f4d39",
+                    "type": "message",
+                    "role": "assistant",
+                    "status": "completed",
+                    "content": [
+                        {
+                            "type": "output_text",
+                            "text": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ..."
+                        }
+                    ]
+                },
+                "agent": {
+                    "name": "online researcher"
+                }
+            }
+        ],
+        "lastProcessedResponse": {
+            "newItems": [
+                {
+                    "type": "tool_call_item",
+                    "rawItem": {
+                        "providerData": {
+                            "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                            "type": "web_search_call",
+                            "action": {
+                                "type": "search",
+                                "query": "Agentic Behavior latest research, trends, and applications"
+                            }
+                        },
+                        "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                        "type": "hosted_tool_call",
+                        "name": "web_search_call",
+                        "status": "completed"
+                    },
+                    "agent": {
+                        "name": "online researcher"
+                    }
+                },
+                {
+                    "type": "message_output_item",
+                    "rawItem": {
+                        "providerData": {},
+                        "id": "msg_6876c17f1cc0819a9520efcbff7a9b8d02d8358fc35f4d39",
+                        "type": "message",
+                        "role": "assistant",
+                        "status": "completed",
+                        "content": [
+                            {
+                                "type": "output_text",
+                                "text": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ..."
+                            }
+                        ]
+                    },
+                    "agent": {
+                        "name": "online researcher"
+                    }
+                }
+            ],
+            "toolsUsed": [
+                "web_search_call"
+            ],
+            "handoffs": [],
+            "functions": [],
+            "computerActions": [],
+            "mcpApprovalRequests": []
+        },
+        "trace": {
+            "object": "trace",
+            "id": "trace_de079870e8cf4573971a92d45a87cc8c",
+            "workflow_name": "Agent workflow",
+            "group_id": null,
+            "metadata": {}
+        }
+    }
+}
+
+## Example result:
+{
+    "workflow_name": "Agent workflow",
+    "trace_id": "trace_de079870e8cf4573971a92d45a87cc8c",
+    "task_run_list": [
+        {
+            "task_id": "resp_6876c1750c38819a91e8d1df0ff1af4602d8358fc35f4d39",
+            "instructions": "# System context\\nYou are part of a multi-agent system called the Agents SDK, designed to make agent ...",
+            "agentName": "content_marketing_manager",
+            "sub_task_list": [
+                {
+                    "id": "fc_6876c17bc26c819aab2259666d8e844e02d8358fc35f4d39",
+                    "role": "user",
+                    "subTaskDescription": "Use the online researcher to write a report on Agentic Behavior.",
+                    "type": "handoff_call_item",
+                    "subType": "function_call",
+                    "name": "transfer_to_online_researcher",
+                    "instructions": "{'assistant':'online researcher'}",
+                    "queryType": "search",
+                    "query": "Agentic Behavior latest research, trends, and applications",
+                    "output": "transfer_to_online_researcher",
+                    "sourceAgent": "content_marketing_manager",
+                    "targetAgent": "online_researcher"
+                }
+            ]
+        },
+        {
+            "task_id": "resp_6876c17bfac4819aa7d305bf82fe81dd02d8358fc35f4d39",
+            "instructions": "Your primary role is to function as an intelligent online research assistant, adept at scouring \\n    the internet for the latest ...",
+            "agentName": "online_researcher",
+            "sub_task_list": [
+                {
+                    "id": "ws_6876c17cc258819aa78ad992647df4ce02d8358fc35f4d39",
+                    "role": "assistant",
+                    "subTaskDescription": "web_search_call: Agentic Behavior latest research, trends, and applications",
+                    "type": "hosted_tool_call",
+                    "subType": "web_search_call",
+                    "name": "web_search_call",
+                    "instructions": "Agentic Behavior latest research, trends, and applications",
+                    "output": "Agentic behavior refers to the capacity of individuals to act independently, make choices, and impose those choices ...",
+                    "sourceAgent": "online_researcher",
+                    "targetAgent": "content_marketing_manager"
+                }
+            ]
+        }
+    ]
+}
+
+# Context
+Map the following input json:
+{
+    "id": "resp_6882c05328948198b2bb6599125f9bb3017234314e29304a",
+    "object": "response",
+    "created_at": 1753399379,
+    "status": "completed",
+    "background": false,
+    "error": null,
+    "incomplete_details": null,
+    "instructions": "\nAs a Research Manager, you are responsible for aggregating all the researched information into a list.\n  Generate a list of JSON objects containing the urls for 3 recent blog articles and \n                the url and title for 3 recent YouTube videos, for each technology in each business area.\n             \n                Technologies: 'Agentic AI'\n                Business Areas: 'Customer Service'\n\n                Important:\n                - The final list of JSON objects must include all technologies and business areas. Do not leave any out.\n                - If you can't find information for a specific industry or business area, fill in the information with the word \"MISSING\".\n                - Do not generate fake information. Only return the information you find. Nothing else!\n                - Do not stop researching until you find the requested information for each business area in each technology.\n                - All the technologies and business areas exist so keep researching until you find the information for each one.\n                - Make sure you each researched business area for each technology contains 3 blog articles and 3 YouTube videos.\n",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-4.1-2025-04-14",
+    "next_response_ids": [],
+    "output": [
+        {
+            "id": "ws_6882c0545df48198ab92f7c1b5984c8b017234314e29304a",
+            "type": "web_search_call",
+            "status": "completed",
+            "action": {
+                "type": "search",
+                "query": "Agentic AI Customer Service blog articles"
+            }
+        },
+        {
+            "id": "msg_6882c056bb908198aff973cab66f158d017234314e29304a",
+            "type": "message",
+            "status": "completed",
+            "content": [
+                {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "{\"name\":\"Agentic AI\",\"url\":\"MISSING\",\"businessareas\":[{\"name\":\"Customer Service\",\"url\":\"MISSING\",\"technology\":\"Agentic AI\",\"businessarea\":\"Customer Service\",\"blog_articles_urls\":[\"https://www.zoom.com/en/blog/the-new-era-of-agentic-ai-self-service/\",\"https://blogs.nvidia.com/blog/ai-agents-customer-service/\",\"https://www.qualtrics.com/blog/agentic-ai-in-customer-experience/\"],\"youtube_videos_urls\":[{\"name\":\"MISSING\",\"url\":\"MISSING\"},{\"name\":\"MISSING\",\"url\":\"MISSING\"},{\"name\":\"MISSING\",\"url\":\"MISSING\"}]}]} "
+                }
+            ],
+            "role": "assistant"
+        },
+        {
+            "id": "ws_6882c05978348198a056c87470b8af8e017234314e29304a",
+            "type": "web_search_call",
+            "status": "completed",
+            "action": {
+                "type": "search",
+                "query": "Agentic AI in Customer Service YouTube"
+            }
+        },
+        {
+            "id": "msg_6882c05b49308198a23fe4fc93fc1f1a017234314e29304a",
+            "type": "message",
+            "status": "completed",
+            "content": [
+                {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "{\"name\":\"Agentic AI\",\"url\":\"MISSING\",\"businessareas\":[{\"name\":\"Customer Service\",\"url\":\"MISSING\",\"technology\":\"Agentic AI\",\"businessarea\":\"Customer Service\",\"blog_articles_urls\":[\"https://www.zoom.com/en/blog/the-new-era-of-agentic-ai-self-service/\",\"https://blogs.nvidia.com/blog/ai-agents-customer-service/\",\"https://www.qualtrics.com/blog/agentic-ai-in-customer-experience/\"],\"youtube_videos_urls\":[{\"name\":\"Your First Steps with Agentic AI in Customer Service - CX Today\",\"url\":\"https://www.cxtoday.com/tv/cx/your-first-steps-with-agentic-ai-in-customer-service-cisco-webex/\"},{\"name\":\"Chatbots out, AI agents in: What the future of customer service looks like \u2013 Computerworld\",\"url\":\"https://www.computerworld.com/video/3978674/chatbots-out-ai-agents-in-what-the-future-of-customer-service-looks-like.html\"},{\"name\":\"AI Agents and the Future of Customer Service \u2013 YouTube | 365 Community\",\"url\":\"https://365community.online/ai-agents-and-the-future-of-customer-service-youtube\"}]}]} "
+                }
+            ],
+            "role": "assistant"
+        }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+        "effort": null,
+        "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1.0,
+    "text": {
+        "format": {
+            "type": "json_schema",
+            "description": null,
+            "name": "output",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "businessareas": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "url": {
+                                    "type": "string"
+                                },
+                                "technology": {
+                                    "type": "string"
+                                },
+                                "businessarea": {
+                                    "type": "string"
+                                },
+                                "blog_articles_urls": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "youtube_videos_urls": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "url": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "url"
+                                        ],
+                                        "additionalProperties": false
+                                    }
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "url",
+                                "technology",
+                                "businessarea",
+                                "blog_articles_urls",
+                                "youtube_videos_urls"
+                            ],
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "url",
+                    "businessareas"
+                ],
+                "additionalProperties": false
+            },
+            "strict": true
+        }
+    },
+    "tool_choice": "auto",
+    "tools": [
+        {
+            "type": "function",
+            "description": "Handoff to the research agent agent to handle the request. ",
+            "name": "transfer_to_research_agent",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": false
+            },
+            "strict": true
+        },
+        {
+            "type": "web_search_preview",
+            "search_context_size": "medium",
+            "user_location": {
+                "type": "approximate",
+                "city": null,
+                "country": "US",
+                "region": null,
+                "timezone": null
+            }
+        }
+    ],
+    "top_logprobs": 0,
+    "top_p": 1.0,
+    "truncation": "disabled",
+    "usage": {
+        "input_tokens": 1980,
+        "input_tokens_details": {
+            "cached_tokens": 0
+        },
+        "output_tokens": 422,
+        "output_tokens_details": {
+            "reasoning_tokens": 0
+        },
+        "total_tokens": 2402
+    },
+    "user": null,
+    "metadata": {}
+}

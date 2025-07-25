@@ -1,0 +1,1 @@
+"task 1 result: \n\n[object Promise]\n\ntask 2 result: \n\n[object Promise]\n\n"
